@@ -58,6 +58,28 @@ body:before{content:"";position:fixed;inset:0;z-index:4;pointer-events:none;opac
 body.flame-contact:before{opacity:1;filter:blur(2px)}
 @media(prefers-reduced-motion:reduce){.ticker:before{animation:none;transform:none;padding-left:0}body:before{transition:none}}
 
+
+/* ADVANCED 3D DEPTH PASS — layered glass, spatial cards, scroll-linked motion */
+.stage{perspective:1500px;transform-style:preserve-3d;will-change:transform}
+.stage:before{content:"";position:absolute;inset:8% 2%;pointer-events:none;border:1px solid #ff80501b;border-radius:50%;transform:rotateX(66deg) rotateZ(-18deg);box-shadow:0 0 0 26px #f0443208,0 0 0 58px #ff8a4505,0 0 65px #f0443210;animation:stageHalo 11s ease-in-out infinite alternate}
+.stage:after{content:"";position:absolute;left:8%;right:8%;top:12%;height:1px;pointer-events:none;background:linear-gradient(90deg,transparent,#ffb58b66,transparent);box-shadow:0 0 16px #ff603b55;animation:stageScan 7s ease-in-out infinite}
+@keyframes stageHalo{from{transform:rotateX(66deg) rotateZ(-18deg) scale(.94);opacity:.45}to{transform:rotateX(66deg) rotateZ(18deg) scale(1.06);opacity:1}}
+@keyframes stageScan{0%,100%{top:13%;opacity:.15}50%{top:83%;opacity:.8}}
+.stage canvas{filter:drop-shadow(0 0 16px #f0443220);transform:translateZ(28px)}
+.float-tag{transform:translateZ(75px);will-change:transform}
+.principle,.service,.project,.note{transform-style:preserve-3d;backface-visibility:hidden;will-change:transform}
+.principle h3,.service h3,.project h3,.note h3,.principle p,.service p,.project p,.note p{transform:translateZ(18px)}
+.project .art{perspective:900px;transform-style:preserve-3d}
+.project .art span{transform:translateZ(42px);display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1);text-shadow:0 12px 36px #000b,0 0 22px #ff603b22}
+.project:hover .art span{transform:translateZ(68px) scale(1.04)}
+.founder-art{transform-style:preserve-3d;will-change:transform}
+.founder-art:before{box-shadow:0 0 0 35px #f0443210,0 0 0 70px #f0443208,0 0 70px #f0443222,0 0 100px #ff603b20}
+.content.band{transform-style:preserve-3d}
+.reveal{transform:translate3d(42px,10px,-35px) rotateX(3deg);transform-origin:50% 70%}
+.reveal.in{transform:translate3d(0,0,0) rotateX(0)}
+@media(max-width:760px){.stage:before{inset:12% 3%}.stage canvas{filter:none}.project .art span{transform:translateZ(15px)}}
+@media(prefers-reduced-motion:reduce){.stage:before,.stage:after{animation:none!important}.reveal,.reveal.in{transform:none!important}}
+
 </style>
 </head>
 <body>
@@ -88,6 +110,28 @@ document.getElementById('year').textContent=new Date().getFullYear();
 const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const revealObserver=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');revealObserver.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
+// Scroll-linked depth: artwork subtly leans in 3D as it moves through the viewport.
+if(!reduced){
+ let depthQueued=false;
+ const depthEls=[...document.querySelectorAll('.stage,.founder-art,.project .art')];
+ const updateDepth=()=>{
+  depthQueued=false;
+  const vh=window.innerHeight||800;
+  depthEls.forEach((el,i)=>{
+   const r=el.getBoundingClientRect();
+   if(r.bottom< -80||r.top>vh+80)return;
+   const progress=(r.top+r.height*.5-vh*.5)/(vh*.5);
+   const rotate=Math.max(-1,Math.min(1,progress))* (el.classList.contains('stage')?2.8:4);
+   el.style.setProperty('--scroll-depth-rotate',rotate.toFixed(2)+'deg');
+   if(el.classList.contains('stage'))el.style.transform='perspective(1500px) rotateX('+rotate.toFixed(2)+'deg)';
+   else el.style.transform='perspective(1000px) rotateX('+rotate.toFixed(2)+'deg) translateZ('+(Math.max(-8,8-Math.abs(progress)*10)).toFixed(1)+'px)';
+  });
+ };
+ const requestDepth=()=>{if(!depthQueued){depthQueued=true;requestAnimationFrame(updateDepth)}};
+ window.addEventListener('scroll',requestDepth,{passive:true});
+ window.addEventListener('resize',requestDepth,{passive:true});
+ requestDepth();
+}
 if(!reduced){
  document.querySelectorAll('.principle,.service,.project,.note').forEach(card=>{
   card.addEventListener('pointermove',e=>{const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.style.transform='translateY(-5px) rotateX('+(-y*5)+'deg) rotateY('+(x*6)+'deg)'});
@@ -110,6 +154,20 @@ try{
  const rim=new THREE.PointLight(0x9c254a,65,16);rim.position.set(-3,-1,-2);scene.add(rim);
  const gold=new THREE.PointLight(0xffa15b,45,12);gold.position.set(-1,3,3);scene.add(gold);
  core=new THREE.Group();scene.add(core);
+// Floating crystalline shards add a second sculptural layer around the central knot.
+const shardField=new THREE.Group();scene.add(shardField);
+const shardMat=new THREE.MeshPhysicalMaterial({color:0xff7647,metalness:.72,roughness:.18,emissive:0x6c1012,emissiveIntensity:.7,clearcoat:1,transparent:true,opacity:.88});
+const shardMat2=new THREE.MeshPhysicalMaterial({color:0xe6a18a,metalness:.86,roughness:.2,emissive:0x351018,emissiveIntensity:.45,wireframe:true,transparent:true,opacity:.65});
+const shardMeshes=[];
+for(let i=0;i<11;i++){
+ const g=new THREE.OctahedronGeometry(.12+Math.random()*.16,0);
+ const m=new THREE.Mesh(g,i%3===0?shardMat2:shardMat);
+ const a=i/11*Math.PI*2,rad=1.75+Math.random()*.65;
+ m.position.set(Math.cos(a)*rad,(Math.random()-.5)*2.8,Math.sin(a)*rad);
+ m.rotation.set(Math.random()*Math.PI,Math.random()*Math.PI,Math.random()*Math.PI);
+ m.userData={phase:Math.random()*Math.PI*2,rad,baseY:m.position.y};
+ shardField.add(m);shardMeshes.push(m);
+}
  const knotGeo=new THREE.TorusKnotGeometry(1.15,.34,220,24,2,5);
  const knotMat=new THREE.MeshPhysicalMaterial({color:0xb82b2b,metalness:.78,roughness:.23,emissive:0x5c0b10,emissiveIntensity:.65,clearcoat:1,clearcoatRoughness:.16});
  const knot=new THREE.Mesh(knotGeo,knotMat);core.add(knot);
@@ -127,7 +185,7 @@ try{
  const resize=()=>{const w=Math.max(1,stage.clientWidth),h=Math.max(1,stage.clientHeight);renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix()};new ResizeObserver(resize).observe(stage);
  stage.addEventListener('pointermove',e=>{const r=stage.getBoundingClientRect();mouseX=((e.clientX-r.left)/r.width-.5)*2;mouseY=((e.clientY-r.top)/r.height-.5)*2});
  window.addEventListener('scroll',()=>{const r=stage.getBoundingClientRect();scrollP=Math.max(-1,Math.min(2,(window.innerHeight-r.top)/(window.innerHeight+r.height)))},{passive:true});
- const animate=()=>{requestAnimationFrame(animate);const t=clock.getElapsedTime();core.rotation.x=.18+Math.sin(t*.28)*.16+mouseY*.15;core.rotation.y=t*.23+mouseX*.24;core.rotation.z=Math.sin(t*.2)*.14;orbit.rotation.y=-t*.11;orbit.rotation.x=.18+Math.sin(t*.18)*.13;particles.rotation.y=t*.012;particles.rotation.x=Math.sin(t*.08)*.04;const s=1+Math.max(0,scrollP)*.12;core.scale.setScalar(s);camera.position.x+=(mouseX*.25-camera.position.x)*.025;camera.position.y+=(-mouseY*.22-camera.position.y)*.025;camera.lookAt(0,0,0);renderer.render(scene,camera)};
+ const animate=()=>{requestAnimationFrame(animate);const t=clock.getElapsedTime();core.rotation.x=.18+Math.sin(t*.28)*.16+mouseY*.15;core.rotation.y=t*.23+mouseX*.24;core.rotation.z=Math.sin(t*.2)*.14;orbit.rotation.y=-t*.11;orbit.rotation.x=.18+Math.sin(t*.18)*.13;shardField.rotation.y=t*.075;shardField.rotation.x=Math.sin(t*.22)*.1;shardMeshes.forEach((m,i)=>{const p=m.userData.phase;m.rotation.x+=.006;m.rotation.y+=.009;m.position.y=m.userData.baseY+Math.sin(t*.9+p)*.12;m.scale.setScalar(.8+.25*Math.sin(t*1.2+p));});particles.rotation.y=t*.012;particles.rotation.x=Math.sin(t*.08)*.04;const s=1+Math.max(0,scrollP)*.12;core.scale.setScalar(s);camera.position.x+=(mouseX*.25-camera.position.x)*.025;camera.position.y+=(-mouseY*.22-camera.position.y)*.025;camera.lookAt(0,0,0);renderer.render(scene,camera)};
  if(!reduced)animate();else renderer.render(scene,camera);
 }catch(err){stage.classList.add('no-webgl');canvas.style.display='none';stage.style.background='radial-gradient(ellipse at center,#70201f,#100b10 65%,transparent)';console.warn('3D scene unavailable; using CSS fallback.',err)}
 </script>
