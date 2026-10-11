@@ -1347,6 +1347,20 @@ body>main,body>footer{position:relative;z-index:3}
 body>header.top{z-index:30}
 @media(max-width:760px){#blaze-flame-particles{opacity:.68}}
 </style>
+
+<style id="blaze-mobile-image-visibility-fix">
+/* Emergency mobile fix: keep both brand images visible above the ember canvas */
+#blaze-flame-particles{z-index:0!important}
+body>main,body>footer{position:relative;z-index:1}
+@media(max-width:760px){
+  #stage.logo-stage{position:relative!important;display:flex!important;align-items:center!important;justify-content:center!important;overflow:visible!important;isolation:isolate}
+  #stage .logo-plinth{position:relative!important;display:grid!important;visibility:visible!important;opacity:1!important;width:min(88vw,390px)!important;height:auto!important;aspect-ratio:1/1!important;z-index:2!important;transform:none!important}
+  #stage .hero-brand-logo{display:block!important;visibility:visible!important;opacity:1!important;width:100%!important;height:100%!important;max-width:100%!important;object-fit:contain!important;position:relative!important;z-index:3!important;transform:none!important}
+  #founder.founder-simple{display:block!important;visibility:visible!important;opacity:1!important;overflow:visible!important}
+  #founder .founder-portrait-wrap{display:flex!important;align-items:center!important;justify-content:center!important;visibility:visible!important;opacity:1!important;position:relative!important;min-height:0!important;height:auto!important;overflow:visible!important;z-index:1!important}
+  #founder .founder-portrait{display:block!important;visibility:visible!important;opacity:1!important;width:min(82vw,340px)!important;height:auto!important;max-height:none!important;aspect-ratio:auto!important;object-fit:contain!important;position:relative!important;z-index:3!important;transform:none!important}
+}
+</style>
 </head>
 <body>
 <canvas id="blaze-flame-particles" aria-hidden="true"></canvas>
