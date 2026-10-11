@@ -926,6 +926,71 @@ body::after {
 }
 </style>
 
+
+
+/* TRUE 3D BRAND LOGO — visible extrusion + desktop hover + mobile touch response */
+.stage.logo-stage { perspective: 1100px !important; touch-action: manipulation; }
+.logo-plinth {
+  cursor: pointer !important;
+  transform-style: preserve-3d !important;
+  transition: transform .42s cubic-bezier(.2,.8,.2,1), filter .42s ease !important;
+  -webkit-tap-highlight-color: transparent;
+}
+.hero-brand-logo {
+  cursor: pointer !important;
+  transform: translateZ(28px) !important;
+  transform-style: preserve-3d !important;
+  transition: filter .35s ease, transform .35s ease !important;
+  /* Multiple offset shadows create a visible bevel/extruded edge on the original logo art. */
+  filter:
+    drop-shadow(1px 1px 0 #ffd29a)
+    drop-shadow(2px 2px 0 #c75b22)
+    drop-shadow(3px 3px 0 #a63a18)
+    drop-shadow(4px 4px 0 #78200f)
+    drop-shadow(5px 6px 0 #48140d)
+    drop-shadow(0 0 7px #ffb24a)
+    drop-shadow(0 0 22px #ff481e) !important;
+}
+.logo-plinth:hover,
+.logo-plinth:focus-within {
+  transform: perspective(1100px) translate3d(0,-10px,24px) rotateY(-14deg) rotateX(8deg) scale(1.045) !important;
+  filter: drop-shadow(18px 25px 18px #000b) !important;
+}
+.logo-plinth:hover .hero-brand-logo,
+.logo-plinth:focus-within .hero-brand-logo {
+  transform: translateZ(42px) scale(1.025) !important;
+  filter:
+    drop-shadow(1px 1px 0 #ffe1b5)
+    drop-shadow(2px 2px 0 #e8782e)
+    drop-shadow(3px 3px 0 #c74a1b)
+    drop-shadow(4px 4px 0 #922b12)
+    drop-shadow(5px 6px 0 #50150b)
+    drop-shadow(0 0 10px #fff1c0)
+    drop-shadow(0 0 28px #ff5b20)
+    drop-shadow(0 0 48px #f12d1d) !important;
+}
+.logo-plinth:active {
+  transform: perspective(1100px) translate3d(0,2px,8px) rotateY(0deg) rotateX(0deg) scale(.965) !important;
+}
+.logo-plinth:active .hero-brand-logo {
+  transform: translateZ(12px) scale(.98) !important;
+  filter:
+    drop-shadow(1px 1px 0 #e8782e)
+    drop-shadow(2px 2px 0 #78200f)
+    drop-shadow(0 0 18px #ff481e) !important;
+}
+@media (hover:none) {
+  .logo-plinth:active {
+    transform: perspective(1100px) translate3d(0,2px,8px) rotateY(0deg) rotateX(0deg) scale(.96) !important;
+  }
+  .logo-plinth:active .hero-brand-logo {
+    transform: translateZ(12px) scale(.98) !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .logo-plinth,.hero-brand-logo { transition:none!important; }
+}
+
 </head>
 <body>
 <div class="pointer-aura" aria-hidden="true"></div>
