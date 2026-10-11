@@ -371,6 +371,72 @@ a:hover,button:hover,.btn:hover,.pill:hover{filter:brightness(1.12)}
 @media(max-width:760px){
  .top .brand-wordmark,.footerrow .brand-wordmark{font-size:18px!important}
 }
+
+/* SHARPNESS FIX: keep the official logo crisp; animate only a soft halo, never the logo pixels */
+.brand-logo-img,
+.hero-brand-logo {
+  image-rendering:auto!important;
+  -webkit-filter:drop-shadow(0 0 2px #ff8b45)!important;
+  filter:drop-shadow(0 0 2px #ff8b45)!important;
+  animation:none!important;
+  transition:none!important;
+  backface-visibility:visible!important;
+  transform:none!important;
+  will-change:auto!important;
+}
+.hero .logo-plinth {
+  animation:none!important;
+  transform:none!important;
+  filter:none!important;
+}
+.hero .hero-brand-logo {
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  opacity:1!important;
+  visibility:visible!important;
+  filter:drop-shadow(0 0 2px #ff8b45)!important;
+  animation:none!important;
+  transform:none!important;
+}
+.hero .logo-plinth:before {
+  content:""!important;
+  position:absolute!important;
+  inset:8%!important;
+  z-index:0!important;
+  pointer-events:none!important;
+  border-radius:50%!important;
+  background:radial-gradient(ellipse,#ff6a2b22 0%,transparent 68%)!important;
+  filter:none!important;
+  animation:crispHalo 2.8s ease-in-out infinite alternate!important;
+}
+@keyframes crispHalo {
+  from { opacity:.35; transform:scale(.98); }
+  to { opacity:.75; transform:scale(1.03); }
+}
+.top .brand-logo-img,
+.footerrow .brand-logo-img {
+  filter:drop-shadow(0 0 2px #ff8b45)!important;
+  animation:none!important;
+  transform:none!important;
+}
+.top .brand-wordmark,
+.footerrow .brand-wordmark {
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  text-shadow:0 0 4px #ff572c33!important;
+  filter:none!important;
+  animation:none!important;
+  transform:none!important;
+  background:none!important;
+  -webkit-background-clip:border-box!important;
+  background-clip:border-box!important;
+}
+@media (prefers-reduced-motion:reduce) {
+  .brand-logo-img,.hero-brand-logo,.hero .logo-plinth:before { animation:none!important; }
+}
+
 </style>
 </head>
 <body>
