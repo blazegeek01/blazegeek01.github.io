@@ -631,6 +631,80 @@ header.top nav .nav-shine-label::after {
 }
 </style>
 
+
+<style id="services-motion-outline">
+/* Moving white-and-flame outline for every service card */
+@property --service-outline-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+#services .service-list .service {
+  position: relative !important;
+  isolation: isolate;
+  overflow: visible !important;
+  border-radius: 16px !important;
+  background-clip: padding-box;
+}
+#services .service-list .service::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1.4px;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 3;
+  background: conic-gradient(
+    from var(--service-outline-angle),
+    rgba(255,255,255,.12) 0deg,
+    rgba(255,255,255,.18) 38deg,
+    #fff 62deg,
+    rgba(255,255,255,.38) 78deg,
+    rgba(255,255,255,.06) 112deg,
+    rgba(255,67,35,.78) 180deg,
+    rgba(255,128,65,.22) 218deg,
+    rgba(255,255,255,.07) 285deg,
+    rgba(255,255,255,.12) 360deg
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: serviceOutlineOrbit 4.5s linear infinite;
+  filter: drop-shadow(0 0 4px rgba(255,255,255,.4));
+}
+#services .service-list .service::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: -1;
+  box-shadow: 0 0 14px rgba(255,255,255,.055), 0 0 24px rgba(255,65,30,.055);
+  animation: serviceOutlinePulse 3s ease-in-out infinite;
+}
+#services .service-list .service:hover::before {
+  filter: drop-shadow(0 0 6px rgba(255,255,255,.8)) drop-shadow(0 0 9px rgba(255,75,35,.38));
+  animation-duration: 2.2s;
+}
+#services .service-list .service:hover::after {
+  box-shadow: 0 0 19px rgba(255,255,255,.12), 0 0 32px rgba(255,65,30,.12);
+}
+@keyframes serviceOutlineOrbit {
+  to { --service-outline-angle: 360deg; }
+}
+@keyframes serviceOutlinePulse {
+  0%, 100% { opacity: .45; }
+  50% { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #services .service-list .service::before,
+  #services .service-list .service::after { animation: none !important; }
+  #services .service-list .service::before {
+    background: linear-gradient(115deg, rgba(255,255,255,.62), rgba(255,255,255,.08) 38%, rgba(255,70,35,.48) 72%, rgba(255,255,255,.62));
+  }
+}
+</style>
+
 </head>
 <body>
 <div class="pointer-aura" aria-hidden="true"></div>
