@@ -1005,11 +1005,10 @@ body::after {
   display:grid;grid-template-columns:minmax(190px,.8fr) minmax(0,1.7fr);
   align-items:center;gap:clamp(22px,4vw,54px);
   margin:34px 0 26px;padding:clamp(24px,4vw,38px);
-  border:1px solid transparent;border-radius:22px;
-  background:linear-gradient(transparent,transparent) padding-box,
-    conic-gradient(from var(--social-frame-angle,0deg),rgba(255,255,255,.12),#fff,rgba(255,255,255,.12),#cfd3da,rgba(255,255,255,.12)) border-box;
-  box-shadow:none;
-  animation:socialFrameTurn var(--social-shine-speed) linear infinite;
+  border:1px solid rgba(255,255,255,.14);border-radius:22px;
+  background:transparent!important;
+  box-shadow:none!important;
+  animation:none!important;
 }
 .footer-socials:before {
   content:none;
@@ -1031,24 +1030,7 @@ body::after {
   box-shadow:none!important;
   transition:transform .2s ease,filter .2s ease;
 }
-.social-link::before {
-  content:"";position:absolute;inset:0;padding:1.4px;border-radius:inherit;pointer-events:none;z-index:3;
-  background:conic-gradient(from var(--social-card-angle,0deg),
-    rgba(255,255,255,.12) 0deg,
-    rgba(255,255,255,.18) 38deg,
-    #fff 62deg,
-    rgba(255,255,255,.38) 78deg,
-    rgba(255,255,255,.06) 112deg,
-    rgba(255,67,35,.78) 180deg,
-    rgba(255,128,65,.22) 218deg,
-    rgba(255,255,255,.07) 285deg,
-    rgba(255,255,255,.12) 360deg);
-  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
-  -webkit-mask-composite:xor;mask-composite:exclude;
-  animation:serviceOutlineOrbit 4.5s linear infinite;
-  filter:drop-shadow(0 0 4px rgba(255,255,255,.4));
-}
-.social-link::after {content:none!important}
+.social-link::before,.social-link::after {content:none!important;display:none!important}
 .social-icon {display:grid;place-items:center;flex:0 0 38px;width:38px;height:38px;border-radius:12px;background:transparent;color:#fff;transition:transform .2s ease,filter .2s ease}
 .social-icon svg {display:block;width:21px;height:21px}
 .social-label {position:relative;z-index:1;display:flex;flex-direction:column;gap:2px;min-width:0;font-size:13px;font-weight:750;letter-spacing:.01em}
@@ -1063,21 +1045,11 @@ body::after {
 .social-x .social-icon {color:#fff}
 .social-linkedin .social-icon {color:#fff}
 .social-link:hover,.social-link:focus-visible {
-  transform:translateY(-3px) scale(1.012);
-  box-shadow:none!important;filter:none;outline:none
-}
-.social-link:hover::before,.social-link:focus-visible::before {
-  filter:drop-shadow(0 0 6px rgba(255,255,255,.8)) drop-shadow(0 0 9px rgba(255,75,35,.38));
-  animation-duration:2.2s;
+  transform:translateY(-2px);
+  box-shadow:none!important;filter:none;outline:1px solid rgba(255,255,255,.28)
 }
 .social-link:hover .social-icon,.social-link:focus-visible .social-icon {transform:scale(1.08);filter:none}
 .social-link:hover .social-arrow,.social-link:focus-visible .social-arrow {color:#ff9b67;transform:translate(2px,-2px)}
-@keyframes socialFrameTurn {to {--social-frame-angle:360deg}}
-@keyframes socialCardTurn {to {--social-card-angle:360deg}}
-@keyframes socialSurfaceSweep {0%{background-position:130% 0}100%{background-position:-130% 0}}
-@keyframes socialCardSweep {0%{background-position:130% 0}100%{background-position:-130% 0}}
-@property --social-frame-angle {syntax:"<angle>";inherits:false;initial-value:0deg}
-@property --social-card-angle {syntax:"<angle>";inherits:false;initial-value:0deg}
 @media(max-width:760px) {
   .footer-socials {grid-template-columns:1fr;gap:20px;margin:28px 0 22px;padding:22px 17px;border-radius:18px}
   .footer-social-heading h2 {font-size:30px}
