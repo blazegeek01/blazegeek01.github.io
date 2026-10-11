@@ -1207,6 +1207,23 @@ header.top .brand-logo-img{flex:0 0 auto}
 @keyframes headerMenuReveal{from{opacity:0;transform:translateY(-5px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
 @media(max-width:760px){.header-menu-wrap{margin-left:4px}.header-menu-toggle{width:39px;height:39px;border-radius:12px}.header-menu-panel{top:calc(100% + 10px)}}
 @media(prefers-reduced-motion:reduce){.header-menu-toggle::before{animation:none!important}.header-menu-toggle,.menu-lines i,.header-menu-panel>a{transition:none!important}.header-menu-panel{animation:none!important}}
+
+/* Mobile header alignment: keep the brand left and hamburger pinned to the right */
+@media(max-width:760px){
+  header.top{
+    display:flex!important;flex-direction:row!important;align-items:center!important;
+    justify-content:space-between!important;gap:10px!important;
+  }
+  header.top>.logo{order:1!important;min-width:0!important;max-width:calc(100% - 58px)!important}
+  header.top>nav{display:none!important}
+  header.top>.header-menu-wrap{order:2!important;margin-left:auto!important;flex:0 0 auto!important;align-self:center!important}
+  header.top .header-menu-toggle{display:grid!important;flex:0 0 auto!important}
+}
+@media(max-width:480px){
+  header.top{padding-left:10px!important;padding-right:10px!important}
+  header.top>.logo{max-width:calc(100% - 50px)!important}
+  header.top>.header-menu-wrap{margin-left:auto!important}
+}
 </style>
 
 
