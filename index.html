@@ -287,6 +287,25 @@ a:hover,button:hover,.btn:hover,.pill:hover{filter:brightness(1.12)}
 }
 .logo-plinth{animation:logo3DDepth 5.5s ease-in-out infinite!important;transform-style:preserve-3d!important}
 @media(prefers-reduced-motion:reduce){.hero-brand-logo{animation:none!important}}
+
+/* Footer brand wordmark: prevent GEEK'S from being clipped on narrow layouts */
+.footerrow .logo{
+  display:inline-flex!important;align-items:center;justify-content:flex-start;
+  flex:0 0 auto!important;flex-shrink:0!important;width:max-content;max-width:100%;
+  white-space:nowrap!important;overflow:visible!important;gap:10px;
+  letter-spacing:-.7px;
+}
+.footerrow .logo .brand-logo-img{flex:0 0 42px!important}
+.footerrow .logo span{
+  display:inline-block!important;flex:0 0 auto!important;flex-shrink:0!important;
+  width:auto!important;min-width:max-content!important;white-space:nowrap!important;
+  overflow:visible!important;visibility:visible!important;opacity:1!important;
+}
+.footerrow .logo span b{display:inline!important;white-space:nowrap!important}
+@media(max-width:760px){
+  .footerrow .logo{font-size:18px!important;letter-spacing:-.45px;max-width:100%}
+  .footerrow .logo .brand-logo-img{width:36px;height:36px;flex-basis:36px!important}
+}
 </style>
 </head>
 <body>
