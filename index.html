@@ -512,6 +512,40 @@ a:hover,button:hover,.btn:hover,.pill:hover{filter:brightness(1.12)}
 }
 
 </style>
+
+<style id="nav-white-shine-effect">
+/* Work, Services, and Ideas: a clean white shine once every second. */
+header.top nav a[href="#work"],
+header.top nav a[href="#services"],
+header.top nav a[href="#journal"] {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  animation: navWhiteShine 1s ease-in-out infinite !important;
+  text-decoration-color: #fff;
+}
+@keyframes navWhiteShine {
+  0%, 68%, 100% {
+    text-shadow: 0 0 0 rgba(255,255,255,0),
+                 0 0 2px rgba(255,255,255,.18);
+    filter: brightness(1);
+  }
+  18%, 38% {
+    text-shadow: 0 0 5px rgba(255,255,255,.95),
+                 0 0 12px rgba(255,255,255,.7),
+                 0 0 22px rgba(255,255,255,.42);
+    filter: brightness(1.45);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  header.top nav a[href="#work"],
+  header.top nav a[href="#services"],
+  header.top nav a[href="#journal"] {
+    animation: none !important;
+    text-shadow: 0 0 7px rgba(255,255,255,.65);
+  }
+}
+</style>
+
 </head>
 <body>
 <div class="pointer-aura" aria-hidden="true"></div>
