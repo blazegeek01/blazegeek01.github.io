@@ -1006,20 +1006,16 @@ body::after {
   align-items:center;gap:clamp(22px,4vw,54px);
   margin:34px 0 26px;padding:clamp(24px,4vw,38px);
   border:1px solid transparent;border-radius:22px;
-  background:linear-gradient(125deg,rgba(255,67,29,.075),rgba(18,15,17,.96) 48%,rgba(255,128,44,.045)) padding-box,
-    conic-gradient(from var(--social-frame-angle,0deg),rgba(255,85,42,.28),#ffb15c,rgba(255,66,29,.22),#fff0c0,rgba(255,85,42,.28)) border-box;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.035),0 18px 48px rgba(0,0,0,.18),0 0 18px rgba(255,83,38,.08);
+  background:linear-gradient(transparent,transparent) padding-box,
+    conic-gradient(from var(--social-frame-angle,0deg),rgba(255,255,255,.12),#fff,rgba(255,255,255,.12),#cfd3da,rgba(255,255,255,.12)) border-box;
+  box-shadow:none;
   animation:socialFrameTurn var(--social-shine-speed) linear infinite;
 }
 .footer-socials:before {
-  content:"";position:absolute;z-index:-1;inset:auto -8% -85px;height:145px;pointer-events:none;
-  background:radial-gradient(ellipse at 18% 100%,rgba(255,65,24,.24),transparent 58%),radial-gradient(ellipse at 78% 100%,rgba(255,144,47,.18),transparent 55%);
-  filter:blur(18px);opacity:.9;
+  content:none;
 }
 .footer-socials:after {
-  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:inherit;
-  background:linear-gradient(112deg,transparent 28%,rgba(255,177,92,.045) 43%,rgba(255,240,192,.12) 50%,rgba(255,110,48,.05) 57%,transparent 72%);
-  background-size:240% 100%;animation:socialSurfaceSweep 2.6s linear infinite;
+  content:none;
 }
 .footer-social-heading {min-width:0}
 .footer-social-kicker {font:700 10px/1.5 var(--mono,monospace);letter-spacing:.22em;color:#ff9b67}
@@ -1028,13 +1024,13 @@ body::after {
 .footer-social-heading p {margin:0;color:rgba(255,239,232,.64);font-size:13px;line-height:1.7}
 .social-links {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .social-link {
-  --social-accent:#ff9b67;
+  --social-accent:#fff;
   position:relative;isolation:isolate;display:flex;align-items:center;gap:12px;min-width:0;min-height:66px;
   padding:12px 14px;border:1px solid transparent;border-radius:15px;
   background:linear-gradient(transparent,transparent) padding-box,
-    conic-gradient(from var(--social-card-angle,0deg),rgba(255,92,45,.16),var(--social-accent),rgba(255,255,255,.06),#ffb15c,rgba(255,92,45,.16)) border-box;
+    conic-gradient(from var(--social-card-angle,0deg),rgba(255,255,255,.12),#fff,rgba(255,255,255,.12),#cfd3da,rgba(255,255,255,.12)) border-box;
   color:#f8eee9!important;text-decoration:none!important;overflow:hidden;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.035),0 0 10px rgba(255,74,33,.035);
+  box-shadow:none;
   animation:socialCardTurn 1.65s linear infinite;
   transition:transform .2s ease,box-shadow .2s ease,filter .2s ease;
 }
@@ -1046,20 +1042,20 @@ body::after {
 .social-label {position:relative;z-index:1;display:flex;flex-direction:column;gap:2px;min-width:0;font-size:13px;font-weight:750;letter-spacing:.01em}
 .social-label small {font-size:9px;font-weight:500;color:rgba(255,239,232,.5);letter-spacing:0}
 .social-arrow {margin-left:auto;align-self:flex-start;color:rgba(255,239,232,.42);font-size:15px;transition:transform .2s ease,color .2s ease}
-.social-facebook {--social-accent:#7eb0ff}
-.social-instagram {--social-accent:#ff8ab1}
+.social-facebook {--social-accent:#fff}
+.social-instagram {--social-accent:#fff}
 .social-x {--social-accent:#fff}
-.social-linkedin {--social-accent:#72bdff}
-.social-facebook .social-icon {color:#72a7ff}
-.social-instagram .social-icon {color:#ff9b78}
+.social-linkedin {--social-accent:#fff}
+.social-facebook .social-icon {color:#fff}
+.social-instagram .social-icon {color:#fff}
 .social-x .social-icon {color:#fff}
-.social-linkedin .social-icon {color:#76baff}
+.social-linkedin .social-icon {color:#fff}
 .social-link:hover,.social-link:focus-visible {
   transform:translateY(-3px) scale(1.012);
-  box-shadow:0 10px 28px rgba(0,0,0,.22),0 0 16px rgba(255,74,33,.19),inset 0 0 14px rgba(255,113,56,.05);
-  filter:brightness(1.12);outline:none
+  box-shadow:0 0 12px rgba(255,255,255,.12);
+  filter:none;outline:none
 }
-.social-link:hover .social-icon,.social-link:focus-visible .social-icon {transform:scale(1.08);filter:drop-shadow(0 0 9px rgba(255,95,47,.48))}
+.social-link:hover .social-icon,.social-link:focus-visible .social-icon {transform:scale(1.08);filter:none}
 .social-link:hover .social-arrow,.social-link:focus-visible .social-arrow {color:#ff9b67;transform:translate(2px,-2px)}
 @keyframes socialFrameTurn {to {--social-frame-angle:360deg}}
 @keyframes socialCardTurn {to {--social-card-angle:360deg}}
