@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#08080b">
 <meta name="description" content="BLAZE GEEK’s — creative technology, graphic design and production. Create Bold. Inspire Real. Blaze Beyond.">
+<link rel="preload" as="image" href="/assets/blaze-geeks-logo.png?v=7" fetchpriority="high">
 <title>BLAZE GEEK’s — Create Bold. Inspire Real. Blaze Beyond.</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2308080b'/%3E%3Cpath d='M53 8 22 55h23l-5 37 38-53H54z' fill='%23f04432'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -575,6 +576,17 @@ a:hover,button:hover,.btn:hover,.pill:hover{filter:brightness(1.12)}
 }
 @media (prefers-reduced-motion: reduce) {
   .logo-plinth,.hero-brand-logo { transition:none!important; }
+}
+
+/* Performance pass: reduce costly compositing on smaller devices */
+@media(max-width:760px){
+  .top{backdrop-filter:none}
+  .float-tag{backdrop-filter:none}
+  body:after{opacity:.10;background-size:520px 560px}
+  .hero:after{animation:none;opacity:.55}
+  .service-list .service{box-shadow:inset 0 1px #ffffff12,0 6px 18px #0004}
+  .service-list .service:after{filter:none}
+  .reveal{transition:opacity .35s ease,transform .35s ease}
 }
 </style>
 
@@ -1406,7 +1418,7 @@ body>main,body>footer{position:relative;z-index:1}
 <article class="service reveal"><div class="number">10 / 🚀 CUSTOM</div><h3>🚀 Custom Digital Creative Solutions</h3><p>Tailored creative support shaped around your project, goals, and ideas.</p></article>
 </div></div></section>
 <section class="content wrap" id="work"><div class="sectionhead reveal"><div><div class="kicker">03 / SELECTED WORLDS</div><h2>Work with<br><span>a point of view.</span></h2></div><p>A portfolio built to grow. These are concept previews—real client projects can be added as they launch.</p></div><div class="projects"><article class="project reveal"><div class="art"><span>BOLD<br>BY DESIGN.</span></div><div class="number">01 — BRANDING</div><h3>Identity in motion</h3><p>Distinctive visuals for ambitious ideas.</p></article><article class="project reveal"><div class="art"><span>MAKE<br>IT MOVE.</span></div><div class="number">02 — MOTION</div><h3>Energy, frame by frame</h3><p>Creative production designed to connect.</p></article><article class="project reveal"><div class="art"><span>NEXT<br>IS NOW_</span></div><div class="number">03 — DIGITAL</div><h3>Built for what’s next</h3><p>Digital experiences with purpose.</p></article></div></section>
-<section class="founder founder-simple" id="founder"><div class="founder-art founder-portrait-wrap"><img class="founder-portrait" src="/assets/founder-arman.png?v=7" data-fallback="https://raw.githubusercontent.com/blazegeek01/blazegeek01.github.io/blazegeeks/assets/founder-arman.png?v=7" alt="Founder and CEO of BLAZE GEEK’s" width="900" height="1100" loading="eager" fetchpriority="high" decoding="async"><div class="portrait-caption"><span class="founder-name">Jahid Hosen Arman</span><span class="founder-role">Founder and CEO</span></div></div></section>
+<section class="founder founder-simple" id="founder"><div class="founder-art founder-portrait-wrap"><img class="founder-portrait" src="/assets/founder-arman.png?v=7" data-fallback="https://raw.githubusercontent.com/blazegeek01/blazegeek01.github.io/blazegeeks/assets/founder-arman.png?v=7" alt="Founder and CEO of BLAZE GEEK’s" width="900" height="1100" loading="lazy" fetchpriority="low" decoding="async"><div class="portrait-caption"><span class="founder-name">Jahid Hosen Arman</span><span class="founder-role">Founder and CEO</span></div></div></section>
 <section class="content wrap" id="journal"><div class="sectionhead reveal"><div><div class="kicker">05 / FIELD NOTES</div><h2>Ideas worth<br><span>passing on.</span></h2></div><p>Perspectives on creativity, digital craft, and the discipline behind meaningful work.</p></div><div class="notes"><article class="note reveal"><div class="number">CREATIVITY / 01</div><h3>Good ideas are common. Consistent execution is rare.</h3><p>Turning inspiration into meaningful work takes intention and consistency.</p></article><article class="note reveal"><div class="number">DESIGN / 02</div><h3>Your design should speak before you do.</h3><p>Visual clarity helps people understand what makes a brand different.</p></article><article class="note reveal"><div class="number">MINDSET / 03</div><h3>Ambition means little until it becomes action.</h3><p>Progress is built by showing up and moving one step at a time.</p></article></div></section>
 <section class="contact" id="contact"><div class="wrap reveal"><div class="kicker">06 / YOUR MOVE</div><h2>Got a bold idea?<br><span>Let’s give it a pulse.</span></h2><p>Tell us what you’re imagining. Let’s explore what it could become.</p><a class="btn" href="mailto:hello@blazegeeks.com?subject=Let%27s%20build%20something%20bold">Start a conversation ↗</a></div></section>
 </main><footer class="footer wrap"><div class="footerrow"><a class="logo" href="#home"><img class="brand-logo-img" src="/assets/blaze-geeks-logo.png?v=7" data-fallback="https://raw.githubusercontent.com/blazegeek01/blazegeek01.github.io/blazegeeks/assets/blaze-geeks-logo.png?v=7" alt="BLAZE GEEK’s official logo"><span class="brand-wordmark" aria-label="BLAZE GEEK’S"><span class="brand-word-first">BLAZE</span><span class="brand-word-second"> GEEK’S</span></span></a><span>Independent minds. Intentional work. No ordinary ideas.</span><span>© <span id="year"></span> BLAZE GEEK’S</span><a href="#home">BACK TO TOP ↑</a></div><section class="footer-socials" id="footer-socials" aria-label="Follow BLAZE GEEK’s on social media">
@@ -1500,7 +1512,7 @@ document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
   var w=0,h=0,dpr=1,particles=[],raf=0,last=0,paused=false;
   var reduced=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var mobile=window.matchMedia && window.matchMedia('(max-width: 760px)').matches;
-  var target=mobile?92:168;
+  var target=mobile?30:58;
   var colors=['255,79,35','255,111,42','255,151,61','255,190,92','255,63,28'];
   function random(min,max){return min+Math.random()*(max-min)}
   function makeParticle(fromBottom){
@@ -1520,13 +1532,14 @@ document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
     canvas.style.width=w+'px';canvas.style.height=h+'px';
     ctx.setTransform(dpr,0,0,dpr,0,0);
     mobile=window.matchMedia && window.matchMedia('(max-width: 760px)').matches;
-    target=mobile?92:168;
+    target=mobile?30:58;
     while(particles.length<target)particles.push(makeParticle(false));
     if(particles.length>target)particles.length=target;
   }
   function draw(now){
     raf=0;
     if(paused||document.hidden)return;
+    if(last && now-last<32){raf=requestAnimationFrame(draw);return;}
     if(!last)last=now;
     var dt=Math.min(2,(now-last)/16.67||1);last=now;
     ctx.clearRect(0,0,w,h);
@@ -1549,7 +1562,7 @@ document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
       ctx.globalAlpha=a;
       ctx.fillStyle='rgba('+p.color+',1)';
       ctx.shadowColor='rgba('+p.color+',.72)';
-      ctx.shadowBlur=mobile?3:5;
+      ctx.shadowBlur=mobile?0:1.5;
       ctx.beginPath();ctx.arc(p.x,p.y,p.size,0,Math.PI*2);ctx.fill();
       ctx.shadowBlur=0;
     }
@@ -1560,9 +1573,9 @@ document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
   function stop(){if(raf){cancelAnimationFrame(raf);raf=0}}
   document.addEventListener('visibilitychange',function(){if(document.hidden){stop();last=0}else start()});
   window.addEventListener('resize',resize,{passive:true});
-  if(reduced){canvas.style.opacity='.22';target=32}
+  if(reduced){canvas.style.opacity='.16';target=24}
   resize();
-  if(reduced){particles.length=Math.min(particles.length,32);target=32}
+  if(reduced){particles.length=Math.min(particles.length,24);target=24}
   start();
 })();
 </script>
