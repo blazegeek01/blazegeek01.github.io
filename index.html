@@ -306,6 +306,34 @@ a:hover,button:hover,.btn:hover,.pill:hover{filter:brightness(1.12)}
   .footerrow .logo{font-size:18px!important;letter-spacing:-.45px;max-width:100%}
   .footerrow .logo .brand-logo-img{width:36px;height:36px;flex-basis:36px!important}
 }
+
+/* WORDMARK VISIBILITY FIX — keep GEEK'S readable in both header and footer */
+.top .logo > span,
+.footerrow .logo > span{
+  display:inline-block!important;
+  visibility:visible!important;
+  opacity:1!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  background:none!important;
+  background-image:none!important;
+  white-space:nowrap!important;
+  overflow:visible!important;
+  width:auto!important;
+  min-width:max-content!important;
+  flex:0 0 auto!important;
+}
+.top .logo > span b,
+.footerrow .logo > span b{
+  display:inline!important;
+  visibility:visible!important;
+  opacity:1!important;
+  color:#f04432!important;
+  -webkit-text-fill-color:#f04432!important;
+  background:none!important;
+  background-image:none!important;
+  white-space:nowrap!important;
+}
 </style>
 </head>
 <body>
