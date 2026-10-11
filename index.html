@@ -1334,55 +1334,7 @@ header.top .brand-logo-img{flex:0 0 auto}
 </style>
 
 
-<style id="blaze-mobile-performance-pass">
-/* Mobile performance mode: preserve the visual design, remove costly continuous effects */
-@media (max-width:760px){
-  html{scroll-behavior:auto!important}
-  body{background:#08080b}
-  /* Fixed full-screen blend layers and animated blurred glows are costly on phones */
-  body::after{display:none!important;animation:none!important;mix-blend-mode:normal!important}
-  body::before{filter:none!important;animation:none!important}
-  .hero::after{animation:none!important;filter:none!important;opacity:.65!important}
-  .hero::before,.band::after,.contact::before{animation:none!important;filter:none!important}
-  .stage::before,.stage::after,.logo-stage::before,.logo-stage::after{animation:none!important;filter:none!important}
-  .hero .logo-plinth,.logo-plinth{animation:none!important;will-change:auto!important;transform:none!important;filter:none!important}
-  .hero .logo-plinth::before,.hero .logo-plinth::after,.logo-plinth::before,.logo-plinth::after{
-    animation:none!important;filter:none!important;mix-blend-mode:normal!important;opacity:.45!important
-  }
-  .hero .hero-brand-logo,.hero-brand-logo{
-    animation:none!important;will-change:auto!important;transform:none!important;
-    filter:drop-shadow(0 0 5px rgba(255,111,54,.55))!important
-  }
-  .brand-logo-img,.logo span:last-child,h1 em,.founder-simple .founder-portrait,
-  .founder-simple .founder-name,.founder-simple .founder-role{
-    animation:none!important;will-change:auto!important
-  }
-  .founder-portrait-wrap::before,.founder-portrait-wrap::after,
-  #founder .founder-portrait-wrap::before,#founder .portrait-caption::before,#founder .portrait-caption::after{
-    animation:none!important;filter:none!important
-  }
-  .service-list .service::after,.service-list .service::before,
-  #about::before,#about::after,#services .service-list .service::before,#services .service-list .service::after{
-    animation:none!important;filter:none!important
-  }
-  .footer-socials::before,.social-link::before,.header-menu-toggle::before,
-  .hero .actions>a::before{animation:none!important}
-  .ticker::before{animation:none!important;transform:none!important}
-  .pointer-aura{display:none!important}
-  /* Avoid expensive backdrop compositing and animated card transforms while scrolling */
-  .top,.header-menu-toggle,.header-menu-panel,.hero .actions>a,.float-tag,
-  .footer-socials,.social-link,.menu-item-icon{
-    -webkit-backdrop-filter:none!important;backdrop-filter:none!important
-  }
-  .principle,.service,.project,.note,.social-link,.hero .actions>a,.header-menu-toggle{
-    transition:none!important;transform:none!important;will-change:auto!important
-  }
-  .principle:hover,.service:hover,.project:hover,.note:hover,.social-link:hover{
-    transform:none!important;box-shadow:0 10px 25px rgba(0,0,0,.2)!important
-  }
-  .logo-plinth::before,.logo-plinth::after,.founder-portrait-wrap::before{box-shadow:none!important}
-}
-</style>
+
 
 </head>
 <body>
