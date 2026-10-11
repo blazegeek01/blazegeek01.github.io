@@ -1581,9 +1581,9 @@ document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
 </script>
 
 <style id="blaze-true-3d-logo-final">
-/* Smooth premium logo motion: preserve original artwork and glow, avoid sudden direction changes. */
+/* Restore the lively signature motion, with continuous smooth easing and no abrupt pauses. */
 #stage.logo-stage{
-  perspective:1600px!important;
+  perspective:1500px!important;
   perspective-origin:50% 48%!important;
   transform-style:preserve-3d!important;
 }
@@ -1591,7 +1591,7 @@ document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
   position:relative!important;
   transform-style:preserve-3d!important;
   transform-origin:50% 52%!important;
-  animation:blazeSignatureLogo3D 14s cubic-bezier(.45,0,.55,1) infinite!important;
+  animation:blazeSignatureLogo3D 8s ease-in-out infinite!important;
   will-change:transform!important;
   filter:drop-shadow(0 24px 22px #000b)!important;
 }
@@ -1607,38 +1607,38 @@ document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
     drop-shadow(0 0 5px #ffcf80)
     drop-shadow(0 0 15px #ff6a27)
     drop-shadow(0 0 30px #f0443288)!important;
-  animation:blazeSignatureLogoGlow 4.8s ease-in-out infinite!important;
+  animation:blazeSignatureLogoGlow 3.2s ease-in-out infinite!important;
   will-change:filter!important;
-  transition:filter .8s ease, transform .8s ease!important;
 }
 #stage.logo-stage .logo-plinth:before{
   z-index:0!important;
   transform:translateZ(-22px)!important;
-  animation:blazeLogoDepthAura 5s ease-in-out infinite alternate!important;
+  animation:blazeLogoDepthAura 3.6s ease-in-out infinite alternate!important;
 }
 @keyframes blazeSignatureLogo3D{
-  0%,100%{transform:rotateY(-11deg) rotateX(3deg) translateY(0) translateZ(0) scale(1)}
-  25%{transform:rotateY(-5deg) rotateX(0deg) translateY(-3px) translateZ(4px) scale(1.006)}
-  50%{transform:rotateY(11deg) rotateX(-3deg) translateY(0) translateZ(0) scale(1)}
-  75%{transform:rotateY(5deg) rotateX(0deg) translateY(3px) translateZ(4px) scale(1.006)}
+  0%,100%{transform:rotateY(-14deg) rotateX(4deg) translateY(0) translateZ(0) scale(1)}
+  25%{transform:rotateY(-6deg) rotateX(0deg) translateY(-4px) translateZ(6px) scale(1.008)}
+  50%{transform:rotateY(14deg) rotateX(-4deg) translateY(0) translateZ(0) scale(1)}
+  75%{transform:rotateY(6deg) rotateX(0deg) translateY(4px) translateZ(6px) scale(1.008)}
 }
 @keyframes blazeSignatureLogoGlow{
   0%,100%{filter:drop-shadow(1px 1px 0 #ffd49a) drop-shadow(2px 2px 0 #d76b2d) drop-shadow(3px 3px 0 #a83a1c) drop-shadow(4px 4px 0 #6d1d12) drop-shadow(0 0 5px #ffcf80) drop-shadow(0 0 15px #ff6a27) drop-shadow(0 0 30px #f0443288)}
-  50%{filter:drop-shadow(1px 1px 0 #ffe4b4) drop-shadow(2px 2px 0 #e87935) drop-shadow(3px 3px 0 #b74320) drop-shadow(4px 4px 0 #782010) drop-shadow(0 0 7px #fff0b0) drop-shadow(0 0 19px #ff7b2e) drop-shadow(0 0 34px #f04432aa)}
+  50%{filter:drop-shadow(1px 1px 0 #ffe4b4) drop-shadow(2px 2px 0 #e87935) drop-shadow(3px 3px 0 #b74320) drop-shadow(4px 4px 0 #782010) drop-shadow(0 0 8px #fff0b0) drop-shadow(0 0 21px #ff7b2e) drop-shadow(0 0 39px #f04432bb)}
 }
 @keyframes blazeLogoDepthAura{
-  from{opacity:.42;transform:translateZ(-22px) scale(.96)}
-  to{opacity:.78;transform:translateZ(-22px) scale(1.04)}
+  from{opacity:.38;transform:translateZ(-22px) scale(.92)}
+  to{opacity:.86;transform:translateZ(-22px) scale(1.08)}
+}
+#stage.logo-stage:hover .logo-plinth,
+#stage.logo-stage:focus-within .logo-plinth{
+  animation-play-state:running!important;
 }
 #stage.logo-stage:hover .hero-brand-logo,
 #stage.logo-stage:focus-within .hero-brand-logo{
   filter:drop-shadow(1px 1px 0 #ffe4b4) drop-shadow(2px 2px 0 #e87935) drop-shadow(3px 3px 0 #b74320) drop-shadow(4px 4px 0 #782010) drop-shadow(0 0 9px #fff0b0) drop-shadow(0 0 22px #ff7b2e) drop-shadow(0 0 38px #f04432bb)!important;
-  transform:translateZ(38px) scale(1.018)!important;
 }
 @media(max-width:760px){
-  #stage.logo-stage .logo-plinth{
-    animation-duration:17s!important;
-  }
+  #stage.logo-stage .logo-plinth{animation-duration:9s!important}
   #stage.logo-stage .hero-brand-logo{
     transform:translateZ(18px)!important;
     filter:
@@ -1646,14 +1646,14 @@ document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
       drop-shadow(2px 2px 0 #d76b2d)
       drop-shadow(3px 3px 0 #a83a1c)
       drop-shadow(0 0 5px #ffcf80)
-      drop-shadow(0 0 13px #ff6a27)
-      drop-shadow(0 0 23px #f0443288)!important;
-    animation-duration:5.5s!important;
+      drop-shadow(0 0 14px #ff6a27)
+      drop-shadow(0 0 25px #f0443288)!important;
+    animation-duration:3.8s!important;
   }
 }
 @media(prefers-reduced-motion:reduce){
-  #stage.logo-stage .logo-plinth{animation:none!important;transform:perspective(1200px) rotateY(-6deg) rotateX(2deg)!important}
-  #stage.logo-stage .hero-brand-logo{animation:none!important;transition:none!important}
+  #stage.logo-stage .logo-plinth{animation:none!important;transform:perspective(1200px) rotateY(-8deg) rotateX(3deg)!important}
+  #stage.logo-stage .hero-brand-logo{animation:none!important}
 }
 </style>
 
