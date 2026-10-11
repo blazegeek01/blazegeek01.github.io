@@ -101,12 +101,35 @@ body.flame-contact:before{opacity:1;filter:blur(2px)}
 @keyframes founderGlow{0%,100%{filter:drop-shadow(0 0 4px #ff9a7166) drop-shadow(0 0 15px #f0443255) drop-shadow(0 25px 28px #000d)}50%{filter:drop-shadow(0 0 8px #ffc09b) drop-shadow(0 0 28px #f04432bb) drop-shadow(0 25px 28px #000d)}}
 @media(max-width:760px){.brand-logo-img{width:34px;height:34px}.logo-plinth{width:min(86%,360px)}.founder-portrait-wrap{min-height:360px;padding:20px 16px 68px}.founder-portrait{max-height:420px}}
 
+
+/* FINAL CLEAN BRAND PRESENTATION: official logo only, no generated 3D sculpture */
+.stage.logo-stage{display:flex!important;align-items:center;justify-content:center;min-width:0;width:100%;height:560px;min-height:0;overflow:visible;perspective:1200px;transform:none!important;isolation:isolate}
+.logo-stage:before,.logo-stage:after{display:none!important;content:none!important}
+.logo-plinth{display:grid!important;place-items:center;width:min(100%,520px);height:auto;aspect-ratio:1;position:relative;z-index:1;overflow:visible;transform-style:preserve-3d;transform:perspective(1200px) rotateY(-7deg) rotateX(3deg);animation:logoFireFloat 5s ease-in-out infinite;filter:none}
+.logo-plinth:before{content:"";position:absolute;inset:12%;z-index:-1;border-radius:50%;background:radial-gradient(ellipse at 50% 52%,#ff4b1f66 0%,#ff5b252c 35%,transparent 70%);filter:blur(25px);animation:logoFireGlow 1.8s ease-in-out infinite alternate;transform:translateZ(-18px)}
+.logo-plinth:after{content:"";position:absolute;z-index:0;inset:4%;pointer-events:none;border-radius:46%;background:radial-gradient(ellipse at 50% 10%,#ff9c3722,transparent 30%),radial-gradient(ellipse at 18% 48%,#ff3a1826,transparent 32%),radial-gradient(ellipse at 82% 58%,#ff6a2222,transparent 34%),radial-gradient(ellipse at 50% 90%,#ff3d1820,transparent 28%);filter:blur(13px);animation:flameFlicker 1.15s ease-in-out infinite alternate}
+.hero-brand-logo{display:block!important;visibility:visible!important;opacity:1!important;position:relative;z-index:2;width:100%;height:100%;max-width:100%;object-fit:contain;transform:translateZ(24px);backface-visibility:visible;filter:drop-shadow(0 0 4px #fff0b0) drop-shadow(0 0 12px #ff8b36) drop-shadow(0 0 24px #ff3d16) drop-shadow(0 0 44px #e52a20aa);animation:officialLogoPulse 2.2s ease-in-out infinite}
+@keyframes logoFireFloat{0%,100%{transform:perspective(1200px) rotateY(-7deg) rotateX(3deg) translateY(0)}50%{transform:perspective(1200px) rotateY(7deg) rotateX(-2deg) translateY(-7px)}}
+@keyframes logoFireGlow{from{opacity:.55;transform:translateZ(-18px) scale(.92)}to{opacity:1;transform:translateZ(-18px) scale(1.08)}}
+@keyframes flameFlicker{0%{opacity:.45;transform:scale(.94) skewX(-2deg)}35%{opacity:.9;transform:scale(1.04) skewX(2deg)}70%{opacity:.62;transform:scale(1.01) skewX(-1deg)}100%{opacity:1;transform:scale(1.07) skewX(1deg)}}
+@keyframes officialLogoPulse{0%,100%{filter:drop-shadow(0 0 4px #ffcf80) drop-shadow(0 0 12px #ff8b36) drop-shadow(0 0 24px #ff3d16) drop-shadow(0 0 38px #e52a2088)}50%{filter:drop-shadow(0 0 8px #fff4c2) drop-shadow(0 0 18px #ffb34d) drop-shadow(0 0 34px #ff3d16) drop-shadow(0 0 55px #e52a20dd)}}
+.founder-simple{display:flex!important;justify-content:center;align-items:center;padding:75px 6%;background:linear-gradient(180deg,#0b0b0e,#130d10 52%,#0b0b0e);border-block:1px solid #ffffff12}
+.founder-simple .founder-portrait-wrap{position:relative;display:flex!important;flex-direction:column;align-items:center;justify-content:center;width:min(100%,760px);min-width:0;min-height:0;padding:25px 24px 18px;margin:0 auto;background:transparent;overflow:visible}
+.founder-simple .founder-portrait-wrap:before{display:none!important;content:none!important}
+.founder-simple .founder-portrait{display:block!important;visibility:visible!important;opacity:1!important;width:min(100%,480px);height:auto;max-height:620px;object-fit:contain;object-position:center;transform:none;filter:drop-shadow(0 0 6px #ff9a7188) drop-shadow(0 0 20px #f0443266) drop-shadow(0 18px 30px #000d);animation:founderGlow 3.2s ease-in-out infinite}
+.founder-simple .portrait-caption{position:static!important;display:flex;flex-direction:column;align-items:center;gap:10px;width:100%;margin-top:18px;text-align:center;font-family:var(--display);letter-spacing:.035em;color:#f7e6df;text-shadow:0 0 18px #ff4b1833}
+.founder-simple .founder-name{display:block;margin:0;color:#fff1e8;font-family:"Cinzel",Georgia,serif;font-size:clamp(24px,3.4vw,38px);font-weight:700;letter-spacing:.035em;line-height:1.35;text-shadow:0 0 20px #ff7b4533}
+.founder-simple .founder-role{display:block;margin-top:0;color:#ff9b71;font-family:"Manrope",Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase}
+@media(min-width:761px){.stage.logo-stage{height:560px}.logo-plinth{width:min(100%,520px)}}
+@media(max-width:760px){.stage.logo-stage{height:410px;margin-top:10px;width:100%}.logo-plinth{width:min(90%,360px)}.founder-simple{padding:48px 5%}.founder-simple .founder-portrait-wrap{padding:15px 12px 10px}.founder-simple .founder-portrait{width:min(100%,390px);max-height:500px}.founder-simple .founder-name{font-size:clamp(22px,6vw,30px)}}
+@media(prefers-reduced-motion:reduce){.logo-plinth,.hero-brand-logo,.logo-plinth:before,.logo-plinth:after,.founder-simple .founder-portrait{animation:none!important}}
+
 </style>
 </head>
 <body>
 <header class="top"><a class="logo" href="#home" aria-label="BLAZE GEEK’s home"><img class="brand-logo-img" src="https://raw.githubusercontent.com/blazegeek01/blazegeek01.github.io/blazegeeks/assets/blaze-geeks-logo.png" alt="BLAZE GEEK’s official logo"><span>BLAZE <b>GEEK’S</b></span></a><nav aria-label="Main navigation"><a href="#work">Work</a><a href="#services">Services</a><a href="#about">About</a><a href="#journal">Ideas</a><a class="pill" href="#contact">Let’s talk ↗</a></nav></header>
 <main>
-<div class="wrap"><section class="hero" id="home"><div class="hero-copy reveal"><div class="eyebrow">✳ &nbsp; CREATIVE TECHNOLOGY · DESIGN · PRODUCTION</div><h1><em>BLAZE</em><br>GEEK’S <span class="flame">🔥</span></h1><p class="lead">Creative digital brand &amp; production house where tech, graphic design, motivation &amp; authentic enthusiasm meet. We turn ideas into visual experiences with purpose.</p><p class="lead hero-tagline">Create Bold. Inspire Real. Blaze Beyond.</p><div class="actions"><a class="btn hot" href="#work">Explore our universe ↘</a><a class="quiet" href="#founder">Meet the founder ↗</a></div><p class="mono">INDEPENDENT BY NATURE · BUILT TO GO BEYOND</p></div><div class="stage logo-stage" id="stage" aria-label="Official BLAZE GEEK’s logo displayed in a glowing three-dimensional showcase"><canvas id="world" aria-hidden="true"></canvas><div class="stage-label">OFFICIAL BRAND EMBLEM<span>3D METAL / FIRELIGHT</span></div><div class="logo-plinth"><img class="hero-brand-logo" src="https://raw.githubusercontent.com/blazegeek01/blazegeek01.github.io/blazegeeks/assets/blaze-geeks-logo.png" alt="Official BLAZE GEEK’s flame logo"></div><div class="float-tag one">✳ &nbsp; <b>CREATE BOLD.</b></div><div class="float-tag two">VISION <b>→</b> EXECUTION</div><div class="stage-index">BUILT TO BLAZE BEYOND</div></div></section></div>
+<div class="wrap"><section class="hero" id="home"><div class="hero-copy reveal"><div class="eyebrow">✳ &nbsp; CREATIVE TECHNOLOGY · DESIGN · PRODUCTION</div><h1><em>BLAZE</em><br>GEEK’S <span class="flame">🔥</span></h1><p class="lead">Creative digital brand &amp; production house where tech, graphic design, motivation &amp; authentic enthusiasm meet. We turn ideas into visual experiences with purpose.</p><p class="lead hero-tagline">Create Bold. Inspire Real. Blaze Beyond.</p><div class="actions"><a class="btn hot" href="#work">Explore our universe ↘</a><a class="quiet" href="#founder">Meet the founder ↗</a></div><p class="mono">INDEPENDENT BY NATURE · BUILT TO GO BEYOND</p></div><div class="stage logo-stage" id="stage" aria-label="BLAZE GEEK’s official logo in a fiery 3D-style showcase"><div class="logo-plinth"><img class="hero-brand-logo" src="https://raw.githubusercontent.com/blazegeek01/blazegeek01.github.io/blazegeeks/assets/blaze-geeks-logo.png" alt="Official BLAZE GEEK’s logo"></div></div></section></div>
 <div class="ticker">CREATE BOLD ✳ INSPIRE REAL ✳ BLAZE BEYOND ✳</div>
 <section class="content wrap" id="about"><div class="intro reveal"><div><div class="kicker">01 / THE MINDSET</div><h2>Not just making things look good.<br><span>Making them mean something.</span></h2></div><div><p>BLAZE GEEK’s is a creative digital brand and production house where technology, graphic design, motivation, and authentic enthusiasm meet.</p><p>We bring clarity to ideas, craft to execution, and purpose to every visual experience.</p></div></div><div class="principles"><article class="principle reveal"><div class="number">01</div><h3>Clarity over clutter</h3><p>Every detail has a reason to be there.</p></article><article class="principle reveal"><div class="number">02</div><h3>Craft over shortcuts</h3><p>Thoughtful work, built with intention.</p></article><article class="principle reveal"><div class="number">03</div><h3>Ambition into action</h3><p>Big ideas deserve real execution.</p></article></div></section>
 <section class="content band" id="services"><div class="wrap"><div class="sectionhead reveal"><div><div class="kicker">02 / WHAT WE DO</div><h2>Creative fire.<br><span>Practical outcomes.</span></h2></div><p>From the first spark to final delivery, we help ideas find their sharpest form.</p></div><div class="services service-list">
@@ -122,7 +145,7 @@ body.flame-contact:before{opacity:1;filter:blur(2px)}
 <article class="service reveal"><div class="number">10 / 🚀 CUSTOM</div><h3>🚀 Custom Digital Creative Solutions</h3><p>Tailored creative support shaped around your project, goals, and ideas.</p></article>
 </div></div></section>
 <section class="content wrap" id="work"><div class="sectionhead reveal"><div><div class="kicker">03 / SELECTED WORLDS</div><h2>Work with<br><span>a point of view.</span></h2></div><p>A portfolio built to grow. These are concept previews—real client projects can be added as they launch.</p></div><div class="projects"><article class="project reveal"><div class="art"><span>BOLD<br>BY DESIGN.</span></div><div class="number">01 — BRANDING</div><h3>Identity in motion</h3><p>Distinctive visuals for ambitious ideas.</p></article><article class="project reveal"><div class="art"><span>MAKE<br>IT MOVE.</span></div><div class="number">02 — MOTION</div><h3>Energy, frame by frame</h3><p>Creative production designed to connect.</p></article><article class="project reveal"><div class="art"><span>NEXT<br>IS NOW_</span></div><div class="number">03 — DIGITAL</div><h3>Built for what’s next</h3><p>Digital experiences with purpose.</p></article></div></section>
-<section class="founder" id="founder"><div class="founder-art founder-portrait-wrap reveal"><div class="portrait-aura"></div><img class="founder-portrait" src="https://raw.githubusercontent.com/blazegeek01/blazegeek01.github.io/blazegeeks/assets/founder-arman.png" alt="Jahid Hosen Arman, Founder and CEO of BLAZE GEEK’s"><div class="portrait-caption">JAHID HOSEN ARMAN <span>FOUNDER &amp; CEO</span></div></div><div class="founder-copy reveal"><div class="kicker">04 / THE FOUNDER</div><h2>Built on curiosity.<br><span>Driven by possibility.</span></h2><p>I’m Jahid Hosen Arman, founder of BLAZE GEEK’s. I believe creativity becomes powerful when vision meets discipline—and when technology gives good ideas room to grow.</p><p>This is a journey of learning, making, and building something that leaves a mark.</p><div class="signature">Jahid Hosen Arman</div><div class="mono">FOUNDER & CEO</div></div></section>
+<section class="founder founder-simple" id="founder"><div class="founder-art founder-portrait-wrap"><img class="founder-portrait" src="https://raw.githubusercontent.com/blazegeek01/blazegeek01.github.io/blazegeeks/assets/founder-arman.png" alt="Founder and CEO of BLAZE GEEK’s"><div class="portrait-caption"><span class="founder-name">Jahid Hosen Arman</span><span class="founder-role">Founder and CEO</span></div></div></section>
 <section class="content wrap" id="journal"><div class="sectionhead reveal"><div><div class="kicker">05 / FIELD NOTES</div><h2>Ideas worth<br><span>passing on.</span></h2></div><p>Perspectives on creativity, digital craft, and the discipline behind meaningful work.</p></div><div class="notes"><article class="note reveal"><div class="number">CREATIVITY / 01</div><h3>Good ideas are common. Consistent execution is rare.</h3><p>Turning inspiration into meaningful work takes intention and consistency.</p></article><article class="note reveal"><div class="number">DESIGN / 02</div><h3>Your design should speak before you do.</h3><p>Visual clarity helps people understand what makes a brand different.</p></article><article class="note reveal"><div class="number">MINDSET / 03</div><h3>Ambition means little until it becomes action.</h3><p>Progress is built by showing up and moving one step at a time.</p></article></div></section>
 <section class="contact" id="contact"><div class="wrap reveal"><div class="kicker">06 / YOUR MOVE</div><h2>Got a bold idea?<br><span>Let’s give it a pulse.</span></h2><p>Tell us what you’re imagining. Let’s explore what it could become.</p><a class="btn" href="mailto:hello@blazegeeks.com?subject=Let%27s%20build%20something%20bold">Start a conversation ↗</a></div></section>
 </main><footer class="footer wrap"><div class="footerrow"><a class="logo" href="#home"><img class="brand-logo-img" src="https://raw.githubusercontent.com/blazegeek01/blazegeek01.github.io/blazegeeks/assets/blaze-geeks-logo.png" alt="BLAZE GEEK’s official logo"><span>BLAZE <b>GEEK’S</b></span></a><span>Independent minds. Intentional work. No ordinary ideas.</span><span>© <span id="year"></span> BLAZE GEEK’S</span><a href="#home">BACK TO TOP ↑</a></div><p class="mono">CREATE BOLD. INSPIRE REAL. BLAZE BEYOND.</p></footer>
@@ -131,28 +154,6 @@ document.getElementById('year').textContent=new Date().getFullYear();
 const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const revealObserver=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');revealObserver.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
-// Scroll-linked depth: artwork subtly leans in 3D as it moves through the viewport.
-if(!reduced){
- let depthQueued=false;
- const depthEls=[...document.querySelectorAll('.stage,.founder-art,.project .art')];
- const updateDepth=()=>{
-  depthQueued=false;
-  const vh=window.innerHeight||800;
-  depthEls.forEach((el,i)=>{
-   const r=el.getBoundingClientRect();
-   if(r.bottom< -80||r.top>vh+80)return;
-   const progress=(r.top+r.height*.5-vh*.5)/(vh*.5);
-   const rotate=Math.max(-1,Math.min(1,progress))* (el.classList.contains('stage')?2.8:4);
-   el.style.setProperty('--scroll-depth-rotate',rotate.toFixed(2)+'deg');
-   if(el.classList.contains('stage'))el.style.transform='perspective(1500px) rotateX('+rotate.toFixed(2)+'deg)';
-   else el.style.transform='perspective(1000px) rotateX('+rotate.toFixed(2)+'deg) translateZ('+(Math.max(-8,8-Math.abs(progress)*10)).toFixed(1)+'px)';
-  });
- };
- const requestDepth=()=>{if(!depthQueued){depthQueued=true;requestAnimationFrame(updateDepth)}};
- window.addEventListener('scroll',requestDepth,{passive:true});
- window.addEventListener('resize',requestDepth,{passive:true});
- requestDepth();
-}
 if(!reduced){
  document.querySelectorAll('.principle,.service,.project,.note').forEach(card=>{
   card.addEventListener('pointermove',e=>{const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.style.transform='translateY(-5px) rotateX('+(-y*5)+'deg) rotateY('+(x*6)+'deg)'});
@@ -160,57 +161,6 @@ if(!reduced){
  });
 }
 </script>
-<script type="module">
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js';
-const canvas=document.getElementById('world'),stage=document.getElementById('stage');
-let renderer,scene,camera,core,orbit,particles,clock,mouseX=0,mouseY=0,scrollP=0;
-try{
- renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true,powerPreference:'high-performance'});
- renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,1.7));renderer.setSize(stage.clientWidth,stage.clientHeight,false);
- renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.2;
- scene=new THREE.Scene();camera=new THREE.PerspectiveCamera(38,stage.clientWidth/stage.clientHeight,.1,100);camera.position.set(0,0,8.5);
- clock=new THREE.Clock();
- scene.add(new THREE.AmbientLight(0x7e5555,1.6));
- const key=new THREE.PointLight(0xff482c,85,18);key.position.set(3,2,4);scene.add(key);
- const rim=new THREE.PointLight(0x9c254a,65,16);rim.position.set(-3,-1,-2);scene.add(rim);
- const gold=new THREE.PointLight(0xffa15b,45,12);gold.position.set(-1,3,3);scene.add(gold);
- core=new THREE.Group();scene.add(core);
-// Floating crystalline shards add a second sculptural layer around the central knot.
-const shardField=new THREE.Group();scene.add(shardField);
-const shardMat=new THREE.MeshPhysicalMaterial({color:0xff7647,metalness:.72,roughness:.18,emissive:0x6c1012,emissiveIntensity:.7,clearcoat:1,transparent:true,opacity:.88});
-const shardMat2=new THREE.MeshPhysicalMaterial({color:0xe6a18a,metalness:.86,roughness:.2,emissive:0x351018,emissiveIntensity:.45,wireframe:true,transparent:true,opacity:.65});
-const shardMeshes=[];
-for(let i=0;i<11;i++){
- const g=new THREE.OctahedronGeometry(.12+Math.random()*.16,0);
- const m=new THREE.Mesh(g,i%3===0?shardMat2:shardMat);
- const a=i/11*Math.PI*2,rad=1.75+Math.random()*.65;
- m.position.set(Math.cos(a)*rad,(Math.random()-.5)*2.8,Math.sin(a)*rad);
- m.rotation.set(Math.random()*Math.PI,Math.random()*Math.PI,Math.random()*Math.PI);
- m.userData={phase:Math.random()*Math.PI*2,rad,baseY:m.position.y};
- shardField.add(m);shardMeshes.push(m);
-}
- const knotGeo=new THREE.TorusKnotGeometry(1.15,.34,220,24,2,5);
- const knotMat=new THREE.MeshPhysicalMaterial({color:0xb82b2b,metalness:.78,roughness:.23,emissive:0x5c0b10,emissiveIntensity:.65,clearcoat:1,clearcoatRoughness:.16});
- const knot=new THREE.Mesh(knotGeo,knotMat);core.add(knot);
- const wire=new THREE.Mesh(new THREE.TorusKnotGeometry(1.23,.012,180,8,3,4),new THREE.MeshBasicMaterial({color:0xff9a5a,wireframe:true,transparent:true,opacity:.8}));wire.scale.setScalar(1.12);core.add(wire);
- orbit=new THREE.Group();scene.add(orbit);
- const ring1=new THREE.Mesh(new THREE.TorusGeometry(1.9,.009,8,180),new THREE.MeshBasicMaterial({color:0xff6944,transparent:true,opacity:.8}));ring1.rotation.set(1.15,.2,.45);orbit.add(ring1);
- const ring2=new THREE.Mesh(new THREE.TorusGeometry(2.25,.006,8,180),new THREE.MeshBasicMaterial({color:0xb63a52,transparent:true,opacity:.65}));ring2.rotation.set(.4,1.1,-.3);orbit.add(ring2);
- const ring3=new THREE.Mesh(new THREE.TorusGeometry(2.55,.004,8,180),new THREE.MeshBasicMaterial({color:0xffad73,transparent:true,opacity:.45}));ring3.rotation.set(1.5,.8,.8);orbit.add(ring3);
- const beadGeo=new THREE.SphereGeometry(.035,12,12),beadMat=new THREE.MeshStandardMaterial({color:0xffa16b,emissive:0xf04432,emissiveIntensity:1.4});
- for(let i=0;i<13;i++){const b=new THREE.Mesh(beadGeo,beadMat);const a=i/13*Math.PI*2;b.position.set(Math.cos(a)*2.35,Math.sin(a*2)*.4,Math.sin(a)*1.6);orbit.add(b)}
- const count=800,positions=new Float32Array(count*3),colors=new Float32Array(count*3);
- for(let i=0;i<count;i++){const rad=2.2+Math.random()*4,a=Math.random()*Math.PI*2;positions[i*3]=Math.cos(a)*rad;positions[i*3+1]=(Math.random()-.5)*7;positions[i*3+2]=Math.sin(a)*rad-1;const c=new THREE.Color().setHSL(.01+Math.random()*.06,.75,.45+Math.random()*.35);colors[i*3]=c.r;colors[i*3+1]=c.g;colors[i*3+2]=c.b}
- const pg=new THREE.BufferGeometry();pg.setAttribute('position',new THREE.BufferAttribute(positions,3));pg.setAttribute('color',new THREE.BufferAttribute(colors,3));
- particles=new THREE.Points(pg,new THREE.PointsMaterial({size:.018,vertexColors:true,transparent:true,opacity:.8,depthWrite:false}));scene.add(particles);
- const resize=()=>{const w=Math.max(1,stage.clientWidth),h=Math.max(1,stage.clientHeight);renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix()};new ResizeObserver(resize).observe(stage);
- stage.addEventListener('pointermove',e=>{const r=stage.getBoundingClientRect();mouseX=((e.clientX-r.left)/r.width-.5)*2;mouseY=((e.clientY-r.top)/r.height-.5)*2});
- window.addEventListener('scroll',()=>{const r=stage.getBoundingClientRect();scrollP=Math.max(-1,Math.min(2,(window.innerHeight-r.top)/(window.innerHeight+r.height)))},{passive:true});
- const animate=()=>{requestAnimationFrame(animate);const t=clock.getElapsedTime();core.rotation.x=.18+Math.sin(t*.28)*.16+mouseY*.15;core.rotation.y=t*.23+mouseX*.24;core.rotation.z=Math.sin(t*.2)*.14;orbit.rotation.y=-t*.11;orbit.rotation.x=.18+Math.sin(t*.18)*.13;shardField.rotation.y=t*.075;shardField.rotation.x=Math.sin(t*.22)*.1;shardMeshes.forEach((m,i)=>{const p=m.userData.phase;m.rotation.x+=.006;m.rotation.y+=.009;m.position.y=m.userData.baseY+Math.sin(t*.9+p)*.12;m.scale.setScalar(.8+.25*Math.sin(t*1.2+p));});particles.rotation.y=t*.012;particles.rotation.x=Math.sin(t*.08)*.04;const s=1+Math.max(0,scrollP)*.12;core.scale.setScalar(s);camera.position.x+=(mouseX*.25-camera.position.x)*.025;camera.position.y+=(-mouseY*.22-camera.position.y)*.025;camera.lookAt(0,0,0);renderer.render(scene,camera)};
- if(!reduced)animate();else renderer.render(scene,camera);
-}catch(err){stage.classList.add('no-webgl');if(canvas)canvas.style.display='none';stage.style.background='radial-gradient(ellipse at center,#70201f,#100b10 65%,transparent)';console.warn('3D scene unavailable; using CSS fallback.',err)}
-</script>
-
 <script>
 /* The ember glow follows a mouse, stylus, or finger without blocking page controls. */
 (function(){
