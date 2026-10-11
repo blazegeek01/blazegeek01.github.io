@@ -1652,24 +1652,20 @@ document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
 
 
 <style id="blaze-logo-natural">
-/* Show the supplied logo exactly as a natural, flat image with no added effects. */
-#stage.logo-stage{perspective:none!important;transform:none!important;transform-style:flat!important;touch-action:manipulation!important}
-#stage .logo-plinth{position:relative!important;transform:none!important;transform-style:flat!important;animation:none!important;filter:none!important;box-shadow:none!important;text-shadow:none!important;transition:none!important;will-change:auto!important}
-#stage .hero-brand-logo{display:block!important;position:relative!important;z-index:1!important;width:100%!important;height:100%!important;object-fit:contain!important;transform:none!important;filter:none!important;animation:none!important;box-shadow:none!important;text-shadow:none!important;transition:none!important}
-#stage .logo-plinth:before,#stage .logo-plinth:after{content:none!important;display:none!important;animation:none!important;filter:none!important;box-shadow:none!important}
-@media(hover:hover) and (pointer:fine){#stage .logo-plinth:hover{transform:none!important;filter:none!important}#stage .logo-plinth:hover .hero-brand-logo{filter:none!important;box-shadow:none!important}}
-#stage .logo-plinth:active{transform:none!important;scale:1!important;cursor:default!important}
-@media(prefers-reduced-motion:reduce){#stage .hero-brand-logo{animation:none!important;transition:none!important}}
+/* Final high-specificity override: keep the original logo flat and effect-free in every state. */
+html body .hero #stage.logo-stage{perspective:none!important;transform:none!important;transform-style:flat!important}
+html body .hero #stage.logo-stage .logo-plinth{transform:none!important;transform-style:flat!important;animation:none!important;filter:none!important;box-shadow:none!important;text-shadow:none!important;will-change:auto!important}
+html body .hero #stage.logo-stage .hero-brand-logo{transform:none!important;filter:none!important;animation:none!important;box-shadow:none!important;text-shadow:none!important;opacity:1!important;transition:none!important}
+html body .hero #stage.logo-stage .logo-plinth:before,html body .hero #stage.logo-stage .logo-plinth:after{content:none!important;display:none!important;animation:none!important;filter:none!important;box-shadow:none!important;opacity:0!important}
+html body .hero #stage.logo-stage:hover .hero-brand-logo,html body .hero #stage.logo-stage .logo-plinth:hover .hero-brand-logo{transform:none!important;filter:none!important;animation:none!important;box-shadow:none!important}
+html body .hero #stage.logo-stage .logo-plinth:active{transform:none!important;scale:1!important}
+@media(prefers-reduced-motion:reduce){html body .hero #stage.logo-stage .logo-plinth,html body .hero #stage.logo-stage .hero-brand-logo{animation:none!important;transition:none!important}}
 </style>
 <script id="blaze-logo-natural-script">
 (function(){
  var stage=document.getElementById('stage');
  var plinth=stage&&stage.querySelector('.logo-plinth');
  if(!plinth)return;
- plinth.removeAttribute('tabindex');
- plinth.removeAttribute('role');
- plinth.removeAttribute('aria-label');
- plinth.removeAttribute('data-clean3d-ready');
  plinth.classList.remove('is-flipped');
  plinth.querySelectorAll('.logo-back-face,.logo-core-flame').forEach(function(el){el.remove()});
 })();
