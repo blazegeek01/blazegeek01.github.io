@@ -564,6 +564,73 @@ header.top nav .nav-shine-label::after {
 }
 </style>
 
+
+<style id="about-motion-outline">
+/* Animated premium outline for the About / Mindset section */
+@property --about-outline-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+#about {
+  position: relative !important;
+  isolation: isolate;
+  border-radius: 22px;
+  padding: clamp(24px, 4vw, 52px) !important;
+  margin-top: clamp(28px, 5vw, 64px);
+  margin-bottom: clamp(28px, 5vw, 64px);
+  background: linear-gradient(145deg, rgba(18,18,21,.96), rgba(8,8,10,.94));
+  box-shadow: 0 0 28px rgba(255,255,255,.035), 0 18px 70px rgba(0,0,0,.25);
+}
+#about::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1.5px;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 5;
+  background: conic-gradient(
+    from var(--about-outline-angle),
+    rgba(255,255,255,.08) 0deg,
+    rgba(255,255,255,.12) 35deg,
+    #fff 62deg,
+    rgba(255,255,255,.22) 78deg,
+    rgba(255,255,255,.035) 115deg,
+    rgba(255,70,35,.72) 185deg,
+    rgba(255,125,70,.18) 220deg,
+    rgba(255,255,255,.05) 285deg,
+    rgba(255,255,255,.08) 360deg
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: aboutOutlineOrbit 5s linear infinite;
+  filter: drop-shadow(0 0 5px rgba(255,255,255,.42));
+}
+#about::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: -1;
+  box-shadow: 0 0 22px rgba(255,255,255,.07), 0 0 38px rgba(255,65,30,.07);
+  animation: aboutOutlinePulse 3s ease-in-out infinite;
+}
+@keyframes aboutOutlineOrbit {
+  to { --about-outline-angle: 360deg; }
+}
+@keyframes aboutOutlinePulse {
+  0%, 100% { opacity: .45; }
+  50% { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #about::before, #about::after { animation: none !important; }
+  #about::before { background: linear-gradient(115deg, rgba(255,255,255,.6), rgba(255,255,255,.08) 38%, rgba(255,70,35,.45) 72%, rgba(255,255,255,.6)); }
+}
+</style>
+
 </head>
 <body>
 <div class="pointer-aura" aria-hidden="true"></div>
