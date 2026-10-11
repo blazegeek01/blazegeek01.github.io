@@ -705,6 +705,152 @@ header.top nav .nav-shine-label::after {
 }
 </style>
 
+
+<style id="founder-profile-motion-frame">
+@property --founder-ring-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+.founder-simple#founder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(54px, 8vw, 100px) 22px !important;
+}
+#founder .founder-portrait-wrap {
+  width: min(100%, 340px);
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  overflow: visible !important;
+  background: transparent !important;
+}
+#founder .founder-portrait-wrap::before {
+  content: "";
+  position: absolute;
+  width: min(82vw, 286px);
+  aspect-ratio: 1;
+  top: -9px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  padding: 4px;
+  pointer-events: none;
+  z-index: 2;
+  background: conic-gradient(from var(--founder-ring-angle),
+    rgba(255,255,255,.16) 0deg,
+    #fff 48deg,
+    rgba(255,255,255,.28) 70deg,
+    rgba(255,70,35,.95) 132deg,
+    rgba(255,120,65,.18) 190deg,
+    rgba(255,255,255,.12) 250deg,
+    #fff 310deg,
+    rgba(255,255,255,.16) 360deg);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  filter: drop-shadow(0 0 7px rgba(255,255,255,.55)) drop-shadow(0 0 12px rgba(255,65,30,.25));
+  animation: founderRingOrbit 3.6s linear infinite;
+}
+#founder .founder-portrait {
+  display: block !important;
+  width: min(78vw, 270px) !important;
+  height: min(78vw, 270px) !important;
+  aspect-ratio: 1 / 1;
+  object-fit: cover !important;
+  object-position: center 28%;
+  border-radius: 50% !important;
+  border: 0 !important;
+  outline: 0 !important;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 0 5px rgba(255,255,255,.1), 0 0 24px rgba(255,255,255,.14), 0 0 42px rgba(255,65,30,.12);
+}
+#founder .portrait-caption {
+  width: 100%;
+  min-height: 94px;
+  box-sizing: border-box;
+  position: relative;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 18px 20px;
+  margin-top: 4px;
+  border-radius: 18px !important;
+  border: 0 !important;
+  background: linear-gradient(135deg, rgba(22,22,25,.98), rgba(9,9,11,.98)) !important;
+  isolation: isolate;
+}
+#founder .portrait-caption::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: -1;
+  background: conic-gradient(from var(--founder-ring-angle),
+    rgba(255,255,255,.18) 0deg,
+    #fff 54deg,
+    rgba(255,255,255,.3) 78deg,
+    rgba(255,67,35,.95) 148deg,
+    rgba(255,128,65,.2) 210deg,
+    rgba(255,255,255,.12) 280deg,
+    #fff 326deg,
+    rgba(255,255,255,.18) 360deg);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  filter: drop-shadow(0 0 5px rgba(255,255,255,.45));
+  animation: founderRingOrbit 3.6s linear infinite;
+}
+#founder .portrait-caption::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: -2;
+  box-shadow: 0 0 18px rgba(255,255,255,.07), 0 0 24px rgba(255,65,30,.07);
+  animation: founderCaptionPulse 2.8s ease-in-out infinite;
+}
+#founder .founder-name {
+  display: block;
+  color: #fff !important;
+  text-align: center;
+  font-weight: 800 !important;
+  letter-spacing: .035em;
+  font-size: clamp(1.05rem, 3vw, 1.25rem);
+  line-height: 1.25;
+}
+#founder .founder-role {
+  display: block;
+  color: rgba(255,255,255,.76) !important;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: .76rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+}
+@keyframes founderRingOrbit {
+  to { --founder-ring-angle: 360deg; }
+}
+@keyframes founderCaptionPulse {
+  0%,100% { opacity: .45; }
+  50% { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #founder .founder-portrait-wrap::before,
+  #founder .portrait-caption::before,
+  #founder .portrait-caption::after { animation: none !important; }
+}
+</style>
+
 </head>
 <body>
 <div class="pointer-aura" aria-hidden="true"></div>
