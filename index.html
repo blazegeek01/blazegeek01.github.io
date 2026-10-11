@@ -1268,6 +1268,71 @@ header.top .brand-logo-img{flex:0 0 auto}
 @media(prefers-reduced-motion:reduce){.hero .actions>a[href="#work"]::before,.hero .actions>a[href="#founder"]::before{animation:none!important}.hero .actions>a[href="#work"],.hero .actions>a[href="#founder"]{transition:none!important}}
 </style>
 
+
+<style id="blaze-mobile-layout-stability">
+/* Final mobile layout pass: consolidate conflicting earlier responsive overrides */
+@media (max-width:760px){
+  html,body{width:100%;max-width:100%;overflow-x:clip}
+  img,svg,video,canvas{max-width:100%}
+  .wrap{width:90%;max-width:100%}
+  header.top{
+    display:flex!important;flex-direction:row!important;align-items:center!important;
+    justify-content:space-between!important;gap:8px!important;
+    width:96%!important;min-height:60px!important;height:auto!important;
+    margin:6px auto 0!important;padding:8px 10px!important;
+  }
+  header.top>.logo{order:1!important;min-width:0!important;width:auto!important;max-width:calc(100% - 52px)!important;flex:0 1 auto!important}
+  header.top>.logo .brand-logo-img{width:30px!important;height:30px!important;flex:0 0 30px!important}
+  header.top>.logo .brand-wordmark{font-size:clamp(11px,3.4vw,16px)!important;white-space:nowrap!important}
+  header.top>nav{display:none!important}
+  header.top>.header-menu-wrap{order:2!important;display:block!important;flex:0 0 auto!important;margin:0 0 0 auto!important;align-self:center!important}
+  header.top>.header-menu-wrap .header-menu-toggle{width:40px!important;height:40px!important}
+  header.top>.header-menu-wrap .header-menu-panel{right:0!important;max-width:calc(100vw - 28px)!important}
+  .hero{
+    min-height:0!important;grid-template-columns:minmax(0,1fr)!important;
+    gap:8px!important;padding:54px 0 42px!important;overflow:visible!important;
+  }
+  .hero-copy{min-width:0;width:100%}
+  .hero h1{font-size:clamp(49px,13vw,76px)!important;overflow-wrap:normal}
+  .hero .lead{max-width:100%;font-size:14px;line-height:1.8}
+  .hero .actions{gap:10px!important;flex-wrap:wrap}
+  .hero .actions>a{max-width:100%;white-space:normal}
+  .hero .stage.logo-stage{
+    width:100%!important;height:clamp(290px,95vw,390px)!important;min-height:0!important;
+    margin:8px auto 0!important;overflow:visible!important;
+  }
+  .hero .logo-plinth{width:min(88%,340px)!important;max-width:100%!important}
+  .sectionhead{display:block!important}
+  .sectionhead p{max-width:100%;margin-top:14px}
+  .principles,.services,.projects,.notes,.service-list{
+    grid-template-columns:minmax(0,1fr)!important;gap:14px!important;margin-top:30px!important;
+  }
+  .principle,.service,.project,.note{min-width:0;padding:22px}
+  .art{height:clamp(190px,58vw,245px)}
+  .intro,.founder{grid-template-columns:minmax(0,1fr)!important}
+  .founder-simple{padding:38px 5%!important}
+  .founder-simple .founder-portrait-wrap{width:100%!important;max-width:100%!important;padding:12px 4px!important}
+  .founder-simple .founder-portrait{width:min(100%,390px)!important;height:auto!important;max-height:none!important;object-fit:contain}
+  .founder-copy{min-width:0;padding:34px 6%!important}
+  .content{padding:58px 0!important}
+  .contact{padding:76px 0 82px!important}
+  .contact h2{font-size:clamp(39px,10vw,64px)!important}
+  .footer-socials{grid-template-columns:minmax(0,1fr)!important;gap:18px!important;padding:22px 16px!important}
+  .social-links{grid-template-columns:minmax(0,1fr)!important}
+  .footerrow{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:12px!important}
+  .footerrow>.logo{max-width:100%!important}
+}
+@media (max-width:380px){
+  header.top{width:97%!important;padding:7px 8px!important}
+  header.top>.logo .brand-logo-img{width:26px!important;height:26px!important;flex-basis:26px!important}
+  header.top>.logo .brand-wordmark{font-size:11px!important;letter-spacing:-.6px!important}
+  header.top>.header-menu-wrap .header-menu-toggle{width:37px!important;height:37px!important}
+  .wrap{width:92%}
+  .hero .actions>a{padding-left:14px!important;padding-right:14px!important;font-size:10px!important}
+  .principle,.service,.project,.note{padding:18px}
+}
+</style>
+
 </head>
 <body>
 <div class="pointer-aura" aria-hidden="true"></div>
