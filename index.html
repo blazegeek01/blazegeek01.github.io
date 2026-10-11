@@ -125,76 +125,78 @@ body.flame-contact:before{opacity:1;filter:blur(2px)}
 @media(prefers-reduced-motion:reduce){.logo-plinth,.hero-brand-logo,.logo-plinth:before,.logo-plinth:after,.founder-simple .founder-portrait{animation:none!important}}
 
 
-/* COSMIC LOGO DISPLAY: full 360-degree rotation with a cinematic universe backdrop */
+/* FIRE-RIMMED 3D LOGO: keep the logo facing forward; animate flame and ember effects only */
 .stage.logo-stage{
   position:relative!important;isolation:isolate;overflow:hidden!important;
   background:
-    radial-gradient(ellipse at 50% 50%,#28112b66 0%,#0b0b16 43%,#07080d 76%,transparent 100%);
+    radial-gradient(ellipse at 50% 52%,#40130e70 0%,#170b0c 42%,#09090c 78%,#07080d 100%);
 }
 .stage.logo-stage:before{
-  display:block!important;content:""!important;position:absolute;inset:0;z-index:0;
-  border:0;border-radius:0;pointer-events:none;transform:none!important;animation:cosmosDrift 28s linear infinite;
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.75;
   background:
-    radial-gradient(1px 1px at 8% 18%,#fff 98%,transparent),
-    radial-gradient(1.5px 1.5px at 17% 73%,#cfe6ff 98%,transparent),
-    radial-gradient(1px 1px at 25% 34%,#fff 98%,transparent),
-    radial-gradient(2px 2px at 33% 82%,#ffd9bf 98%,transparent),
-    radial-gradient(1px 1px at 42% 15%,#fff 98%,transparent),
-    radial-gradient(1.5px 1.5px at 58% 24%,#d8d7ff 98%,transparent),
-    radial-gradient(1px 1px at 66% 76%,#fff 98%,transparent),
-    radial-gradient(2px 2px at 76% 35%,#ffd7ba 98%,transparent),
-    radial-gradient(1px 1px at 88% 64%,#fff 98%,transparent),
-    radial-gradient(1px 1px at 94% 23%,#d7e7ff 98%,transparent),
-    radial-gradient(ellipse at 50% 48%,#ff4a2820 0%,#6d36a322 24%,transparent 61%),
-    radial-gradient(ellipse at 50% 53%,transparent 30%,#543c8b12 43%,transparent 68%);
-  background-size:100% 100%;opacity:.95;
+    radial-gradient(2px 2px at 12% 24%,#ffb56b 98%,transparent),
+    radial-gradient(1.5px 1.5px at 23% 71%,#ff5b2d 98%,transparent),
+    radial-gradient(2px 2px at 82% 31%,#ffd6a0 98%,transparent),
+    radial-gradient(1.5px 1.5px at 72% 78%,#ff6b32 98%,transparent),
+    radial-gradient(1px 1px at 44% 17%,#fff0cb 98%,transparent),
+    radial-gradient(ellipse at 50% 53%,#ff3a172b 0%,transparent 62%);
+  animation:emberDrift 8s ease-in-out infinite alternate;
 }
 .stage.logo-stage:after{
-  display:block!important;content:""!important;position:absolute;z-index:0;left:10%;right:10%;top:12%;height:76%;
-  border:1px solid #b7a7ff2c;border-radius:50%;pointer-events:none;
-  background:radial-gradient(ellipse at 50% 50%,transparent 53%,#c4b8ff0b 54%,transparent 60%);
-  box-shadow:0 0 32px #8a5bff14,inset 0 0 24px #ff57220b;
-  transform:rotateX(68deg) rotateZ(-18deg);animation:cosmicOrbit 24s linear infinite;
+  content:"";position:absolute;z-index:0;left:13%;right:13%;top:17%;height:66%;
+  border-radius:50%;pointer-events:none;transform:rotateX(66deg) rotateZ(-18deg);
+  border:1px solid #ff6b2730;box-shadow:0 0 45px #ff3c171a,inset 0 0 28px #ff3c1712;
 }
 .logo-plinth{
-  z-index:2!important;animation:logoSpin360 18s cubic-bezier(.45,.02,.55,.98) infinite!important;
-  transform-style:preserve-3d;backface-visibility:visible;
+  z-index:2!important;transform-style:preserve-3d;
+  transform:perspective(1200px) rotateY(-12deg) rotateX(5deg);
+  animation:logoHover 5s ease-in-out infinite!important;
+  filter:drop-shadow(0 24px 22px #000c);
 }
 .logo-plinth:before{
-  inset:10%!important;background:radial-gradient(ellipse at 50% 50%,#ff632d66 0%,#a94cff30 35%,#ff3a2020 52%,transparent 72%)!important;
-  filter:blur(30px)!important;animation:universeNebula 4.5s ease-in-out infinite alternate!important;
+  content:"";position:absolute;inset:8%;z-index:0;border-radius:50%;
+  background:radial-gradient(ellipse at 50% 50%,#ff4a1d55 0%,#ff70232b 36%,transparent 72%);
+  filter:blur(25px);transform:translateZ(-35px);
+  animation:flameGlow 1.8s ease-in-out infinite alternate!important;
 }
 .logo-plinth:after{
-  inset:-2%!important;border-radius:50%!important;
+  content:"";position:absolute;inset:-8%;z-index:0;pointer-events:none;border-radius:48%;
   background:
-    radial-gradient(1.5px 1.5px at 15% 25%,#fff 98%,transparent),
-    radial-gradient(2px 2px at 79% 22%,#fff1cf 98%,transparent),
-    radial-gradient(1px 1px at 83% 73%,#fff 98%,transparent),
-    radial-gradient(1.5px 1.5px at 20% 78%,#c7d8ff 98%,transparent),
-    radial-gradient(ellipse at 50% 50%,transparent 57%,#ff67212a 58%,transparent 66%)!important;
-  filter:blur(1px)!important;animation:cosmicParticles 8s linear infinite!important;
+    conic-gradient(from 0deg,transparent 0deg,#ff3d16a8 32deg,#ffb33e 58deg,transparent 88deg,
+    #ff4b1c9c 132deg,transparent 166deg,#ff9b32 204deg,transparent 235deg,
+    #ff3d16b8 275deg,#ffc05b 308deg,transparent 340deg,transparent 360deg);
+  filter:blur(15px) saturate(1.35);
+  opacity:.72;
+  -webkit-mask:radial-gradient(ellipse,transparent 48%,#000 56%,#000 68%,transparent 79%);
+  mask:radial-gradient(ellipse,transparent 48%,#000 56%,#000 68%,transparent 79%);
+  transform:translateZ(-10px) scale(1.02);
+  animation:flameRing 2.2s ease-in-out infinite alternate;
 }
 .hero-brand-logo{
-  transform-style:preserve-3d;backface-visibility:visible;
-  filter:drop-shadow(0 0 3px #fff) drop-shadow(0 0 9px #fff0cf) drop-shadow(0 0 19px #ff873b) drop-shadow(0 0 34px #ff3d16cc)!important;
-  animation:metallicLogoShine 2.8s ease-in-out infinite!important;
+  display:block;position:relative;z-index:1;width:100%;height:100%;object-fit:contain;
+  transform-style:preserve-3d;backface-visibility:hidden;
+  filter:drop-shadow(0 0 3px #fff3d1) drop-shadow(0 0 10px #ffb04a)
+    drop-shadow(0 0 22px #ff4b1c) drop-shadow(0 0 34px #ff3212aa)!important;
+  animation:metallicLogoShine 2.6s ease-in-out infinite!important;
 }
-@keyframes logoSpin360{
-  0%{transform:perspective(1200px) rotateY(0deg) rotateX(2deg) translateY(0)}
-  25%{transform:perspective(1200px) rotateY(90deg) rotateX(1deg) translateY(-3px)}
-  50%{transform:perspective(1200px) rotateY(180deg) rotateX(-2deg) translateY(0)}
-  75%{transform:perspective(1200px) rotateY(270deg) rotateX(-1deg) translateY(3px)}
-  100%{transform:perspective(1200px) rotateY(360deg) rotateX(2deg) translateY(0)}
+@keyframes flameRing{
+  0%{opacity:.48;transform:translateZ(-10px) scale(.98) rotate(-3deg)}
+  50%{opacity:.9;transform:translateZ(-10px) scale(1.06) rotate(3deg)}
+  100%{opacity:.62;transform:translateZ(-10px) scale(1.01) rotate(-1deg)}
 }
-@keyframes cosmicOrbit{from{transform:rotateX(68deg) rotateZ(-18deg)}to{transform:rotateX(68deg) rotateZ(342deg)}}
-@keyframes cosmosDrift{from{background-position:0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0}to{background-position:35px -25px,-22px 32px,28px 14px,-18px -28px,15px 34px,-32px -16px,24px 25px,-14px 18px,30px -32px,-26px 20px,0 0,0 0}}
-@keyframes universeNebula{from{opacity:.55;transform:translateZ(-18px) scale(.9)}to{opacity:1;transform:translateZ(-18px) scale(1.1)}}
-@keyframes cosmicParticles{from{transform:rotate(0deg) scale(.98);opacity:.65}50%{opacity:1}to{transform:rotate(360deg) scale(1.03);opacity:.65}}
+@keyframes flameGlow{
+  from{opacity:.55;transform:translateZ(-35px) scale(.9)}
+  to{opacity:1;transform:translateZ(-35px) scale(1.12)}
+}
+@keyframes emberDrift{
+  from{background-position:0 0,0 0,0 0,0 0,0 0,0 0;opacity:.45}
+  to{background-position:12px -18px,-16px 14px,18px 11px,-12px -15px,7px 19px,0 0;opacity:.9}
+}
 @keyframes metallicLogoShine{
-  0%,100%{filter:drop-shadow(0 0 3px #fff) drop-shadow(0 0 9px #fff0cf) drop-shadow(0 0 19px #ff873b) drop-shadow(0 0 34px #ff3d16cc)}
-  50%{filter:drop-shadow(0 0 7px #fff) drop-shadow(0 0 16px #fff) drop-shadow(0 0 27px #ffbc68) drop-shadow(0 0 45px #ff4b25)}
+  0%,100%{filter:drop-shadow(0 0 3px #fff3d1) drop-shadow(0 0 10px #ffb04a) drop-shadow(0 0 22px #ff4b1c) drop-shadow(0 0 34px #ff3212aa)}
+  50%{filter:drop-shadow(0 0 6px #fff) drop-shadow(0 0 16px #ffe3a0) drop-shadow(0 0 30px #ff702b) drop-shadow(0 0 46px #ff3519)}
 }
-/* Founder label: remove the decorative FOUNDER / CREATIVE TECHNOLOGY overlay */
+/* Keep the founder portrait clean; no decorative FOUNDER / CREATIVE TECHNOLOGY overlay */
 .founder-art:after{content:none!important;display:none!important}
 .founder-simple .founder-name{
   color:#fff!important;
@@ -218,7 +220,6 @@ body.flame-contact:before{opacity:1;filter:blur(2px)}
 @media(prefers-reduced-motion:reduce){
  .logo-plinth,.logo-plinth:before,.logo-plinth:after,.stage.logo-stage:before,.stage.logo-stage:after,.hero-brand-logo,.founder-simple .founder-name,.founder-simple .founder-role{animation:none!important}
 }
-
 </style>
 </head>
 <body>
