@@ -334,11 +334,39 @@ a:hover,button:hover,.btn:hover,.pill:hover{filter:brightness(1.12)}
   background-image:none!important;
   white-space:nowrap!important;
 }
+
+/* FINAL SAFETY FIX: use a single solid-text wordmark in header and footer */
+.top .logo .brand-wordmark,
+.footerrow .logo .brand-wordmark{
+  display:inline-block!important;
+  position:static!important;
+  flex:0 0 auto!important;
+  width:auto!important;
+  min-width:0!important;
+  max-width:none!important;
+  height:auto!important;
+  overflow:visible!important;
+  visibility:visible!important;
+  opacity:1!important;
+  white-space:nowrap!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  background:transparent!important;
+  background-image:none!important;
+  -webkit-background-clip:border-box!important;
+  background-clip:border-box!important;
+  text-shadow:0 0 10px #ff572c55!important;
+  filter:none!important;
+  animation:none!important;
+  font-size:inherit!important;
+  line-height:1.3!important;
+  letter-spacing:inherit!important;
+}
 </style>
 </head>
 <body>
 <div class="pointer-aura" aria-hidden="true"></div>
-<header class="top"><a class="logo" href="#home" aria-label="BLAZE GEEK’s home"><img class="brand-logo-img" src="/assets/blaze-geeks-logo.png?v=6" data-fallback="https://raw.githubusercontent.com/blazegeek01/blazegeek01.github.io/blazegeeks/assets/blaze-geeks-logo.png?v=6" alt="BLAZE GEEK’s official logo" width="42" height="42" loading="eager" decoding="async"><span>BLAZE <b>GEEK’S</b></span></a><nav aria-label="Main navigation"><a href="#work">Work</a><a href="#services">Services</a><a href="#about">About</a><a href="#journal">Ideas</a><a class="pill" href="#contact">Let’s talk ↗</a></nav></header>
+<header class="top"><a class="logo" href="#home" aria-label="BLAZE GEEK’s home"><img class="brand-logo-img" src="/assets/blaze-geeks-logo.png?v=6" data-fallback="https://raw.githubusercontent.com/blazegeek01/blazegeek01.github.io/blazegeeks/assets/blaze-geeks-logo.png?v=6" alt="BLAZE GEEK’s official logo" width="42" height="42" loading="eager" decoding="async"><span class="brand-wordmark">BLAZE GEEK’S</span></a><nav aria-label="Main navigation"><a href="#work">Work</a><a href="#services">Services</a><a href="#about">About</a><a href="#journal">Ideas</a><a class="pill" href="#contact">Let’s talk ↗</a></nav></header>
 <main>
 <div class="wrap"><section class="hero" id="home"><div class="hero-copy reveal"><div class="eyebrow">✳ &nbsp; CREATIVE TECHNOLOGY · DESIGN · PRODUCTION</div><h1><em>BLAZE</em><br>GEEK’S <span class="flame">🔥</span></h1><p class="lead">Creative digital brand &amp; production house where tech, graphic design, motivation &amp; authentic enthusiasm meet. We turn ideas into visual experiences with purpose.</p><p class="lead hero-tagline">Create Bold. Inspire Real. Blaze Beyond.</p><div class="actions"><a class="btn hot" href="#work">Explore our universe ↘</a><a class="quiet" href="#founder">Meet the founder ↗</a></div><p class="mono">INDEPENDENT BY NATURE · BUILT TO GO BEYOND</p></div><div class="stage logo-stage" id="stage" aria-label="BLAZE GEEK’s official logo in a fiery 3D-style showcase"><div class="logo-plinth"><img class="hero-brand-logo" src="/assets/blaze-geeks-logo.png?v=6" data-fallback="https://raw.githubusercontent.com/blazegeek01/blazegeek01.github.io/blazegeeks/assets/blaze-geeks-logo.png?v=6" alt="Official BLAZE GEEK’s logo" width="640" height="640" loading="eager" fetchpriority="high" decoding="async"></div></div></section></div>
 <div class="ticker">CREATE BOLD ✳ INSPIRE REAL ✳ BLAZE BEYOND ✳</div>
@@ -359,7 +387,7 @@ a:hover,button:hover,.btn:hover,.pill:hover{filter:brightness(1.12)}
 <section class="founder founder-simple" id="founder"><div class="founder-art founder-portrait-wrap"><img class="founder-portrait" src="/assets/founder-arman.png?v=6" data-fallback="https://raw.githubusercontent.com/blazegeek01/blazegeek01.github.io/blazegeeks/assets/founder-arman.png?v=6" alt="Founder and CEO of BLAZE GEEK’s" width="900" height="1100" loading="eager" fetchpriority="high" decoding="async"><div class="portrait-caption"><span class="founder-name">Jahid Hosen Arman</span><span class="founder-role">Founder and CEO</span></div></div></section>
 <section class="content wrap" id="journal"><div class="sectionhead reveal"><div><div class="kicker">05 / FIELD NOTES</div><h2>Ideas worth<br><span>passing on.</span></h2></div><p>Perspectives on creativity, digital craft, and the discipline behind meaningful work.</p></div><div class="notes"><article class="note reveal"><div class="number">CREATIVITY / 01</div><h3>Good ideas are common. Consistent execution is rare.</h3><p>Turning inspiration into meaningful work takes intention and consistency.</p></article><article class="note reveal"><div class="number">DESIGN / 02</div><h3>Your design should speak before you do.</h3><p>Visual clarity helps people understand what makes a brand different.</p></article><article class="note reveal"><div class="number">MINDSET / 03</div><h3>Ambition means little until it becomes action.</h3><p>Progress is built by showing up and moving one step at a time.</p></article></div></section>
 <section class="contact" id="contact"><div class="wrap reveal"><div class="kicker">06 / YOUR MOVE</div><h2>Got a bold idea?<br><span>Let’s give it a pulse.</span></h2><p>Tell us what you’re imagining. Let’s explore what it could become.</p><a class="btn" href="mailto:hello@blazegeeks.com?subject=Let%27s%20build%20something%20bold">Start a conversation ↗</a></div></section>
-</main><footer class="footer wrap"><div class="footerrow"><a class="logo" href="#home"><img class="brand-logo-img" src="/assets/blaze-geeks-logo.png?v=6" data-fallback="https://raw.githubusercontent.com/blazegeek01/blazegeek01.github.io/blazegeeks/assets/blaze-geeks-logo.png?v=6" alt="BLAZE GEEK’s official logo"><span>BLAZE <b>GEEK’S</b></span></a><span>Independent minds. Intentional work. No ordinary ideas.</span><span>© <span id="year"></span> BLAZE GEEK’S</span><a href="#home">BACK TO TOP ↑</a></div><p class="mono">CREATE BOLD. INSPIRE REAL. BLAZE BEYOND.</p></footer>
+</main><footer class="footer wrap"><div class="footerrow"><a class="logo" href="#home"><img class="brand-logo-img" src="/assets/blaze-geeks-logo.png?v=6" data-fallback="https://raw.githubusercontent.com/blazegeek01/blazegeek01.github.io/blazegeeks/assets/blaze-geeks-logo.png?v=6" alt="BLAZE GEEK’s official logo"><span class="brand-wordmark">BLAZE GEEK’S</span></a><span>Independent minds. Intentional work. No ordinary ideas.</span><span>© <span id="year"></span> BLAZE GEEK’S</span><a href="#home">BACK TO TOP ↑</a></div><p class="mono">CREATE BOLD. INSPIRE REAL. BLAZE BEYOND.</p></footer>
 <script>
 document.getElementById('year').textContent=new Date().getFullYear();
 const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
