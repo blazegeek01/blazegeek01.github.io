@@ -274,6 +274,19 @@ a:hover,button:hover,.btn:hover,.pill:hover{filter:brightness(1.12)}
 @media(min-width:761px){.hero{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;overflow:visible!important}.hero .stage.logo-stage{height:540px!important;min-height:500px!important}.hero .logo-plinth{width:min(100%,500px)!important}.founder-simple .founder-portrait{width:min(100%,460px)!important}}
 @media(max-width:760px){.hero .stage.logo-stage{height:390px!important;min-height:390px!important}.hero .logo-plinth{width:min(88%,340px)!important}.founder-simple .founder-portrait-wrap{min-height:360px!important}.founder-simple .founder-portrait{width:min(100%,390px)!important;max-height:500px!important}.pointer-aura{display:none!important}}
 @media(prefers-reduced-motion:reduce){.hero .logo-plinth,.hero .hero-brand-logo,.hero .logo-plinth:before,.hero .logo-plinth:after,.founder-simple .founder-portrait,body:after,.pointer-aura{animation:none!important}.reveal{opacity:1;transform:none}}
+
+/* FINAL LOGO GLOW: match the founder portrait; no white/metallic shine */
+.hero .hero-brand-logo,
+.hero-brand-logo{
+  filter:drop-shadow(0 0 5px #ff9a7166) drop-shadow(0 0 15px #f0443255) drop-shadow(0 25px 28px #000d)!important;
+  animation:logoFounderGlow 3.2s ease-in-out infinite!important;
+}
+@keyframes logoFounderGlow{
+  0%,100%{filter:drop-shadow(0 0 4px #ff9a7166) drop-shadow(0 0 15px #f0443255) drop-shadow(0 25px 28px #000d)}
+  50%{filter:drop-shadow(0 0 8px #ff9a71aa) drop-shadow(0 0 28px #f04432bb) drop-shadow(0 25px 28px #000d)}
+}
+.logo-plinth{animation:logo3DDepth 5.5s ease-in-out infinite!important;transform-style:preserve-3d!important}
+@media(prefers-reduced-motion:reduce){.hero-brand-logo{animation:none!important}}
 </style>
 </head>
 <body>
