@@ -514,34 +514,36 @@ a:hover,button:hover,.btn:hover,.pill:hover{filter:brightness(1.12)}
 </style>
 
 <style id="nav-white-shine-effect">
-/* Work, Services, and Ideas: a clean white shine once every second. */
+/* Strong, unmistakable white pulse every second for Work, Services, and Ideas. */
 header.top nav a[href="#work"],
 header.top nav a[href="#services"],
 header.top nav a[href="#journal"] {
   color: #fff !important;
   -webkit-text-fill-color: #fff !important;
-  animation: navWhiteShine 1s ease-in-out infinite !important;
-  text-decoration-color: #fff;
+  text-shadow: 0 0 2px #fff !important;
+  animation: navWhiteShine 1s steps(1, end) infinite !important;
+  opacity: 1 !important;
+  filter: none;
+  position: relative;
 }
 @keyframes navWhiteShine {
-  0%, 68%, 100% {
-    text-shadow: 0 0 0 rgba(255,255,255,0),
-                 0 0 2px rgba(255,255,255,.18);
-    filter: brightness(1);
+  0%, 49% {
+    color: #fff !important;
+    -webkit-text-fill-color: #fff !important;
+    text-shadow: 0 0 2px #fff, 0 0 5px rgba(255,255,255,.55), 0 0 9px rgba(255,255,255,.3) !important;
+    filter: brightness(1.05);
   }
-  18%, 38% {
-    text-shadow: 0 0 5px rgba(255,255,255,.95),
-                 0 0 12px rgba(255,255,255,.7),
-                 0 0 22px rgba(255,255,255,.42);
-    filter: brightness(1.45);
+  50%, 79% {
+    color: #fff !important;
+    -webkit-text-fill-color: #fff !important;
+    text-shadow: 0 0 4px #fff, 0 0 10px #fff, 0 0 18px rgba(255,255,255,.95), 0 0 30px rgba(255,255,255,.75) !important;
+    filter: brightness(1.9);
   }
-}
-@media (prefers-reduced-motion: reduce) {
-  header.top nav a[href="#work"],
-  header.top nav a[href="#services"],
-  header.top nav a[href="#journal"] {
-    animation: none !important;
-    text-shadow: 0 0 7px rgba(255,255,255,.65);
+  80%, 100% {
+    color: #fff !important;
+    -webkit-text-fill-color: #fff !important;
+    text-shadow: 0 0 2px #fff, 0 0 5px rgba(255,255,255,.55), 0 0 9px rgba(255,255,255,.3) !important;
+    filter: brightness(1.05);
   }
 }
 </style>
