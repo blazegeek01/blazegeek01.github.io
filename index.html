@@ -295,11 +295,13 @@ document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
 <script>
 (function(){
   document.querySelectorAll('img[data-fallback]').forEach(function(img){
-    img.addEventListener('error',function(){
+    function useFallback(){
       if(img.dataset.fallbackTried==='1') return;
       img.dataset.fallbackTried='1';
       img.src=img.dataset.fallback;
-    });
+    }
+    img.addEventListener('error',useFallback);
+    if(img.complete && img.naturalWidth===0) useFallback();
   });
 })();
 </script>
