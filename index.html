@@ -124,6 +124,101 @@ body.flame-contact:before{opacity:1;filter:blur(2px)}
 @media(max-width:760px){.stage.logo-stage{height:410px;margin-top:10px;width:100%}.logo-plinth{width:min(90%,360px)}.founder-simple{padding:48px 5%}.founder-simple .founder-portrait-wrap{padding:15px 12px 10px}.founder-simple .founder-portrait{width:min(100%,390px);max-height:500px}.founder-simple .founder-name{font-size:clamp(22px,6vw,30px)}}
 @media(prefers-reduced-motion:reduce){.logo-plinth,.hero-brand-logo,.logo-plinth:before,.logo-plinth:after,.founder-simple .founder-portrait{animation:none!important}}
 
+
+/* COSMIC LOGO DISPLAY: full 360-degree rotation with a cinematic universe backdrop */
+.stage.logo-stage{
+  position:relative!important;isolation:isolate;overflow:hidden!important;
+  background:
+    radial-gradient(ellipse at 50% 50%,#28112b66 0%,#0b0b16 43%,#07080d 76%,transparent 100%);
+}
+.stage.logo-stage:before{
+  display:block!important;content:""!important;position:absolute;inset:0;z-index:0;
+  border:0;border-radius:0;pointer-events:none;transform:none!important;animation:cosmosDrift 28s linear infinite;
+  background:
+    radial-gradient(1px 1px at 8% 18%,#fff 98%,transparent),
+    radial-gradient(1.5px 1.5px at 17% 73%,#cfe6ff 98%,transparent),
+    radial-gradient(1px 1px at 25% 34%,#fff 98%,transparent),
+    radial-gradient(2px 2px at 33% 82%,#ffd9bf 98%,transparent),
+    radial-gradient(1px 1px at 42% 15%,#fff 98%,transparent),
+    radial-gradient(1.5px 1.5px at 58% 24%,#d8d7ff 98%,transparent),
+    radial-gradient(1px 1px at 66% 76%,#fff 98%,transparent),
+    radial-gradient(2px 2px at 76% 35%,#ffd7ba 98%,transparent),
+    radial-gradient(1px 1px at 88% 64%,#fff 98%,transparent),
+    radial-gradient(1px 1px at 94% 23%,#d7e7ff 98%,transparent),
+    radial-gradient(ellipse at 50% 48%,#ff4a2820 0%,#6d36a322 24%,transparent 61%),
+    radial-gradient(ellipse at 50% 53%,transparent 30%,#543c8b12 43%,transparent 68%);
+  background-size:100% 100%;opacity:.95;
+}
+.stage.logo-stage:after{
+  display:block!important;content:""!important;position:absolute;z-index:0;left:10%;right:10%;top:12%;height:76%;
+  border:1px solid #b7a7ff2c;border-radius:50%;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 50%,transparent 53%,#c4b8ff0b 54%,transparent 60%);
+  box-shadow:0 0 32px #8a5bff14,inset 0 0 24px #ff57220b;
+  transform:rotateX(68deg) rotateZ(-18deg);animation:cosmicOrbit 24s linear infinite;
+}
+.logo-plinth{
+  z-index:2!important;animation:logoSpin360 18s cubic-bezier(.45,.02,.55,.98) infinite!important;
+  transform-style:preserve-3d;backface-visibility:visible;
+}
+.logo-plinth:before{
+  inset:10%!important;background:radial-gradient(ellipse at 50% 50%,#ff632d66 0%,#a94cff30 35%,#ff3a2020 52%,transparent 72%)!important;
+  filter:blur(30px)!important;animation:universeNebula 4.5s ease-in-out infinite alternate!important;
+}
+.logo-plinth:after{
+  inset:-2%!important;border-radius:50%!important;
+  background:
+    radial-gradient(1.5px 1.5px at 15% 25%,#fff 98%,transparent),
+    radial-gradient(2px 2px at 79% 22%,#fff1cf 98%,transparent),
+    radial-gradient(1px 1px at 83% 73%,#fff 98%,transparent),
+    radial-gradient(1.5px 1.5px at 20% 78%,#c7d8ff 98%,transparent),
+    radial-gradient(ellipse at 50% 50%,transparent 57%,#ff67212a 58%,transparent 66%)!important;
+  filter:blur(1px)!important;animation:cosmicParticles 8s linear infinite!important;
+}
+.hero-brand-logo{
+  transform-style:preserve-3d;backface-visibility:visible;
+  filter:drop-shadow(0 0 3px #fff) drop-shadow(0 0 9px #fff0cf) drop-shadow(0 0 19px #ff873b) drop-shadow(0 0 34px #ff3d16cc)!important;
+  animation:metallicLogoShine 2.8s ease-in-out infinite!important;
+}
+@keyframes logoSpin360{
+  0%{transform:perspective(1200px) rotateY(0deg) rotateX(2deg) translateY(0)}
+  25%{transform:perspective(1200px) rotateY(90deg) rotateX(1deg) translateY(-3px)}
+  50%{transform:perspective(1200px) rotateY(180deg) rotateX(-2deg) translateY(0)}
+  75%{transform:perspective(1200px) rotateY(270deg) rotateX(-1deg) translateY(3px)}
+  100%{transform:perspective(1200px) rotateY(360deg) rotateX(2deg) translateY(0)}
+}
+@keyframes cosmicOrbit{from{transform:rotateX(68deg) rotateZ(-18deg)}to{transform:rotateX(68deg) rotateZ(342deg)}}
+@keyframes cosmosDrift{from{background-position:0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0}to{background-position:35px -25px,-22px 32px,28px 14px,-18px -28px,15px 34px,-32px -16px,24px 25px,-14px 18px,30px -32px,-26px 20px,0 0,0 0}}
+@keyframes universeNebula{from{opacity:.55;transform:translateZ(-18px) scale(.9)}to{opacity:1;transform:translateZ(-18px) scale(1.1)}}
+@keyframes cosmicParticles{from{transform:rotate(0deg) scale(.98);opacity:.65}50%{opacity:1}to{transform:rotate(360deg) scale(1.03);opacity:.65}}
+@keyframes metallicLogoShine{
+  0%,100%{filter:drop-shadow(0 0 3px #fff) drop-shadow(0 0 9px #fff0cf) drop-shadow(0 0 19px #ff873b) drop-shadow(0 0 34px #ff3d16cc)}
+  50%{filter:drop-shadow(0 0 7px #fff) drop-shadow(0 0 16px #fff) drop-shadow(0 0 27px #ffbc68) drop-shadow(0 0 45px #ff4b25)}
+}
+/* Founder label: remove the decorative FOUNDER / CREATIVE TECHNOLOGY overlay */
+.founder-art:after{content:none!important;display:none!important}
+.founder-simple .founder-name{
+  color:#fff!important;
+  background:linear-gradient(110deg,#777 0%,#fff 18%,#c6c6c6 31%,#fff 45%,#8f8f8f 53%,#fff 67%,#b7b7b7 79%,#fff 91%,#777 100%);
+  background-size:220% auto;background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  text-shadow:0 0 12px #ffffff2e,0 0 24px #ffffff16!important;
+  animation:metallicTextShine 3.2s linear infinite;
+}
+.founder-simple .founder-role{
+  color:#fff!important;
+  background:linear-gradient(110deg,#858585 0%,#fff 22%,#c9c9c9 38%,#fff 52%,#8a8a8a 67%,#fff 82%,#9d9d9d 100%);
+  background-size:220% auto;background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  text-shadow:0 0 12px #ffffff2e!important;
+  animation:metallicTextShine 2.8s linear infinite;
+}
+@keyframes metallicTextShine{from{background-position:100% center}to{background-position:-120% center}}
+@media(max-width:760px){
+ .stage.logo-stage{overflow:hidden!important}
+ .logo-plinth{width:min(86%,360px)}
+}
+@media(prefers-reduced-motion:reduce){
+ .logo-plinth,.logo-plinth:before,.logo-plinth:after,.stage.logo-stage:before,.stage.logo-stage:after,.hero-brand-logo,.founder-simple .founder-name,.founder-simple .founder-role{animation:none!important}
+}
+
 </style>
 </head>
 <body>
