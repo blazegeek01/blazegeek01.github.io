@@ -997,6 +997,60 @@ body::after {
 @media(prefers-reduced-motion:reduce) {
   body::before, body::after { animation:none!important; }
 }
+
+/* Premium responsive social links in the footer */
+.footer-socials {
+  position:relative; isolation:isolate; overflow:hidden;
+  display:grid; grid-template-columns:minmax(190px,.8fr) minmax(0,1.7fr);
+  align-items:center; gap:clamp(22px,4vw,54px);
+  margin:34px 0 26px; padding:clamp(24px,4vw,38px);
+  border:1px solid rgba(255,112,61,.22); border-radius:22px;
+  background:linear-gradient(125deg,rgba(255,67,29,.075),rgba(18,15,17,.92) 48%,rgba(255,128,44,.045));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035),0 18px 48px rgba(0,0,0,.18);
+}
+.footer-socials:before {
+  content:"";position:absolute;z-index:-1;inset:auto -8% -85px;height:145px;pointer-events:none;
+  background:radial-gradient(ellipse at 18% 100%,rgba(255,65,24,.24),transparent 58%),radial-gradient(ellipse at 78% 100%,rgba(255,144,47,.18),transparent 55%);
+  filter:blur(18px);opacity:.9;
+}
+.footer-social-heading {min-width:0}
+.footer-social-kicker {font:700 10px/1.5 var(--mono,monospace);letter-spacing:.22em;color:#ff9b67}
+.footer-social-heading h2 {margin:7px 0 6px;font:800 clamp(27px,3vw,38px)/1.08 var(--display,Inter,sans-serif);letter-spacing:-.035em;color:#fff4ee}
+.footer-social-heading h2 span {color:#ff7544;text-shadow:0 0 22px rgba(255,83,38,.22)}
+.footer-social-heading p {margin:0;color:rgba(255,239,232,.64);font-size:13px;line-height:1.7}
+.social-links {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.social-link {
+  position:relative;display:flex;align-items:center;gap:12px;min-width:0;min-height:66px;
+  padding:12px 14px;border:1px solid rgba(255,255,255,.09);border-radius:15px;
+  background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.015));
+  color:#f8eee9!important;text-decoration:none!important;overflow:hidden;
+  transition:transform .24s ease,border-color .24s ease,box-shadow .24s ease,background .24s ease;
+}
+.social-link:before {content:"";position:absolute;inset:0;pointer-events:none;opacity:0;background:radial-gradient(ellipse at 15% 110%,rgba(255,91,36,.22),transparent 65%);transition:opacity .24s ease}
+.social-icon {display:grid;place-items:center;flex:0 0 38px;width:38px;height:38px;border-radius:12px;background:rgba(255,255,255,.065);color:#fff;transition:transform .24s ease,filter .24s ease}
+.social-icon svg {display:block;width:21px;height:21px}
+.social-label {position:relative;z-index:1;display:flex;flex-direction:column;gap:2px;min-width:0;font-size:13px;font-weight:750;letter-spacing:.01em}
+.social-label small {font-size:9px;font-weight:500;color:rgba(255,239,232,.5);letter-spacing:0}
+.social-arrow {margin-left:auto;align-self:flex-start;color:rgba(255,239,232,.42);font-size:15px;transition:transform .24s ease,color .24s ease}
+.social-facebook .social-icon {color:#72a7ff}
+.social-instagram .social-icon {color:#ff9b78}
+.social-x .social-icon {color:#fff}
+.social-linkedin .social-icon {color:#76baff}
+.social-link:hover,.social-link:focus-visible {transform:translateY(-4px);border-color:rgba(255,112,61,.55);background:linear-gradient(145deg,rgba(255,83,38,.105),rgba(255,255,255,.025));box-shadow:0 10px 28px rgba(0,0,0,.22),0 0 22px rgba(255,74,33,.13);outline:none}
+.social-link:hover:before,.social-link:focus-visible:before {opacity:1}
+.social-link:hover .social-icon,.social-link:focus-visible .social-icon {transform:scale(1.07);filter:drop-shadow(0 0 8px rgba(255,95,47,.3))}
+.social-link:hover .social-arrow,.social-link:focus-visible .social-arrow {color:#ff9b67;transform:translate(2px,-2px)}
+@media(max-width:760px) {
+  .footer-socials {grid-template-columns:1fr;gap:20px;margin:28px 0 22px;padding:22px 17px;border-radius:18px}
+  .footer-social-heading h2 {font-size:30px}
+  .social-links {gap:9px}
+  .social-link {gap:9px;min-height:61px;padding:10px}
+  .social-icon {flex-basis:34px;width:34px;height:34px;border-radius:10px}
+  .social-icon svg {width:19px;height:19px}
+  .social-label {font-size:12px}
+}
+@media(max-width:370px) {.social-links{grid-template-columns:1fr}.social-link{min-height:58px}}
+@media(prefers-reduced-motion:reduce) {.social-link,.social-icon,.social-arrow,.social-link:before{transition:none!important}.social-link:hover{transform:none}}
 </style>
 
 
@@ -1027,7 +1081,32 @@ body::after {
 <section class="founder founder-simple" id="founder"><div class="founder-art founder-portrait-wrap"><img class="founder-portrait" src="/assets/founder-arman.png?v=6" data-fallback="https://raw.githubusercontent.com/blazegeek01/blazegeek01.github.io/blazegeeks/assets/founder-arman.png?v=6" alt="Founder and CEO of BLAZE GEEK’s" width="900" height="1100" loading="eager" fetchpriority="high" decoding="async"><div class="portrait-caption"><span class="founder-name">Jahid Hosen Arman</span><span class="founder-role">Founder and CEO</span></div></div></section>
 <section class="content wrap" id="journal"><div class="sectionhead reveal"><div><div class="kicker">05 / FIELD NOTES</div><h2>Ideas worth<br><span>passing on.</span></h2></div><p>Perspectives on creativity, digital craft, and the discipline behind meaningful work.</p></div><div class="notes"><article class="note reveal"><div class="number">CREATIVITY / 01</div><h3>Good ideas are common. Consistent execution is rare.</h3><p>Turning inspiration into meaningful work takes intention and consistency.</p></article><article class="note reveal"><div class="number">DESIGN / 02</div><h3>Your design should speak before you do.</h3><p>Visual clarity helps people understand what makes a brand different.</p></article><article class="note reveal"><div class="number">MINDSET / 03</div><h3>Ambition means little until it becomes action.</h3><p>Progress is built by showing up and moving one step at a time.</p></article></div></section>
 <section class="contact" id="contact"><div class="wrap reveal"><div class="kicker">06 / YOUR MOVE</div><h2>Got a bold idea?<br><span>Let’s give it a pulse.</span></h2><p>Tell us what you’re imagining. Let’s explore what it could become.</p><a class="btn" href="mailto:hello@blazegeeks.com?subject=Let%27s%20build%20something%20bold">Start a conversation ↗</a></div></section>
-</main><footer class="footer wrap"><div class="footerrow"><a class="logo" href="#home"><img class="brand-logo-img" src="/assets/blaze-geeks-logo.png?v=6" data-fallback="https://raw.githubusercontent.com/blazegeek01/blazegeek01.github.io/blazegeeks/assets/blaze-geeks-logo.png?v=6" alt="BLAZE GEEK’s official logo"><span class="brand-wordmark" aria-label="BLAZE GEEK’S"><span class="brand-word-first">BLAZE</span><span class="brand-word-second"> GEEK’S</span></span></a><span>Independent minds. Intentional work. No ordinary ideas.</span><span>© <span id="year"></span> BLAZE GEEK’S</span><a href="#home">BACK TO TOP ↑</a></div><p class="mono">CREATE BOLD. INSPIRE REAL. BLAZE BEYOND.</p></footer>
+</main><footer class="footer wrap"><div class="footerrow"><a class="logo" href="#home"><img class="brand-logo-img" src="/assets/blaze-geeks-logo.png?v=6" data-fallback="https://raw.githubusercontent.com/blazegeek01/blazegeek01.github.io/blazegeeks/assets/blaze-geeks-logo.png?v=6" alt="BLAZE GEEK’s official logo"><span class="brand-wordmark" aria-label="BLAZE GEEK’S"><span class="brand-word-first">BLAZE</span><span class="brand-word-second"> GEEK’S</span></span></a><span>Independent minds. Intentional work. No ordinary ideas.</span><span>© <span id="year"></span> BLAZE GEEK’S</span><a href="#home">BACK TO TOP ↑</a></div><section class="footer-socials" id="footer-socials" aria-label="Follow BLAZE GEEK’s on social media">
+  <div class="footer-social-heading">
+    <span class="footer-social-kicker">STAY CONNECTED</span>
+    <h2>Follow <span>Us</span></h2>
+    <p>Follow the spark. See what we create next.</p>
+  </div>
+  <nav class="social-links" aria-label="BLAZE GEEK’s social media links">
+    <a class="social-link social-facebook" href="https://www.facebook.com/jahidhosenarman01" target="_blank" rel="noopener noreferrer" aria-label="Follow BLAZE GEEK’s on Facebook">
+      <span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M13.6 21v-8.2h2.8l.42-3.2H13.6V7.56c0-.93.26-1.56 1.6-1.56h1.71V3.14A22.2 22.2 0 0 0 14.42 3c-2.47 0-4.16 1.5-4.16 4.26V9.6H7.47v3.2h2.79V21h3.34Z" fill="currentColor"/></svg></span>
+      <span class="social-label">Facebook</span><span class="social-arrow" aria-hidden="true">↗</span>
+    </a>
+    <a class="social-link social-instagram" href="https://www.instagram.com/jahidhosenarman01" target="_blank" rel="noopener noreferrer" aria-label="Follow BLAZE GEEK’s on Instagram">
+      <span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><rect x="3.25" y="3.25" width="17.5" height="17.5" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.7" cy="6.6" r="1.2" fill="currentColor"/></svg></span>
+      <span class="social-label">Instagram</span><span class="social-arrow" aria-hidden="true">↗</span>
+    </a>
+    <a class="social-link social-x" href="https://x.com/blaze_geekaru" target="_blank" rel="noopener noreferrer" aria-label="Follow BLAZE GEEK’s on X, formerly Twitter">
+      <span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M18.9 3H22l-6.78 7.75L23.2 21h-6.25l-4.9-6.42L6.43 21H3.3l7.25-8.29L2.8 3h6.4l4.43 5.86L18.9 3Zm-1.1 16h1.73L8.27 4.9H6.42L17.8 19Z" fill="currentColor"/></svg></span>
+      <span class="social-label">X <small>formerly Twitter</small></span><span class="social-arrow" aria-hidden="true">↗</span>
+    </a>
+    <a class="social-link social-linkedin" href="https://www.linkedin.com/in/jahid-hosen-arman-419628341" target="_blank" rel="noopener noreferrer" aria-label="Connect with BLAZE GEEK’s on LinkedIn">
+      <span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M5.2 8.5H2V22h3.2V8.5ZM3.6 2A1.86 1.86 0 1 0 3.6 5.72 1.86 1.86 0 0 0 3.6 2ZM22 13.75c0-4.06-2.17-5.95-5.07-5.95a4.38 4.38 0 0 0-3.95 2.17V8.5H9.8V22H13v-7.05c0-1.86.35-3.66 2.66-3.66 2.28 0 2.3 2.12 2.3 3.78V22H22v-8.25Z" fill="currentColor"/></svg></span>
+      <span class="social-label">LinkedIn</span><span class="social-arrow" aria-hidden="true">↗</span>
+    </a>
+  </nav>
+</section>
+<p class="mono">CREATE BOLD. INSPIRE REAL. BLAZE BEYOND.</p></footer>
 <script>
 document.getElementById('year').textContent=new Date().getFullYear();
 const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
