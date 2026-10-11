@@ -1160,10 +1160,72 @@ header.top .brand-logo-img{flex:0 0 auto}
 }
 </style>
 
+
+<style id="blaze-header-hamburger-menu">
+.header-menu-wrap{position:relative;z-index:5;flex:0 0 auto;margin-left:clamp(8px,1vw,16px)}
+.header-menu-toggle{
+  width:48px;height:48px;display:grid;place-items:center;position:relative;isolation:isolate;
+  border:1px solid rgba(255,255,255,.2);border-radius:15px;cursor:pointer;color:#fff;
+  background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.035) 52%,rgba(255,91,48,.09));
+  -webkit-backdrop-filter:blur(18px) saturate(160%);backdrop-filter:blur(18px) saturate(160%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 8px 22px rgba(0,0,0,.2);
+  transition:transform .2s ease,background .2s ease,border-color .2s ease;
+}
+.header-menu-toggle::before{
+  content:"";position:absolute;inset:-1px;padding:1px;border-radius:inherit;pointer-events:none;z-index:-1;
+  background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,.12) 30%,#fff 45%,#ff6037 51%,rgba(255,152,95,.18) 58%,transparent 76%);
+  background-size:260% 100%;animation:blazeHeaderEdgeSweep 4s linear infinite;
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;
+}
+.header-menu-toggle:hover,.header-menu-toggle:focus-visible,.header-menu-toggle[aria-expanded="true"]{
+  transform:translateY(-1px);border-color:rgba(255,144,100,.42);background:linear-gradient(135deg,rgba(255,255,255,.16),rgba(255,255,255,.055) 52%,rgba(255,91,48,.15));outline:none;
+}
+.menu-lines{display:flex;flex-direction:column;gap:5px;width:19px}
+.menu-lines i{display:block;width:19px;height:1.5px;border-radius:3px;background:linear-gradient(90deg,#fff,rgba(255,255,255,.72));box-shadow:0 0 8px rgba(255,255,255,.12);transition:transform .22s ease,opacity .22s ease,width .22s ease}
+.menu-lines i:nth-child(2){width:14px;margin-left:auto}
+.header-menu-toggle[aria-expanded="true"] .menu-lines i:first-child{transform:translateY(6.5px) rotate(45deg)}
+.header-menu-toggle[aria-expanded="true"] .menu-lines i:nth-child(2){opacity:0;width:0}
+.header-menu-toggle[aria-expanded="true"] .menu-lines i:last-child{transform:translateY(-6.5px) rotate(-45deg)}
+.header-menu-panel{
+  position:absolute;right:0;top:calc(100% + 13px);width:min(300px,calc(100vw - 28px));padding:13px;
+  border:1px solid rgba(255,255,255,.17);border-radius:20px;
+  background:linear-gradient(145deg,rgba(24,23,28,.91),rgba(9,9,13,.88) 65%,rgba(55,20,17,.86));
+  -webkit-backdrop-filter:blur(28px) saturate(175%);backdrop-filter:blur(28px) saturate(175%);
+  box-shadow:0 24px 70px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.12);
+  transform-origin:top right;animation:headerMenuReveal .22s ease both;
+}
+.header-menu-panel[hidden]{display:none}
+.header-menu-panel::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;background:linear-gradient(120deg,rgba(255,255,255,.28),transparent 30%,rgba(255,90,48,.22) 70%,transparent);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.header-menu-top{display:flex;align-items:center;justify-content:space-between;padding:8px 10px 13px;color:rgba(255,244,238,.53);font:700 9px/1.4 var(--mono,monospace);letter-spacing:.2em}
+.header-menu-dot{width:6px;height:6px;border-radius:50%;background:#ff7549;box-shadow:0 0 12px #ff7549}
+.header-menu-panel>a{position:relative;display:flex;align-items:center;gap:12px;min-height:43px;padding:0 11px;border-radius:11px;color:rgba(255,247,243,.86);text-decoration:none;font-size:12px;font-weight:650;transition:background .18s ease,color .18s ease,transform .18s ease}
+.header-menu-panel>a::before{content:"";position:absolute;left:0;top:8px;bottom:8px;width:2px;border-radius:3px;background:linear-gradient(#fff0b5,#ff572e);opacity:0;transition:opacity .18s ease}
+.header-menu-panel>a:hover,.header-menu-panel>a:focus-visible{background:linear-gradient(90deg,rgba(255,255,255,.07),rgba(255,92,49,.06));color:#fff;transform:translateX(2px);outline:none}
+.header-menu-panel>a:hover::before,.header-menu-panel>a:focus-visible::before{opacity:1}
+.menu-item-icon{display:grid;place-items:center;width:27px;height:27px;border:1px solid rgba(255,255,255,.11);border-radius:9px;background:rgba(255,255,255,.035);color:#ffb08a;font-size:14px}
+.menu-item-arrow{margin-left:auto;color:rgba(255,240,233,.35);font-size:12px}
+@keyframes headerMenuReveal{from{opacity:0;transform:translateY(-5px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(max-width:760px){.header-menu-wrap{margin-left:4px}.header-menu-toggle{width:39px;height:39px;border-radius:12px}.header-menu-panel{top:calc(100% + 10px)}}
+@media(prefers-reduced-motion:reduce){.header-menu-toggle::before{animation:none!important}.header-menu-toggle,.menu-lines i,.header-menu-panel>a{transition:none!important}.header-menu-panel{animation:none!important}}
+</style>
+
 </head>
 <body>
 <div class="pointer-aura" aria-hidden="true"></div>
-<header class="top"><a class="logo" href="/" aria-label="Refresh BLAZE GEEK’s website" title="Click to refresh the website"><img class="brand-logo-img" src="/assets/blaze-geeks-logo.png?v=6" data-fallback="https://raw.githubusercontent.com/blazegeek01/blazegeek01.github.io/blazegeeks/assets/blaze-geeks-logo.png?v=6" alt="BLAZE GEEK’s official logo" width="42" height="42" loading="eager" decoding="async"><span class="brand-wordmark" aria-label="BLAZE GEEK’S"><span class="brand-word-first">BLAZE</span><span class="brand-word-second"> GEEK’S</span></span></a><nav aria-label="Main navigation"><a href="#work"><span class="nav-shine-label" data-label="Work">Work</span></a><a href="#services"><span class="nav-shine-label" data-label="Services">Services</span></a><a href="#about">About</a><a href="#journal"><span class="nav-shine-label" data-label="Ideas">Ideas</span></a><a class="pill" href="#contact">Let’s talk ↗</a></nav></header>
+<header class="top"><a class="logo" href="/" aria-label="Refresh BLAZE GEEK’s website" title="Click to refresh the website"><img class="brand-logo-img" src="/assets/blaze-geeks-logo.png?v=6" data-fallback="https://raw.githubusercontent.com/blazegeek01/blazegeek01.github.io/blazegeeks/assets/blaze-geeks-logo.png?v=6" alt="BLAZE GEEK’s official logo" width="42" height="42" loading="eager" decoding="async"><span class="brand-wordmark" aria-label="BLAZE GEEK’S"><span class="brand-word-first">BLAZE</span><span class="brand-word-second"> GEEK’S</span></span></a><nav aria-label="Main navigation"><a href="#work"><span class="nav-shine-label" data-label="Work">Work</span></a><a href="#services"><span class="nav-shine-label" data-label="Services">Services</span></a><a href="#about">About</a><a href="#journal"><span class="nav-shine-label" data-label="Ideas">Ideas</span></a><a class="pill" href="#contact">Let’s talk ↗</a></nav><div class="header-menu-wrap">
+<button class="header-menu-toggle" type="button" aria-label="Open website menu" aria-expanded="false" aria-controls="header-menu-panel">
+  <span class="menu-lines" aria-hidden="true"><i></i><i></i><i></i></span>
+</button>
+<div class="header-menu-panel" id="header-menu-panel" hidden>
+  <div class="header-menu-top"><span>QUICK MENU</span><span class="header-menu-dot" aria-hidden="true"></span></div>
+  <a href="#founder"><span class="menu-item-icon" aria-hidden="true">◎</span><span>Account</span><span class="menu-item-arrow" aria-hidden="true">↗</span></a>
+  <a href="#services"><span class="menu-item-icon" aria-hidden="true">✳</span><span>Services</span><span class="menu-item-arrow" aria-hidden="true">↗</span></a>
+  <a href="#about"><span class="menu-item-icon" aria-hidden="true">◈</span><span>About</span><span class="menu-item-arrow" aria-hidden="true">↗</span></a>
+  <a href="#journal"><span class="menu-item-icon" aria-hidden="true">✧</span><span>Ideas</span><span class="menu-item-arrow" aria-hidden="true">↗</span></a>
+  <a href="#contact"><span class="menu-item-icon" aria-hidden="true">↗</span><span>Let’s talk</span><span class="menu-item-arrow" aria-hidden="true">↗</span></a>
+  <a href="#settings" data-menu-settings><span class="menu-item-icon" aria-hidden="true">⚙</span><span>Settings</span><span class="menu-item-arrow" aria-hidden="true">↗</span></a>
+</div>
+</div></header>
 <main>
 <div class="wrap"><section class="hero" id="home"><div class="hero-copy reveal"><div class="eyebrow">✳ &nbsp; CREATIVE TECHNOLOGY · DESIGN · PRODUCTION</div><h1><em>BLAZE</em><br>GEEK’S <span class="flame">🔥</span></h1><p class="lead">Creative digital brand &amp; production house where tech, graphic design, motivation &amp; authentic enthusiasm meet. We turn ideas into visual experiences with purpose.</p><p class="lead hero-tagline">Create Bold. Inspire Real. Blaze Beyond.</p><div class="actions"><a class="btn hot" href="#work">Explore our universe ↘</a><a class="quiet" href="#founder">Meet the founder ↗</a></div><p class="mono">INDEPENDENT BY NATURE · BUILT TO GO BEYOND</p></div><div class="stage logo-stage" id="stage" aria-label="BLAZE GEEK’s official logo in a fiery 3D-style showcase"><div class="logo-plinth"><img class="hero-brand-logo" src="/assets/blaze-geeks-logo.png?v=6" data-fallback="https://raw.githubusercontent.com/blazegeek01/blazegeek01.github.io/blazegeeks/assets/blaze-geeks-logo.png?v=6" alt="Official BLAZE GEEK’s logo" width="640" height="640" loading="eager" fetchpriority="high" decoding="async"></div></div></section></div>
 <div class="ticker">CREATE BOLD ✳ INSPIRE REAL ✳ BLAZE BEYOND ✳</div>
@@ -1244,6 +1306,24 @@ document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
     window.addEventListener('pointerleave',function(){aura.style.opacity='0'},{passive:true});
     window.addEventListener('pointerenter',function(){aura.style.opacity='.85'},{passive:true});
   }
+})();
+</script>
+
+
+<script id="blaze-header-menu-behavior">
+(function(){
+  var wrap=document.querySelector('.header-menu-wrap');
+  if(!wrap)return;
+  var toggle=wrap.querySelector('.header-menu-toggle');
+  var panel=wrap.querySelector('.header-menu-panel');
+  function closeMenu(){panel.hidden=true;toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Open website menu');}
+  function openMenu(){panel.hidden=false;toggle.setAttribute('aria-expanded','true');toggle.setAttribute('aria-label','Close website menu');}
+  toggle.addEventListener('click',function(){panel.hidden?openMenu():closeMenu();});
+  panel.querySelectorAll('a:not([data-menu-settings])').forEach(function(link){link.addEventListener('click',closeMenu);});
+  var settings=panel.querySelector('[data-menu-settings]');
+  if(settings){settings.addEventListener('click',function(event){event.preventDefault();settings.innerHTML='<span class="menu-item-icon" aria-hidden="true">⚙</span><span>Settings · Coming soon</span><span class="menu-item-arrow" aria-hidden="true">•</span>';settings.setAttribute('aria-label','Website settings coming soon');});}
+  document.addEventListener('click',function(event){if(!wrap.contains(event.target))closeMenu();});
+  document.addEventListener('keydown',function(event){if(event.key==='Escape'){closeMenu();toggle.focus();}});
 })();
 </script>
 
