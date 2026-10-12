@@ -1406,6 +1406,119 @@ body>main,body>footer{position:relative;z-index:1}
 body>main,body>footer{position:relative;z-index:1}
 @media(max-width:760px){#founder.founder-simple{padding:54px 18px!important}#founder .founder-portrait-wrap{min-height:300px!important}#founder img.founder-portrait{width:min(78vw,270px)!important;height:min(78vw,270px)!important}}
 </style>
+
+<style id="blaze-header-oil-finish">
+/* Dense, high-viscosity liquid-oil finish. HEADER AND ITS CONTROLS ONLY.
+   Opaque oil-black surfaces, molten red/amber currents, no frosted glass or backdrop blur. */
+header.top{
+  background:
+    radial-gradient(ellipse at 12% -35%,rgba(255,91,38,.42),transparent 43%),
+    radial-gradient(ellipse at 88% 130%,rgba(153,24,13,.52),transparent 48%),
+    linear-gradient(118deg,#080809 0%,#21100e 20%,#08090b 43%,#35110c 66%,#0a090b 88%,#1b0c0a 100%)!important;
+  background-size:180% 180%,180% 180%,240% 240%!important;
+  animation:headerOilDrift 13s ease-in-out infinite alternate!important;
+  -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+  border:1px solid rgba(255,104,62,.62)!important;
+  border-top-color:rgba(255,197,150,.62)!important;
+  border-radius:22px!important;
+  box-shadow:inset 0 2px 0 rgba(255,238,217,.13),inset 0 -7px 18px rgba(0,0,0,.72),inset 0 0 26px rgba(255,70,24,.12),0 16px 42px rgba(0,0,0,.52),0 0 18px rgba(255,62,22,.08)!important;
+  isolation:isolate;overflow:visible;
+}
+header.top::before{
+  content:""!important;position:absolute!important;inset:1px!important;padding:0!important;border-radius:inherit!important;pointer-events:none!important;z-index:0!important;
+  background:
+    linear-gradient(112deg,transparent 0%,rgba(255,205,160,0) 22%,rgba(255,190,143,.22) 29%,rgba(255,97,48,.06) 36%,transparent 43%,rgba(255,74,31,.26) 60%,rgba(255,179,115,.08) 67%,transparent 76%),
+    radial-gradient(ellipse at 18% 0%,rgba(255,233,207,.16),transparent 32%),
+    radial-gradient(ellipse at 78% 110%,rgba(255,55,20,.2),transparent 44%)!important;
+  background-size:240% 220%,100% 100%,100% 100%!important;
+  animation:headerOilCurrent 8s cubic-bezier(.45,.05,.35,.95) infinite!important;
+  -webkit-mask:none!important;mask:none!important;
+  opacity:.95!important;
+}
+header.top::after{
+  content:""!important;position:absolute!important;inset:2px!important;border-radius:19px!important;pointer-events:none!important;z-index:0!important;
+  background:linear-gradient(180deg,rgba(255,255,255,.045),transparent 22%,rgba(0,0,0,.16) 72%,rgba(255,79,38,.07))!important;
+  box-shadow:inset 0 1px 0 rgba(255,240,223,.1),inset 0 -1px 0 rgba(255,88,45,.14)!important;
+  animation:none!important;
+}
+header.top>.logo,header.top>nav,header.top>.header-menu-wrap{position:relative!important;z-index:2!important}
+header.top .logo{
+  background:linear-gradient(135deg,#21100d 0%,#09090b 42%,#2b100c 76%,#100b0b 100%)!important;
+  border:1px solid rgba(255,121,72,.3)!important;
+  box-shadow:inset 0 1px 0 rgba(255,219,184,.13),inset 0 -5px 12px rgba(0,0,0,.5),0 4px 14px rgba(0,0,0,.22)!important;
+  overflow:hidden;
+}
+header.top .logo::before,header.top nav>a::before{
+  content:""!important;inset:1px!important;padding:0!important;border-radius:inherit!important;z-index:-1!important;
+  background:linear-gradient(115deg,transparent 0%,rgba(255,177,125,0) 28%,rgba(255,187,137,.24) 35%,rgba(255,92,47,.1) 43%,transparent 52%,rgba(255,68,29,.24) 68%,transparent 82%)!important;
+  background-size:230% 100%!important;animation:headerOilCurrent 7s ease-in-out infinite!important;
+  -webkit-mask:none!important;mask:none!important;opacity:.9!important;
+}
+header.top nav>a{
+  background:linear-gradient(145deg,#1a100f,#09090b 52%,#20100d)!important;
+  border:1px solid rgba(255,112,67,.26)!important;
+  box-shadow:inset 0 1px 0 rgba(255,225,197,.09),inset 0 -4px 10px rgba(0,0,0,.55),0 3px 10px rgba(0,0,0,.18)!important;
+  color:rgba(255,245,237,.9)!important;
+}
+header.top nav>a:hover,header.top nav>a:focus-visible{
+  background:linear-gradient(120deg,#32140e,#100a09 48%,#43170e)!important;
+  border-color:rgba(255,155,104,.6)!important;
+  box-shadow:inset 0 1px 0 rgba(255,236,214,.16),inset 0 -4px 12px rgba(0,0,0,.55),0 0 14px rgba(255,70,27,.13)!important;
+}
+header.top nav>a.pill{
+  background:linear-gradient(120deg,#6e2413 0%,#220d0a 38%,#49170d 72%,#170a09 100%)!important;
+  border-color:rgba(255,150,98,.62)!important;
+  box-shadow:inset 0 1px 0 rgba(255,221,187,.2),inset 0 -5px 12px rgba(0,0,0,.55),0 5px 18px rgba(255,61,22,.12)!important;
+}
+header.top nav>a.pill::before{opacity:1!important;animation-duration:4.5s!important}
+header.top .header-menu-toggle{
+  background:linear-gradient(135deg,#35140e 0%,#0b0a0b 42%,#28100b 78%,#100909 100%)!important;
+  border:1px solid rgba(255,139,87,.55)!important;
+  -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+  box-shadow:inset 0 1px 0 rgba(255,226,198,.15),inset 0 -5px 12px rgba(0,0,0,.6),0 5px 16px rgba(0,0,0,.32)!important;
+}
+header.top .header-menu-toggle::before{
+  background:linear-gradient(112deg,transparent 0%,rgba(255,189,142,0) 26%,rgba(255,195,149,.3) 35%,rgba(255,84,39,.12) 44%,transparent 55%,rgba(255,70,26,.28) 70%,transparent 84%)!important;
+  background-size:230% 100%!important;animation:headerOilCurrent 6.5s ease-in-out infinite!important;
+  -webkit-mask:none!important;mask:none!important;opacity:.9!important;
+}
+header.top .header-menu-toggle:hover,header.top .header-menu-toggle:focus-visible,header.top .header-menu-toggle[aria-expanded="true"]{
+  background:linear-gradient(125deg,#542013,#120909 48%,#41160e)!important;border-color:rgba(255,174,119,.78)!important;
+}
+header.top .header-menu-panel{
+  background:
+    radial-gradient(ellipse at 0% 0%,rgba(255,81,33,.2),transparent 45%),
+    linear-gradient(145deg,#24100d 0%,#09090b 48%,#2a100c 100%)!important;
+  -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+  border:1px solid rgba(255,132,80,.55)!important;
+  box-shadow:inset 0 1px 0 rgba(255,225,196,.14),inset 0 -8px 18px rgba(0,0,0,.62),0 24px 64px rgba(0,0,0,.7),0 0 22px rgba(255,58,22,.08)!important;
+}
+header.top .header-menu-panel::before{
+  background:linear-gradient(115deg,rgba(255,205,162,.22),transparent 28%,rgba(255,78,38,.22) 72%,transparent)!important;
+}
+header.top .menu-item-icon{
+  background:linear-gradient(135deg,#31130d,#0b090a 58%,#27100c)!important;
+  border-color:rgba(255,126,76,.32)!important;
+  box-shadow:inset 0 1px 0 rgba(255,224,193,.1),inset 0 -3px 8px rgba(0,0,0,.5)!important;
+}
+@keyframes headerOilCurrent{
+  0%{background-position:100% 50%}
+  50%{background-position:42% 50%}
+  100%{background-position:0% 50%}
+}
+@keyframes headerOilDrift{
+  0%{background-position:0% 0%,100% 100%,0% 50%}
+  100%{background-position:100% 80%,0% 20%,100% 50%}
+}
+@media(max-width:760px){
+  header.top{background-size:200% 200%,200% 200%,260% 260%!important}
+  header.top .logo{background-size:220% 220%!important}
+}
+@media(prefers-reduced-motion:reduce){
+  header.top,header.top::before,header.top .logo::before,header.top nav>a::before,header.top .header-menu-toggle::before{animation:none!important}
+}
+</style>
+
 </head>
 <body>
 <canvas id="blaze-flame-particles" aria-hidden="true"></canvas>
