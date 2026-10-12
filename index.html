@@ -593,6 +593,8 @@ a:hover,button:hover,.btn:hover,.pill:hover{filter:brightness(1.12)}
 #cinematic-brand-reveal{padding:clamp(54px,8vw,110px) 0;background:#08080b;overflow:hidden}
 .brand-film-media{width:min(1320px,90%);min-height:clamp(390px,58vw,680px);margin:auto;position:relative;isolation:isolate;overflow:hidden;background:#101014;border:1px solid #ffffff18}
 .brand-film-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;display:block;background:#101014}
+.brand-film-video-status{display:none;position:absolute;z-index:5;left:18px;bottom:18px;max-width:calc(100% - 36px);padding:10px 13px;background:#08080be8;border:1px solid #ffffff38;color:#fff;font:12px/1.5 system-ui,sans-serif}
+.brand-film-media.video-error .brand-film-video-status{display:block}
 .brand-film-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,#08080bf2 0%,#08080bbd 42%,#08080b24 100%),linear-gradient(0deg,#08080b88,transparent 48%)}
 .brand-film-copy{position:relative;z-index:2;width:min(560px,60%);padding:clamp(30px,7vw,86px) 0 clamp(70px,9vw,110px) clamp(24px,6vw,76px)}
 .brand-film-copy .mono{font-size:10px;letter-spacing:.16em;color:#ff9a70}
@@ -1424,9 +1426,11 @@ body>main,body>footer{position:relative;z-index:1}
 
 <section id="cinematic-brand-reveal" aria-label="BLAZE GEEK's brand film">
   <div class="brand-film-media">
-    <video class="brand-film-video" autoplay muted loop playsinline preload="metadata" aria-label="BLAZE GEEK's cinematic background video">
-      <source src="/assets/homepage-motion.mp4" type="video/mp4">
+    <video class="brand-film-video" autoplay muted loop playsinline webkit-playsinline preload="auto" aria-label="BLAZE GEEK's cinematic background video">
+      <source src="./assets/homepage-motion.mp4" type="video/mp4">
+      Your browser does not support HTML video.
     </video>
+    <div class="brand-film-video-status" role="status" aria-live="polite"></div>
     <div class="brand-film-shade"></div>
     <div class="brand-film-copy">
       <p class="mono">CREATIVITY IN MOTION / BLAZE GEEK'S</p>
@@ -1706,23 +1710,43 @@ html body .hero #stage.logo-stage .logo-plinth:active{transform:none!important;s
 </script>
 
 
-<script>
+<script id="brand-film-playback-fix">
 (function(){
   const reveal = document.getElementById('cinematic-brand-reveal');
   if (!reveal) return;
+  const media = reveal.querySelector('.brand-film-media');
   const video = reveal.querySelector('video');
+  const status = reveal.querySelector('.brand-film-video-status');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function showVideoError(){
+    media.classList.add('video-error');
+    if (status) status.textContent = 'Video could not load. Check the MP4 file and wait for GitHub Pages to publish the latest update.';
+  }
   if (video) {
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+    video.addEventListener('error', showVideoError);
+    video.addEventListener('loadeddata', function(){ media.classList.remove('video-error'); });
+    function tryPlay(){
+      if (reduced || document.hidden) return;
+      const attempt = video.play();
+      if (attempt && typeof attempt.catch === 'function') attempt.catch(function(){ video.controls = true; });
+    }
+    video.addEventListener('canplay', tryPlay, {once:true});
+    video.load();
+    tryPlay();
     document.addEventListener('visibilitychange', function(){
       if (document.hidden) video.pause();
-      else if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) video.play().catch(function(){});
+      else tryPlay();
     });
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) video.pause();
   }
   if (!('IntersectionObserver' in window)) { reveal.classList.add('is-visible'); return; }
   const observer = new IntersectionObserver(function(entries){
     entries.forEach(function(entry){
       if (entry.isIntersecting) {
         reveal.classList.add('is-visible');
+        if (video) { const p = video.play(); if (p && p.catch) p.catch(function(){ video.controls = true; }); }
         observer.unobserve(reveal);
       }
     });
