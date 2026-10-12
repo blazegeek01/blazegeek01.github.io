@@ -601,11 +601,16 @@ a:hover,button:hover,.btn:hover,.pill:hover{filter:brightness(1.12)}
 .brand-film-copy h2{margin:24px 0;font-family:var(--display,Georgia,serif);font-size:clamp(34px,5.5vw,70px);line-height:1.08;letter-spacing:-.045em}
 .brand-film-copy h2 span{color:#d6c8c4}
 .brand-film-caption{font-size:12px;letter-spacing:.08em;color:#e4d9d6}
-.brand-film-logo{position:absolute;z-index:3;right:clamp(18px,5vw,70px);top:50%;width:clamp(190px,30%,390px);height:auto;object-fit:contain;transform:translate(100px,-50%);opacity:0;transition:transform 1.15s cubic-bezier(.18,.72,.22,1),opacity .9s ease;filter:none;box-shadow:none;backface-visibility:hidden}
-#cinematic-brand-reveal.is-visible .brand-film-logo{transform:translate(0,-50%);opacity:1}
 .brand-film-index{position:absolute;z-index:4;right:20px;bottom:18px;font:9px var(--mono,monospace);letter-spacing:.15em;color:#e5d9d5a8}
-@media(max-width:700px){.brand-film-media{width:92%;min-height:560px}.brand-film-shade{background:linear-gradient(180deg,#08080b35 0%,#08080bcf 48%,#08080bf5 100%)}.brand-film-copy{width:100%;padding:230px 24px 72px}.brand-film-copy h2{font-size:clamp(34px,9vw,52px)}.brand-film-logo{top:28px;right:50%;width:min(70%,270px);transform:translate(100px,0)}#cinematic-brand-reveal.is-visible .brand-film-logo{transform:translate(50%,0)}.brand-film-index{font-size:8px}}
-@media(prefers-reduced-motion:reduce){.brand-film-logo{transition:none;transform:none;opacity:1}#cinematic-brand-reveal .brand-film-logo{transform:none;opacity:1}}
+@media(max-width:700px){.brand-film-media{width:92%;min-height:560px}.brand-film-shade{background:linear-gradient(180deg,#08080b35 0%,#08080bcf 48%,#08080bf5 100%)}.brand-film-copy{width:100%;padding:230px 24px 72px}.brand-film-copy h2{font-size:clamp(34px,9vw,52px)}.brand-film-index{font-size:8px}}
+
+
+
+/* Scroll-triggered slide-in belongs to the primary hero logo, not the video */
+#stage .hero-brand-logo{transform:translateX(0);opacity:1;transition:transform 1.05s cubic-bezier(.18,.72,.22,1),opacity .8s ease;will-change:transform,opacity}
+#stage.hero-logo-slide-in .hero-brand-logo{animation:heroLogoArrive 1.1s cubic-bezier(.18,.72,.22,1) both}
+@keyframes heroLogoArrive{from{transform:translateX(105px);opacity:.15}to{transform:translateX(0);opacity:1}}
+@media(prefers-reduced-motion:reduce){#stage.hero-logo-slide-in .hero-brand-logo{animation:none;transform:none;opacity:1}}
 
 </style>
 
@@ -1437,7 +1442,6 @@ body>main,body>footer{position:relative;z-index:1}
       <h2>Ideas move.<br><span>We make them matter.</span></h2>
       <p class="brand-film-caption">Create Bold. Inspire Real. Blaze Beyond.</p>
     </div>
-    <img class="brand-film-logo" src="/assets/blaze-geeks-logo%20(2).png" alt="BLAZE GEEK's official logo" loading="lazy">
     <span class="brand-film-index">01 — BRAND IN MOTION</span>
   </div>
 </section>
@@ -1752,6 +1756,20 @@ html body .hero #stage.logo-stage .logo-plinth:active{transform:none!important;s
     });
   }, {threshold: 0.22});
   observer.observe(reveal);
+
+  /* Animate the original logo in the opening hero after the visitor begins scrolling. */
+  const heroStage = document.getElementById('stage');
+  let heroLogoAnimated = false;
+  function animateMainLogoOnScroll(){
+    if (heroLogoAnimated || window.scrollY < 24 || !heroStage) return;
+    heroLogoAnimated = true;
+    heroStage.classList.remove('hero-logo-slide-in');
+    void heroStage.offsetWidth;
+    heroStage.classList.add('hero-logo-slide-in');
+    window.removeEventListener('scroll', animateMainLogoOnScroll);
+  }
+  window.addEventListener('scroll', animateMainLogoOnScroll, {passive:true});
+
 })();
 </script>
 
