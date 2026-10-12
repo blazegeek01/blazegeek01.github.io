@@ -1589,7 +1589,7 @@ header.top .menu-item-icon{
 
 <section id="cinematic-brand-reveal" aria-label="BLAZE GEEK's brand film">
   <div class="brand-film-media">
-    <video class="brand-film-video" autoplay muted controls playsinline webkit-playsinline preload="metadata" aria-label="BLAZE GEEK's full cinematic brand video">
+    <video class="brand-film-video" autoplay muted loop playsinline webkit-playsinline preload="auto" aria-label="BLAZE GEEK's continuously looping cinematic brand advertisement">
       <source src="./assets/homepage-motion.mp4" type="video/mp4">
       Your browser does not support HTML video.
     </video>
@@ -1885,9 +1885,14 @@ html body .hero #stage.logo-stage .logo-plinth:active{transform:none!important;s
     if (status) status.textContent = 'Video could not load. Check the MP4 file and wait for GitHub Pages to publish the latest update.';
   }
   if (video) {
+    /* Treat this as a silent, continuously looping brand advertisement. */
+    video.autoplay = true;
     video.muted = true;
     video.defaultMuted = true;
+    video.loop = true;
+    video.controls = false;
     video.playsInline = true;
+    video.preload = 'auto';
     video.addEventListener('error', showVideoError);
     video.addEventListener('loadeddata', function(){ media.classList.remove('video-error'); });
     function tryPlay(){
