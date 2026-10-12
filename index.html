@@ -1920,4 +1920,118 @@ header.top nav a:not(.pill):hover{color:#fff!important;text-shadow:0 0 14px rgba
 }
 </style>
 
+
+<style id="blaze-liquid-motion-upgrade">
+/* Ultra-liquid finish across the site: moving refracted highlights, rounded glass edges,
+   and responsive motion. The official logo image itself is deliberately untouched. */
+:root{
+  --liquid-surface:rgba(255,255,255,.035);
+  --liquid-border:rgba(255,255,255,.16);
+  --liquid-hot:rgba(255,112,76,.13);
+}
+/* Main navigation: a slow, glassy light current across the existing translucent header. */
+header.top{
+  overflow:visible;
+  border-color:rgba(255,255,255,.2)!important;
+  box-shadow:0 16px 44px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.24),inset 0 -1px 0 rgba(255,255,255,.05)!important;
+}
+header.top:after{
+  content:"";position:absolute;inset:1px;z-index:0;pointer-events:none;border-radius:inherit;
+  background:linear-gradient(112deg,transparent 8%,rgba(255,255,255,.02) 27%,rgba(255,255,255,.15) 39%,rgba(255,255,255,.025) 49%,transparent 67%);
+  background-size:230% 100%;background-position:140% 0;
+  animation:liquidHeaderSweep 8s cubic-bezier(.45,0,.35,1) infinite;
+}
+header.top>*{z-index:1}
+@keyframes liquidHeaderSweep{0%,12%{background-position:140% 0}58%,100%{background-position:-140% 0}}
+/* Every major site region receives a softly refractive membrane rather than a heavy overlay. */
+.hero,.brand-film-media,.content.wrap,.content.band,.founder,.contact,.footer-socials{
+  position:relative;isolation:isolate;
+}
+.content.wrap,.content.band,.founder,.contact,.footer-socials{
+  border:1px solid var(--liquid-border);
+  border-radius:26px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.12),inset 0 -1px 0 rgba(255,255,255,.025),0 20px 54px rgba(0,0,0,.16);
+}
+.content.wrap{
+  background:linear-gradient(135deg,rgba(255,255,255,.035),rgba(255,255,255,.008) 40%,rgba(255,96,64,.035) 72%,rgba(255,255,255,.018))!important;
+}
+.content.band{
+  background:linear-gradient(125deg,rgba(255,255,255,.035),rgba(15,13,18,.24) 46%,rgba(255,91,57,.055))!important;
+  overflow:hidden;
+}
+.hero:before,.content.wrap:before,.content.band:before,.founder:before,.contact:before,.footer-socials:before{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:inherit;
+  background:
+    radial-gradient(ellipse at var(--liquid-x,18%) var(--liquid-y,0%),rgba(255,255,255,.095),transparent 36%),
+    linear-gradient(125deg,transparent 12%,rgba(255,255,255,.035) 32%,transparent 48%,rgba(255,104,72,.045) 70%,transparent 86%);
+  background-size:auto,220% 220%;background-position:center,120% 0;
+  animation:liquidSurfaceDrift 16s ease-in-out infinite alternate;
+}
+@keyframes liquidSurfaceDrift{
+  from{background-position:center,120% 0;opacity:.55}
+  to{background-position:center,-80% 100%;opacity:1}
+}
+/* Video and founder panels get glass-like curved edge reflections without obscuring imagery. */
+.brand-film-media{
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:26px;overflow:hidden;
+  box-shadow:0 24px 64px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.2);
+}
+.brand-film-media:after,.founder:after{
+  content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
+  background:linear-gradient(115deg,rgba(255,255,255,.11),transparent 18%,transparent 64%,rgba(255,255,255,.045));
+}
+.founder{overflow:hidden;background:linear-gradient(135deg,rgba(255,255,255,.035),rgba(12,12,16,.3) 55%,rgba(255,92,58,.045))!important}
+/* Individual cards: liquid edge, inner caustic and a restrained sweep on hover. */
+.principle,.service,.project,.note,.social-link{
+  position:relative;isolation:isolate;overflow:hidden;
+  border:1px solid rgba(255,255,255,.14)!important;
+  border-radius:18px!important;
+  background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.012) 48%,rgba(255,91,57,.035))!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.13),inset 0 -1px 0 rgba(255,255,255,.025),0 14px 32px rgba(0,0,0,.16);
+  transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .35s,box-shadow .35s,background .35s;
+}
+.principle:after,.service:after,.project:after,.note:after,.social-link:after{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;border-radius:inherit;
+  background:linear-gradient(118deg,transparent 8%,rgba(255,255,255,.012) 27%,rgba(255,255,255,.105) 39%,rgba(255,255,255,.018) 47%,transparent 64%);
+  background-size:240% 100%;background-position:145% 0;opacity:.6;
+  transition:opacity .35s;
+}
+.principle:hover,.service:hover,.project:hover,.note:hover,.social-link:hover{
+  border-color:rgba(255,174,144,.4)!important;
+  background:linear-gradient(145deg,rgba(255,255,255,.085),rgba(255,255,255,.018) 48%,rgba(255,91,57,.065))!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 20px 46px rgba(0,0,0,.26),0 0 24px rgba(255,91,57,.06);
+}
+.principle:hover:after,.service:hover:after,.project:hover:after,.note:hover:after,.social-link:hover:after{
+  background-position:-145% 0;opacity:1;transition:background-position 1.05s ease,opacity .35s;
+}
+/* Buttons and dropdown menu feel like rounded liquid glass, while keeping text legible. */
+.btn,.pill,.header-menu-toggle,.header-menu-panel{
+  border:1px solid rgba(255,255,255,.2)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.22),inset 0 -1px 0 rgba(255,255,255,.035),0 12px 30px rgba(0,0,0,.2);
+}
+.header-menu-toggle{
+  -webkit-backdrop-filter:blur(28px) saturate(180%);backdrop-filter:blur(28px) saturate(180%);
+  background:linear-gradient(140deg,rgba(255,255,255,.11),rgba(255,255,255,.025) 60%,rgba(255,91,57,.06))!important;
+}
+.contact{overflow:hidden}
+.contact:after{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:inherit;
+  background:linear-gradient(115deg,rgba(255,255,255,.15),transparent 26%,rgba(255,255,255,.025) 54%,rgba(255,255,255,.1));
+}
+.footer-socials{padding:clamp(22px,4vw,44px)}
+/* Avoid extra visual work on narrow devices and honor reduced-motion settings. */
+@media(max-width:760px){
+  header.top{-webkit-backdrop-filter:blur(22px) saturate(160%)!important;backdrop-filter:blur(22px) saturate(160%)!important}
+  .content.wrap,.content.band,.founder,.contact,.footer-socials,.brand-film-media{border-radius:20px}
+  .content.wrap,.content.band,.founder,.contact,.footer-socials{box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 12px 30px rgba(0,0,0,.13)}
+  .hero:before,.content.wrap:before,.content.band:before,.founder:before,.contact:before,.footer-socials:before{animation-duration:24s}
+  .principle,.service,.project,.note,.social-link{box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 10px 24px rgba(0,0,0,.13)}
+}
+@media(prefers-reduced-motion:reduce){
+  header.top:after,.hero:before,.content.wrap:before,.content.band:before,.founder:before,.contact:before,.footer-socials:before{animation:none!important}
+  .principle:after,.service:after,.project:after,.note:after,.social-link:after{transition:none!important}
+}
+</style>
+
 </body></html>
