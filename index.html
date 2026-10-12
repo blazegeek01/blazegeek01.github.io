@@ -2034,4 +2034,112 @@ header.top>*{z-index:1}
 }
 </style>
 
+
+<style id="blaze-dense-liquid-glass">
+/* Dense liquid-glass pass across the interface. Keep the official logo image untouched. */
+:root{
+  --liquid-ice:rgba(255,255,255,.18);
+  --liquid-glass:rgba(22,19,25,.64);
+  --liquid-ruby:rgba(255,73,49,.13);
+}
+/* Header: deep, saturated glass with layered edge refraction. */
+header.top{
+  background:linear-gradient(115deg,rgba(255,255,255,.105),rgba(17,14,20,.76) 24%,rgba(9,9,13,.66) 62%,rgba(255,76,48,.13))!important;
+  -webkit-backdrop-filter:blur(34px) saturate(220%) contrast(112%)!important;
+  backdrop-filter:blur(34px) saturate(220%) contrast(112%)!important;
+  border:1px solid rgba(255,255,255,.28)!important;
+  border-bottom-color:rgba(255,119,87,.28)!important;
+  box-shadow:inset 0 1.5px 0 rgba(255,255,255,.32),inset 0 -1px 0 rgba(255,255,255,.08),0 18px 52px rgba(0,0,0,.42),0 1px 26px rgba(255,78,49,.07)!important;
+}
+header.top:after{
+  inset:1px!important;
+  background:
+    linear-gradient(112deg,transparent 0%,rgba(255,255,255,.025) 16%,rgba(255,255,255,.2) 28%,rgba(255,255,255,.035) 39%,transparent 51%,rgba(255,95,63,.12) 70%,transparent 86%),
+    radial-gradient(ellipse at 12% 0%,rgba(255,255,255,.12),transparent 38%),
+    radial-gradient(ellipse at 94% 100%,rgba(255,91,58,.13),transparent 42%)!important;
+  background-size:230% 100%,100% 100%,100% 100%!important;
+  animation:liquidHeaderSweep 6.5s cubic-bezier(.45,0,.35,1) infinite!important;
+}
+/* Major page sections: denser transparent glass with bright curved rims. */
+.hero,.brand-film-media,.content.wrap,.content.band,.founder,.contact,.footer-socials{
+  -webkit-backdrop-filter:blur(18px) saturate(175%)!important;
+  backdrop-filter:blur(18px) saturate(175%)!important;
+}
+.content.wrap,.content.band,.founder,.contact,.footer-socials,.brand-film-media{
+  border:1px solid rgba(255,255,255,.23)!important;
+  box-shadow:inset 0 1.5px 0 rgba(255,255,255,.2),inset 1px 0 0 rgba(255,255,255,.055),inset 0 -1px 0 rgba(255,255,255,.07),0 24px 64px rgba(0,0,0,.26),0 0 32px rgba(255,84,53,.035)!important;
+}
+.content.wrap{
+  background:linear-gradient(135deg,rgba(255,255,255,.075),rgba(255,255,255,.018) 28%,rgba(15,13,19,.5) 58%,rgba(255,77,49,.075))!important;
+}
+.content.band{
+  background:linear-gradient(125deg,rgba(255,255,255,.075),rgba(13,12,17,.62) 43%,rgba(255,76,48,.105))!important;
+}
+.founder{
+  background:linear-gradient(135deg,rgba(255,255,255,.075),rgba(12,12,16,.58) 54%,rgba(255,76,48,.09))!important;
+}
+.contact{
+  background:linear-gradient(120deg,rgba(255,83,57,.94),rgba(255,132,65,.88) 52%,rgba(255,76,48,.96))!important;
+  box-shadow:inset 0 2px 0 rgba(255,255,255,.35),inset 0 -2px 0 rgba(72,12,8,.16),0 24px 70px rgba(0,0,0,.24)!important;
+}
+.brand-film-media{box-shadow:inset 0 1.5px 0 rgba(255,255,255,.28),0 28px 76px rgba(0,0,0,.38)!important}
+/* Every content tile and social tile becomes a thick-edged liquid pane. */
+.principle,.service,.project,.note,.social-link{
+  background:
+    radial-gradient(ellipse at 12% 0%,rgba(255,255,255,.13),transparent 42%),
+    linear-gradient(145deg,rgba(255,255,255,.09),rgba(24,20,27,.56) 43%,rgba(255,79,51,.075))!important;
+  border:1px solid rgba(255,255,255,.22)!important;
+  -webkit-backdrop-filter:blur(22px) saturate(185%)!important;
+  backdrop-filter:blur(22px) saturate(185%)!important;
+  box-shadow:inset 0 1.5px 0 rgba(255,255,255,.24),inset 1px 0 0 rgba(255,255,255,.06),inset 0 -1px 0 rgba(255,255,255,.075),0 18px 40px rgba(0,0,0,.25),0 0 24px rgba(255,78,49,.035)!important;
+}
+.principle:after,.service:after,.project:after,.note:after,.social-link:after{
+  background:
+    linear-gradient(116deg,transparent 0%,rgba(255,255,255,.015) 16%,rgba(255,255,255,.16) 27%,rgba(255,255,255,.025) 38%,transparent 49%,rgba(255,111,76,.075) 72%,transparent 86%)!important;
+  background-size:240% 100%!important;
+  background-position:145% 0!important;
+  opacity:.82!important;
+}
+.principle:hover,.service:hover,.project:hover,.note:hover,.social-link:hover{
+  border-color:rgba(255,190,164,.58)!important;
+  box-shadow:inset 0 1.5px 0 rgba(255,255,255,.32),inset 0 -1px 0 rgba(255,255,255,.1),0 24px 56px rgba(0,0,0,.34),0 0 34px rgba(255,91,57,.11)!important;
+}
+.principle:hover:after,.service:hover:after,.project:hover:after,.note:hover:after,.social-link:hover:after{
+  background-position:-145% 0!important;
+  opacity:1!important;
+  transition:background-position 1.15s ease,opacity .3s!important;
+}
+/* Buttons and menu controls: compact glossy glass with a visible liquid rim. */
+.btn,.pill,.header-menu-toggle,.header-menu-panel{
+  -webkit-backdrop-filter:blur(24px) saturate(200%)!important;
+  backdrop-filter:blur(24px) saturate(200%)!important;
+  border-color:rgba(255,255,255,.28)!important;
+  box-shadow:inset 0 1.5px 0 rgba(255,255,255,.29),inset 0 -1px 0 rgba(255,255,255,.075),0 14px 32px rgba(0,0,0,.27)!important;
+}
+.header-menu-panel{
+  background:linear-gradient(145deg,rgba(32,27,35,.94),rgba(9,9,13,.88) 62%,rgba(100,28,25,.35))!important;
+}
+.footer-socials{
+  background:linear-gradient(135deg,rgba(255,255,255,.07),rgba(14,13,18,.64) 48%,rgba(255,79,51,.08))!important;
+}
+/* Restrained moving highlights: premium fluidity without a heavy particle simulation. */
+@keyframes denseLiquidCaustic{
+  0%,100%{background-position:145% 0,0% 0%}
+  50%{background-position:-145% 0,100% 100%}
+}
+@media(max-width:760px){
+  header.top{-webkit-backdrop-filter:blur(25px) saturate(185%)!important;backdrop-filter:blur(25px) saturate(185%)!important}
+  .hero,.brand-film-media,.content.wrap,.content.band,.founder,.contact,.footer-socials,
+  .principle,.service,.project,.note,.social-link{
+    -webkit-backdrop-filter:blur(12px) saturate(155%)!important;
+    backdrop-filter:blur(12px) saturate(155%)!important;
+  }
+  .content.wrap,.content.band,.founder,.contact,.footer-socials,.brand-film-media{box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 14px 34px rgba(0,0,0,.2)!important}
+}
+@media(prefers-reduced-motion:reduce){
+  header.top:after{animation:none!important}
+  .principle:after,.service:after,.project:after,.note:after,.social-link:after{transition:none!important}
+}
+</style>
+
 </body></html>
