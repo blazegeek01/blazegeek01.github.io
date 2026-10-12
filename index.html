@@ -1757,20 +1757,34 @@ html body .hero #stage.logo-stage .logo-plinth:active{transform:none!important;s
   }, {threshold: 0.22});
   observer.observe(reveal);
 
-  /* Animate the original logo in the opening hero after the visitor begins scrolling. */
+  /* Animate the original homepage logo immediately on first view, not on scroll or in the video. */
   const heroStage = document.getElementById('stage');
-  let heroLogoAnimated = false;
-  function animateMainLogoOnScroll(){
-    if (heroLogoAnimated || window.scrollY < 24 || !heroStage) return;
-    heroLogoAnimated = true;
-    heroStage.classList.remove('hero-logo-slide-in');
-    void heroStage.offsetWidth;
-    heroStage.classList.add('hero-logo-slide-in');
-    window.removeEventListener('scroll', animateMainLogoOnScroll);
+  if (heroStage && !reduced) {
+    window.requestAnimationFrame(function(){
+      heroStage.classList.add('hero-logo-slide-in');
+    });
   }
-  window.addEventListener('scroll', animateMainLogoOnScroll, {passive:true});
 
 })();
 </script>
+
+
+<style id="blaze-main-logo-animation-fix">
+/* Higher-specificity override: animate only the original hero logo on page entry.
+   Keep the supplied artwork flat, with no added glow, shadow, or 3D treatment. */
+html body .hero #stage.logo-stage.hero-logo-slide-in .hero-brand-logo{
+  animation: blazeMainLogoSlideIn 1.25s cubic-bezier(.18,.72,.22,1) both!important;
+  transform:none!important;
+  filter:none!important;
+  opacity:1!important;
+}
+@keyframes blazeMainLogoSlideIn{
+  from{transform:translateX(110px)!important;opacity:.18!important}
+  to{transform:translateX(0)!important;opacity:1!important}
+}
+@media(prefers-reduced-motion:reduce){
+  html body .hero #stage.logo-stage.hero-logo-slide-in .hero-brand-logo{animation:none!important}
+}
+</style>
 
 </body></html>
