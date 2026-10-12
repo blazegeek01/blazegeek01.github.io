@@ -1874,60 +1874,74 @@ html body .hero #stage.logo-stage .logo-plinth:active{transform:none!important;s
 
 <script id="brand-film-playback-fix">
 (function(){
-  const reveal = document.getElementById('cinematic-brand-reveal');
+  var reveal = document.getElementById('cinematic-brand-reveal');
   if (!reveal) return;
-  const media = reveal.querySelector('.brand-film-media');
-  const video = reveal.querySelector('video');
-  const status = reveal.querySelector('.brand-film-video-status');
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var media = reveal.querySelector('.brand-film-media');
+  var video = reveal.querySelector('video');
+  var status = reveal.querySelector('.brand-film-video-status');
+  if (!video) return;
+
+  /* Silent, continuous ad playback: do not block autoplay for reduced-motion settings. */
+  video.autoplay = true;
+  video.muted = true;
+  video.defaultMuted = true;
+  video.loop = true;
+  video.playsInline = true;
+  video.preload = 'auto';
+  video.removeAttribute('controls');
+
   function showVideoError(){
-    media.classList.add('video-error');
-    if (status) status.textContent = 'Video could not load. Check the MP4 file and wait for GitHub Pages to publish the latest update.';
+    if (media) media.classList.add('video-error');
+    if (status) status.textContent = 'The brand video could not load. Please refresh the page and check your connection.';
   }
-  if (video) {
-    /* Treat this as a silent, continuously looping brand advertisement. */
-    video.autoplay = true;
+  function attemptPlayback(){
+    if (document.visibilityState === 'hidden') return;
     video.muted = true;
     video.defaultMuted = true;
     video.loop = true;
-    video.controls = false;
-    video.playsInline = true;
-    video.preload = 'auto';
-    video.addEventListener('error', showVideoError);
-    video.addEventListener('loadeddata', function(){ media.classList.remove('video-error'); });
-    function tryPlay(){
-      if (reduced || document.hidden) return;
-      const attempt = video.play();
-      if (attempt && typeof attempt.catch === 'function') attempt.catch(function(){ video.controls = true; });
+    var attempt = video.play();
+    if (attempt && typeof attempt.catch === 'function') {
+      attempt.catch(function(){
+        /* Retry when media is ready or the page becomes visible again. */
+      });
     }
-    video.addEventListener('canplay', tryPlay, {once:true});
-    video.load();
-    tryPlay();
-    document.addEventListener('visibilitychange', function(){
-      if (document.hidden) video.pause();
-      else tryPlay();
-    });
   }
-  if (!('IntersectionObserver' in window)) { reveal.classList.add('is-visible'); return; }
-  const observer = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if (entry.isIntersecting) {
-        reveal.classList.add('is-visible');
-        if (video) { const p = video.play(); if (p && p.catch) p.catch(function(){ video.controls = true; }); }
-        observer.unobserve(reveal);
-      }
+  video.addEventListener('error', showVideoError);
+  video.addEventListener('loadeddata', function(){
+    if (media) media.classList.remove('video-error');
+    attemptPlayback();
+  });
+  ['canplay','canplaythrough','playing','pause','ended'].forEach(function(eventName){
+    video.addEventListener(eventName, function(){
+      if (eventName === 'ended' || (eventName === 'pause' && !video.ended)) attemptPlayback();
     });
-  }, {threshold: 0.22});
-  observer.observe(reveal);
+  });
+  document.addEventListener('visibilitychange', function(){
+    if (document.visibilityState === 'visible') attemptPlayback();
+  });
+  window.addEventListener('pageshow', attemptPlayback);
 
-  /* Animate the original homepage logo immediately on first view, not on scroll or in the video. */
-  const heroStage = document.getElementById('stage');
-  if (heroStage && !reduced) {
-    window.requestAnimationFrame(function(){
-      heroStage.classList.add('hero-logo-slide-in');
-    });
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          reveal.classList.add('is-visible');
+          attemptPlayback();
+        }
+      });
+    }, {threshold: 0.05});
+    observer.observe(reveal);
+  } else {
+    reveal.classList.add('is-visible');
   }
+  /* Start as soon as the page is ready, then retry on media readiness and visibility. */
+  attemptPlayback();
+  if (video.readyState === 0) video.load();
 
+  var heroStage = document.getElementById('stage');
+  if (heroStage && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    window.requestAnimationFrame(function(){ heroStage.classList.add('hero-logo-slide-in'); });
+  }
 })();
 </script>
 
