@@ -592,8 +592,8 @@ a:hover,button:hover,.btn:hover,.pill:hover{filter:brightness(1.12)}
 /* Scroll-triggered cinematic brand film — logo artwork stays flat and unaltered */
 #cinematic-brand-reveal{padding:clamp(54px,8vw,110px) 0;background:#08080b;overflow:hidden}
 .brand-film-media{width:min(1320px,90%);min-height:clamp(390px,58vw,680px);margin:auto;position:relative;isolation:isolate;overflow:hidden;background:#101014;border:1px solid #ffffff18}
-.brand-film-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
-.brand-film-shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#08080bf2 0%,#08080bbd 42%,#08080b24 100%),linear-gradient(0deg,#08080b88,transparent 48%)}
+.brand-film-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;display:block;background:#101014}
+.brand-film-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,#08080bf2 0%,#08080bbd 42%,#08080b24 100%),linear-gradient(0deg,#08080b88,transparent 48%)}
 .brand-film-copy{position:relative;z-index:2;width:min(560px,60%);padding:clamp(30px,7vw,86px) 0 clamp(70px,9vw,110px) clamp(24px,6vw,76px)}
 .brand-film-copy .mono{font-size:10px;letter-spacing:.16em;color:#ff9a70}
 .brand-film-copy h2{margin:24px 0;font-family:var(--display,Georgia,serif);font-size:clamp(34px,5.5vw,70px);line-height:1.08;letter-spacing:-.045em}
@@ -601,7 +601,7 @@ a:hover,button:hover,.btn:hover,.pill:hover{filter:brightness(1.12)}
 .brand-film-caption{font-size:12px;letter-spacing:.08em;color:#e4d9d6}
 .brand-film-logo{position:absolute;z-index:3;right:clamp(18px,5vw,70px);top:50%;width:clamp(190px,30%,390px);height:auto;object-fit:contain;transform:translate(100px,-50%);opacity:0;transition:transform 1.15s cubic-bezier(.18,.72,.22,1),opacity .9s ease;filter:none;box-shadow:none;backface-visibility:hidden}
 #cinematic-brand-reveal.is-visible .brand-film-logo{transform:translate(0,-50%);opacity:1}
-.brand-film-index{position:absolute;right:20px;bottom:18px;font:9px var(--mono,monospace);letter-spacing:.15em;color:#e5d9d5a8}
+.brand-film-index{position:absolute;z-index:4;right:20px;bottom:18px;font:9px var(--mono,monospace);letter-spacing:.15em;color:#e5d9d5a8}
 @media(max-width:700px){.brand-film-media{width:92%;min-height:560px}.brand-film-shade{background:linear-gradient(180deg,#08080b35 0%,#08080bcf 48%,#08080bf5 100%)}.brand-film-copy{width:100%;padding:230px 24px 72px}.brand-film-copy h2{font-size:clamp(34px,9vw,52px)}.brand-film-logo{top:28px;right:50%;width:min(70%,270px);transform:translate(100px,0)}#cinematic-brand-reveal.is-visible .brand-film-logo{transform:translate(50%,0)}.brand-film-index{font-size:8px}}
 @media(prefers-reduced-motion:reduce){.brand-film-logo{transition:none;transform:none;opacity:1}#cinematic-brand-reveal .brand-film-logo{transform:none;opacity:1}}
 
