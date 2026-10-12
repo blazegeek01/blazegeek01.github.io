@@ -1519,6 +1519,51 @@ header.top .menu-item-icon{
 }
 </style>
 
+
+<style id="blaze-full-video-player">
+/* Show the entire video frame and expose playback controls; do not crop it as a background. */
+#cinematic-brand-reveal{padding:clamp(34px,5vw,68px) 0!important}
+#cinematic-brand-reveal .brand-film-media{
+  width:min(1320px,92%)!important;
+  min-height:0!important;
+  height:auto!important;
+  margin:0 auto!important;
+  overflow:visible!important;
+  background:#08080b!important;
+  border:1px solid #ffffff20!important;
+}
+#cinematic-brand-reveal .brand-film-video{
+  position:relative!important;
+  inset:auto!important;
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  max-height:80vh!important;
+  object-fit:contain!important;
+  background:#000!important;
+  z-index:3!important;
+}
+#cinematic-brand-reveal .brand-film-shade{display:none!important}
+#cinematic-brand-reveal .brand-film-copy{
+  position:relative!important;
+  width:100%!important;
+  padding:clamp(22px,4vw,44px)!important;
+}
+#cinematic-brand-reveal .brand-film-copy h2{margin:12px 0!important}
+#cinematic-brand-reveal .brand-film-index{
+  position:relative!important;
+  display:block!important;
+  right:auto!important;
+  bottom:auto!important;
+  padding:0 clamp(22px,4vw,44px) 20px!important;
+}
+@media(max-width:700px){
+  #cinematic-brand-reveal .brand-film-media{width:94%!important;min-height:0!important}
+  #cinematic-brand-reveal .brand-film-copy{padding:22px!important}
+  #cinematic-brand-reveal .brand-film-index{padding:0 22px 18px!important}
+}
+</style>
+
 </head>
 <body>
 <canvas id="blaze-flame-particles" aria-hidden="true"></canvas>
@@ -1544,7 +1589,7 @@ header.top .menu-item-icon{
 
 <section id="cinematic-brand-reveal" aria-label="BLAZE GEEK's brand film">
   <div class="brand-film-media">
-    <video class="brand-film-video" autoplay muted loop playsinline webkit-playsinline preload="auto" aria-label="BLAZE GEEK's cinematic background video">
+    <video class="brand-film-video" autoplay muted controls playsinline webkit-playsinline preload="metadata" aria-label="BLAZE GEEK's full cinematic brand video">
       <source src="./assets/homepage-motion.mp4" type="video/mp4">
       Your browser does not support HTML video.
     </video>
