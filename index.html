@@ -1998,4 +1998,52 @@ header.top:after{
 @media(prefers-reduced-motion:reduce){header.top:after{animation:none!important}}
 </style>
 
+
+<style id="blaze-brand-film-rounded-gradient-outline">
+/* Rounded-square brand-film frame with a continuously moving white-to-orange outline. */
+#cinematic-brand-reveal .brand-film-media{
+  position:relative!important;
+  isolation:isolate!important;
+  border-radius:28px!important;
+  overflow:hidden!important;
+  border:0!important;
+  background:#08080b!important;
+  box-shadow:0 0 0 1px rgba(255,255,255,.08)!important;
+}
+#cinematic-brand-reveal .brand-film-media::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:8;
+  pointer-events:none;
+  border-radius:inherit;
+  padding:2px;
+  background:linear-gradient(115deg,
+    #fff 0%,#fff3df 10%,#ff8a32 22%,#ffffff 34%,
+    transparent 45%,transparent 55%,#ff7b24 67%,#fff 79%,#ff9b4a 90%,#fff 100%);
+  background-size:300% 300%;
+  animation:blazeFilmOutlineShine 4.2s linear infinite;
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+}
+#cinematic-brand-reveal .brand-film-video{
+  border-radius:26px 26px 0 0!important;
+}
+#cinematic-brand-reveal .brand-film-copy{
+  background:#08080b!important;
+}
+@keyframes blazeFilmOutlineShine{
+  0%{background-position:0% 50%}
+  100%{background-position:300% 50%}
+}
+@media(max-width:700px){
+  #cinematic-brand-reveal .brand-film-media{border-radius:22px!important}
+  #cinematic-brand-reveal .brand-film-video{border-radius:20px 20px 0 0!important}
+}
+@media(prefers-reduced-motion:reduce){
+  #cinematic-brand-reveal .brand-film-media::before{animation:none;background:linear-gradient(115deg,#fff,#ff8a32,#fff)}
+}
+</style>
+
 </body></html>
