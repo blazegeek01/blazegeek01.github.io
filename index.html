@@ -2070,4 +2070,31 @@ header.top:after{
 }
 </style>
 
+
+
+<style id="blaze-brand-film-size-cap">
+/* Keep the complete brand-film frame compact even on maximized/wide screens. */
+#cinematic-brand-reveal .brand-film-media{
+  width:min(820px,84%)!important;
+  min-height:0!important;
+  height:clamp(340px,42vw,470px)!important;
+  margin-inline:auto!important;
+}
+#cinematic-brand-reveal .brand-film-video{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+}
+@media(max-width:700px){
+  #cinematic-brand-reveal .brand-film-media{
+    width:90%!important;
+    height:410px!important;
+    min-height:0!important;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  #cinematic-brand-reveal .brand-film-media{scroll-behavior:auto}
+}
+</style>
+
 </body></html>
