@@ -1883,7 +1883,8 @@ html body .hero #stage.logo-stage .logo-plinth:active{transform:none!important;s
   var status = reveal.querySelector('.brand-film-video-status');
   if (!video) return;
 
-  /* Silent, continuous ad playback: do not block autoplay for reduced-motion settings. */
+  /* Configure once. Avoid repeated play() calls during normal playback, which can
+     interrupt buffering on slower devices and mobile connections. */
   video.autoplay = true;
   video.muted = true;
   video.defaultMuted = true;
@@ -1897,14 +1898,12 @@ html body .hero #stage.logo-stage .logo-plinth:active{transform:none!important;s
     if (status) status.textContent = 'The brand video could not load. Please refresh the page and check your connection.';
   }
   function attemptPlayback(){
-    if (document.visibilityState === 'hidden') return;
+    if (document.visibilityState === 'hidden' || !video.paused && !video.ended) return;
     video.muted = true;
-    video.defaultMuted = true;
-    video.loop = true;
     var attempt = video.play();
     if (attempt && typeof attempt.catch === 'function') {
       attempt.catch(function(){
-        /* Retry when media is ready or the page becomes visible again. */
+        /* Browser autoplay policies can defer playback until the page is visible. */
       });
     }
   }
@@ -1913,11 +1912,8 @@ html body .hero #stage.logo-stage .logo-plinth:active{transform:none!important;s
     if (media) media.classList.remove('video-error');
     attemptPlayback();
   });
-  ['canplay','canplaythrough','playing','pause','ended'].forEach(function(eventName){
-    video.addEventListener(eventName, function(){
-      if (eventName === 'ended' || (eventName === 'pause' && !video.ended)) attemptPlayback();
-    });
-  });
+  video.addEventListener('canplay', attemptPlayback);
+  video.addEventListener('ended', attemptPlayback);
   document.addEventListener('visibilitychange', function(){
     if (document.visibilityState === 'visible') attemptPlayback();
   });
@@ -1936,9 +1932,10 @@ html body .hero #stage.logo-stage .logo-plinth:active{transform:none!important;s
   } else {
     reveal.classList.add('is-visible');
   }
-  /* Start as soon as the page is ready, then retry on media readiness and visibility. */
-  attemptPlayback();
+
+  /* Start loading before requesting playback; calling load() after play() can reset it. */
   if (video.readyState === 0) video.load();
+  attemptPlayback();
 
   var heroStage = document.getElementById('stage');
   if (heroStage && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -2048,7 +2045,7 @@ header.top:after{
 
 
 <style id="blaze-brand-film-transparent-frame">
-/* Remove every CSS black fill around the video. The moving white-orange outline remains. */
+/* Keep the video rendering simple; don't apply filters or animated transforms to the video. */
 #cinematic-brand-reveal{
   background:transparent!important;
 }
@@ -2061,6 +2058,8 @@ header.top:after{
 #cinematic-brand-reveal .brand-film-video{
   background:transparent!important;
   background-color:transparent!important;
+  transform:translateZ(0);
+  backface-visibility:hidden;
 }
 #cinematic-brand-reveal .brand-film-copy,
 #cinematic-brand-reveal .brand-film-index{
