@@ -2048,16 +2048,26 @@ header.top:after{
 
 
 <style id="blaze-brand-film-transparent-frame">
-/* Remove the frame's black fill; preserve the animated white-orange outline and rounded shape. */
+/* Remove every CSS black fill around the video. The moving white-orange outline remains. */
+#cinematic-brand-reveal{
+  background:transparent!important;
+}
 #cinematic-brand-reveal .brand-film-media{
   background:transparent!important;
+  background-color:transparent!important;
   box-shadow:none!important;
-}
-#cinematic-brand-reveal .brand-film-copy{
-  background:transparent!important;
+  border-color:transparent!important;
 }
 #cinematic-brand-reveal .brand-film-video{
   background:transparent!important;
+  background-color:transparent!important;
+}
+#cinematic-brand-reveal .brand-film-copy,
+#cinematic-brand-reveal .brand-film-index{
+  background:transparent!important;
+}
+#cinematic-brand-reveal .brand-film-shade{
+  display:none!important;
 }
 </style>
 
