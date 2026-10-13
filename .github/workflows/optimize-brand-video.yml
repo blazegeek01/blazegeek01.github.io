@@ -1,0 +1,62 @@
+name: Optimize homepage brand video
+
+on:
+  push:
+    branches:
+      - blazegeeks
+    paths:
+      - "assets/homepage-motion.mp4"
+      - ".github/workflows/optimize-brand-video.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: optimize-homepage-brand-video
+  cancel-in-progress: false
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out website
+        uses: actions/checkout@v4
+        with:
+          ref: blazegeeks
+          fetch-depth: 0
+
+      - name: Install FFmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Re-encode for smooth web and mobile playback
+        run: |
+          set -euo pipefail
+          test -s assets/homepage-motion.mp4
+          ffmpeg -hide_banner -y -i assets/homepage-motion.mp4 \
+            -map 0:v:0 -map '0:a:0?' \
+            -vf "scale=w='min(1280,iw)':h=-2:force_original_aspect_ratio=decrease,fps=30,format=yuv420p" \
+            -c:v libx264 -preset medium -crf 27 -maxrate 1800k -bufsize 3600k \
+            -profile:v main -level 3.1 \
+            -c:a aac -b:a 96k -ac 2 \
+            -movflags +faststart -max_muxing_queue_size 1024 \
+            /tmp/homepage-motion-optimized.mp4
+          test -s /tmp/homepage-motion-optimized.mp4
+          echo "Original size: $(du -h assets/homepage-motion.mp4 | cut -f1)"
+          echo "Optimized size: $(du -h /tmp/homepage-motion-optimized.mp4 | cut -f1)"
+          cp /tmp/homepage-motion-optimized.mp4 assets/homepage-motion.mp4
+
+      - name: Commit optimized video
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- assets/homepage-motion.mp4; then
+            echo "Video is already optimized; no changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/homepage-motion.mp4
+          git commit -m "Optimize homepage brand video for web playback"
+          git push origin HEAD:blazegeeks
