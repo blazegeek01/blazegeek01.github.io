@@ -2509,79 +2509,48 @@ html body .tool .drop h2{font-size:clamp(21px,2.5vw,27px)!important}
   html body .tool .drop h2{font-size:22px!important}
 }
 
-/* Second-page footer only: create clear, visible breathing room around the Follow Us heading. */
-html body .footer-socials .footer-social-heading {
-  display:flex!important;
-  flex-direction:column!important;
-  align-items:flex-start!important;
-  gap:14px!important;
-}
-html body .footer-socials .footer-social-heading .footer-social-kicker {
-  display:block!important;
-  margin:0 0 2px!important;
-  line-height:1.6!important;
-}
-html body .footer-socials .footer-social-heading h2 {
-  display:block!important;
-  margin:0!important;
-  padding:5px 0 7px!important;
-  line-height:1.2!important;
-}
-html body .footer-socials .footer-social-heading p {
-  display:block!important;
-  margin:0!important;
-  padding-top:3px!important;
-  line-height:1.9!important;
-}
-@media(max-width:760px) {
-  html body .footer-socials .footer-social-heading { gap:12px!important; }
-  html body .footer-socials .footer-social-heading h2 { padding:6px 0 8px!important; }
-}
 </style>
 
 
-<style id="metadata-footer-follow-heading-final-fix">
-/* Explicitly space the words in Follow Us and separate the heading from the kicker and description on this page. */
-html body footer.footer section#footer-socials .footer-social-heading{
-  display:block!important;
-  min-width:0!important;
-  padding:0!important;
+
+
+
+<style id="metadata-footer-match-homepage">
+/* Match the homepage footer heading's spacing and rhythm exactly. */
+html body footer.footer .footer-socials .footer-social-heading {
+  min-width: 0 !important;
+  display: block !important;
+  gap: normal !important;
 }
-html body footer.footer section#footer-socials .footer-social-heading > .footer-social-kicker{
-  display:block!important;
-  margin:0 0 18px!important;
-  padding:0!important;
-  line-height:1.6!important;
+html body footer.footer .footer-socials .footer-social-kicker {
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font: 700 10px/1.5 var(--mono,monospace) !important;
+  letter-spacing: .22em !important;
 }
-html body footer.footer section#footer-socials .footer-social-heading > h2{
-  display:block!important;
-  width:100%!important;
-  margin:0 0 22px!important;
-  padding:8px 0 12px!important;
-  line-height:1.3!important;
-  letter-spacing:0!important;
-  word-spacing:.22em!important;
-  white-space:normal!important;
+html body footer.footer .footer-socials .footer-social-heading h2 {
+  display: block !important;
+  width: auto !important;
+  margin: 7px 0 6px !important;
+  padding: 0 !important;
+  font-size: clamp(27px,3vw,38px) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -.035em !important;
+  word-spacing: normal !important;
+  white-space: normal !important;
 }
-html body footer.footer section#footer-socials .footer-social-heading > h2 > span{
-  display:inline!important;
-  margin-left:.22em!important;
-  padding:0!important;
+html body footer.footer .footer-socials .footer-social-heading h2 span {
+  display: inline !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
-html body footer.footer section#footer-socials .footer-social-heading > p{
-  display:block!important;
-  margin:0!important;
-  padding-top:2px!important;
-  line-height:1.9!important;
-}
-html body footer.footer section#footer-socials{
-  row-gap:clamp(28px,4vw,44px)!important;
-}
-@media(max-width:760px){
-  html body footer.footer section#footer-socials .footer-social-heading > .footer-social-kicker{margin-bottom:16px!important}
-  html body footer.footer section#footer-socials .footer-social-heading > h2{margin-bottom:18px!important;padding:7px 0 10px!important;word-spacing:.2em!important}
-  html body footer.footer section#footer-socials .footer-social-heading > h2 > span{margin-left:.2em!important}
-  html body footer.footer section#footer-socials{row-gap:26px!important}
+html body footer.footer .footer-socials .footer-social-heading p {
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 13px !important;
+  line-height: 1.7 !important;
 }
 </style>
 
