@@ -1,0 +1,45 @@
+name: Add AI Metadata Remover navigation
+
+on:
+  push:
+    branches: [blazegeeks]
+
+permissions:
+  contents: write
+
+jobs:
+  update-homepage:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Add metadata remover links
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          nav_old = '<a href="#journal"><span class="nav-shine-label" data-label="Ideas">Ideas</span></a>'
+          nav_new = nav_old + '<a href="/ai-metadata-remover.html"><span class="nav-shine-label" data-label="AI Metadata Remover">AI Metadata Remover</span></a>'
+          if 'href="/ai-metadata-remover.html"' not in s:
+              if nav_old not in s:
+                  raise SystemExit('Main navigation anchor not found')
+              s = s.replace(nav_old, nav_new, 1)
+          menu_old = '<a href="#settings" data-menu-settings><span class="menu-item-icon" aria-hidden="true">⚙</span><span>Settings</span><span class="menu-item-arrow" aria-hidden="true">↗</span></a>'
+          menu_new = '<a href="/ai-metadata-remover.html"><span class="menu-item-icon" aria-hidden="true">⌁</span><span>AI Metadata Remover</span><span class="menu-item-arrow" aria-hidden="true">↗</span></a>' + menu_old
+          if '<a href="/ai-metadata-remover.html"><span class="menu-item-icon"' not in s:
+              if menu_old not in s:
+                  raise SystemExit('Menu settings anchor not found')
+              s = s.replace(menu_old, menu_new, 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Commit homepage update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet || git commit -m "Add AI Metadata Remover to homepage navigation"
+          git push
