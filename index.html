@@ -2471,4 +2471,34 @@ html body .hero-copy h1 .living-flame em{
   }
 }
 </style>
+
+<style id="enlarge-founder-portrait-frame">
+/* Enlarge the founder portrait and its circular frame together */
+#founder .founder-portrait-wrap{
+  width:min(100%,440px)!important;
+}
+#founder .founder-portrait-wrap::before{
+  width:min(90vw,386px)!important;
+  top:-11px!important;
+}
+#founder img.founder-portrait{
+  width:min(84vw,360px)!important;
+  height:min(84vw,360px)!important;
+  max-width:none!important;
+}
+@media(max-width:760px){
+  #founder .founder-portrait-wrap{
+    width:min(100%,400px)!important;
+  }
+  #founder .founder-portrait-wrap::before{
+    width:min(91vw,370px)!important;
+    top:-9px!important;
+  }
+  #founder img.founder-portrait{
+    width:min(84vw,340px)!important;
+    height:min(84vw,340px)!important;
+  }
+}
+</style>
+
 </body></html>
