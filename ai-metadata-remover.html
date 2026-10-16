@@ -38,13 +38,50 @@
 @media(max-width:900px){.top nav{gap:16px;font-size:11px}.top .brand-wordmark{font-size:17px}.brand-logo-img{width:36px;height:36px;flex-basis:36px}}
 @media(max-width:760px){.top{align-items:center;flex-direction:row;min-height:68px;gap:10px}.top nav{display:none}.mobile-nav{display:flex!important;position:relative;margin-left:auto}.menu-btn{display:grid!important}.menu-panel{display:none;position:absolute;right:0;top:52px;width:245px;z-index:50;background:#111116f5;border:1px solid #ffffff22;padding:8px;box-shadow:0 20px 50px #000c;backdrop-filter:blur(20px)}.menu-panel a{display:block;padding:12px;white-space:nowrap}.top .brand-wordmark{font-size:16px}.brand-logo-img{width:32px;height:32px;flex-basis:32px}.footerrow{flex-direction:column;align-items:flex-start;gap:12px}.hero h1{font-size:clamp(27px,7vw,50px);white-space:nowrap;letter-spacing:-.06em}}
 
+
+/* Shared homepage header/footer system: exact homepage structure and styling */
+.header-menu-wrap{position:relative;display:flex;align-items:center}
+.header-menu-toggle{display:none;place-items:center;width:44px;height:44px;border:1px solid #ffffff28;background:#ffffff06;color:#fff;border-radius:3px;cursor:pointer}
+.menu-lines{display:grid;gap:5px}.menu-lines i{display:block;width:19px;height:1.5px;background:#fff;transition:transform .25s,opacity .25s}
+.header-menu-panel{position:absolute;right:0;top:calc(100% + 13px);width:255px;padding:10px;border:1px solid #ffffff20;background:#101014f5;box-shadow:0 20px 55px #000b;backdrop-filter:blur(18px);z-index:60}
+.header-menu-panel[hidden]{display:none!important}
+.header-menu-top{display:flex;align-items:center;justify-content:space-between;padding:12px;color:#ff8a45;font:9px 'Space Mono',monospace;letter-spacing:.16em}
+.header-menu-dot{width:6px;height:6px;border-radius:50%;background:#f04432;box-shadow:0 0 12px #f04432}
+.header-menu-panel>a{display:flex;align-items:center;gap:12px;padding:13px 12px;border-top:1px solid #ffffff0c;font-size:12px;color:#ddd;transition:background .2s,color .2s}
+.header-menu-panel>a:hover{background:#ffffff09;color:#ff9a45}
+.menu-item-icon{width:22px;color:#ff8a45;text-align:center}.menu-item-arrow{margin-left:auto;color:#80777b}
+.footer-socials{display:grid;grid-template-columns:.75fr 1.25fr;gap:32px;align-items:center;padding:42px 0 28px;border-top:1px solid #ffffff10}
+.footer-social-heading h2{font-family:Cinzel,Georgia,serif;font-size:clamp(32px,4vw,48px);margin:8px 0;letter-spacing:-.04em}
+.footer-social-heading h2 span{color:#f04432}.footer-social-heading p{font-size:12px;line-height:1.8;color:#9e969a}
+.footer-social-kicker{font:9px 'Space Mono',monospace;letter-spacing:.16em;color:#ff8a45}
+.social-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.social-link{display:flex;align-items:center;gap:12px;min-width:0;padding:15px;border:1px solid #ffffff22;background:transparent;color:#f7f2ef;transition:border-color .25s,color .25s,box-shadow .25s}
+.social-link:hover{border-color:#ff8a4580;color:#ff9a45;box-shadow:0 0 22px #f0443210}
+.social-icon{width:22px;height:22px;display:grid;place-items:center;flex:0 0 22px}.social-icon svg{width:20px;height:20px}
+.social-label{font-size:11px;letter-spacing:.02em}.social-label small{display:block;color:#898186;font-size:9px}
+.social-arrow{margin-left:auto;color:#ff8a45}
+.footerrow .logo{font-size:20px!important;letter-spacing:.035em!important;white-space:nowrap!important}
+.footerrow .brand-logo-img{width:42px!important;height:42px!important;flex:0 0 42px!important}
+@media(max-width:900px){.top nav{gap:16px;font-size:11px}.top .brand-wordmark{font-size:17px!important}.brand-logo-img{width:36px;height:36px;flex-basis:36px}}
+@media(max-width:760px){.top{height:auto;min-height:68px;padding:14px 6%;align-items:center;flex-direction:row;gap:10px}.top nav{display:none}.header-menu-wrap{display:flex;margin-left:auto}.header-menu-toggle{display:grid}.top .brand-wordmark,.footerrow .brand-wordmark{font-size:16px!important}.brand-logo-img{width:32px;height:32px;flex-basis:32px}.footer-socials{grid-template-columns:1fr;gap:20px}.social-links{grid-template-columns:1fr}.footerrow{display:flex;flex-direction:column;align-items:flex-start;gap:12px}.footerrow>*{margin:0}.footerrow .logo{font-size:18px!important}}
+
 </style>
 </head>
 <body>
-<header class="top"><a class="logo" href="/" aria-label="BLAZE GEEK’s home"><img class="brand-logo-img" src="/assets/blaze-geeks-logo%20(2).png" alt="BLAZE GEEK’s official logo" width="42" height="42" loading="eager" decoding="async"><span class="brand-wordmark" aria-label="BLAZE GEEK’S"><span class="brand-word-first">BLAZE</span><span class="brand-word-second"> GEEK’S</span></span></a>
-<nav aria-label="Main navigation"><a href="/#work"><span class="nav-shine-label" data-label="Work">Work</span></a><a href="/#services"><span class="nav-shine-label" data-label="Services">Services</span></a><a href="/#about"><span class="nav-shine-label" data-label="About">About</span></a><a href="/#journal"><span class="nav-shine-label" data-label="Ideas">Ideas</span></a><a href="/ai-metadata-remover.html" aria-current="page"><span class="nav-shine-label metadata-nav-label" data-label="AI Metadata Remover">AI Metadata Remover</span></a><a class="pill" href="/#contact">Let’s talk ↗</a></nav>
-<div class="mobile-nav"><button class="menu-btn smallbtn" type="button" aria-label="Open menu">☰</button><div class="menu-panel"><a href="/#work">Work</a><a href="/#services">Services</a><a href="/#about">About</a><a href="/#journal">Ideas</a><a href="/ai-metadata-remover.html" class="metadata-nav-label">AI Metadata Remover</a><a href="/#contact">Let’s talk ↗</a></div></div>
-</header>
+<header class="top"><a class="logo" href="/" aria-label="Refresh BLAZE GEEK’s website" title="Click to refresh the website"><img class="brand-logo-img" src="/assets/blaze-geeks-logo%20(2).png" data-fallback="https://raw.githubusercontent.com/blazegeek01/blazegeek01.github.io/blazegeeks/assets/blaze-geeks-logo%20(2).png" alt="BLAZE GEEK’s official logo" width="42" height="42" loading="eager" decoding="async"><span class="brand-wordmark" aria-label="BLAZE GEEK’S"><span class="brand-word-first">BLAZE</span><span class="brand-word-second"> GEEK’S</span></span></a><nav aria-label="Main navigation"><a href="#work"><span class="nav-shine-label" data-label="Work">Work</span></a><a href="#services"><span class="nav-shine-label" data-label="Services">Services</span></a><a href="#about">About</a><a href="#journal"><span class="nav-shine-label" data-label="Ideas">Ideas</span></a><a href="/ai-metadata-remover.html"><span class="nav-shine-label" data-label="AI Metadata Remover">AI Metadata Remover</span></a><a class="pill" href="#contact">Let’s talk ↗</a></nav><div class="header-menu-wrap">
+<button class="header-menu-toggle" type="button" aria-label="Open website menu" aria-expanded="false" aria-controls="header-menu-panel">
+  <span class="menu-lines" aria-hidden="true"><i></i><i></i><i></i></span>
+</button>
+<div class="header-menu-panel" id="header-menu-panel" hidden>
+  <div class="header-menu-top"><span>QUICK MENU</span><span class="header-menu-dot" aria-hidden="true"></span></div>
+  <a href="#founder"><span class="menu-item-icon" aria-hidden="true">◎</span><span>Account</span><span class="menu-item-arrow" aria-hidden="true">↗</span></a>
+  <a href="#services"><span class="menu-item-icon" aria-hidden="true">✳</span><span>Services</span><span class="menu-item-arrow" aria-hidden="true">↗</span></a>
+  <a href="#about"><span class="menu-item-icon" aria-hidden="true">◈</span><span>About</span><span class="menu-item-arrow" aria-hidden="true">↗</span></a>
+  <a href="#journal"><span class="menu-item-icon" aria-hidden="true">✧</span><span>Ideas</span><span class="menu-item-arrow" aria-hidden="true">↗</span></a>
+  <a href="#contact"><span class="menu-item-icon" aria-hidden="true">↗</span><span>Let’s talk</span><span class="menu-item-arrow" aria-hidden="true">↗</span></a>
+  <a href="/ai-metadata-remover.html"><span class="menu-item-icon" aria-hidden="true">⌁</span><span>AI Metadata Remover</span><span class="menu-item-arrow" aria-hidden="true">↗</span></a><a href="#settings" data-menu-settings><span class="menu-item-icon" aria-hidden="true">⚙</span><span>Settings</span><span class="menu-item-arrow" aria-hidden="true">↗</span></a>
+</div>
+</div></header>
 <main>
 <section class="hero wrap reveal"><div><div class="kicker">✳ &nbsp; PRIVACY TOOL · BLAZE GEEK’S</div><h1><em>AI METADATA REMOVER</em></h1><p class="lead">Remove image metadata privately in your browser. Clean EXIF, GPS, IPTC, XMP and embedded provenance information without uploading your photos to a server.</p><div class="privacy"><span class="dot"></span> 100% CLIENT-SIDE · YOUR FILES STAY ON YOUR DEVICE</div></div><div class="hero-art"><span class="hero-index">01 / TOOL</span><img class="official-logo" src="/assets/blaze-geeks-logo%20(2).png" alt="BLAZE GEEK’s official logo"></div></section>
 <section class="tool wrap reveal">
@@ -55,7 +92,32 @@
 </section>
 <section class="features"><div class="wrap"><div class="sectionhead"><div><div class="kicker">01 / WHAT GETS CLEANED</div><h2>Less metadata.<br><span>More privacy.</span></h2></div><p>Built in the BLAZE GEEK’S visual system — fast, local and deliberately minimal.</p></div><div class="features-grid"><article class="feature"><div class="num">01 / EXIF</div><h3>Camera &amp; GPS data</h3><p>Re-encoding removes embedded camera details, timestamps, GPS coordinates and other EXIF fields.</p></article><article class="feature"><div class="num">02 / XMP · IPTC</div><h3>Embedded descriptions</h3><p>PNG/JPEG/WebP output is rebuilt from pixels, dropping common XMP, IPTC, comment and text metadata.</p></article><article class="feature"><div class="num">03 / PROVENANCE</div><h3>AI metadata &amp; credentials</h3><p>Because the cleaned image is newly encoded, embedded provenance blocks such as C2PA metadata are not carried into the output.</p></article></div></div></section>
 </main>
-<footer class="footer wrap"><div class="footerrow"><a class="logo" href="/"><img class="brand-logo-img" src="/assets/blaze-geeks-logo%20(2).png" alt="BLAZE GEEK’s official logo" width="42" height="42" loading="lazy" decoding="async"><span class="brand-wordmark" aria-label="BLAZE GEEK’S"><span class="brand-word-first">BLAZE</span><span class="brand-word-second"> GEEK’S</span></span></a><span class="credit">Built &amp; maintained by <b>JAHID HOSEN ARMAN</b> · BLAZE GEEK’S</span><span>© <span id="year"></span> BLAZE GEEK’S</span></div><div class="mono">CREATE BOLD. INSPIRE REAL. BLAZE BEYOND.</div></footer>
+<footer class="footer wrap"><div class="footerrow"><a class="logo" href="#home"><img class="brand-logo-img" src="/assets/blaze-geeks-logo%20(2).png" data-fallback="https://raw.githubusercontent.com/blazegeek01/blazegeek01.github.io/blazegeeks/assets/blaze-geeks-logo%20(2).png" alt="BLAZE GEEK’s official logo"><span class="brand-wordmark" aria-label="BLAZE GEEK’S"><span class="brand-word-first">BLAZE</span><span class="brand-word-second"> GEEK’S</span></span></a><span>Independent minds. Intentional work. No ordinary ideas.</span><span>© <span id="year"></span> BLAZE GEEK’S</span><a href="#home">BACK TO TOP ↑</a></div><section class="footer-socials" id="footer-socials" aria-label="Follow BLAZE GEEK’s on social media">
+  <div class="footer-social-heading">
+    <span class="footer-social-kicker">STAY CONNECTED</span>
+    <h2>Follow <span>Us</span></h2>
+    <p>Follow the spark. See what we create next.</p>
+  </div>
+  <nav class="social-links" aria-label="BLAZE GEEK’s social media links">
+    <a class="social-link social-facebook" href="https://www.facebook.com/jahidhosenarman01" target="_blank" rel="noopener noreferrer" aria-label="Follow BLAZE GEEK’s on Facebook">
+      <span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M13.6 21v-8.2h2.8l.42-3.2H13.6V7.56c0-.93.26-1.56 1.6-1.56h1.71V3.14A22.2 22.2 0 0 0 14.42 3c-2.47 0-4.16 1.5-4.16 4.26V9.6H7.47v3.2h2.79V21h3.34Z" fill="currentColor"/></svg></span>
+      <span class="social-label">Facebook</span><span class="social-arrow" aria-hidden="true">↗</span>
+    </a>
+    <a class="social-link social-instagram" href="https://www.instagram.com/jahidhosenarman01" target="_blank" rel="noopener noreferrer" aria-label="Follow BLAZE GEEK’s on Instagram">
+      <span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><rect x="3.25" y="3.25" width="17.5" height="17.5" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.7" cy="6.6" r="1.2" fill="currentColor"/></svg></span>
+      <span class="social-label">Instagram</span><span class="social-arrow" aria-hidden="true">↗</span>
+    </a>
+    <a class="social-link social-x" href="https://x.com/blaze_geekaru" target="_blank" rel="noopener noreferrer" aria-label="Follow BLAZE GEEK’s on X, formerly Twitter">
+      <span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M18.9 3H22l-6.78 7.75L23.2 21h-6.25l-4.9-6.42L6.43 21H3.3l7.25-8.29L2.8 3h6.4l4.43 5.86L18.9 3Zm-1.1 16h1.73L8.27 4.9H6.42L17.8 19Z" fill="currentColor"/></svg></span>
+      <span class="social-label">X <small>formerly Twitter</small></span><span class="social-arrow" aria-hidden="true">↗</span>
+    </a>
+    <a class="social-link social-linkedin" href="https://www.linkedin.com/in/jahid-hosen-arman-419628341" target="_blank" rel="noopener noreferrer" aria-label="Connect with BLAZE GEEK’s on LinkedIn">
+      <span class="social-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M5.2 8.5H2V22h3.2V8.5ZM3.6 2A1.86 1.86 0 1 0 3.6 5.72 1.86 1.86 0 0 0 3.6 2ZM22 13.75c0-4.06-2.17-5.95-5.07-5.95a4.38 4.38 0 0 0-3.95 2.17V8.5H9.8V22H13v-7.05c0-1.86.35-3.66 2.66-3.66 2.28 0 2.3 2.12 2.3 3.78V22H22v-8.25Z" fill="currentColor"/></svg></span>
+      <span class="social-label">LinkedIn</span><span class="social-arrow" aria-hidden="true">↗</span>
+    </a>
+  </nav>
+</section>
+<p class="mono">CREATE BOLD. INSPIRE REAL. BLAZE BEYOND.</p></footer>
 <script>
 const $=s=>document.querySelector(s),input=$('#fileInput'),drop=$('#drop'),results=$('#results'),controls=$('#controls'),status=$('#status'),downloadAll=$('#downloadAll');let cleaned=[];
 function fmt(n){return n<1024?n+' B':n<1048576?(n/1024).toFixed(1)+' KB':(n/1048576).toFixed(1)+' MB'}
@@ -68,7 +130,8 @@ input.addEventListener('change',e=>processFiles([...e.target.files]));['dragente
 $('#clearBtn').onclick=()=>{cleaned=[];results.innerHTML='';input.value='';updateControls()};
 function save(o){const a=document.createElement('a');a.href=URL.createObjectURL(o.blob);a.download=o.name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000)}
 downloadAll.onclick=()=>cleaned.forEach((o,i)=>setTimeout(()=>save(o),i*180));
-document.querySelector('.menu-btn').onclick=()=>{const b=document.querySelector('.menu-btn'),p=document.querySelector('.menu-panel');p.style.display=p.style.display==='block'?'none':'block';b.setAttribute('aria-expanded',p.style.display==='block'?'true':'false')};
+const menuToggle=document.querySelector('.header-menu-toggle'),menuPanel=document.querySelector('.header-menu-panel');
+if(menuToggle&&menuPanel){menuToggle.addEventListener('click',()=>{const opening=menuPanel.hidden;menuPanel.hidden=!opening;menuToggle.setAttribute('aria-expanded',String(opening));menuToggle.setAttribute('aria-label',opening?'Close website menu':'Open website menu')});menuPanel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menuPanel.hidden=true;menuToggle.setAttribute('aria-expanded','false')}));}
 document.querySelectorAll('.reveal').forEach(el=>{const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08});io.observe(el)});
 $('#year').textContent=new Date().getFullYear();
 </script>
