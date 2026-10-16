@@ -2383,4 +2383,25 @@ html body .hero-copy h1 .living-flame em{
  #journal .notes .note p{font-size:10px!important;line-height:1.45!important}
 }
 </style>
+
+<style id="remove-founder-area-black-background">
+/* Remove the black panel behind the founder area while preserving portrait and caption */
+#founder.founder-simple{
+  background:transparent!important;
+  background-color:transparent!important;
+  box-shadow:none!important;
+  border-color:transparent!important;
+}
+#founder .founder-portrait-wrap,
+#founder .founder-art{
+  background:transparent!important;
+  background-color:transparent!important;
+  box-shadow:none!important;
+}
+#founder .founder-portrait-wrap::before,
+#founder .founder-portrait-wrap::after{
+  background:transparent!important;
+  box-shadow:none!important;
+}
+</style>
 </body></html>
