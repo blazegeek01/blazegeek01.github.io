@@ -37,10 +37,14 @@ jobs:
           p = Path('_site/ai-metadata-remover.html')
           s = p.read_text(encoding='utf-8')
 
-          # The official BLAZE GEEK’S logo belongs only in the header and footer.
-          old_logo = '<a class="logo" href="/"><span class="brandmark">ϟ</span><span>BLAZE <b>GEEK’S</b></span></a>'
-          new_logo = '<a class="logo official-site-logo" href="/"><img src="/assets/blaze-geeks-logo%20(2).png" alt="BLAZE GEEK’S official logo"></a>'
-          s = s.replace(old_logo, new_logo)
+          # Keep the exact original BLAZE GEEK’s text/mark branding in header and footer.
+          old_logo = '<a class="logo official-site-logo" href="/"><img src="/assets/blaze-geeks-logo%20(2).png" alt="BLAZE GEEK’S official logo"></a>'
+          original_logo = '<a class="logo" href="/"><span class="brandmark">ϟ</span><span>BLAZE <b>GEEK’S</b></span></a>'
+          s = s.replace(old_logo, original_logo)
+
+          # Also undo the previous source branding replacement if present.
+          old_source_logo = '<a class="logo" href="/"><span class="brandmark">ϟ</span><span>BLAZE <b>GEEK’S</b></span></a>'
+          s = s.replace(old_source_logo, original_logo)
 
           # Remove the standalone body logo/hero artwork completely.
           marker = '<div class="hero-art">'
@@ -63,8 +67,8 @@ jobs:
                           s = s[:start] + s[pos:]
                           break
 
-          # Keep the first page header/footer treatment while giving the tool a clean single-column hero.
-          extra_css = '''\n.official-site-logo{display:flex;align-items:center}.official-site-logo img{display:block;width:150px;height:42px;object-fit:contain;object-position:left center;filter:invert(1) brightness(1.18) drop-shadow(0 4px 16px #0008)}.hero{grid-template-columns:1fr;max-width:1050px;text-align:center}.hero .lead{margin-left:auto;margin-right:auto;max-width:760px}.hero .privacy{justify-content:center}.hero-art,.hero-index{display:none!important}\n'''
+          # Keep the tool body clean without changing the original header/footer branding.
+          extra_css = '''\n.hero{grid-template-columns:1fr;max-width:1050px;text-align:center}.hero .lead{margin-left:auto;margin-right:auto;max-width:760px}.hero .privacy{justify-content:center}.hero-art,.hero-index{display:none!important}\n'''
           s = s.replace('</style>', extra_css + '</style>', 1)
 
           p.write_text(s, encoding='utf-8')
