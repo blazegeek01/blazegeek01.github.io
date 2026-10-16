@@ -2366,5 +2366,58 @@ html body .features .sectionhead>*{
 }
 </style>
 
+
+<style id="three-less-metadata-cards-outline">
+/* Animate the outline on EACH of the three individual “Less metadata” cards. */
+@property --less-card-outline-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+@keyframes lessCardOutlineRotate {
+  from { --less-card-outline-angle: 0deg; }
+  to { --less-card-outline-angle: 360deg; }
+}
+html body .features .features-grid > .feature {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(255,138,69,.48) !important;
+}
+html body .features .features-grid > .feature::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 4 !important;
+  padding: 2px !important;
+  pointer-events: none !important;
+  opacity: 1 !important;
+  background: conic-gradient(
+    from var(--less-card-outline-angle),
+    transparent 0deg,
+    rgba(255,255,255,.98) 28deg,
+    #ff8a45 68deg,
+    transparent 122deg,
+    transparent 205deg,
+    #f04432 248deg,
+    rgba(255,255,255,.96) 292deg,
+    transparent 332deg
+  ) !important;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0) !important;
+  -webkit-mask-composite: xor !important;
+  mask-composite: exclude !important;
+  animation: lessCardOutlineRotate 3.2s linear infinite !important;
+}
+html body .features .features-grid > .feature > * {
+  position: relative;
+  z-index: 2;
+}
+@media (prefers-reduced-motion: reduce) {
+  html body .features .features-grid > .feature::before {
+    animation-duration: 8s !important;
+  }
+}
+</style>
+
 </body>
 </html>
