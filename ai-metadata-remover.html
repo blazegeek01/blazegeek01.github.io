@@ -2233,8 +2233,7 @@ input.addEventListener('change',e=>processFiles([...e.target.files]));['dragente
 $('#clearBtn').onclick=()=>{cleaned=[];results.innerHTML='';input.value='';updateControls()};
 function save(o){const a=document.createElement('a');a.href=URL.createObjectURL(o.blob);a.download=o.name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000)}
 downloadAll.onclick=()=>cleaned.forEach((o,i)=>setTimeout(()=>save(o),i*180));
-const menuToggle=document.querySelector('.header-menu-toggle'),menuPanel=document.querySelector('.header-menu-panel');
-if(menuToggle&&menuPanel){menuToggle.addEventListener('click',()=>{const opening=menuPanel.hidden;menuPanel.hidden=!opening;menuToggle.setAttribute('aria-expanded',String(opening));menuToggle.setAttribute('aria-label',opening?'Close website menu':'Open website menu')});menuPanel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menuPanel.hidden=true;menuToggle.setAttribute('aria-expanded','false')}));}
+/* Shared header menu behavior is registered once above; avoid double-toggling. */
 document.querySelectorAll('.reveal').forEach(el=>{const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08});io.observe(el)});
 $('#year').textContent=new Date().getFullYear();
 </script>
