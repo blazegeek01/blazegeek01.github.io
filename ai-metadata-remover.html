@@ -2052,17 +2052,17 @@ header.top:after{
 <body>
 <canvas id="blaze-flame-particles" aria-hidden="true"></canvas>
 <div class="pointer-aura" aria-hidden="true"></div>
-<header class="top"><a class="logo" href="/" aria-label="Refresh BLAZE GEEK’s website" title="Click to refresh the website"><img class="brand-logo-img" src="/assets/blaze-geeks-logo%20(2).png" data-fallback="https://raw.githubusercontent.com/blazegeek01/blazegeek01.github.io/blazegeeks/assets/blaze-geeks-logo%20(2).png" alt="BLAZE GEEK’s official logo" width="42" height="42" loading="eager" decoding="async"><span class="brand-wordmark" aria-label="BLAZE GEEK’S"><span class="brand-word-first">BLAZE</span><span class="brand-word-second"> GEEK’S</span></span></a><nav aria-label="Main navigation"><a href="#work"><span class="nav-shine-label" data-label="Work">Work</span></a><a href="#services"><span class="nav-shine-label" data-label="Services">Services</span></a><a href="#about">About</a><a href="#journal"><span class="nav-shine-label" data-label="Ideas">Ideas</span></a><a href="/ai-metadata-remover.html"><span class="nav-shine-label" data-label="AI Metadata Remover">AI Metadata Remover</span></a><a class="pill" href="#contact">Let’s talk ↗</a></nav><div class="header-menu-wrap">
+<header class="top"><a class="logo" href="/" aria-label="Refresh BLAZE GEEK’s website" title="Click to refresh the website"><img class="brand-logo-img" src="/assets/blaze-geeks-logo%20(2).png" data-fallback="https://raw.githubusercontent.com/blazegeek01/blazegeek01.github.io/blazegeeks/assets/blaze-geeks-logo%20(2).png" alt="BLAZE GEEK’s official logo" width="42" height="42" loading="eager" decoding="async"><span class="brand-wordmark" aria-label="BLAZE GEEK’S"><span class="brand-word-first">BLAZE</span><span class="brand-word-second"> GEEK’S</span></span></a><nav aria-label="Main navigation"><a href="/#work"><span class="nav-shine-label" data-label="Work">Work</span></a><a href="/#services"><span class="nav-shine-label" data-label="Services">Services</span></a><a href="/#about">About</a><a href="/#journal"><span class="nav-shine-label" data-label="Ideas">Ideas</span></a><a href="/ai-metadata-remover.html"><span class="nav-shine-label" data-label="AI Metadata Remover">AI Metadata Remover</span></a><a class="pill" href="/#contact">Let’s talk ↗</a></nav><div class="header-menu-wrap">
 <button class="header-menu-toggle" type="button" aria-label="Open website menu" aria-expanded="false" aria-controls="header-menu-panel">
   <span class="menu-lines" aria-hidden="true"><i></i><i></i><i></i></span>
 </button>
 <div class="header-menu-panel" id="header-menu-panel" hidden>
   <div class="header-menu-top"><span>QUICK MENU</span><span class="header-menu-dot" aria-hidden="true"></span></div>
-  <a href="#founder"><span class="menu-item-icon" aria-hidden="true">◎</span><span>Account</span><span class="menu-item-arrow" aria-hidden="true">↗</span></a>
-  <a href="#services"><span class="menu-item-icon" aria-hidden="true">✳</span><span>Services</span><span class="menu-item-arrow" aria-hidden="true">↗</span></a>
-  <a href="#about"><span class="menu-item-icon" aria-hidden="true">◈</span><span>About</span><span class="menu-item-arrow" aria-hidden="true">↗</span></a>
-  <a href="#journal"><span class="menu-item-icon" aria-hidden="true">✧</span><span>Ideas</span><span class="menu-item-arrow" aria-hidden="true">↗</span></a>
-  <a href="#contact"><span class="menu-item-icon" aria-hidden="true">↗</span><span>Let’s talk</span><span class="menu-item-arrow" aria-hidden="true">↗</span></a>
+  <a href="/#founder"><span class="menu-item-icon" aria-hidden="true">◎</span><span>Account</span><span class="menu-item-arrow" aria-hidden="true">↗</span></a>
+  <a href="/#services"><span class="menu-item-icon" aria-hidden="true">✳</span><span>Services</span><span class="menu-item-arrow" aria-hidden="true">↗</span></a>
+  <a href="/#about"><span class="menu-item-icon" aria-hidden="true">◈</span><span>About</span><span class="menu-item-arrow" aria-hidden="true">↗</span></a>
+  <a href="/#journal"><span class="menu-item-icon" aria-hidden="true">✧</span><span>Ideas</span><span class="menu-item-arrow" aria-hidden="true">↗</span></a>
+  <a href="/#contact"><span class="menu-item-icon" aria-hidden="true">↗</span><span>Let’s talk</span><span class="menu-item-arrow" aria-hidden="true">↗</span></a>
   <a href="/ai-metadata-remover.html"><span class="menu-item-icon" aria-hidden="true">⌁</span><span>AI Metadata Remover</span><span class="menu-item-arrow" aria-hidden="true">↗</span></a><a href="#settings" data-menu-settings><span class="menu-item-icon" aria-hidden="true">⚙</span><span>Settings</span><span class="menu-item-arrow" aria-hidden="true">↗</span></a>
 </div>
 </div></header>
@@ -2238,5 +2238,51 @@ if(menuToggle&&menuPanel){menuToggle.addEventListener('click',()=>{const opening
 document.querySelectorAll('.reveal').forEach(el=>{const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08});io.observe(el)});
 $('#year').textContent=new Date().getFullYear();
 </script>
+
+<style id="metadata-page-final-repair">
+/* Keep the upload box's white-to-flame outline visibly moving around its perimeter. */
+html body .tool .drop{
+  position:relative!important;isolation:isolate!important;
+  border:1px solid rgba(255,138,69,.42)!important;
+  background:linear-gradient(145deg,#111116,#0b0b0e)!important;
+  animation:none!important;
+}
+html body .tool .drop::before{
+  content:""!important;display:block!important;position:absolute!important;
+  inset:0!important;padding:2px!important;border-radius:inherit!important;
+  pointer-events:none!important;z-index:5!important;opacity:1!important;
+  background:conic-gradient(from var(--upload-outline-angle,0deg),transparent 0deg,rgba(255,255,255,.95) 35deg,#ff8a45 75deg,transparent 125deg,transparent 205deg,#f04432 250deg,rgba(255,255,255,.9) 290deg,transparent 330deg)!important;
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0)!important;
+  -webkit-mask-composite:xor!important;mask-composite:exclude!important;
+  animation:metadataOutlineRotate 4s linear infinite!important;
+}
+@keyframes metadataOutlineRotate{to{--upload-outline-angle:360deg}}
+html body .tool .drop::after{z-index:0!important;pointer-events:none!important}
+html body .tool .drop>*{position:relative;z-index:2}
+html body header.top{z-index:100!important;overflow:visible!important}
+html body header.top nav{display:flex!important;visibility:visible!important;opacity:1!important;align-items:center!important}
+html body header.top nav>a{display:inline-flex!important;visibility:visible!important;opacity:1!important;align-items:center!important}
+html body header.top .header-menu-wrap{display:flex!important;position:relative!important;z-index:110!important;margin-left:auto!important;flex:0 0 auto!important}
+html body header.top .header-menu-toggle{display:grid!important;visibility:visible!important;opacity:1!important;place-items:center!important;position:relative!important;z-index:112!important}
+html body header.top .header-menu-panel{
+  display:block!important;position:absolute!important;top:calc(100% + 12px)!important;right:0!important;
+  width:min(280px,calc(100vw - 28px))!important;max-height:min(75vh,520px)!important;overflow:auto!important;
+  padding:10px!important;z-index:120!important;background:#101014!important;
+  border:1px solid rgba(255,138,69,.7)!important;border-radius:18px!important;
+  box-shadow:0 20px 55px #000d,0 0 22px rgba(240,68,50,.12)!important;
+}
+html body header.top .header-menu-panel[hidden]{display:none!important}
+html body header.top .header-menu-panel>a{display:flex!important;visibility:visible!important;opacity:1!important;min-height:43px!important;color:#fff!important;text-decoration:none!important}
+html body header.top .header-menu-panel>a span{visibility:visible!important}
+@media(max-width:760px){
+  html body header.top{flex-direction:row!important;align-items:center!important;justify-content:space-between!important;gap:8px!important}
+  html body header.top>nav{display:none!important}
+  html body header.top>.header-menu-wrap{display:flex!important;margin-left:auto!important}
+}
+@media(prefers-reduced-motion:reduce){
+  html body .tool .drop::before{animation-duration:8s!important}
+}
+</style>
+
 </body>
 </html>
