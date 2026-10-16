@@ -2071,7 +2071,7 @@ header.top:after{
 <p class="built-credit">Built &amp; maintained by <strong>JAHID HOSEN ARMAN</strong> · BLAZE GEEK’s</p><div class="privacy"><span class="dot"></span> 100% CLIENT-SIDE · YOUR FILES STAY ON YOUR DEVICE</div></div></section>
 <section class="tool wrap reveal">
 <input id="fileInput" type="file" accept="image/jpeg,image/png,image/webp" multiple hidden>
-<div class="drop" id="drop"><div class="drop-content"><div class="upload-icon">⌁</div><h2>Drop your images here</h2><p>JPG · PNG · WEBP &nbsp; / &nbsp; Multiple files supported</p><label class="browse" for="fileInput">Choose images ↗</label><div class="hint">FILES ARE PROCESSED LOCALLY — NOTHING IS UPLOADED</div></div></div>
+<div class="drop" id="drop"><div class="drop-content"><div class="upload-icon" aria-hidden="true"><svg viewBox="0 0 48 48" width="34" height="34" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="8" width="38" height="32" rx="4" stroke="currentColor" stroke-width="2.2"/><circle cx="17" cy="19" r="4" stroke="currentColor" stroke-width="2.2"/><path d="M8 35l11-10 7 6 6-5 8 9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h2>Drop your images here</h2><p>JPG · PNG · WEBP &nbsp; / &nbsp; Multiple files supported</p><label class="browse" for="fileInput">Choose images ↗</label><div class="hint">FILES ARE PROCESSED LOCALLY — NOTHING IS UPLOADED</div></div></div>
 <div class="controls" id="controls"><div class="status" id="status">0 images ready</div><div class="control-actions"><button class="smallbtn" id="clearBtn">Clear</button><button class="smallbtn hot" id="downloadAll" disabled>Download All ↘</button></div></div>
 <div class="results" id="results"></div>
 </section>
@@ -2439,6 +2439,75 @@ html body .features .sectionhead{margin-bottom:0!important}
 /* Use Agency FB consistently across the entire BLAZE GEEK’s website. */
 @font-face{font-family:"Agency FB";src:local("Agency FB");font-style:normal;font-weight:100 900;font-display:swap}
 html,html body,html body *{font-family:"Agency FB","Arial Narrow",Arial,sans-serif!important}
+</style>
+
+
+<style id="metadata-centered-compact-layout">
+/* Center the page introduction directly above a more balanced upload panel. */
+html body main > .hero.wrap.reveal{
+  display:block!important;
+  min-height:0!important;
+  padding:42px 0 22px!important;
+  text-align:center!important;
+}
+html body main > .hero.wrap.reveal > div{
+  width:100%!important;
+  max-width:900px!important;
+  margin:0 auto!important;
+}
+html body main > .hero.wrap.reveal .kicker,
+html body main > .hero.wrap.reveal h1,
+html body main > .hero.wrap.reveal .lead,
+html body main > .hero.wrap.reveal .built-credit,
+html body main > .hero.wrap.reveal .privacy{
+  margin-left:auto!important;
+  margin-right:auto!important;
+  justify-content:center!important;
+  text-align:center!important;
+}
+html body main > .hero.wrap.reveal h1{
+  font-size:clamp(32px,4.4vw,60px)!important;
+  line-height:1.08!important;
+  margin-top:14px!important;
+  margin-bottom:14px!important;
+  white-space:normal!important;
+}
+html body main > .hero.wrap.reveal .lead{
+  max-width:720px!important;
+  font-size:clamp(14px,1.2vw,16px)!important;
+  line-height:1.75!important;
+}
+html body main > .tool.wrap.reveal{
+  width:min(940px,88%)!important;
+  max-width:940px!important;
+  padding-top:10px!important;
+  padding-bottom:48px!important;
+}
+html body .tool .drop{
+  min-height:300px!important;
+  max-width:100%!important;
+  margin:0 auto!important;
+}
+html body .tool .drop-content{padding:28px!important}
+html body .tool .upload-icon{
+  width:68px!important;height:68px!important;
+  margin-bottom:15px!important;
+  color:#ffb17b!important;
+}
+html body .tool .upload-icon svg{display:block;width:32px;height:32px}
+html body .tool .drop h2{font-size:clamp(21px,2.5vw,27px)!important}
+@media(max-width:760px){
+  html body main > .hero.wrap.reveal{padding:30px 0 16px!important}
+  html body main > .hero.wrap.reveal h1{font-size:clamp(27px,7.2vw,42px)!important;white-space:normal!important}
+  html body main > .hero.wrap.reveal .lead{font-size:13px!important;line-height:1.7!important}
+  html body main > .hero.wrap.reveal .privacy{font-size:9px!important;line-height:1.7!important;flex-wrap:wrap}
+  html body main > .tool.wrap.reveal{width:90%!important;padding-top:8px!important;padding-bottom:34px!important}
+  html body .tool .drop{min-height:255px!important}
+  html body .tool .drop-content{padding:20px 14px!important}
+  html body .tool .upload-icon{width:58px!important;height:58px!important;margin-bottom:12px!important}
+  html body .tool .upload-icon svg{width:28px;height:28px}
+  html body .tool .drop h2{font-size:22px!important}
+}
 </style>
 
 </body>
