@@ -2423,4 +2423,28 @@ html body .hero-copy h1 .living-flame em{
   #founder .portrait-caption .founder-role{font-size:.9rem!important}
 }
 </style>
+
+<style id="founder-name-uppercase-larger">
+/* Make the founder's name unmistakably larger and uppercase */
+#founder .portrait-caption .founder-name{
+  text-transform:uppercase!important;
+  font-size:clamp(1.8rem,4.2vw,2.5rem)!important;
+  font-weight:900!important;
+  line-height:1.15!important;
+  letter-spacing:.055em!important;
+}
+#founder .portrait-caption .founder-role{
+  font-size:clamp(1rem,2vw,1.2rem)!important;
+  line-height:1.4!important;
+  letter-spacing:.17em!important;
+}
+#founder .portrait-caption{gap:10px!important}
+@media(max-width:760px){
+  #founder .portrait-caption .founder-name{
+    font-size:clamp(1.55rem,6.2vw,2rem)!important;
+    letter-spacing:.035em!important;
+  }
+  #founder .portrait-caption .founder-role{font-size:1rem!important}
+}
+</style>
 </body></html>
