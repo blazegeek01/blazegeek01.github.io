@@ -2501,4 +2501,35 @@ html body .hero-copy h1 .living-flame em{
 }
 </style>
 
+
+<style id="founder-name-single-line">
+/* Keep the founder's full name on one line inside a compact caption */
+#founder .portrait-caption{
+  width:max-content!important;
+  max-width:calc(100vw - 24px)!important;
+  white-space:nowrap!important;
+  flex-wrap:nowrap!important;
+}
+#founder .portrait-caption .founder-name{
+  display:block!important;
+  width:max-content!important;
+  max-width:none!important;
+  white-space:nowrap!important;
+  overflow-wrap:normal!important;
+  word-break:keep-all!important;
+  font-size:clamp(1.35rem,5vw,5.4rem)!important;
+  letter-spacing:.005em!important;
+}
+@media(max-width:760px){
+  #founder .portrait-caption{
+    max-width:calc(100vw - 20px)!important;
+    padding:6px 5px!important;
+  }
+  #founder .portrait-caption .founder-name{
+    font-size:clamp(1rem,5.9vw,2.8rem)!important;
+    letter-spacing:0!important;
+  }
+}
+</style>
+
 </body></html>
