@@ -2539,5 +2539,46 @@ html body .footer-socials .footer-social-heading p {
 }
 </style>
 
+
+<style id="metadata-footer-follow-heading-final-fix">
+/* Final targeted fix: make the “Follow Us” title visibly spaced and separate it from nearby footer copy. */
+html body footer.footer section.footer-socials .footer-social-heading{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  row-gap:0!important;
+}
+html body footer.footer section.footer-socials .footer-social-heading > .footer-social-kicker{
+  margin:0 0 16px!important;
+  padding:0!important;
+  line-height:1.6!important;
+}
+html body footer.footer section.footer-socials .footer-social-heading > h2{
+  display:flex!important;
+  flex-direction:row!important;
+  align-items:baseline!important;
+  justify-content:flex-start!important;
+  column-gap:.24em!important;
+  margin:0 0 16px!important;
+  padding:0!important;
+  line-height:1.2!important;
+  letter-spacing:0!important;
+}
+html body footer.footer section.footer-socials .footer-social-heading > h2 > span{
+  display:inline-block!important;
+  margin:0!important;
+  padding:0!important;
+}
+html body footer.footer section.footer-socials .footer-social-heading > p{
+  margin:0!important;
+  padding:0!important;
+  line-height:1.9!important;
+}
+@media(max-width:760px){
+  html body footer.footer section.footer-socials .footer-social-heading > .footer-social-kicker{margin-bottom:13px!important}
+  html body footer.footer section.footer-socials .footer-social-heading > h2{column-gap:.24em!important;margin-bottom:13px!important}
+}
+</style>
+
 </body>
 </html>
