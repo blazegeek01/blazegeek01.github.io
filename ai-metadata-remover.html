@@ -2509,8 +2509,34 @@ html body .tool .drop h2{font-size:clamp(21px,2.5vw,27px)!important}
   html body .tool .drop h2{font-size:22px!important}
 }
 
-/* Footer Follow Us heading: add breathing room without changing the layout */
-.footer-social-heading h2 { margin: 14px 0 14px !important; }
+/* Second-page footer only: create clear, visible breathing room around the Follow Us heading. */
+html body .footer-socials .footer-social-heading {
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  gap:14px!important;
+}
+html body .footer-socials .footer-social-heading .footer-social-kicker {
+  display:block!important;
+  margin:0 0 2px!important;
+  line-height:1.6!important;
+}
+html body .footer-socials .footer-social-heading h2 {
+  display:block!important;
+  margin:0!important;
+  padding:5px 0 7px!important;
+  line-height:1.2!important;
+}
+html body .footer-socials .footer-social-heading p {
+  display:block!important;
+  margin:0!important;
+  padding-top:3px!important;
+  line-height:1.9!important;
+}
+@media(max-width:760px) {
+  html body .footer-socials .footer-social-heading { gap:12px!important; }
+  html body .footer-socials .footer-social-heading h2 { padding:6px 0 8px!important; }
+}
 </style>
 
 </body>
