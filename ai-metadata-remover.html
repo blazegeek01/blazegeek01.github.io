@@ -2255,6 +2255,7 @@ html body .tool .drop::before{
   -webkit-mask-composite:xor!important;mask-composite:exclude!important;
   animation:metadataOutlineRotate 4s linear infinite!important;
 }
+@property --upload-outline-angle{syntax:"<angle>";inherits:false;initial-value:0deg}
 @keyframes metadataOutlineRotate{to{--upload-outline-angle:360deg}}
 html body .tool .drop::after{z-index:0!important;pointer-events:none!important}
 html body .tool .drop>*{position:relative;z-index:2}
@@ -2280,6 +2281,35 @@ html body header.top .header-menu-panel>a span{visibility:visible!important}
 }
 @media(prefers-reduced-motion:reduce){
   html body .tool .drop::before{animation-duration:8s!important}
+}
+</style>
+
+
+<style id="metadata-live-visibility-fix">
+/* Keep the animated outline genuinely animatable in current browsers. */
+html body .tool .drop::before{
+  background:conic-gradient(from var(--upload-outline-angle),transparent 0deg,rgba(255,255,255,.98) 28deg,#ff8a45 68deg,transparent 122deg,transparent 205deg,#f04432 248deg,rgba(255,255,255,.96) 292deg,transparent 332deg)!important;
+  animation:metadataOutlineRotate 3.2s linear infinite!important;
+}
+/* Match the homepage navigation: links on desktop, functional hamburger on mobile. */
+@media(min-width:761px){
+  html body header.top .header-menu-toggle{display:none!important}
+  html body header.top .header-menu-panel{display:none!important}
+  html body header.top nav{
+    display:flex!important;flex:1 1 auto!important;min-width:0!important;
+    justify-content:flex-end!important;gap:clamp(2px,.65vw,10px)!important;
+  }
+  html body header.top nav>a{
+    display:inline-flex!important;flex:0 1 auto!important;min-width:0!important;
+    padding-left:clamp(4px,.7vw,11px)!important;padding-right:clamp(4px,.7vw,11px)!important;
+    font-size:clamp(9px,.78vw,11px)!important;
+  }
+}
+@media(max-width:760px){
+  html body header.top{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:space-between!important;gap:8px!important}
+  html body header.top>nav{display:none!important}
+  html body header.top .header-menu-wrap{display:flex!important;margin-left:auto!important}
+  html body header.top .header-menu-toggle{display:grid!important}
 }
 </style>
 
