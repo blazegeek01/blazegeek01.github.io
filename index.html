@@ -2503,31 +2503,46 @@ html body .hero-copy h1 .living-flame em{
 
 
 <style id="founder-name-single-line">
-/* Keep the founder's full name on one line inside a compact caption */
+/* Force the full founder name to stay on one line without overflowing the screen */
 #founder .portrait-caption{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
   width:max-content!important;
   max-width:calc(100vw - 24px)!important;
+  margin-inline:auto!important;
+  box-sizing:border-box!important;
   white-space:nowrap!important;
-  flex-wrap:nowrap!important;
+  overflow:visible!important;
 }
 #founder .portrait-caption .founder-name{
   display:block!important;
   width:max-content!important;
   max-width:none!important;
   white-space:nowrap!important;
+  word-break:normal!important;
   overflow-wrap:normal!important;
-  word-break:keep-all!important;
-  font-size:clamp(1.35rem,5vw,5.4rem)!important;
-  letter-spacing:.005em!important;
+  flex:0 0 auto!important;
+  font-size:clamp(1.1rem,4.3vw,4.2rem)!important;
+  line-height:1.05!important;
+  letter-spacing:0!important;
+  transform-origin:center!important;
+}
+#founder .portrait-caption .founder-role{
+  white-space:nowrap!important;
 }
 @media(max-width:760px){
   #founder .portrait-caption{
     max-width:calc(100vw - 20px)!important;
-    padding:6px 5px!important;
+    padding:6px 0!important;
   }
   #founder .portrait-caption .founder-name{
-    font-size:clamp(1rem,5.9vw,2.8rem)!important;
+    font-size:clamp(1rem,6.2vw,1.9rem)!important;
     letter-spacing:0!important;
+  }
+  #founder .portrait-caption .founder-role{
+    font-size:1rem!important;
+    letter-spacing:.06em!important;
   }
 }
 </style>
