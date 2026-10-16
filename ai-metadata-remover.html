@@ -1955,6 +1955,98 @@ header.top:after{
 @media(max-width:900px){.hero.wrap{grid-template-columns:1fr;gap:35px}.hero-art{height:340px}.results{grid-template-columns:repeat(2,1fr)}.features-grid{grid-template-columns:1fr}}
 @media(max-width:760px){.top{height:auto;min-height:68px;padding:14px 6%;align-items:center;flex-direction:row;gap:10px}.top nav{display:none!important}.header-menu-wrap{display:flex;margin-left:auto}.header-menu-toggle{display:grid}.hero.wrap{padding:62px 0 45px}.hero-art{height:300px}.official-logo{width:150px;max-height:150px}.hero.wrap h1{font-size:clamp(24px,7vw,42px);letter-spacing:-.06em}.drop{min-height:330px}.results{grid-template-columns:1fr}.card{grid-template-columns:70px 1fr}.thumb{width:70px;height:70px}.drop-content{padding:25px}.drop h2{font-size:23px}.footerrow{display:flex;flex-direction:column;align-items:flex-start;gap:12px}.footerrow>*{margin:0}.footer-socials{grid-template-columns:1fr;gap:20px}.social-links{grid-template-columns:1fr}}
 
+
+/* Requested responsive polish for the metadata remover */
+.hero.wrap h1,
+.hero.wrap h1 em {
+  font-size: clamp(25px, 4.15vw, 49px) !important;
+  line-height: 1.12 !important;
+  letter-spacing: -.045em !important;
+  white-space: nowrap !important;
+}
+.built-credit {
+  margin: 14px 0 0;
+  color: #c7bec0;
+  font-size: clamp(10px, 1.1vw, 12px);
+  line-height: 1.7;
+  letter-spacing: .015em;
+}
+.built-credit strong {
+  color: #fff8f1;
+  font-weight: 800;
+  text-shadow: 0 0 9px #ff8a4540;
+}
+.drop {
+  border-radius: 24px !important;
+  border: 1px solid transparent !important;
+  background:
+    linear-gradient(145deg,#111116,#0b0b0e) padding-box,
+    linear-gradient(115deg,#ff8a45,#fffaf2,#f04432,#fffaf2,#ff8a45) border-box !important;
+  background-size: auto, 260% 100% !important;
+  animation: uploadOutlineShift 3s linear infinite;
+}
+.drop:before {
+  inset: 0 !important;
+  padding: 1px !important;
+  border-radius: inherit;
+  background: linear-gradient(115deg,transparent 4%,#ff8a45 22%,#fff 36%,#ff8a45 50%,transparent 66%,#fff 80%,#ff8a45 94%) !important;
+  background-size: 260% 100% !important;
+  animation: uploadOutlineShift 3s linear infinite !important;
+  opacity: .9;
+  pointer-events: none;
+}
+.drop:after {
+  border-radius: 50%;
+}
+@keyframes uploadOutlineShift {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 260% 50%; }
+}
+.browse {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid #ffcfaa !important;
+  box-shadow: inset 0 1px 0 #fff9d8a8, 0 0 0 1px #ff8a4533, 0 10px 30px #f0443228;
+  background: linear-gradient(115deg,#9d211f 0%,#ef4030 24%,#ff9a55 48%,#ef4030 68%,#a31d22 100%) !important;
+  background-size: 220% 100% !important;
+  animation: chooseMetalBase 2.4s ease-in-out infinite;
+}
+.browse:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -60%;
+  bottom: -60%;
+  left: -65%;
+  width: 38%;
+  transform: skewX(-22deg);
+  background: linear-gradient(90deg,transparent,rgba(255,255,255,.12) 22%,rgba(255,255,255,.9) 50%,rgba(255,248,220,.32) 72%,transparent);
+  filter: blur(.3px);
+  animation: chooseMetalSweep 2.4s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes chooseMetalBase {
+  0%,100% { background-position: 0% 50%; filter: brightness(1); }
+  50% { background-position: 100% 50%; filter: brightness(1.16); }
+}
+@keyframes chooseMetalSweep {
+  0% { left: -65%; opacity: 0; }
+  15% { opacity: 1; }
+  70% { opacity: .95; }
+  100% { left: 140%; opacity: 0; }
+}
+@media(max-width:760px) {
+  .hero.wrap h1, .hero.wrap h1 em {
+    font-size: clamp(22px, 6.2vw, 34px) !important;
+    letter-spacing: -.055em !important;
+  }
+  .drop { border-radius: 20px !important; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .drop, .drop:before, .browse, .browse:after { animation-duration: 8s !important; }
+}
+
 </style>
 </head>
 <body>
@@ -1975,7 +2067,8 @@ header.top:after{
 </div>
 </div></header>
 <main>
-<section class="hero wrap reveal"><div><div class="kicker">✳ &nbsp; PRIVACY TOOL · BLAZE GEEK’S</div><h1><em>AI METADATA REMOVER</em></h1><p class="lead">Remove image metadata privately in your browser. Clean EXIF, GPS, IPTC, XMP and embedded provenance information without uploading your photos to a server.</p><div class="privacy"><span class="dot"></span> 100% CLIENT-SIDE · YOUR FILES STAY ON YOUR DEVICE</div></div></section>
+<section class="hero wrap reveal"><div><div class="kicker">✳ &nbsp; PRIVACY TOOL · BLAZE GEEK’S</div><h1><em>AI METADATA REMOVER</em></h1><p class="lead">Remove image metadata privately in your browser. Clean EXIF, GPS, IPTC, XMP and embedded provenance information without uploading your photos to a server.</p>
+<p class="built-credit">Built &amp; maintained by <strong>JAHID HOSEN ARMAN</strong> · BLAZE GEEK’s</p><div class="privacy"><span class="dot"></span> 100% CLIENT-SIDE · YOUR FILES STAY ON YOUR DEVICE</div></div></section>
 <section class="tool wrap reveal">
 <input id="fileInput" type="file" accept="image/jpeg,image/png,image/webp" multiple hidden>
 <div class="drop" id="drop"><div class="drop-content"><div class="upload-icon">⌁</div><h2>Drop your images here</h2><p>JPG · PNG · WEBP &nbsp; / &nbsp; Multiple files supported</p><label class="browse" for="fileInput">Choose images ↗</label><div class="hint">FILES ARE PROCESSED LOCALLY — NOTHING IS UPLOADED</div></div></div>
