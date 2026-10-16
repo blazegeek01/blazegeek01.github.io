@@ -2503,7 +2503,7 @@ html body .hero-copy h1 .living-flame em{
 
 
 <style id="founder-name-single-line">
-/* Preserve the desktop typography; force readable, one-line mobile caption */
+/* Restore the earlier bold, prominent founder caption while keeping the name on one line */
 #founder .portrait-caption{
   display:flex!important;
   flex-direction:column!important;
@@ -2534,28 +2534,25 @@ html body .hero-copy h1 .living-flame em{
 }
 @media(max-width:760px){
   #founder .portrait-caption{
-    display:flex!important;
-    width:calc(100vw - 28px)!important;
-    max-width:calc(100vw - 28px)!important;
-    min-width:0!important;
+    width:calc(100vw - 24px)!important;
+    max-width:calc(100vw - 24px)!important;
     padding:10px 0!important;
-    gap:8px!important;
-    transform:none!important;
+    gap:9px!important;
   }
   #founder .portrait-caption .founder-name{
     width:100%!important;
     max-width:100%!important;
-    font-size:clamp(1.75rem,7.5vw,2.5rem)!important;
+    font-size:clamp(1.8rem,8.2vw,2.65rem)!important;
     font-weight:900!important;
     line-height:1.08!important;
-    letter-spacing:-.035em!important;
+    letter-spacing:-.045em!important;
     text-align:center!important;
     white-space:nowrap!important;
     transform:none!important;
   }
   #founder .portrait-caption .founder-role{
     width:100%!important;
-    font-size:clamp(1.1rem,4.7vw,1.4rem)!important;
+    font-size:clamp(1.15rem,5vw,1.4rem)!important;
     font-weight:700!important;
     line-height:1.35!important;
     letter-spacing:.055em!important;
@@ -2565,16 +2562,16 @@ html body .hero-copy h1 .living-flame em{
 }
 @media(max-width:360px){
   #founder .portrait-caption{
-    width:calc(100vw - 20px)!important;
-    max-width:calc(100vw - 20px)!important;
+    width:calc(100vw - 16px)!important;
+    max-width:calc(100vw - 16px)!important;
   }
   #founder .portrait-caption .founder-name{
     font-size:1.55rem!important;
-    letter-spacing:-.045em!important;
+    letter-spacing:-.05em!important;
   }
   #founder .portrait-caption .founder-role{
     font-size:1rem!important;
-    letter-spacing:.025em!important;
+    letter-spacing:.02em!important;
   }
 }
 </style>
