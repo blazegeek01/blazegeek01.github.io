@@ -2503,7 +2503,7 @@ html body .hero-copy h1 .living-flame em{
 
 
 <style id="founder-name-single-line">
-/* Force the full founder name to stay on one line without overflowing the screen */
+/* One-line founder name with readable mobile typography */
 #founder .portrait-caption{
   display:flex!important;
   flex-direction:column!important;
@@ -2524,25 +2524,47 @@ html body .hero-copy h1 .living-flame em{
   overflow-wrap:normal!important;
   flex:0 0 auto!important;
   font-size:clamp(1.1rem,4.3vw,4.2rem)!important;
+  font-weight:900!important;
   line-height:1.05!important;
   letter-spacing:0!important;
-  transform-origin:center!important;
 }
 #founder .portrait-caption .founder-role{
   white-space:nowrap!important;
+  font-size:clamp(1rem,2.4vw,1.6rem)!important;
 }
 @media(max-width:760px){
   #founder .portrait-caption{
-    max-width:calc(100vw - 20px)!important;
-    padding:6px 0!important;
+    width:100%!important;
+    max-width:calc(100vw - 28px)!important;
+    padding:8px 0!important;
+    gap:8px!important;
+    transform:none!important;
   }
   #founder .portrait-caption .founder-name{
-    font-size:clamp(1rem,6.2vw,1.9rem)!important;
-    letter-spacing:0!important;
+    width:100%!important;
+    max-width:100%!important;
+    font-size:clamp(1.55rem,7.2vw,2.25rem)!important;
+    line-height:1.08!important;
+    letter-spacing:-.025em!important;
+    text-align:center!important;
+    transform:scaleX(.96)!important;
+    transform-origin:center!important;
   }
   #founder .portrait-caption .founder-role{
-    font-size:1rem!important;
-    letter-spacing:.06em!important;
+    font-size:clamp(1rem,4.5vw,1.25rem)!important;
+    line-height:1.35!important;
+    letter-spacing:.07em!important;
+    text-align:center!important;
+  }
+}
+@media(max-width:360px){
+  #founder .portrait-caption .founder-name{
+    font-size:1.4rem!important;
+    transform:scaleX(.93)!important;
+  }
+  #founder .portrait-caption .founder-role{
+    font-size:.95rem!important;
+    letter-spacing:.045em!important;
   }
 }
 </style>
