@@ -21,13 +21,29 @@
 @media(max-width:900px){h1{font-size:clamp(34px,7vw,62px)}.hero{grid-template-columns:1fr;gap:35px}.hero-art{height:340px}.results{grid-template-columns:repeat(2,1fr)}.features-grid{grid-template-columns:1fr}}
 @media(max-width:760px){.top{height:auto;min-height:68px;padding:14px 6%;align-items:flex-start;flex-direction:column;gap:13px}.top nav{display:none}.mobile-nav{display:flex!important}.logo{font-size:17px}.brandmark{width:31px;height:31px}.hero{padding:62px 0 45px}.hero-art{height:300px}.official-logo{width:150px;max-height:150px}h1{font-size:clamp(27px,8.6vw,50px);letter-spacing:-.045em}.lead{font-size:14px}.drop{min-height:330px}.results{grid-template-columns:1fr}.card{grid-template-columns:70px 1fr}.thumb{width:70px;height:70px}.drop-content{padding:25px}.drop h2{font-size:23px}.footerrow{flex-direction:column}.mobile-nav{position:absolute;right:6%;top:14px}.menu-btn{display:grid!important}.menu-panel{position:absolute;right:0;top:52px;width:235px;background:#111116f5;border:1px solid #ffffff22;padding:8px;box-shadow:0 20px 50px #000c;backdrop-filter:blur(20px)}.menu-panel a{display:block;padding:12px}.menu-panel a:hover{background:#ffffff0b}}
 .mobile-nav,.menu-btn,.menu-panel{display:none}
+
+/* Shared homepage brand identity — keep the tool page in the same design system */
+.brand-logo-img{display:block;width:42px;height:42px;flex:0 0 42px;object-fit:contain;object-position:center;filter:drop-shadow(0 0 5px #f0443244);animation:officialLogoShine 3.2s ease-in-out infinite}
+.brand-wordmark{display:inline-flex;align-items:baseline;white-space:nowrap;font-family:Cinzel,Georgia,serif;font-size:20px;font-weight:800;letter-spacing:.035em;color:#fff}
+.brand-word-first{color:#fff}
+.brand-word-second{color:#fff;text-shadow:0 0 8px #f0443255}
+@keyframes officialLogoShine{0%,100%{filter:drop-shadow(0 0 4px #f0443233) brightness(1)}50%{filter:drop-shadow(0 0 10px #ff754d99) brightness(1.12)}}
+.top .logo{gap:10px;letter-spacing:.035em;flex-shrink:0}
+.top nav{display:flex;gap:27px;align-items:center;white-space:nowrap}
+.top nav a{white-space:nowrap}
+.metadata-nav-label{white-space:nowrap;display:inline-block}
+.footerrow .logo{display:flex;align-items:center;gap:10px}
+.footerrow .brand-logo-img{width:36px;height:36px;flex-basis:36px}
+.footerrow .brand-wordmark{font-size:18px}
+@media(max-width:900px){.top nav{gap:16px;font-size:11px}.top .brand-wordmark{font-size:17px}.brand-logo-img{width:36px;height:36px;flex-basis:36px}}
+@media(max-width:760px){.top{align-items:center;flex-direction:row;min-height:68px;gap:10px}.top nav{display:none}.mobile-nav{display:flex!important;position:relative;margin-left:auto}.menu-btn{display:grid!important}.menu-panel{display:none;position:absolute;right:0;top:52px;width:245px;z-index:50;background:#111116f5;border:1px solid #ffffff22;padding:8px;box-shadow:0 20px 50px #000c;backdrop-filter:blur(20px)}.menu-panel a{display:block;padding:12px;white-space:nowrap}.top .brand-wordmark{font-size:16px}.brand-logo-img{width:32px;height:32px;flex-basis:32px}.footerrow{flex-direction:column;align-items:flex-start;gap:12px}.hero h1{font-size:clamp(27px,7vw,50px);white-space:nowrap;letter-spacing:-.06em}}
+
 </style>
 </head>
 <body>
-<header class="top">
-<a class="logo" href="/"><span class="brandmark">ϟ</span><span>BLAZE <b>GEEK’S</b></span></a>
-<nav aria-label="Main navigation"><a href="/#work"><span>Work</span></a><a href="/#services"><span>Services</span></a><a href="/#about"><span>About</span></a><a href="/#journal"><span>Ideas</span></a><a class="pill" href="/#contact">Let’s talk ↗</a></nav>
-<div class="mobile-nav"><button class="menu-btn smallbtn" type="button" aria-label="Open menu">☰</button><div class="menu-panel"><a href="/#work">Work</a><a href="/#services">Services</a><a href="/#about">About</a><a href="/#journal">Ideas</a><a href="/#contact">Let’s talk ↗</a></div></div>
+<header class="top"><a class="logo" href="/" aria-label="BLAZE GEEK’s home"><img class="brand-logo-img" src="/assets/blaze-geeks-logo%20(2).png" alt="BLAZE GEEK’s official logo" width="42" height="42" loading="eager" decoding="async"><span class="brand-wordmark" aria-label="BLAZE GEEK’S"><span class="brand-word-first">BLAZE</span><span class="brand-word-second"> GEEK’S</span></span></a>
+<nav aria-label="Main navigation"><a href="/#work"><span class="nav-shine-label" data-label="Work">Work</span></a><a href="/#services"><span class="nav-shine-label" data-label="Services">Services</span></a><a href="/#about"><span class="nav-shine-label" data-label="About">About</span></a><a href="/#journal"><span class="nav-shine-label" data-label="Ideas">Ideas</span></a><a href="/ai-metadata-remover.html" aria-current="page"><span class="nav-shine-label metadata-nav-label" data-label="AI Metadata Remover">AI Metadata Remover</span></a><a class="pill" href="/#contact">Let’s talk ↗</a></nav>
+<div class="mobile-nav"><button class="menu-btn smallbtn" type="button" aria-label="Open menu">☰</button><div class="menu-panel"><a href="/#work">Work</a><a href="/#services">Services</a><a href="/#about">About</a><a href="/#journal">Ideas</a><a href="/ai-metadata-remover.html" class="metadata-nav-label">AI Metadata Remover</a><a href="/#contact">Let’s talk ↗</a></div></div>
 </header>
 <main>
 <section class="hero wrap reveal"><div><div class="kicker">✳ &nbsp; PRIVACY TOOL · BLAZE GEEK’S</div><h1><em>AI METADATA REMOVER</em></h1><p class="lead">Remove image metadata privately in your browser. Clean EXIF, GPS, IPTC, XMP and embedded provenance information without uploading your photos to a server.</p><div class="privacy"><span class="dot"></span> 100% CLIENT-SIDE · YOUR FILES STAY ON YOUR DEVICE</div></div><div class="hero-art"><span class="hero-index">01 / TOOL</span><img class="official-logo" src="/assets/blaze-geeks-logo%20(2).png" alt="BLAZE GEEK’s official logo"></div></section>
@@ -39,7 +55,7 @@
 </section>
 <section class="features"><div class="wrap"><div class="sectionhead"><div><div class="kicker">01 / WHAT GETS CLEANED</div><h2>Less metadata.<br><span>More privacy.</span></h2></div><p>Built in the BLAZE GEEK’S visual system — fast, local and deliberately minimal.</p></div><div class="features-grid"><article class="feature"><div class="num">01 / EXIF</div><h3>Camera &amp; GPS data</h3><p>Re-encoding removes embedded camera details, timestamps, GPS coordinates and other EXIF fields.</p></article><article class="feature"><div class="num">02 / XMP · IPTC</div><h3>Embedded descriptions</h3><p>PNG/JPEG/WebP output is rebuilt from pixels, dropping common XMP, IPTC, comment and text metadata.</p></article><article class="feature"><div class="num">03 / PROVENANCE</div><h3>AI metadata &amp; credentials</h3><p>Because the cleaned image is newly encoded, embedded provenance blocks such as C2PA metadata are not carried into the output.</p></article></div></div></section>
 </main>
-<footer class="footer wrap"><div class="footerrow"><a class="logo" href="/"><span class="brandmark">ϟ</span><span>BLAZE <b>GEEK’S</b></span></a><span class="credit">Built &amp; maintained by <b>JAHID HOSEN ARMAN</b> · BLAZE GEEK’S</span><span>© <span id="year"></span> BLAZE GEEK’S</span></div><div class="mono">CREATE BOLD. INSPIRE REAL. BLAZE BEYOND.</div></footer>
+<footer class="footer wrap"><div class="footerrow"><a class="logo" href="/"><img class="brand-logo-img" src="/assets/blaze-geeks-logo%20(2).png" alt="BLAZE GEEK’s official logo" width="42" height="42" loading="lazy" decoding="async"><span class="brand-wordmark" aria-label="BLAZE GEEK’S"><span class="brand-word-first">BLAZE</span><span class="brand-word-second"> GEEK’S</span></span></a><span class="credit">Built &amp; maintained by <b>JAHID HOSEN ARMAN</b> · BLAZE GEEK’S</span><span>© <span id="year"></span> BLAZE GEEK’S</span></div><div class="mono">CREATE BOLD. INSPIRE REAL. BLAZE BEYOND.</div></footer>
 <script>
 const $=s=>document.querySelector(s),input=$('#fileInput'),drop=$('#drop'),results=$('#results'),controls=$('#controls'),status=$('#status'),downloadAll=$('#downloadAll');let cleaned=[];
 function fmt(n){return n<1024?n+' B':n<1048576?(n/1024).toFixed(1)+' KB':(n/1048576).toFixed(1)+' MB'}
@@ -52,7 +68,7 @@ input.addEventListener('change',e=>processFiles([...e.target.files]));['dragente
 $('#clearBtn').onclick=()=>{cleaned=[];results.innerHTML='';input.value='';updateControls()};
 function save(o){const a=document.createElement('a');a.href=URL.createObjectURL(o.blob);a.download=o.name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000)}
 downloadAll.onclick=()=>cleaned.forEach((o,i)=>setTimeout(()=>save(o),i*180));
-document.querySelector('.menu-btn').onclick=()=>{const p=document.querySelector('.menu-panel');p.style.display=p.style.display==='block'?'none':'block'};
+document.querySelector('.menu-btn').onclick=()=>{const b=document.querySelector('.menu-btn'),p=document.querySelector('.menu-panel');p.style.display=p.style.display==='block'?'none':'block';b.setAttribute('aria-expanded',p.style.display==='block'?'true':'false')};
 document.querySelectorAll('.reveal').forEach(el=>{const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08});io.observe(el)});
 $('#year').textContent=new Date().getFullYear();
 </script>
