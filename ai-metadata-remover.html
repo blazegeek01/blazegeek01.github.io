@@ -2517,6 +2517,15 @@ html body .tool .drop h2{font-size:clamp(21px,2.5vw,27px)!important}
 
 <style id="metadata-footer-match-homepage">
 /* Match the homepage footer heading's spacing and rhythm exactly. */
+html body footer.footer .footer-socials {
+  display: grid !important;
+  grid-template-columns: minmax(190px,.8fr) minmax(0,1.7fr) !important;
+  align-items: center !important;
+  gap: clamp(22px,4vw,54px) !important;
+  margin: 34px 0 26px !important;
+  padding: clamp(24px,4vw,38px) !important;
+  border-radius: 22px !important;
+}
 html body footer.footer .footer-socials .footer-social-heading {
   min-width: 0 !important;
   display: block !important;
@@ -2532,7 +2541,7 @@ html body footer.footer .footer-socials .footer-social-kicker {
 html body footer.footer .footer-socials .footer-social-heading h2 {
   display: block !important;
   width: auto !important;
-  margin: 14px 0 14px !important;
+  margin: 7px 0 6px !important;
   padding: 0 !important;
   font-size: clamp(27px,3vw,38px) !important;
   line-height: 1.08 !important;
@@ -2551,6 +2560,18 @@ html body footer.footer .footer-socials .footer-social-heading p {
   padding: 0 !important;
   font-size: 13px !important;
   line-height: 1.7 !important;
+}
+@media(max-width:760px){
+  html body footer.footer .footer-socials {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    margin: 28px 0 22px !important;
+    padding: 22px 17px !important;
+    border-radius: 18px !important;
+  }
+  html body footer.footer .footer-socials .footer-social-heading h2 {
+    font-size: 30px !important;
+  }
 }
 </style>
 
