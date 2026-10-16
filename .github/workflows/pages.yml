@@ -30,6 +30,45 @@ jobs:
           mkdir -p _site
           cp -R ./*.html _site/
           if [ -d assets ]; then cp -R assets _site/assets; fi
+
+          python3 - <<'PY'
+          from pathlib import Path
+
+          p = Path('_site/ai-metadata-remover.html')
+          s = p.read_text(encoding='utf-8')
+
+          # The official BLAZE GEEK’S logo belongs only in the header and footer.
+          old_logo = '<a class="logo" href="/"><span class="brandmark">ϟ</span><span>BLAZE <b>GEEK’S</b></span></a>'
+          new_logo = '<a class="logo official-site-logo" href="/"><img src="/assets/blaze-geeks-logo%20(2).png" alt="BLAZE GEEK’S official logo"></a>'
+          s = s.replace(old_logo, new_logo)
+
+          # Remove the standalone body logo/hero artwork completely.
+          marker = '<div class="hero-art">'
+          start = s.find(marker)
+          if start != -1:
+              pos = start
+              depth = 0
+              while pos < len(s):
+                  open_pos = s.find('<div', pos)
+                  close_pos = s.find('</div>', pos)
+                  if close_pos == -1:
+                      raise SystemExit('Could not find closing hero-art div')
+                  if open_pos != -1 and open_pos < close_pos:
+                      depth += 1
+                      pos = open_pos + 4
+                  else:
+                      depth -= 1
+                      pos = close_pos + 6
+                      if depth == 0:
+                          s = s[:start] + s[pos:]
+                          break
+
+          # Keep the first page header/footer treatment while giving the tool a clean single-column hero.
+          extra_css = '''\n.official-site-logo{display:flex;align-items:center}.official-site-logo img{display:block;width:150px;height:42px;object-fit:contain;object-position:left center;filter:invert(1) brightness(1.18) drop-shadow(0 4px 16px #0008)}.hero{grid-template-columns:1fr;max-width:1050px;text-align:center}.hero .lead{margin-left:auto;margin-right:auto;max-width:760px}.hero .privacy{justify-content:center}.hero-art,.hero-index{display:none!important}\n'''
+          s = s.replace('</style>', extra_css + '</style>', 1)
+
+          p.write_text(s, encoding='utf-8')
+          PY
       - name: Upload website files
         uses: actions/upload-pages-artifact@v3
         with:
