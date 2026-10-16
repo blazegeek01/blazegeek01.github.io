@@ -2541,42 +2541,45 @@ html body .footer-socials .footer-social-heading p {
 
 
 <style id="metadata-footer-follow-heading-final-fix">
-/* Final targeted fix: make the “Follow Us” title visibly spaced and separate it from nearby footer copy. */
-html body footer.footer section.footer-socials .footer-social-heading{
-  display:flex!important;
-  flex-direction:column!important;
-  align-items:flex-start!important;
-  row-gap:0!important;
+/* Correct the second-page footer heading rhythm: real vertical breathing room, without flex-splitting the words. */
+html body footer.footer section#footer-socials .footer-social-heading{
+  display:block!important;
+  min-width:0!important;
+  padding:0!important;
 }
-html body footer.footer section.footer-socials .footer-social-heading > .footer-social-kicker{
-  margin:0 0 16px!important;
+html body footer.footer section#footer-socials .footer-social-heading > .footer-social-kicker{
+  display:block!important;
+  margin:0 0 14px!important;
   padding:0!important;
   line-height:1.6!important;
 }
-html body footer.footer section.footer-socials .footer-social-heading > h2{
-  display:flex!important;
-  flex-direction:row!important;
-  align-items:baseline!important;
-  justify-content:flex-start!important;
-  column-gap:.24em!important;
-  margin:0 0 16px!important;
-  padding:0!important;
-  line-height:1.2!important;
+html body footer.footer section#footer-socials .footer-social-heading > h2{
+  display:block!important;
+  width:100%!important;
+  margin:0 0 18px!important;
+  padding:10px 0 12px!important;
+  line-height:1.25!important;
   letter-spacing:0!important;
+  white-space:normal!important;
 }
-html body footer.footer section.footer-socials .footer-social-heading > h2 > span{
-  display:inline-block!important;
+html body footer.footer section#footer-socials .footer-social-heading > h2 > span{
+  display:inline!important;
   margin:0!important;
   padding:0!important;
 }
-html body footer.footer section.footer-socials .footer-social-heading > p{
+html body footer.footer section#footer-socials .footer-social-heading > p{
+  display:block!important;
   margin:0!important;
   padding:0!important;
   line-height:1.9!important;
 }
+html body footer.footer section#footer-socials{
+  row-gap:clamp(26px,4vw,42px)!important;
+}
 @media(max-width:760px){
-  html body footer.footer section.footer-socials .footer-social-heading > .footer-social-kicker{margin-bottom:13px!important}
-  html body footer.footer section.footer-socials .footer-social-heading > h2{column-gap:.24em!important;margin-bottom:13px!important}
+  html body footer.footer section#footer-socials .footer-social-heading > .footer-social-kicker{margin-bottom:12px!important}
+  html body footer.footer section#footer-socials .footer-social-heading > h2{margin-bottom:15px!important;padding:9px 0 11px!important}
+  html body footer.footer section#footer-socials{row-gap:24px!important}
 }
 </style>
 
