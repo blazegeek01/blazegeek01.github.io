@@ -3076,9 +3076,15 @@ html body .ticker:before{
 
 
 <style id="blaze-hero-metal-white-shine">
-/* Larger one-line hero title with clearly preserved spacing between the two words. */
+/* Extra-large one-line hero brand title; tighten the gap above it. */
 html body .hero-copy h1.hero-brand-heading{
-  font-size:clamp(38px,6vw,78px)!important;
+  display:block!important;
+  width:100%!important;
+  max-width:100%!important;
+  margin:7px 0 20px!important;
+  padding:0!important;
+  font-size:clamp(43px,7vw,90px)!important;
+  font-weight:950!important;
   letter-spacing:-.035em!important;
   word-spacing:.20em!important;
   line-height:1!important;
@@ -3091,10 +3097,7 @@ html body .hero-copy h1.hero-brand-heading{
 }
 html body .hero-copy h1.hero-brand-heading::before,
 html body .hero-copy h1.hero-brand-heading::after{
-  content:none!important;
-  display:none!important;
-  background:none!important;
-  box-shadow:none!important;
+  content:none!important;display:none!important;background:none!important;box-shadow:none!important;
 }
 html body .hero-copy h1.hero-brand-heading em,
 html body .hero-copy h1.hero-brand-heading .hero-geeks-line{
@@ -3108,20 +3111,18 @@ html body .hero-copy h1.hero-brand-heading .hero-geeks-line{
   background-position:0% 50%!important;
   background-clip:text!important;
   -webkit-background-clip:text!important;
-  text-shadow:none!important;
-  box-shadow:none!important;
+  text-shadow:none!important;box-shadow:none!important;
   animation:blazeHeroMetalSweep 1s linear infinite!important;
 }
 html body .hero-copy h1.hero-brand-heading .living-flame{display:none!important}
-@keyframes blazeHeroMetalSweep{
-  0%{background-position:0% 50%}
-  100%{background-position:220% 50%}
-}
+@keyframes blazeHeroMetalSweep{0%{background-position:0% 50%}100%{background-position:220% 50%}}
 @media(max-width:760px){
   html body .hero-copy h1.hero-brand-heading{
-    font-size:clamp(29px,8.8vw,50px)!important;
+    font-size:clamp(31px,9.4vw,57px)!important;
     letter-spacing:-.04em!important;
     word-spacing:.13em!important;
+    margin-top:4px!important;
+    margin-bottom:16px!important;
   }
 }
 @media(prefers-reduced-motion:reduce){
