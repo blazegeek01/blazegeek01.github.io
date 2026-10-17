@@ -2685,5 +2685,35 @@ html body main > section.hero.wrap h1 em{
 }
 </style>
 
+
+<style id="blaze-metadata-title-specificity-fix">
+/* Override earlier high-specificity hero/em rules that were keeping the title small. */
+html body main > section.hero.wrap.reveal h1,
+html body main > section.hero.wrap.reveal h1 em {
+  display: inline-block !important;
+  font-size: clamp(48px, 6.2vw, 82px) !important;
+  line-height: 1.04 !important;
+  letter-spacing: -.045em !important;
+  white-space: nowrap !important;
+  max-width: 100% !important;
+}
+@media (max-width: 760px) {
+  html body main > section.hero.wrap.reveal h1,
+  html body main > section.hero.wrap.reveal h1 em {
+    font-size: clamp(27px, 7.8vw, 39px) !important;
+    line-height: 1.12 !important;
+    letter-spacing: -.045em !important;
+    white-space: nowrap !important;
+  }
+}
+@media (max-width: 360px) {
+  html body main > section.hero.wrap.reveal h1,
+  html body main > section.hero.wrap.reveal h1 em {
+    font-size: clamp(23px, 7.3vw, 26px) !important;
+    letter-spacing: -.055em !important;
+  }
+}
+</style>
+
 </body>
 </html>
