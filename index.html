@@ -2712,19 +2712,25 @@ html body .hero #stage.logo-stage img.hero-brand-logo-shine{
 
 
 <style id="blaze-simple-logo-slide-rotate">
-/* One simple, smooth entrance: slide in while gently rotating, then settle. */
+/* Animate independent CSS translate/rotate properties because an earlier
+   safety rule sets transform:none!important on the original logo wrapper. */
 html body .hero #stage.logo-stage .logo-plinth{
   animation:blazeSimpleLogoSlideRotate 1.15s cubic-bezier(.2,.72,.25,1) both!important;
+  transform:none!important;
+  translate:0 0;
+  rotate:none;
   transform-origin:center center!important;
-  will-change:transform,opacity!important;
+  will-change:translate,rotate!important;
 }
 @keyframes blazeSimpleLogoSlideRotate{
-  0%{opacity:0;transform:perspective(1000px) translate3d(46px,0,0) rotateY(16deg) rotateX(3deg) scale(.97)}
-  72%{opacity:1;transform:perspective(1000px) translate3d(-3px,0,0) rotateY(-2deg) rotateX(0) scale(1.005)}
-  100%{opacity:1;transform:perspective(1000px) translate3d(0,0,0) rotateY(0) rotateX(0) scale(1)}
+  0%{translate:46px 0;rotate:y 12deg}
+  72%{translate:-3px 0;rotate:y -2deg}
+  100%{translate:0 0;rotate:none}
 }
 @media(prefers-reduced-motion:reduce){
-  html body .hero #stage.logo-stage .logo-plinth{animation:none!important;opacity:1!important;transform:none!important;will-change:auto!important}
+  html body .hero #stage.logo-stage .logo-plinth{
+    animation:none!important;translate:0 0!important;rotate:none!important;will-change:auto!important;
+  }
 }
 </style>
 
