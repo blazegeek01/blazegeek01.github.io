@@ -2641,91 +2641,25 @@ html body .hero #stage.logo-stage .hero-brand-logo{
 </style>
 
 
-<style id="blaze-metallic-gold-logo-fix">
-/* Strong visible metallic-gold treatment for the official homepage logo.
-   The filter animation acts directly on the image; the reflection is an extra accent. */
+
+
+
+
+
+
+<style id="blaze-natural-white-logo-shine">
+/* Natural polished white shine on the original transparent logo. No gold tint. */
 html body .hero #stage.logo-stage .hero-brand-logo{
-  filter:sepia(.30) saturate(1.28) brightness(1.10)
-    drop-shadow(0 0 2px rgba(255,220,128,.95))
-    drop-shadow(0 0 8px rgba(230,177,55,.88))
-    drop-shadow(0 0 18px rgba(255,204,75,.52))
-    drop-shadow(0 18px 12px rgba(0,0,0,.72))!important;
-  animation:blazeGoldLogoPulse 3.2s ease-in-out infinite!important;
-  position:relative!important;
-  z-index:1!important;
+  filter:brightness(1.08)
+    drop-shadow(0 0 2px rgba(255,255,255,.72))
+    drop-shadow(0 0 8px rgba(255,255,255,.38))
+    drop-shadow(0 16px 12px rgba(0,0,0,.68))!important;
+  animation:blazeLogoSoftFloat 6.2s ease-in-out infinite,blazeWhiteLogoPulse 2.8s ease-in-out infinite!important;
 }
 html body .hero #stage.logo-stage .logo-plinth{
+  position:relative!important;
   isolation:isolate!important;
 }
-html body .hero #stage.logo-stage .logo-plinth::after{
-  content:""!important;
-  display:block!important;
-  position:absolute!important;
-  inset:0!important;
-  z-index:6!important;
-  pointer-events:none!important;
-  background:linear-gradient(112deg,
-    transparent 0%,
-    transparent 35%,
-    rgba(176,120,23,.15) 40%,
-    rgba(255,211,92,.85) 45%,
-    rgba(255,250,210,1) 49%,
-    rgba(255,218,110,.9) 52%,
-    rgba(168,105,15,.28) 58%,
-    transparent 66%,
-    transparent 100%)!important;
-  background-size:260% 100%!important;
-  background-position:145% 0;
-  mix-blend-mode:screen!important;
-  opacity:0;
-  -webkit-mask-image:url('/assets/blaze-geeks-logo%20(2).png')!important;
-  mask-image:url('/assets/blaze-geeks-logo%20(2).png')!important;
-  -webkit-mask-repeat:no-repeat!important;
-  mask-repeat:no-repeat!important;
-  -webkit-mask-position:center!important;
-  mask-position:center!important;
-  -webkit-mask-size:contain!important;
-  mask-size:contain!important;
-  animation:blazeGoldReflection 3.2s linear infinite!important;
-}
-@keyframes blazeGoldLogoPulse{
-  0%,100%{
-    filter:sepia(.20) saturate(1.15) brightness(1.04)
-      drop-shadow(0 0 2px rgba(255,220,128,.65))
-      drop-shadow(0 0 5px rgba(230,177,55,.42))
-      drop-shadow(0 18px 12px rgba(0,0,0,.72));
-  }
-  45%,60%{
-    filter:sepia(.48) saturate(1.55) brightness(1.24)
-      drop-shadow(0 0 4px rgba(255,245,184,1))
-      drop-shadow(0 0 12px rgba(255,196,54,1))
-      drop-shadow(0 0 26px rgba(239,166,30,.72))
-      drop-shadow(0 18px 12px rgba(0,0,0,.72));
-  }
-}
-@keyframes blazeGoldReflection{
-  0%,6%{background-position:145% 0;opacity:0}
-  15%{opacity:1}
-  48%{background-position:-45% 0;opacity:.95}
-  58%,100%{background-position:-45% 0;opacity:0}
-}
-@media(prefers-reduced-motion:reduce){
-  html body .hero #stage.logo-stage .hero-brand-logo{
-    animation:none!important;
-    filter:sepia(.42) saturate(1.4) brightness(1.18)
-      drop-shadow(0 0 4px rgba(255,231,146,.95))
-      drop-shadow(0 0 12px rgba(230,177,55,.8))!important;
-  }
-  html body .hero #stage.logo-stage .logo-plinth::after{
-    animation:none!important;opacity:.3!important;background-position:50% 0!important;
-  }
-}
-</style>
-
-
-<style id="blaze-visible-metallic-gold-sweep">
-/* Direct image-layer highlight: uses the same transparent logo artwork, not a wrapper mask. */
-html body .hero #stage.logo-stage .logo-plinth{position:relative!important;isolation:isolate!important}
 html body .hero #stage.logo-stage img.hero-brand-logo-shine{
   display:block!important;
   position:absolute!important;
@@ -2736,28 +2670,43 @@ html body .hero #stage.logo-stage img.hero-brand-logo-shine{
   object-fit:contain!important;
   z-index:20!important;
   pointer-events:none!important;
-  opacity:0;
   visibility:visible!important;
+  opacity:0!important;
   transform:translateZ(3px)!important;
-  filter:sepia(1) saturate(5) hue-rotate(350deg) brightness(2.1) contrast(1.15)!important;
+  filter:brightness(0) invert(1) drop-shadow(0 0 5px rgba(255,255,255,.9))!important;
   mix-blend-mode:screen!important;
-  clip-path:polygon(-45% 0,-27% 0,-52% 100%,-70% 100%);
-  animation:blazeVisibleGoldSweep 3.1s linear infinite!important;
+  -webkit-mask-image:linear-gradient(112deg,transparent 40%,#000 48%,#000 52%,transparent 61%)!important;
+  mask-image:linear-gradient(112deg,transparent 40%,#000 48%,#000 52%,transparent 61%)!important;
+  -webkit-mask-size:260% 100%!important;
+  mask-size:260% 100%!important;
+  -webkit-mask-repeat:no-repeat!important;
+  mask-repeat:no-repeat!important;
+  -webkit-mask-position:145% 0!important;
+  mask-position:145% 0!important;
+  animation:blazeWhiteReflection 3.4s ease-in-out infinite!important;
 }
-@keyframes blazeVisibleGoldSweep{
-  0%,7%{clip-path:polygon(-45% 0,-27% 0,-52% 100%,-70% 100%);opacity:0}
-  13%{opacity:1}
-  52%{clip-path:polygon(82% 0,100% 0,75% 100%,57% 100%);opacity:1}
-  63%,100%{clip-path:polygon(135% 0,153% 0,128% 100%,110% 100%);opacity:0}
+@keyframes blazeWhiteLogoPulse{
+  0%,100%{filter:brightness(1.04) drop-shadow(0 0 2px rgba(255,255,255,.48)) drop-shadow(0 0 7px rgba(255,255,255,.22)) drop-shadow(0 16px 12px rgba(0,0,0,.68))}
+  45%,60%{filter:brightness(1.17) drop-shadow(0 0 4px rgba(255,255,255,.95)) drop-shadow(0 0 13px rgba(255,255,255,.58)) drop-shadow(0 16px 12px rgba(0,0,0,.68))}
+}
+@keyframes blazeWhiteReflection{
+  0%,8%{-webkit-mask-position:145% 0;mask-position:145% 0;opacity:0}
+  16%{opacity:.96}
+  52%{-webkit-mask-position:-45% 0;mask-position:-45% 0;opacity:.88}
+  64%,100%{-webkit-mask-position:-45% 0;mask-position:-45% 0;opacity:0}
 }
 @media(max-width:760px){
- html body .hero #stage.logo-stage img.hero-brand-logo-shine{animation-duration:3.6s!important}
+  html body .hero #stage.logo-stage img.hero-brand-logo-shine{animation-duration:3.8s!important}
 }
 @media(prefers-reduced-motion:reduce){
- html body .hero #stage.logo-stage img.hero-brand-logo-shine{
-   animation:none!important;opacity:.42!important;
-   clip-path:polygon(36% 0,54% 0,29% 100%,11% 100%)!important;
- }
+  html body .hero #stage.logo-stage .hero-brand-logo{
+    animation:none!important;
+    filter:brightness(1.12) drop-shadow(0 0 3px rgba(255,255,255,.75)) drop-shadow(0 0 9px rgba(255,255,255,.35))!important;
+  }
+  html body .hero #stage.logo-stage img.hero-brand-logo-shine{
+    animation:none!important;opacity:.18!important;
+    -webkit-mask-position:50% 0!important;mask-position:50% 0!important;
+  }
 }
 </style>
 
