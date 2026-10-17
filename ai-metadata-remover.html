@@ -2715,5 +2715,28 @@ html body main > section.hero.wrap.reveal h1 em {
 }
 </style>
 
+
+<style id="metadata-brand-tag-readable">
+/* Make the orange brand tag above the upload/video tool clearly readable. */
+html body main > .hero.wrap.reveal .kicker{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  font-size:clamp(15px,1.65vw,19px)!important;
+  line-height:1.35!important;
+  font-weight:700!important;
+  letter-spacing:.09em!important;
+  padding:8px 13px!important;
+  max-width:100%!important;
+}
+@media(max-width:600px){
+  html body main > .hero.wrap.reveal .kicker{
+    font-size:clamp(13px,3.8vw,16px)!important;
+    letter-spacing:.055em!important;
+    padding:7px 10px!important;
+  }
+}
+</style>
+
 </body>
 </html>
