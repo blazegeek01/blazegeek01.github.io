@@ -2947,4 +2947,51 @@ html body #work .project:hover{
 }
 </style>
 
+
+<style id="blaze-service-heading-readable">
+/* Make service titles more readable and visually prominent across desktop and mobile. */
+html body #services .service-list .service h3{
+  font-size:clamp(16px,1.45vw,19px)!important;
+  line-height:1.38!important;
+  letter-spacing:-.025em!important;
+  font-weight:750!important;
+  margin-top:13px!important;
+  margin-bottom:10px!important;
+  max-width:32ch!important;
+  text-wrap:pretty;
+  color:#fff!important;
+}
+html body #services .service-list .service .number{
+  font-size:11px!important;
+  line-height:1.45!important;
+  letter-spacing:.045em!important;
+}
+html body #services .service-list .service p{
+  font-size:12px!important;
+  line-height:1.7!important;
+}
+@media(max-width:760px){
+  html body #services .service-list{
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:12px!important;
+  }
+  html body #services .service-list .service{
+    padding:19px!important;
+    border-radius:16px!important;
+  }
+  html body #services .service-list .service h3{
+    font-size:clamp(17px,4.7vw,20px)!important;
+    line-height:1.38!important;
+    margin-top:11px!important;
+    margin-bottom:8px!important;
+    max-width:28ch!important;
+  }
+  html body #services .service-list .service .number{font-size:10px!important}
+  html body #services .service-list .service p{font-size:12px!important;line-height:1.65!important}
+}
+@media(min-width:761px) and (max-width:1050px){
+  html body #services .service-list .service h3{font-size:17px!important}
+}
+</style>
+
 </body></html>
