@@ -2752,5 +2752,32 @@ html body main section.hero.wrap.reveal .kicker *{
 }
 </style>
 
+
+<style id="metadata-brand-tag-font-size-final">
+/* The user requested larger lettering, not a larger label/pill. */
+html body main section.hero.wrap.reveal > div > .kicker,
+html body main section.hero.wrap.reveal .kicker{
+  font-size:32px!important;
+  line-height:1.2!important;
+  font-weight:800!important;
+  letter-spacing:.04em!important;
+}
+@media(max-width:760px){
+  html body main section.hero.wrap.reveal > div > .kicker,
+  html body main section.hero.wrap.reveal .kicker{
+    font-size:24px!important;
+    line-height:1.25!important;
+    letter-spacing:.02em!important;
+  }
+}
+@media(max-width:390px){
+  html body main section.hero.wrap.reveal > div > .kicker,
+  html body main section.hero.wrap.reveal .kicker{
+    font-size:20px!important;
+    letter-spacing:0!important;
+  }
+}
+</style>
+
 </body>
 </html>
