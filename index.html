@@ -1588,20 +1588,34 @@ body:after{opacity:.08!important}
 
 
 <style id="blaze-hero-heading-single-line-final">
-/* Keep the brand heading on one line and remove the flame beside GEEK'S. */
+/* Exact fix: BLAZE GEEK'S on one line, equal font size, no adjacent flame. */
 html body .hero-copy h1.hero-brand-heading{
   display:block!important;
-  white-space:nowrap!important;
-  width:max-content!important;
+  width:100%!important;
   max-width:100%!important;
-  font-size:clamp(30px,5.05vw,68px)!important;
-  letter-spacing:-.065em!important;
+  margin:25px 0!important;
+  white-space:nowrap!important;
+  font-size:clamp(27px,4.4vw,58px)!important;
+  font-weight:950!important;
+  letter-spacing:-.075em!important;
   line-height:1!important;
 }
-html body .hero-copy h1.hero-brand-heading .hero-geeks-line{display:inline!important;white-space:nowrap!important}
+html body .hero-copy h1.hero-brand-heading em,
+html body .hero-copy h1.hero-brand-heading .hero-geeks-line{
+  display:inline!important;
+  font:inherit!important;
+  font-size:1em!important;
+  line-height:1!important;
+  letter-spacing:inherit!important;
+  vertical-align:baseline!important;
+  white-space:nowrap!important;
+}
 html body .hero-copy h1.hero-brand-heading .living-flame{display:none!important}
 @media(max-width:760px){
-  html body .hero-copy h1.hero-brand-heading{font-size:clamp(29px,8.6vw,52px)!important;letter-spacing:-.07em!important}
+  html body .hero-copy h1.hero-brand-heading{
+    font-size:clamp(25px,7.7vw,43px)!important;
+    letter-spacing:-.075em!important;
+  }
 }
 </style>
 
