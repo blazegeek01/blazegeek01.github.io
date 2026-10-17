@@ -2870,4 +2870,17 @@ html body #about .principle p{
 }
 </style>
 
+
+<style id="blaze-services-transparent-section">
+/* Remove the solid dark band behind Services while preserving the service cards and their outline effects. */
+html body #services.content.band{
+  background:transparent!important;
+  border-top-color:transparent!important;
+  border-bottom-color:transparent!important;
+}
+html body #services.content.band::before{
+  background:transparent!important;
+}
+</style>
+
 </body></html>
