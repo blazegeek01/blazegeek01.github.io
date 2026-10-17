@@ -2808,5 +2808,22 @@ html body main section.hero.wrap.reveal .kicker{
 }
 </style>
 
+
+<style id="mobile-header-wordmark-weight-and-gap-fix">
+/* Keep the mobile header wordmark consistent across both pages and close the logo/text gap. */
+@media (max-width: 760px) {
+  html body header.top > a.logo {
+    gap: 2px !important;
+  }
+  html body header.top > a.logo > img.brand-logo-img {
+    margin: 0 !important;
+  }
+  html body header.top > a.logo > .brand-wordmark {
+    font-weight: 500 !important;
+    margin: 0 !important;
+  }
+}
+</style>
+
 </body>
 </html>
