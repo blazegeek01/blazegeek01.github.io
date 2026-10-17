@@ -3214,5 +3214,20 @@ html body .hero-copy h1.hero-brand-heading{
 }
 </style>
 
+
+<style id="blaze-hero-heading-mobile-larger">
+/* Enlarge only the mobile hero title; preserve the desktop size exactly. */
+@media(max-width:760px){
+  html body .hero-copy h1.hero-brand-heading{
+    font-size:clamp(40px,12.2vw,74px)!important;
+    line-height:1!important;
+    letter-spacing:-.045em!important;
+    word-spacing:.10em!important;
+    max-width:100%!important;
+    transform-origin:left center;
+  }
+}
+</style>
+
 </body>
 </html>
