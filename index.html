@@ -3786,5 +3786,49 @@ html body header.top > a.logo > .brand-wordmark > .brand-word-second {
 }
 </style>
 
+
+<style id="blaze-orange-wordmark-footer-fix">
+/* Keep the BLAZE word orange in the header and footer wordmarks on all screen sizes. */
+html body .logo,
+html body .site-logo,
+html body header .brand,
+html body footer .brand,
+html body footer .logo {
+  --blaze-orange: #ff7a24;
+}
+html body .logo em,
+html body .logo .blaze,
+html body .site-logo em,
+html body .site-logo .blaze,
+html body header .brand em,
+html body header .brand .blaze,
+html body footer .brand em,
+html body footer .brand .blaze,
+html body footer .logo em,
+html body footer .logo .blaze {
+  color: #ff7a24 !important;
+  -webkit-text-fill-color: #ff7a24 !important;
+  background: none !important;
+  background-image: none !important;
+  background-clip: border-box !important;
+  -webkit-background-clip: border-box !important;
+}
+html body footer a[href*="blazegeek"],
+html body footer .footer-brand,
+html body footer .footer-logo {
+  color: inherit;
+}
+html body footer a[href*="blazegeek"] em,
+html body footer .footer-brand em,
+html body footer .footer-logo em,
+html body footer .footer-brand .blaze,
+html body footer .footer-logo .blaze {
+  color: #ff7a24 !important;
+  -webkit-text-fill-color: #ff7a24 !important;
+  background: none !important;
+  background-image: none !important;
+}
+</style>
+
 </body>
 </html>
