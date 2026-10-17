@@ -2641,8 +2641,18 @@ html body .hero #stage.logo-stage .hero-brand-logo{
 
 
 <style id="blaze-metallic-gold-logo-fix">
-/* Visible champagne-gold reflection clipped to the official logo artwork.
-   Kept inside the document and above older logo-effect overrides. */
+/* Strong visible metallic-gold treatment for the official homepage logo.
+   The filter animation acts directly on the image; the reflection is an extra accent. */
+html body .hero #stage.logo-stage .hero-brand-logo{
+  filter:sepia(.30) saturate(1.28) brightness(1.10)
+    drop-shadow(0 0 2px rgba(255,220,128,.95))
+    drop-shadow(0 0 8px rgba(230,177,55,.88))
+    drop-shadow(0 0 18px rgba(255,204,75,.52))
+    drop-shadow(0 18px 12px rgba(0,0,0,.72))!important;
+  animation:blazeGoldLogoPulse 3.2s ease-in-out infinite!important;
+  position:relative!important;
+  z-index:1!important;
+}
 html body .hero #stage.logo-stage .logo-plinth{
   isolation:isolate!important;
 }
@@ -2651,18 +2661,17 @@ html body .hero #stage.logo-stage .logo-plinth::after{
   display:block!important;
   position:absolute!important;
   inset:0!important;
-  z-index:5!important;
+  z-index:6!important;
   pointer-events:none!important;
   background:linear-gradient(112deg,
     transparent 0%,
-    transparent 32%,
-    rgba(167,111,20,.08) 38%,
-    rgba(220,170,57,.72) 43%,
-    rgba(255,239,173,.98) 47%,
-    rgba(255,255,242,1) 49%,
-    rgba(238,194,91,.92) 52%,
-    rgba(151,91,12,.38) 57%,
-    transparent 64%,
+    transparent 35%,
+    rgba(176,120,23,.15) 40%,
+    rgba(255,211,92,.85) 45%,
+    rgba(255,250,210,1) 49%,
+    rgba(255,218,110,.9) 52%,
+    rgba(168,105,15,.28) 58%,
+    transparent 66%,
     transparent 100%)!important;
   background-size:260% 100%!important;
   background-position:145% 0!important;
@@ -2676,17 +2685,38 @@ html body .hero #stage.logo-stage .logo-plinth::after{
   mask-position:center!important;
   -webkit-mask-size:contain!important;
   mask-size:contain!important;
-  animation:blazeGoldReflection 3.6s ease-in-out infinite!important;
+  animation:blazeGoldReflection 3.2s linear infinite!important;
+}
+@keyframes blazeGoldLogoPulse{
+  0%,100%{
+    filter:sepia(.20) saturate(1.15) brightness(1.04)
+      drop-shadow(0 0 2px rgba(255,220,128,.65))
+      drop-shadow(0 0 5px rgba(230,177,55,.42))
+      drop-shadow(0 18px 12px rgba(0,0,0,.72));
+  }
+  45%,60%{
+    filter:sepia(.48) saturate(1.55) brightness(1.24)
+      drop-shadow(0 0 4px rgba(255,245,184,1))
+      drop-shadow(0 0 12px rgba(255,196,54,1))
+      drop-shadow(0 0 26px rgba(239,166,30,.72))
+      drop-shadow(0 18px 12px rgba(0,0,0,.72));
+  }
 }
 @keyframes blazeGoldReflection{
-  0%,8%{background-position:145% 0;opacity:0}
-  18%{opacity:.92}
-  46%{background-position:-45% 0;opacity:.82}
+  0%,6%{background-position:145% 0;opacity:0}
+  15%{opacity:1}
+  48%{background-position:-45% 0;opacity:.95}
   58%,100%{background-position:-45% 0;opacity:0}
 }
 @media(prefers-reduced-motion:reduce){
+  html body .hero #stage.logo-stage .hero-brand-logo{
+    animation:none!important;
+    filter:sepia(.42) saturate(1.4) brightness(1.18)
+      drop-shadow(0 0 4px rgba(255,231,146,.95))
+      drop-shadow(0 0 12px rgba(230,177,55,.8))!important;
+  }
   html body .hero #stage.logo-stage .logo-plinth::after{
-    animation:none!important;opacity:.22!important;background-position:50% 0!important;
+    animation:none!important;opacity:.3!important;background-position:50% 0!important;
   }
 }
 </style>
