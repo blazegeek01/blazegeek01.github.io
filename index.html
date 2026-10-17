@@ -1855,14 +1855,13 @@ document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
 
 
 <style id="blaze-logo-natural">
-/* Final high-specificity override: keep the original logo flat and effect-free in every state. */
+/* Keep the logo artwork natural, but do not disable the explicitly requested entrance animation or white shine. */
 html body .hero #stage.logo-stage{perspective:none!important;transform:none!important;transform-style:flat!important}
-html body .hero #stage.logo-stage .logo-plinth{transform:none!important;transform-style:flat!important;animation:none!important;filter:none!important;box-shadow:none!important;text-shadow:none!important;will-change:auto!important}
-html body .hero #stage.logo-stage .hero-brand-logo{transform:none!important;filter:none!important;animation:none!important;box-shadow:none!important;text-shadow:none!important;opacity:1!important;transition:none!important}
+html body .hero #stage.logo-stage .logo-plinth{transform:none;transform-style:preserve-3d;filter:none!important;box-shadow:none!important;text-shadow:none!important;will-change:transform!important}
+html body .hero #stage.logo-stage .hero-brand-logo{transform:none;box-shadow:none!important;text-shadow:none!important;opacity:1!important}
 html body .hero #stage.logo-stage .logo-plinth:before,html body .hero #stage.logo-stage .logo-plinth:after{content:none!important;display:none!important;animation:none!important;filter:none!important;box-shadow:none!important;opacity:0!important}
-html body .hero #stage.logo-stage:hover .hero-brand-logo,html body .hero #stage.logo-stage .logo-plinth:hover .hero-brand-logo{transform:none!important;filter:none!important;animation:none!important;box-shadow:none!important}
-html body .hero #stage.logo-stage .logo-plinth:active{transform:none!important;scale:1!important}
-@media(prefers-reduced-motion:reduce){html body .hero #stage.logo-stage .logo-plinth,html body .hero #stage.logo-stage .hero-brand-logo{animation:none!important;transition:none!important}}
+html body .hero #stage.logo-stage:hover .hero-brand-logo,html body .hero #stage.logo-stage .logo-plinth:hover .hero-brand-logo{transform:none;box-shadow:none!important}
+html body .hero #stage.logo-stage .logo-plinth:active{scale:1!important}
 </style>
 <script id="blaze-logo-natural-script">
 (function(){
@@ -2712,24 +2711,20 @@ html body .hero #stage.logo-stage img.hero-brand-logo-shine{
 
 
 <style id="blaze-simple-logo-slide-rotate">
-/* Animate independent CSS translate/rotate properties because an earlier
-   safety rule sets transform:none!important on the original logo wrapper. */
+/* Simple, clearly visible one-time slide and gentle rotation on the real logo wrapper. */
 html body .hero #stage.logo-stage .logo-plinth{
-  animation:blazeSimpleLogoSlideRotate 1.15s cubic-bezier(.2,.72,.25,1) both!important;
-  transform:none!important;
-  translate:0 0;
-  rotate:none;
+  animation:blazeSimpleLogoSlideRotate 1.45s cubic-bezier(.2,.72,.25,1) both!important;
   transform-origin:center center!important;
-  will-change:translate,rotate!important;
+  will-change:transform!important;
 }
 @keyframes blazeSimpleLogoSlideRotate{
-  0%{translate:46px 0;rotate:y 12deg}
-  72%{translate:-3px 0;rotate:y -2deg}
-  100%{translate:0 0;rotate:none}
+  0%{transform:translateX(58px) rotateY(15deg)}
+  72%{transform:translateX(-4px) rotateY(-2deg)}
+  100%{transform:translateX(0) rotateY(0deg)}
 }
 @media(prefers-reduced-motion:reduce){
   html body .hero #stage.logo-stage .logo-plinth{
-    animation:none!important;translate:0 0!important;rotate:none!important;will-change:auto!important;
+    animation:none!important;transform:none!important;will-change:auto!important;
   }
 }
 </style>
