@@ -2883,4 +2883,68 @@ html body #services.content.band::before{
 }
 </style>
 
+
+<style id="blaze-work-compact-rounded-cards">
+/* Compact rounded-square portfolio cards, scoped only to the Work section. */
+html body #work .projects{
+  grid-template-columns:repeat(3,minmax(0,300px))!important;
+  justify-content:center!important;
+  gap:clamp(12px,1.8vw,20px)!important;
+  margin-top:clamp(24px,3vw,36px)!important;
+}
+html body #work .project{
+  min-width:0!important;
+  padding:0 0 17px!important;
+  border:1px solid rgba(255,255,255,.14)!important;
+  border-radius:18px!important;
+  overflow:hidden!important;
+  background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.018))!important;
+  box-shadow:0 9px 25px rgba(0,0,0,.16)!important;
+}
+html body #work .art{
+  height:auto!important;
+  aspect-ratio:1.12 / 1!important;
+  min-height:0!important;
+  border-radius:17px 17px 0 0!important;
+  font-size:clamp(22px,2.5vw,32px)!important;
+}
+html body #work .art::before{width:135px!important;height:135px!important}
+html body #work .art::after{width:95px!important;height:95px!important}
+html body #work .project .number,
+html body #work .project h3,
+html body #work .project p{
+  margin-left:16px!important;
+  margin-right:16px!important;
+}
+html body #work .project .number{margin-top:16px!important;font-size:10px!important}
+html body #work .project h3{font-size:15px!important;line-height:1.35!important;margin-top:10px!important;margin-bottom:7px!important}
+html body #work .project p{font-size:11px!important;line-height:1.65!important;margin-bottom:0!important}
+html body #work .project:hover{
+  transform:translateY(-3px)!important;
+  border-color:rgba(255,255,255,.26)!important;
+  box-shadow:0 14px 32px rgba(0,0,0,.22)!important;
+}
+@media(max-width:760px){
+  html body #work .projects{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:11px!important;
+    margin-top:22px!important;
+  }
+  html body #work .project{border-radius:15px!important;padding-bottom:14px!important}
+  html body #work .art{border-radius:14px 14px 0 0!important;font-size:clamp(18px,4.5vw,25px)!important}
+  html body #work .art::before{width:100px!important;height:100px!important}
+  html body #work .art::after{width:72px!important;height:72px!important}
+  html body #work .project .number,
+  html body #work .project h3,
+  html body #work .project p{margin-left:12px!important;margin-right:12px!important}
+  html body #work .project .number{margin-top:13px!important;font-size:9px!important}
+  html body #work .project h3{font-size:13px!important}
+  html body #work .project p{font-size:10px!important;line-height:1.55!important}
+}
+@media(max-width:360px){
+  html body #work .projects{grid-template-columns:minmax(0,1fr)!important}
+  html body #work .projects .project{width:min(100%,300px)!important;justify-self:center!important}
+}
+</style>
+
 </body></html>
