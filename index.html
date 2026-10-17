@@ -3074,4 +3074,55 @@ html body .ticker:before{
 }
 </style>
 
+
+<style id="blaze-hero-metal-white-shine">
+/* Larger single-line brand hero with a clean silver-metal shine; remove orange backdrop/glow. */
+html body .hero-copy h1.hero-brand-heading{
+  font-size:clamp(31px,5.1vw,68px)!important;
+  letter-spacing:-.075em!important;
+  line-height:1!important;
+  white-space:nowrap!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  text-shadow:none!important;
+  filter:none!important;
+  overflow:visible!important;
+}
+html body .hero-copy h1.hero-brand-heading::before,
+html body .hero-copy h1.hero-brand-heading::after{
+  content:none!important;
+  display:none!important;
+  background:none!important;
+  box-shadow:none!important;
+}
+html body .hero-copy h1.hero-brand-heading em,
+html body .hero-copy h1.hero-brand-heading .hero-geeks-line{
+  color:transparent!important;
+  -webkit-text-fill-color:transparent!important;
+  background:linear-gradient(105deg,#f8fbff 0%,#b8c0c9 18%,#ffffff 34%,#8e99a5 48%,#ffffff 61%,#dce3ea 77%,#ffffff 100%)!important;
+  background-size:220% 100%!important;
+  background-position:0% 50%!important;
+  background-clip:text!important;
+  -webkit-background-clip:text!important;
+  text-shadow:none!important;
+  box-shadow:none!important;
+  animation:blazeHeroMetalSweep 1s linear infinite!important;
+}
+html body .hero-copy h1.hero-brand-heading .living-flame{display:none!important}
+@keyframes blazeHeroMetalSweep{
+  0%{background-position:0% 50%}
+  100%{background-position:220% 50%}
+}
+@media(max-width:760px){
+  html body .hero-copy h1.hero-brand-heading{
+    font-size:clamp(27px,8.1vw,47px)!important;
+    letter-spacing:-.078em!important;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  html body .hero-copy h1.hero-brand-heading em,
+  html body .hero-copy h1.hero-brand-heading .hero-geeks-line{animation:none!important}
+}
+</style>
+
 </body></html>
