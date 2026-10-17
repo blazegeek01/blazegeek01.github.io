@@ -2052,6 +2052,14 @@ header.top:after{
   .drop, .drop:before, .browse, .browse:after { animation-duration: 8s !important; }
 }
 
+
+/* Requested second-page subheading color correction: only REMOVER and GEEK'S are white. */
+.metadata-remover-white,
+.metadata-geeks-white {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  text-shadow: none !important;
+}
 </style>
 
 <style id="blaze-ember-intensity-final">
@@ -2090,7 +2098,7 @@ body:after{opacity:.08!important}
 </div>
 </div></header>
 <main>
-<section class="hero wrap reveal"><div><div class="kicker" id="metadata-brand-tag" style="font-size:clamp(22px,3vw,36px)!important;line-height:1.2!important;font-weight:800!important;letter-spacing:.035em!important">✳ &nbsp; PRIVACY TOOL · BLAZE GEEK’S</div><h1><em>AI METADATA REMOVER</em></h1><p class="lead">Remove image metadata privately in your browser. Clean EXIF, GPS, IPTC, XMP and embedded provenance information without uploading your photos to a server.</p>
+<section class="hero wrap reveal"><div><div class="kicker" id="metadata-brand-tag" style="font-size:clamp(22px,3vw,36px)!important;line-height:1.2!important;font-weight:800!important;letter-spacing:.035em!important">✳ &nbsp; PRIVACY TOOL · BLAZE <span class="metadata-geeks-white">GEEK’S</span></div><h1><em>AI METADATA <span class="metadata-remover-white">REMOVER</span></em></h1><p class="lead">Remove image metadata privately in your browser. Clean EXIF, GPS, IPTC, XMP and embedded provenance information without uploading your photos to a server.</p>
 <p class="built-credit">Built &amp; maintained by <strong>JAHID HOSEN ARMAN</strong> · BLAZE GEEK’s</p><div class="privacy"><span class="dot"></span> 100% CLIENT-SIDE · YOUR FILES STAY ON YOUR DEVICE</div></div></section>
 <section class="tool wrap reveal">
 <input id="fileInput" type="file" accept="image/jpeg,image/png,image/webp" multiple hidden>
