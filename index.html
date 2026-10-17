@@ -3309,5 +3309,41 @@ html body .hero-copy h1.hero-brand-heading{
 }
 </style>
 
+
+<style id="blaze-hero-silver-metal-finish">
+/* Premium silver-metal finish for the live text hero title, not an image. */
+html body .hero-copy h1.hero-brand-heading em,
+html body .hero-copy h1.hero-brand-heading .hero-geeks-line{
+  color:transparent!important;
+  -webkit-text-fill-color:transparent!important;
+  background:linear-gradient(180deg,
+    #ffffff 0%,
+    #dce1e7 12%,
+    #858f9a 24%,
+    #f9fbff 36%,
+    #aeb7c1 48%,
+    #ffffff 58%,
+    #7d8792 72%,
+    #e7ebef 84%,
+    #ffffff 100%)!important;
+  background-size:100% 220%!important;
+  background-position:50% 0%!important;
+  background-clip:text!important;
+  -webkit-background-clip:text!important;
+  text-shadow:0 1px 0 rgba(255,255,255,.32),0 2px 5px rgba(0,0,0,.28)!important;
+  animation:blazeSilverMetalGlint 2.8s ease-in-out infinite!important;
+}
+@keyframes blazeSilverMetalGlint{
+  0%,100%{background-position:50% 0%}
+  50%{background-position:50% 100%}
+}
+@media(prefers-reduced-motion:reduce){
+  html body .hero-copy h1.hero-brand-heading em,
+  html body .hero-copy h1.hero-brand-heading .hero-geeks-line{
+    animation:none!important;
+  }
+}
+</style>
+
 </body>
 </html>
