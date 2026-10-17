@@ -3260,5 +3260,24 @@ html body .hero-copy h1.hero-brand-heading{
 }
 </style>
 
+
+<style id="blaze-hero-mobile-single-word-gap">
+/* Remove the extra margins that made the gap between BLAZE and GEEK’s too wide. */
+@media(max-width:760px){
+  html body .hero-copy h1.hero-brand-heading{
+    word-spacing:0!important;
+    letter-spacing:-.035em!important;
+    white-space:nowrap!important;
+  }
+  html body .hero-copy h1.hero-brand-heading em{
+    margin-right:0!important;
+  }
+  html body .hero-copy h1.hero-brand-heading .hero-geeks-line{
+    margin-left:0!important;
+    letter-spacing:inherit!important;
+  }
+}
+</style>
+
 </body>
 </html>
