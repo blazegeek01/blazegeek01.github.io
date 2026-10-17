@@ -3293,5 +3293,21 @@ html body .hero-copy h1.hero-brand-heading{
 }
 </style>
 
+
+<style id="blaze-hero-desktop-single-word-gap">
+/* Correct the extra desktop-only gap without changing the already-correct mobile title. */
+@media(min-width:761px){
+  html body .hero-copy h1.hero-brand-heading{
+    word-spacing:0!important;
+  }
+  html body .hero-copy h1.hero-brand-heading em{
+    margin-right:0!important;
+  }
+  html body .hero-copy h1.hero-brand-heading .hero-geeks-line{
+    margin-left:0!important;
+  }
+}
+</style>
+
 </body>
 </html>
