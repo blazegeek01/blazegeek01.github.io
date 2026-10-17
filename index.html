@@ -3653,5 +3653,43 @@ html body .hero-copy h1.hero-brand-heading{
 }
 </style>
 
+
+<style id="blaze-hero-silver-design-hard-restore">
+/* Explicitly restore the animated chrome-silver fill after later desktop weight overrides. */
+html body .hero-copy h1.hero-brand-heading > em,
+html body .hero-copy h1.hero-brand-heading > span.hero-geeks-line {
+  color:#e8edf3!important;
+  -webkit-text-fill-color:transparent!important;
+  background-color:transparent!important;
+  background-image:linear-gradient(105deg,#69737f 0%,#f7faff 7%,#aab4bf 14%,#fff 22%,#737e8a 31%,#edf1f5 40%,#fff 49%,#8a95a1 58%,#fff 68%,#a8b1bb 78%,#f8fbff 89%,#69737f 100%)!important;
+  background-size:250% 100%!important;
+  background-position:0% 50%!important;
+  background-repeat:no-repeat!important;
+  background-clip:text!important;
+  -webkit-background-clip:text!important;
+  -webkit-text-stroke:0!important;
+  text-shadow:none!important;
+  filter:none!important;
+  animation:blazeHeroSilverHardRestore 3s linear infinite!important;
+}
+@keyframes blazeHeroSilverHardRestore{from{background-position:0% 50%}to{background-position:250% 50%}}
+@media(min-width:761px){
+  html body .hero-copy h1.hero-brand-heading,
+  html body .hero-copy h1.hero-brand-heading > em,
+  html body .hero-copy h1.hero-brand-heading > span.hero-geeks-line{
+    font-family:"Agency FB",sans-serif!important;
+    font-weight:900!important;
+    font-synthesis:weight!important;
+  }
+}
+html body .hero-copy h1.hero-brand-heading .living-flame{display:none!important}
+@media(prefers-reduced-motion:reduce){
+  html body .hero-copy h1.hero-brand-heading > em,
+  html body .hero-copy h1.hero-brand-heading > span.hero-geeks-line{
+    animation:none!important;background-position:50% 50%!important;
+  }
+}
+</style>
+
 </body>
 </html>
