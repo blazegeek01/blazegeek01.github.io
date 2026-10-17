@@ -3691,5 +3691,39 @@ html body .hero-copy h1.hero-brand-heading .living-flame{display:none!important}
 }
 </style>
 
+
+<style id="blaze-word-orange-sitewide">
+/* Make the word BLAZE orange across the website, including the animated hero line. */
+html body .hero-copy h1.hero-brand-heading > em {
+  color:#ff7a24!important;
+  -webkit-text-fill-color:#ff7a24!important;
+  background:none!important;
+  background-image:none!important;
+  background-clip:border-box!important;
+  -webkit-background-clip:border-box!important;
+  animation:blazeOrangeWarmShine 2.8s ease-in-out infinite!important;
+  text-shadow:0 0 10px rgba(255,122,36,.16)!important;
+}
+html body h1 em,
+html body h2 em,
+html body .logo em,
+html body .hero-tagline em,
+html body .ticker em,
+html body .founder-copy em,
+html body .footer em {
+  color:#ff7a24!important;
+}
+html body .logo b {
+  color:#ff7a24!important;
+  -webkit-text-fill-color:#ff7a24!important;
+  background:none!important;
+  background-image:none!important;
+}
+@keyframes blazeOrangeWarmShine {
+  0%,100% { filter:brightness(1); }
+  50% { filter:brightness(1.18); }
+}
+</style>
+
 </body>
 </html>
