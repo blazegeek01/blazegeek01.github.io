@@ -3519,5 +3519,50 @@ html body .hero-copy h1.hero-brand-heading{
 }
 </style>
 
+
+<style id="blaze-hero-desktop-silver-bold-repair">
+/* Final desktop-only repair: restore chrome-silver text fill and use a heavy font without an outline. */
+@media (min-width: 761px) {
+  html body .hero-copy h1.hero-brand-heading {
+    font-family: "Arial Black", "Franklin Gothic Heavy", Impact, sans-serif !important;
+    font-weight: 900 !important;
+    letter-spacing: -.025em !important;
+    word-spacing: .22em !important;
+    white-space: nowrap !important;
+    -webkit-text-stroke: 0 !important;
+    text-shadow: none !important;
+  }
+  html body .hero-copy h1.hero-brand-heading > em,
+  html body .hero-copy h1.hero-brand-heading > span.hero-geeks-line {
+    font-family: "Arial Black", "Franklin Gothic Heavy", Impact, sans-serif !important;
+    font-weight: 900 !important;
+    font-style: normal !important;
+    color: #e5e9ee !important;
+    -webkit-text-fill-color: transparent !important;
+    -webkit-text-stroke: 0 !important;
+    text-shadow: none !important;
+    background: linear-gradient(105deg,
+      #747e89 0%,
+      #f8fbff 8%,
+      #a4adb8 16%,
+      #ffffff 24%,
+      #727d89 33%,
+      #e9edf2 43%,
+      #ffffff 51%,
+      #8d98a4 61%,
+      #fdfefe 71%,
+      #a5aeb8 81%,
+      #ffffff 91%,
+      #737d88 100%) !important;
+    background-size: 250% 100% !important;
+    background-position: 0% 50% !important;
+    background-repeat: no-repeat !important;
+    background-clip: text !important;
+    -webkit-background-clip: text !important;
+    animation: blazeChromeSilverSweep 3s linear infinite !important;
+  }
+}
+</style>
+
 </body>
 </html>
