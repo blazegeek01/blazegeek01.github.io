@@ -2611,4 +2611,32 @@ html body .hero-copy h1 .living-flame em{
 @media(prefers-reduced-motion:reduce){.blaze-contact-link,.blaze-contact-link:before{transition:none}}
 </style>
 
+
+<style id="blaze-logo-soft-float-final">
+/* Replace the right-to-left entrance with a calm, eye-catching floating motion. */
+html body .hero #stage.logo-stage.hero-logo-slide-in .hero-brand-logo,
+html body .hero #stage.logo-stage .hero-brand-logo{
+  animation:blazeLogoSoftFloat 6.2s ease-in-out infinite!important;
+  translate:0 0!important;
+  transform:none!important;
+  filter:none!important;
+  opacity:1!important;
+  will-change:translate;
+}
+@keyframes blazeLogoSoftFloat{
+  0%,100%{translate:0 0}
+  50%{translate:0 -6px}
+}
+@media(max-width:760px){
+  html body .hero #stage.logo-stage .hero-brand-logo{animation-duration:7s!important}
+  @keyframes blazeLogoSoftFloat{
+    0%,100%{translate:0 0}
+    50%{translate:0 -4px}
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  html body .hero #stage.logo-stage .hero-brand-logo{animation:none!important;translate:0 0!important}
+}
+</style>
+
 </body></html>
