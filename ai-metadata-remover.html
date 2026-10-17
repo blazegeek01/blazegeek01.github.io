@@ -2653,5 +2653,37 @@ html body footer.footer .footer-socials .footer-social-heading p {
 @media(prefers-reduced-motion:reduce){.blaze-contact-link,.blaze-contact-link:before{transition:none}}
 </style>
 
+
+<style id="blaze-metadata-title-readable">
+/* Give the AI Metadata Remover hero title stronger prominence without clipping on small screens. */
+html body main > section.hero.wrap h1{
+  display:block!important;
+  width:100%!important;
+  max-width:100%!important;
+  font-size:clamp(48px,6.2vw,82px)!important;
+  line-height:1.04!important;
+  letter-spacing:-.065em!important;
+  white-space:nowrap!important;
+  margin:24px 0 20px!important;
+}
+html body main > section.hero.wrap h1 em{
+  display:inline!important;
+}
+@media(max-width:760px){
+  html body main > section.hero.wrap h1{
+    font-size:clamp(27px,7.8vw,39px)!important;
+    line-height:1.12!important;
+    letter-spacing:-.075em!important;
+    margin:20px 0 17px!important;
+  }
+}
+@media(max-width:360px){
+  html body main > section.hero.wrap h1{
+    font-size:clamp(23px,7.3vw,26px)!important;
+    letter-spacing:-.078em!important;
+  }
+}
+</style>
+
 </body>
 </html>
