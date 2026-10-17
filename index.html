@@ -3466,5 +3466,19 @@ html body .hero-copy h1.hero-brand-heading{
 }
 </style>
 
+
+<style id="blaze-hero-desktop-maximum-bold">
+/* Stronger desktop-only visual weight without affecting mobile or adding an outline. */
+@media(min-width:761px){
+  html body .hero-copy h1.hero-brand-heading,
+  html body .hero-copy h1.hero-brand-heading > em,
+  html body .hero-copy h1.hero-brand-heading > span.hero-geeks-line{
+    font-weight:1000!important;
+    -webkit-text-stroke:1.1px #aeb7c1!important;
+    paint-order:stroke fill!important;
+  }
+}
+</style>
+
 </body>
 </html>
