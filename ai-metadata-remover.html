@@ -2898,5 +2898,23 @@ html body footer.footer .brand-word-first {
 }
 </style>
 
+
+
+<style id="blaze-wordmark-orange-text-only-correction">
+/* TEXT COLOR ONLY — never paint an orange block behind the BLAZE letters. */
+html body header.top > a.logo > .brand-wordmark > .brand-word-first,
+html body footer.footer .footerrow > a.logo > .brand-wordmark > .brand-word-first,
+html body footer.footer .brand-word-first {
+  color:#ff7a24 !important;
+  -webkit-text-fill-color:#ff7a24 !important;
+  background:transparent !important;
+  background-color:transparent !important;
+  background-image:none !important;
+  background-clip:border-box !important;
+  -webkit-background-clip:border-box !important;
+  text-shadow:0 0 6px rgba(255,122,36,.12) !important;
+}
+</style>
+
 </body>
 </html>
