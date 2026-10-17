@@ -3076,10 +3076,11 @@ html body .ticker:before{
 
 
 <style id="blaze-hero-metal-white-shine">
-/* Larger single-line brand hero with a clean silver-metal shine; remove orange backdrop/glow. */
+/* Larger one-line hero title with clearly preserved spacing between the two words. */
 html body .hero-copy h1.hero-brand-heading{
-  font-size:clamp(31px,5.1vw,68px)!important;
-  letter-spacing:-.075em!important;
+  font-size:clamp(38px,6vw,78px)!important;
+  letter-spacing:-.035em!important;
+  word-spacing:.20em!important;
   line-height:1!important;
   white-space:nowrap!important;
   background:transparent!important;
@@ -3097,6 +3098,9 @@ html body .hero-copy h1.hero-brand-heading::after{
 }
 html body .hero-copy h1.hero-brand-heading em,
 html body .hero-copy h1.hero-brand-heading .hero-geeks-line{
+  display:inline!important;
+  font-size:1em!important;
+  letter-spacing:inherit!important;
   color:transparent!important;
   -webkit-text-fill-color:transparent!important;
   background:linear-gradient(105deg,#f8fbff 0%,#b8c0c9 18%,#ffffff 34%,#8e99a5 48%,#ffffff 61%,#dce3ea 77%,#ffffff 100%)!important;
@@ -3115,14 +3119,14 @@ html body .hero-copy h1.hero-brand-heading .living-flame{display:none!important}
 }
 @media(max-width:760px){
   html body .hero-copy h1.hero-brand-heading{
-    font-size:clamp(27px,8.1vw,47px)!important;
-    letter-spacing:-.078em!important;
+    font-size:clamp(29px,8.8vw,50px)!important;
+    letter-spacing:-.04em!important;
+    word-spacing:.13em!important;
   }
 }
 @media(prefers-reduced-motion:reduce){
   html body .hero-copy h1.hero-brand-heading em,
   html body .hero-copy h1.hero-brand-heading .hero-geeks-line{animation:none!important}
-}
-</style>
+}</style>
 
 </body></html>
