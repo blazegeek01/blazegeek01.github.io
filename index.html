@@ -3449,5 +3449,22 @@ html body .hero-copy h1.hero-brand-heading{
 }
 </style>
 
+
+<style id="blaze-hero-desktop-extra-bold">
+/* Desktop-only heavier lettering; keep mobile typography untouched and preserve the silver finish. */
+@media(min-width:761px){
+  html body .hero-copy h1.hero-brand-heading,
+  html body .hero-copy h1.hero-brand-heading > em,
+  html body .hero-copy h1.hero-brand-heading > span.hero-geeks-line{
+    font-weight:1000!important;
+    -webkit-text-stroke:.65px currentColor!important;
+  }
+  html body .hero-copy h1.hero-brand-heading > em,
+  html body .hero-copy h1.hero-brand-heading > span.hero-geeks-line{
+    -webkit-text-stroke:.65px #cbd2da!important;
+  }
+}
+</style>
+
 </body>
 </html>
