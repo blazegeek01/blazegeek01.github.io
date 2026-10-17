@@ -3602,5 +3602,29 @@ html body .hero-copy h1.hero-brand-heading{
 }
 </style>
 
+
+<style id="blaze-hero-agencyfb-real-weight-fix">
+/* Keep Agency FB and the existing desktop scale; create subtle real-looking weight without an outline. */
+@media (min-width:761px) {
+  html body .hero-copy h1.hero-brand-heading,
+  html body .hero-copy h1.hero-brand-heading > em,
+  html body .hero-copy h1.hero-brand-heading > span.hero-geeks-line {
+    font-family:"Agency FB",sans-serif!important;
+    font-weight:900!important;
+    font-synthesis:weight!important;
+    -webkit-text-stroke:0!important;
+    text-stroke:0!important;
+    filter:none!important;
+  }
+  html body .hero-copy h1.hero-brand-heading > em,
+  html body .hero-copy h1.hero-brand-heading > span.hero-geeks-line {
+    text-shadow:
+      .35px 0 0 rgba(220,226,233,.92),
+      -.35px 0 0 rgba(220,226,233,.92),
+      0 .25px 0 rgba(220,226,233,.72)!important;
+  }
+}
+</style>
+
 </body>
 </html>
