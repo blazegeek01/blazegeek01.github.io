@@ -1645,7 +1645,7 @@ html body .hero-copy h1.hero-brand-heading .living-flame{display:none!important}
 
 <section id="cinematic-brand-reveal" aria-label="BLAZE GEEK's brand film">
   <div class="brand-film-media">
-    <video class="brand-film-video" autoplay muted loop playsinline webkit-playsinline preload="auto" aria-label="BLAZE GEEK's continuously looping cinematic brand advertisement">
+    <video class="brand-film-video" autoplay muted loop playsinline webkit-playsinline preload="none" aria-label="BLAZE GEEK's continuously looping cinematic brand advertisement">
       <source src="./assets/homepage-motion.mp4" type="video/mp4">
       Your browser does not support HTML video.
     </video>
@@ -1768,7 +1768,7 @@ document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
   var w=0,h=0,dpr=1,particles=[],raf=0,last=0,paused=false;
   var reduced=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var mobile=window.matchMedia && window.matchMedia('(max-width: 760px)').matches;
-  var target=mobile?16:34;
+  var target=mobile?8:20;
   var colors=['255,79,35','255,111,42','255,151,61','255,190,92','255,63,28'];
   function random(min,max){return min+Math.random()*(max-min)}
   function makeParticle(fromBottom){
@@ -1788,14 +1788,14 @@ document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
     canvas.style.width=w+'px';canvas.style.height=h+'px';
     ctx.setTransform(dpr,0,0,dpr,0,0);
     mobile=window.matchMedia && window.matchMedia('(max-width: 760px)').matches;
-    target=mobile?30:58;
+    target=mobile?10:24;
     while(particles.length<target)particles.push(makeParticle(false));
     if(particles.length>target)particles.length=target;
   }
   function draw(now){
     raf=0;
     if(paused||document.hidden)return;
-    if(last && now-last<(mobile?40:33)){raf=requestAnimationFrame(draw);return;}
+    if(last && now-last<(mobile?66:45)){raf=requestAnimationFrame(draw);return;}
     if(!last)last=now;
     var dt=Math.min(2,(now-last)/16.67||1);last=now;
     ctx.clearRect(0,0,w,h);
@@ -1829,9 +1829,9 @@ document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
   function stop(){if(raf){cancelAnimationFrame(raf);raf=0}}
   document.addEventListener('visibilitychange',function(){if(document.hidden){stop();last=0}else start()});
   window.addEventListener('resize',resize,{passive:true});
-  if(reduced){canvas.style.opacity='.16';target=24}
+  if(reduced){canvas.style.opacity='.12';target=8}
   resize();
-  if(reduced){particles.length=Math.min(particles.length,24);target=24}
+  if(reduced){particles.length=Math.min(particles.length,8);target=8}
   start();
 })();
 </script>
@@ -1929,70 +1929,47 @@ html body .hero #stage.logo-stage .logo-plinth:active{scale:1!important}
 
 <script id="brand-film-playback-fix">
 (function(){
-  var reveal = document.getElementById('cinematic-brand-reveal');
-  if (!reveal) return;
-  var media = reveal.querySelector('.brand-film-media');
-  var video = reveal.querySelector('video');
-  var status = reveal.querySelector('.brand-film-video-status');
-  if (!video) return;
-
-  /* Configure once. Avoid repeated play() calls during normal playback, which can
-     interrupt buffering on slower devices and mobile connections. */
-  video.autoplay = true;
-  video.muted = true;
-  video.defaultMuted = true;
-  video.loop = true;
-  video.playsInline = true;
-  video.preload = 'auto';
+  var reveal=document.getElementById('cinematic-brand-reveal');
+  if(!reveal)return;
+  var media=reveal.querySelector('.brand-film-media');
+  var video=reveal.querySelector('video');
+  var status=reveal.querySelector('.brand-film-video-status');
+  if(!video)return;
+  video.autoplay=true; video.muted=true; video.defaultMuted=true;
+  video.loop=true; video.playsInline=true; video.preload='none';
   video.removeAttribute('controls');
-
+  var activated=false, inView=false;
   function showVideoError(){
-    if (media) media.classList.add('video-error');
-    if (status) status.textContent = 'The brand video could not load. Please refresh the page and check your connection.';
+    if(media)media.classList.add('video-error');
+    if(status)status.textContent='The brand video could not load. Please refresh the page and check your connection.';
   }
-  function attemptPlayback(){
-    if (document.visibilityState === 'hidden' || !video.paused && !video.ended) return;
-    video.muted = true;
-    var attempt = video.play();
-    if (attempt && typeof attempt.catch === 'function') {
-      attempt.catch(function(){
-        /* Browser autoplay policies can defer playback until the page is visible. */
-      });
-    }
+  function activate(){if(activated)return;activated=true;video.preload='auto';video.load();}
+  function playWhenReady(){
+    if(!inView||document.visibilityState==='hidden'||video.readyState<2)return;
+    var attempt=video.play(); if(attempt&&typeof attempt.catch==='function')attempt.catch(function(){});
   }
-  video.addEventListener('error', showVideoError);
-  video.addEventListener('loadeddata', function(){
-    if (media) media.classList.remove('video-error');
-    attemptPlayback();
+  video.addEventListener('error',showVideoError);
+  video.addEventListener('loadeddata',function(){if(media)media.classList.remove('video-error');playWhenReady();});
+  video.addEventListener('canplay',playWhenReady);
+  document.addEventListener('visibilitychange',function(){
+    if(document.visibilityState==='hidden')video.pause();
+    else if(inView){activate();playWhenReady();}
   });
-  video.addEventListener('canplay', attemptPlayback);
-  video.addEventListener('ended', attemptPlayback);
-  document.addEventListener('visibilitychange', function(){
-    if (document.visibilityState === 'visible') attemptPlayback();
-  });
-  window.addEventListener('pageshow', attemptPlayback);
-
-  if ('IntersectionObserver' in window) {
-    var observer = new IntersectionObserver(function(entries){
+  window.addEventListener('pageshow',function(){if(inView){activate();playWhenReady();}});
+  if('IntersectionObserver' in window){
+    var observer=new IntersectionObserver(function(entries){
       entries.forEach(function(entry){
-        if (entry.isIntersecting) {
-          reveal.classList.add('is-visible');
-          attemptPlayback();
-        }
+        inView=entry.isIntersecting;
+        if(inView){reveal.classList.add('is-visible');activate();playWhenReady();}
+        else video.pause();
       });
-    }, {threshold: 0.05});
+    },{rootMargin:'280px 0px',threshold:0.01});
     observer.observe(reveal);
-  } else {
-    reveal.classList.add('is-visible');
-  }
-
-  /* Start loading before requesting playback; calling load() after play() can reset it. */
-  if (video.readyState === 0) video.load();
-  attemptPlayback();
-
-  var heroStage = document.getElementById('stage');
-  if (heroStage && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    window.requestAnimationFrame(function(){ heroStage.classList.add('hero-logo-slide-in'); });
+  }else{inView=true;reveal.classList.add('is-visible');activate();}
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)video.autoplay=false;
+  var heroStage=document.getElementById('stage');
+  if(heroStage&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    window.requestAnimationFrame(function(){heroStage.classList.add('hero-logo-slide-in');});
   }
 })();
 </script>
