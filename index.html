@@ -1586,7 +1586,8 @@ header.top .menu-item-icon{
 </div>
 </div></header>
 <main>
-<div class="wrap"><section class="hero" id="home"><div class="hero-copy reveal"><div class="eyebrow">✳ &nbsp; CREATIVE TECHNOLOGY · DESIGN · PRODUCTION</div><h1><em>BLAZE</em><br> <span class="hero-geeks-line">GEEK’S <span class="living-flame" aria-hidden="true"><i></i><b></b><em></em></span></span></h1><p class="lead">Creative digital brand &amp; production house where tech, graphic design, motivation &amp; authentic enthusiasm meet. We turn ideas into visual experiences with purpose.</p><p class="lead hero-tagline">Create Bold. Inspire Real. Blaze Beyond.</p><div class="actions"><a class="btn hot" href="#work">Explore our universe ↘</a><a class="quiet" href="#founder">Meet the founder ↗</a></div><p class="mono">INDEPENDENT BY NATURE · BUILT TO GO BEYOND</p></div><div class="stage logo-stage" id="stage" aria-label="BLAZE GEEK’s official logo"><div class="logo-plinth"><img class="hero-brand-logo" src="/assets/blaze-geeks-logo%20(2).png" data-fallback="https://raw.githubusercontent.com/blazegeek01/blazegeek01.github.io/blazegeeks/assets/blaze-geeks-logo%20(2).png" alt="Official BLAZE GEEK’s logo" width="640" height="640" loading="eager" fetchpriority="high" decoding="async"></div></div></section></div>
+<div class="wrap"><section class="hero" id="home"><div class="hero-copy reveal"><div class="eyebrow">✳ &nbsp; CREATIVE TECHNOLOGY · DESIGN · PRODUCTION</div><h1><em>BLAZE</em><br> <span class="hero-geeks-line">GEEK’S <span class="living-flame" aria-hidden="true"><i></i><b></b><em></em></span></span></h1><p class="lead">Creative digital brand &amp; production house where tech, graphic design, motivation &amp; authentic enthusiasm meet. We turn ideas into visual experiences with purpose.</p><p class="lead hero-tagline">Create Bold. Inspire Real. Blaze Beyond.</p><div class="actions"><a class="btn hot" href="#work">Explore our universe ↘</a><a class="quiet" href="#founder">Meet the founder ↗</a></div><p class="mono">INDEPENDENT BY NATURE · BUILT TO GO BEYOND</p></div><div class="stage logo-stage" id="stage" aria-label="BLAZE GEEK’s official logo"><div class="logo-plinth"><img class="hero-brand-logo" src="/assets/blaze-geeks-logo%20(2).png" data-fallback="https://raw.githubusercontent.com/blazegeek01/blazegeek01.github.io/blazegeeks/assets/blaze-geeks-logo%20(2).png" alt="Official BLAZE GEEK’s logo" width="640" height="640" loading="eager" fetchpriority="high" decoding="async">
+<img class="hero-brand-logo-shine" src="/assets/blaze-geeks-logo%20(2).png" alt="" aria-hidden="true" width="640" height="640" loading="eager" decoding="async"></div></div></section></div>
 <div class="ticker">CREATE BOLD ✳ INSPIRE REAL ✳ BLAZE BEYOND ✳</div>
 
 <section id="cinematic-brand-reveal" aria-label="BLAZE GEEK's brand film">
@@ -2718,6 +2719,45 @@ html body .hero #stage.logo-stage .logo-plinth::after{
   html body .hero #stage.logo-stage .logo-plinth::after{
     animation:none!important;opacity:.3!important;background-position:50% 0!important;
   }
+}
+</style>
+
+
+<style id="blaze-visible-metallic-gold-sweep">
+/* Direct image-layer highlight: uses the same transparent logo artwork, not a wrapper mask. */
+html body .hero #stage.logo-stage .logo-plinth{position:relative!important;isolation:isolate!important}
+html body .hero #stage.logo-stage img.hero-brand-logo-shine{
+  display:block!important;
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:100%!important;
+  object-fit:contain!important;
+  z-index:20!important;
+  pointer-events:none!important;
+  opacity:0!important;
+  visibility:visible!important;
+  transform:translateZ(3px)!important;
+  filter:sepia(1) saturate(5) hue-rotate(350deg) brightness(2.1) contrast(1.15)!important;
+  mix-blend-mode:screen!important;
+  clip-path:polygon(-45% 0,-27% 0,-52% 100%,-70% 100%)!important;
+  animation:blazeVisibleGoldSweep 3.1s linear infinite!important;
+}
+@keyframes blazeVisibleGoldSweep{
+  0%,7%{clip-path:polygon(-45% 0,-27% 0,-52% 100%,-70% 100%)!important;opacity:0!important}
+  13%{opacity:1!important}
+  52%{clip-path:polygon(82% 0,100% 0,75% 100%,57% 100%)!important;opacity:1!important}
+  63%,100%{clip-path:polygon(135% 0,153% 0,128% 100%,110% 100%)!important;opacity:0!important}
+}
+@media(max-width:760px){
+ html body .hero #stage.logo-stage img.hero-brand-logo-shine{animation-duration:3.6s!important}
+}
+@media(prefers-reduced-motion:reduce){
+ html body .hero #stage.logo-stage img.hero-brand-logo-shine{
+   animation:none!important;opacity:.42!important;
+   clip-path:polygon(36% 0,54% 0,29% 100%,11% 100%)!important;
+ }
 }
 </style>
 
