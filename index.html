@@ -2735,4 +2735,62 @@ html body .hero #stage.logo-stage .logo-plinth{
 }
 </style>
 
+
+<style id="blaze-about-compact-responsive">
+/* Compact the complete About panel while keeping its premium outline and responsive layout. */
+html body #about.content.wrap{
+  width:min(1080px, calc(100% - 48px))!important;
+  max-width:1080px!important;
+  padding:clamp(22px, 3vw, 36px)!important;
+  margin:clamp(24px, 3.2vw, 42px) auto!important;
+  border-radius:20px!important;
+}
+html body #about .intro{
+  gap:clamp(24px, 4.5vw, 54px)!important;
+}
+html body #about .kicker{margin-bottom:16px!important}
+html body #about h2{
+  font-size:clamp(32px, 4.2vw, 54px)!important;
+  line-height:1.06!important;
+}
+html body #about .intro p{
+  font-size:13px!important;
+  line-height:1.75!important;
+  margin:0 0 10px!important;
+}
+html body #about .principles{
+  gap:14px!important;
+  margin-top:clamp(24px, 3vw, 36px)!important;
+}
+html body #about .principle{
+  min-width:0!important;
+  padding:20px!important;
+}
+html body #about .principle h3{
+  margin:14px 0 8px!important;
+  font-size:15px!important;
+}
+html body #about .principle p{
+  margin:0!important;
+  font-size:11px!important;
+  line-height:1.65!important;
+}
+@media(max-width:760px){
+  html body #about.content.wrap{
+    width:calc(100% - 28px)!important;
+    padding:22px 18px!important;
+    margin:24px auto!important;
+    border-radius:17px!important;
+  }
+  html body #about .intro{gap:16px!important}
+  html body #about h2{font-size:clamp(29px, 7.6vw, 40px)!important}
+  html body #about .intro p{font-size:12px!important;line-height:1.7!important}
+  html body #about .principles{
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:10px!important;
+    margin-top:22px!important;
+  }
+  html body #about .principle{padding:16px 17px!important}
+}
+</style>
 </body></html>
