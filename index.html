@@ -3242,5 +3242,23 @@ html body .hero-copy h1.hero-brand-heading{
 }
 </style>
 
+
+<style id="blaze-hero-mobile-word-spacing-fix">
+/* Restore a consistent visible gap between BLAZE and GEEK’s on mobile. */
+@media(max-width:760px){
+  html body .hero-copy h1.hero-brand-heading{
+    word-spacing:.22em!important;
+    letter-spacing:-.035em!important;
+    white-space:nowrap!important;
+  }
+  html body .hero-copy h1.hero-brand-heading em{
+    margin-right:.18em!important;
+  }
+  html body .hero-copy h1.hero-brand-heading .hero-geeks-line{
+    margin-left:.08em!important;
+  }
+}
+</style>
+
 </body>
 </html>
