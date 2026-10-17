@@ -3766,5 +3766,25 @@ html body header.top > a.logo > .brand-wordmark > .brand-word-second {
 }
 </style>
 
+
+<style id="mobile-header-logo-visual-gap-correction">
+/* Mobile-only correction: the previous desktop rule forced a 42px logo box on phones,
+   leaving invisible image-canvas space before the wordmark. Restore the intended compact box. */
+@media (max-width:760px) {
+  html body header.top > a.logo { gap:0!important; column-gap:0!important; }
+  html body header.top > a.logo > img.brand-logo-img {
+    width:30px!important;height:30px!important;flex:0 0 30px!important;
+    margin:0 -2px 0 0!important;
+  }
+  html body header.top > a.logo > .brand-wordmark { margin:0!important;padding:0!important; }
+}
+@media (max-width:380px) {
+  html body header.top > a.logo > img.brand-logo-img {
+    width:26px!important;height:26px!important;flex-basis:26px!important;
+    margin-right:-2px!important;
+  }
+}
+</style>
+
 </body>
 </html>
