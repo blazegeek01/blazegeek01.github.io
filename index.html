@@ -3424,5 +3424,30 @@ html body .hero-copy h1.hero-brand-heading{
 }
 
 </style>
+
+<style id="blaze-hero-desktop-bold-word-gap">
+/* Desktop only: heavier silver hero lettering and a clear natural gap between words. Mobile remains unchanged. */
+@media(min-width:761px){
+  html body .hero-copy h1.hero-brand-heading{
+    font-weight:950!important;
+    letter-spacing:-.025em!important;
+    word-spacing:.22em!important;
+    white-space:nowrap!important;
+  }
+  html body .hero-copy h1.hero-brand-heading > em,
+  html body .hero-copy h1.hero-brand-heading > span.hero-geeks-line{
+    font-weight:950!important;
+    letter-spacing:inherit!important;
+    -webkit-text-stroke:0!important;
+  }
+  html body .hero-copy h1.hero-brand-heading > em{
+    margin-right:0!important;
+  }
+  html body .hero-copy h1.hero-brand-heading > span.hero-geeks-line{
+    margin-left:0!important;
+  }
+}
+</style>
+
 </body>
 </html>
