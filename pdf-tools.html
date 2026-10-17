@@ -59,6 +59,10 @@
 
 /* PDF Studio keeps its own workspace styling; shared brand header/footer remain aligned with the main site. */
 .top .logo{font-size:20px;font-weight:800;letter-spacing:.035em}.top nav a[aria-current="page"]{color:#ff9a45}.footer{display:block;border-top:0}.footerrow{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:22px}.footer .mono{margin-top:25px}
+
+.extra-studio{width:min(1160px,90%);margin:0 auto;padding:0 0 88px}.tool-catalogue{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px;margin:20px 0 22px}.catalogue-card{min-width:0;min-height:142px;text-align:left;display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:17px;border:1px solid #ffffff17;background:linear-gradient(145deg,#ffffff08,#ffffff02);color:#f7f2ef;cursor:pointer;transition:border-color .2s,transform .2s,background .2s}.catalogue-card:hover{border-color:#ff8a4577;transform:translateY(-2px)}.catalogue-card.selected{border-color:#ff8a45;background:linear-gradient(145deg,#ff8a4516,#ffffff03);box-shadow:inset 0 0 0 1px #ff8a4510}.catalogue-icon{font-size:23px;color:#ff8a45}.catalogue-card b{font-size:12px}.catalogue-card small{font-size:10px;line-height:1.6;color:#a59ba0}.extra-workspace{border:1px solid #ffffff1b;background:linear-gradient(145deg,#ffffff08,#ffffff02);padding:clamp(18px,3vw,30px)}.extra-workspace-head{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:20px}.extra-workspace-head h3{margin:7px 0;font-size:22px}.extra-workspace-head p{margin:0;color:#aaa2a6;font-size:11px;line-height:1.7}.extra-drop{min-height:165px}.extra-drop .pick{position:relative}.extra-workspace .field input,.extra-workspace .field select{width:100%;background:#0a0a0d;color:#fff;border:1px solid #ffffff2c;border-radius:4px;padding:12px;font:12px Manrope,Arial,sans-serif}.extra-workspace .field input:focus,.extra-workspace .field select:focus{border-color:#ff8a45;outline:none}
+@media(max-width:760px){.tool-catalogue{grid-template-columns:repeat(2,minmax(0,1fr))}.catalogue-card{min-height:130px;padding:13px}.extra-workspace-head{align-items:flex-start;flex-direction:column}.extra-studio{padding-bottom:55px}}
+
 </style>
 </head>
 <body id="top">
@@ -112,6 +116,42 @@
 <div class="file-list" id="compressFiles"></div><div class="row"><button class="btn primary" id="compressBtn" disabled>Optimize and download ↗</button></div><div class="progress" id="compressProgress"><i></i></div><div class="status" id="compressStatus" role="status" aria-live="polite"></div>
 <div class="notice"><strong>Honest compression note:</strong> this tool re-saves the PDF and compresses eligible PDF streams. It cannot promise a smaller file, and it does not aggressively recompress embedded scan/photos. Image-heavy PDFs may stay similar in size or even grow slightly.</div>
 </section>
+
+<section class="extra-studio" id="more-tools">
+  <div class="studio-head"><div><div class="eyebrow">THE FULL TOOLKIT</div><h2>More ways to work with PDFs</h2><p>Choose a tool below. Your files stay in this browser while supported operations run.</p></div><span class="tag">BLAZE GEEK’s PDF STUDIO</span></div>
+  <div class="tool-catalogue" role="list">
+    <button class="catalogue-card selected" type="button" data-extra-tool="rotate"><span class="catalogue-icon">↻</span><b>Rotate PDF</b><small>Rotate all pages by 90°, 180° or 270°</small></button>
+    <button class="catalogue-card" type="button" data-extra-tool="delete"><span class="catalogue-icon">−</span><b>Delete pages</b><small>Remove pages by number or range</small></button>
+    <button class="catalogue-card" type="button" data-extra-tool="reverse"><span class="catalogue-icon">⇅</span><b>Reverse pages</b><small>Reverse the order of every page</small></button>
+    <button class="catalogue-card" type="button" data-extra-tool="extract"><span class="catalogue-icon">↗</span><b>Extract pages</b><small>Save selected pages into a new PDF</small></button>
+    <button class="catalogue-card" type="button" data-extra-tool="watermark"><span class="catalogue-icon">✧</span><b>Watermark PDF</b><small>Add a text watermark to every page</small></button>
+    <button class="catalogue-card" type="button" data-extra-tool="numbers"><span class="catalogue-icon">№</span><b>Page numbers</b><small>Add page numbering to the bottom</small></button>
+    <button class="catalogue-card" type="button" data-extra-tool="pdfimages"><span class="catalogue-icon">▧</span><b>PDF to JPG</b><small>Render pages as JPG images in a ZIP</small></button>
+    <button class="catalogue-card" type="button" data-extra-tool="imagespdf"><span class="catalogue-icon">▤</span><b>Images to PDF</b><small>Combine JPG and PNG files into a PDF</small></button>
+    <button class="catalogue-card" type="button" data-extra-tool="info"><span class="catalogue-icon">ⓘ</span><b>PDF information</b><small>Inspect metadata, page count and dimensions</small></button>
+  </div>
+  <div class="extra-workspace" id="extraWorkspace">
+    <div class="extra-workspace-head"><div><span class="eyebrow">SELECTED TOOL</span><h3 id="extraTitle">Rotate PDF</h3><p id="extraDescription">Rotate every page of a PDF.</p></div><span class="tag">LOCAL PROCESSING</span></div>
+    <div class="drop extra-drop" id="extraDrop"><div><div class="drop-icon">＋</div><h3 id="extraDropTitle">Choose a PDF</h3><p id="extraDropHint">Select one PDF file to get started.</p><span class="pick">Choose files</span></div><input id="extraFiles" type="file" accept="application/pdf,.pdf" aria-label="Choose files for selected PDF tool"></div>
+    <div class="file-list" id="extraFileList"></div>
+    <div class="row" id="extraOptions">
+      <div class="field" id="extraAngleField"><label for="extraAngle">ROTATION</label><select id="extraAngle"><option value="90">90° clockwise</option><option value="180">180°</option><option value="270">270° clockwise</option></select></div>
+      <div class="field" id="extraPagesField" style="display:none"><label for="extraPages">PAGE NUMBERS / RANGES</label><input id="extraPages" type="text" placeholder="e.g. 2, 4-6"></div>
+      <div class="field" id="extraTextField" style="display:none"><label for="extraText">WATERMARK TEXT</label><input id="extraText" type="text" maxlength="80" placeholder="BLAZE GEEK’s"></div>
+      <div class="field" id="extraStartField" style="display:none"><label for="extraStart">START NUMBER</label><input id="extraStart" type="number" min="1" value="1"></div>
+      <div class="field" id="extraPositionField" style="display:none"><label for="extraPosition">NUMBER POSITION</label><select id="extraPosition"><option value="center">Bottom centre</option><option value="right">Bottom right</option><option value="left">Bottom left</option></select></div>
+    </div>
+    <div class="row"><button class="btn primary" id="runExtraTool" disabled>Run tool ↗</button><button class="btn" id="clearExtraFiles" disabled>Clear files</button></div>
+    <div class="progress" id="extraProgress"><i></i></div><div class="status" id="extraStatus" role="status" aria-live="polite"></div>
+    <p class="hint">Note: PDF-to-JPG uses browser rendering and downloads a ZIP. Images-to-PDF supports JPG and PNG. Watermarks and page numbers are added as overlays; they do not edit existing text inside the original PDF.</p>
+  </div>
+  <div class="tools-grid">
+    <div class="feature"><b>Organize</b><p>Merge, split, extract, delete, reverse and rotate pages using the built-in PDF workspace.</p></div>
+    <div class="feature"><b>Convert</b><p>Render PDF pages to JPG or combine image files into a PDF. Output quality depends on source resolution.</p></div>
+    <div class="feature"><b>Annotate</b><p>Add simple text watermarks and page numbers to a new copy without modifying the source file.</p></div>
+  </div>
+</section>
+
 <div class="tools-grid" id="how"><div class="feature"><b>01 / Text extraction</b><p>Reads selectable PDF text first, then can use OCR for pages that appear to contain only images.</p></div><div class="feature"><b>02 / Bengali + English OCR</b><p>Uses Tesseract language models in your browser. Clear, high-resolution scans usually work best.</p></div><div class="feature"><b>03 / Merge, split, optimize</b><p>Combine documents, extract selected pages, and re-save PDFs without uploading them to a BLAZE GEEK’s server.</p></div></div>
 </section>
 </main>
@@ -144,6 +184,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script id="blaze-header-menu-behavior">
 (function(){
   var wrap=document.querySelector('.header-menu-wrap');
@@ -192,4 +233,75 @@ $('splitBtn').addEventListener('click',async()=>{if(!splitFile)return;const btn=
 $('compressBtn').addEventListener('click',async()=>{if(!compressFile)return;const btn=$('compressBtn');setBusy(btn,true);progress('compressProgress',true);try{const doc=await PDFLib.PDFDocument.load(await readFile(compressFile));const bytes=await doc.save({useObjectStreams:true,addDefaultPage:false});const blob=new Blob([bytes],{type:'application/pdf'});download(blob,safeName(compressFile.name)+'-optimized.pdf');const diff=compressFile.size-blob.size;const pct=Math.abs(diff)/compressFile.size*100;const message=diff>0?'Reduced by '+bytesToMB(diff)+' ('+pct.toFixed(1)+'%).':'Output is '+bytesToMB(-diff)+' larger than the original; this PDF may already be optimized or contain images that this tool does not recompress.';setStatus('compressStatus','Optimization finished. Original: '+bytesToMB(compressFile.size)+' · Output: '+bytesToMB(blob.size)+'. '+message,'good')}catch(e){setStatus('compressStatus','Could not optimize this PDF: '+(e.message||e),'error')}finally{progress('compressProgress',false);setBusy(btn,false,'Optimize and download ↗')}});
 })();
 </script>
+
+<script id="blaze-pdf-extra-tools">
+(function(){
+'use strict';
+const $=id=>document.getElementById(id);
+const state={tool:'rotate',files:[]};
+const specs={
+ rotate:{title:'Rotate PDF',desc:'Rotate every page by a selected angle.',accept:'.pdf,application/pdf',multiple:false,drop:'Choose a PDF',hint:'Select one PDF file to rotate.',options:['angle'],button:'Rotate PDF ↗'},
+ delete:{title:'Delete pages',desc:'Remove page numbers or ranges and save the remaining pages.',accept:'.pdf,application/pdf',multiple:false,drop:'Choose a PDF',hint:'Example page selection: 2, 4-6.',options:['pages'],button:'Delete selected pages ↗'},
+ reverse:{title:'Reverse pages',desc:'Reverse the order of all pages in a new PDF.',accept:'.pdf,application/pdf',multiple:false,drop:'Choose a PDF',hint:'Every page will be placed in reverse order.',options:[],button:'Reverse pages ↗'},
+ extract:{title:'Extract pages',desc:'Keep only the page numbers or ranges you specify.',accept:'.pdf,application/pdf',multiple:false,drop:'Choose a PDF',hint:'Example page selection: 1-3, 7.',options:['pages'],button:'Extract selected pages ↗'},
+ watermark:{title:'Watermark PDF',desc:'Overlay a text watermark on each page.',accept:'.pdf,application/pdf',multiple:false,drop:'Choose a PDF',hint:'Use a short label such as CONFIDENTIAL.',options:['text'],button:'Add watermark ↗'},
+ numbers:{title:'Page numbers',desc:'Stamp page numbers on each page of a new copy.',accept:'.pdf,application/pdf',multiple:false,drop:'Choose a PDF',hint:'Choose a starting number and alignment.',options:['start','position'],button:'Add page numbers ↗'},
+ pdfimages:{title:'PDF to JPG',desc:'Render every page as a JPG and package the images in a ZIP file.',accept:'.pdf,application/pdf',multiple:false,drop:'Choose a PDF',hint:'Higher page counts require more memory.',options:[],button:'Convert pages to JPG ↗'},
+ imagespdf:{title:'Images to PDF',desc:'Combine selected JPG and PNG images into one PDF in file order.',accept:'.jpg,.jpeg,.png,image/jpeg,image/png',multiple:true,drop:'Choose images',hint:'Select multiple JPG or PNG files in the order you want.',options:[],button:'Create PDF from images ↗'},
+ info:{title:'PDF information',desc:'Read basic document metadata and page dimensions.',accept:'.pdf,application/pdf',multiple:false,drop:'Choose a PDF',hint:'A report will be displayed here and can be downloaded.',options:[],button:'Inspect PDF ↗'}
+};
+function status(message,type){const el=$('extraStatus');el.textContent=message;el.className='status show'+(type?' '+type:'')}
+function busy(on){$('runExtraTool').disabled=on||!state.files.length;$('runExtraTool').textContent=on?'Working…':specs[state.tool].button;$('extraProgress').classList.toggle('show',on)}
+function safe(name){return(name||'document').replace(/\.[^.]+$/,'').replace(/[^\w.-]+/g,'_')||'document'}
+function save(blob,name){const u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),2000)}
+function read(file){return file.arrayBuffer()}
+function showFiles(){const root=$('extraFileList');root.innerHTML='';state.files.forEach((f,i)=>{const d=document.createElement('div');d.className='file-chip';const n=document.createElement('span');n.textContent=(i+1)+'. '+f.name;const s=document.createElement('small');s.textContent=(f.size/1048576).toFixed(2)+' MB';d.append(n,s);root.appendChild(d)});$('runExtraTool').disabled=!state.files.length;$('clearExtraFiles').disabled=!state.files.length}
+function showOption(id,visible){$(id).style.display=visible?'flex':'none'}
+function chooseTool(key){state.tool=key;state.files=[];const s=specs[key];document.querySelectorAll('[data-extra-tool]').forEach(b=>b.classList.toggle('selected',b.dataset.extraTool===key));$('extraTitle').textContent=s.title;$('extraDescription').textContent=s.desc;$('extraDropTitle').textContent=s.drop;$('extraDropHint').textContent=s.hint;$('extraFiles').accept=s.accept;$('extraFiles').multiple=s.multiple;$('extraFiles').value='';$('extraFileList').innerHTML='';$('extraStatus').className='status';$('extraAngleField').style.display=s.options.includes('angle')?'flex':'none';showOption('extraPagesField',s.options.includes('pages'));showOption('extraTextField',s.options.includes('text'));showOption('extraStartField',s.options.includes('start'));showOption('extraPositionField',s.options.includes('position'));$('clearExtraFiles').disabled=true;$('runExtraTool').disabled=true;$('runExtraTool').textContent=s.button}
+document.querySelectorAll('[data-extra-tool]').forEach(b=>b.addEventListener('click',()=>{chooseTool(b.dataset.extraTool);$('extraWorkspace').scrollIntoView({behavior:'smooth',block:'start'})}));
+const drop=$('extraDrop'),input=$('extraFiles');
+['dragenter','dragover'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('drag')}));
+['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('drag')}));
+function acceptFiles(list){const s=specs[state.tool];const files=[...list].filter(f=>s.multiple?/\.(jpe?g|png)$/i.test(f.name):/\.pdf$/i.test(f.name)||f.type==='application/pdf');state.files=s.multiple?files:files.slice(0,1);showFiles();if(state.files.length)status(state.files.length+' file(s) ready.','good');else status('Choose a supported file type for this tool.','error')}
+drop.addEventListener('drop',e=>{if(e.dataTransfer.files.length)acceptFiles(e.dataTransfer.files)});
+input.addEventListener('change',()=>{if(input.files.length)acceptFiles(input.files);input.value=''});
+$('clearExtraFiles').addEventListener('click',()=>{state.files=[];showFiles();$('extraStatus').className='status'});
+function parsePages(raw,total){if(!raw.trim())throw Error('Enter page numbers or ranges, e.g. 2, 4-6.');const out=[];for(const part of raw.split(',')){const m=part.trim().match(/^(\d+)(?:\s*-\s*(\d+))?$/);if(!m)throw Error('Invalid page range: '+part);const a=+m[1],b=+(m[2]||m[1]);if(a<1||b<a||b>total)throw Error('Page range '+part+' is outside this PDF (1–'+total+').');for(let n=a;n<=b;n++)if(!out.includes(n-1))out.push(n-1)}return out}
+async function pdfLoad(file){if(!window.PDFLib)throw Error('PDF editing library did not load. Refresh and try again.');return PDFLib.PDFDocument.load(await read(file))}
+async function run(){
+ const file=state.files[0],tool=state.tool;busy(true);
+ try{
+  if(tool==='imagespdf'){
+   const doc=await PDFLib.PDFDocument.create();
+   for(const f of state.files){const bytes=await read(f);let img;if(/\.png$/i.test(f.name)||f.type==='image/png')img=await doc.embedPng(bytes);else img=await doc.embedJpg(bytes);const page=doc.addPage([img.width,img.height]);page.drawImage(img,{x:0,y:0,width:img.width,height:img.height})}
+   const out=await doc.save({useObjectStreams:true});save(new Blob([out],{type:'application/pdf'}),'blaze-geeks-images-to-pdf.pdf');status('Created a PDF with '+state.files.length+' image(s).','good');return
+  }
+  if(tool==='pdfimages'){
+   if(!window.pdfjsLib)throw Error('PDF rendering library did not load. Refresh and try again.');
+   if(!window.JSZip)throw Error('ZIP library did not load. Refresh and try again.');
+   pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+   const pdf=await pdfjsLib.getDocument({data:new Uint8Array(await read(file)),isEvalSupported:false}).promise,zip=new JSZip();
+   for(let i=1;i<=pdf.numPages;i++){status('Rendering page '+i+' of '+pdf.numPages+'…');const page=await pdf.getPage(i),vp=page.getViewport({scale:1.5}),canvas=document.createElement('canvas');canvas.width=Math.ceil(vp.width);canvas.height=Math.ceil(vp.height);await page.render({canvasContext:canvas.getContext('2d'),viewport:vp}).promise;const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/jpeg',.9));zip.file('page-'+String(i).padStart(3,'0')+'.jpg',blob);canvas.width=canvas.height=1}
+   save(await zip.generateAsync({type:'blob'}),safe(file.name)+'-jpg-pages.zip');status('Converted '+pdf.numPages+' pages to JPG images and downloaded a ZIP.','good');return
+  }
+  const doc=await pdfLoad(file),pages=doc.getPages(),total=pages.length;
+  if(tool==='info'){
+   const meta={file:file.name,size:(file.size/1048576).toFixed(2)+' MB',pages:total,title:doc.getTitle()||'(not set)',author:doc.getAuthor()||'(not set)',subject:doc.getSubject()||'(not set)',creator:doc.getCreator()||'(not set)',producer:doc.getProducer()||'(not set)',created:doc.getCreationDate()?.toISOString?.()||'(not set)',modified:doc.getModificationDate()?.toISOString?.()||'(not set)',pageSizes:pages.map((p,i)=>{const s=p.getSize();return 'Page '+(i+1)+': '+Math.round(s.width)+' × '+Math.round(s.height)+' pt'}).join('\n')};
+   const report=Object.entries(meta).map(([k,v])=>k+': '+v).join('\n');save(new Blob([report],{type:'text/plain;charset=utf-8'}),safe(file.name)+'-pdf-info.txt');status(report,'good');return
+  }
+  if(tool==='rotate'){const angle=+($('extraAngle').value);pages.forEach(p=>p.setRotation(PDFLib.degrees(((p.getRotation().angle||0)+angle)%360)))}
+  if(tool==='reverse'){const indices=pages.map((_,i)=>total-1-i);const copied=await doc.copyPages(doc,indices);while(doc.getPageCount())doc.removePage(0);copied.forEach(p=>doc.addPage(p))}
+  if(tool==='delete'){const remove=parsePages($('extraPages').value,total).sort((a,b)=>b-a);if(remove.length>=total)throw Error('You cannot delete every page; keep at least one page.');remove.forEach(i=>doc.removePage(i))}
+  if(tool==='extract'){const indices=parsePages($('extraPages').value,total);const out=await PDFLib.PDFDocument.create();const copied=await out.copyPages(doc,indices);copied.forEach(p=>out.addPage(p));const bytes=await out.save({useObjectStreams:true});save(new Blob([bytes],{type:'application/pdf'}),safe(file.name)+'-extracted.pdf');status('Extracted '+indices.length+' page(s) into a new PDF.','good');return}
+  if(tool==='watermark'){const text=$('extraText').value.trim();if(!text)throw Error('Enter watermark text first.');const font=await doc.embedFont(PDFLib.StandardFonts.HelveticaBold);pages.forEach(p=>{const s=p.getSize();p.drawText(text,{x:s.width*.12,y:s.height*.48,size:Math.max(18,Math.min(42,s.width*.055)),font,color:PDFLib.rgb(.82,.2,.14),opacity:.22,rotate:PDFLib.degrees(-28),maxWidth:s.width*.76})})}
+  if(tool==='numbers'){const font=await doc.embedFont(PDFLib.StandardFonts.Helvetica);const start=Math.max(1,parseInt($('extraStart').value,10)||1),pos=$('extraPosition').value;pages.forEach((p,i)=>{const s=p.getSize(),txt=String(start+i),size=10,tw=font.widthOfTextAtSize(txt,size);let x=(s.width-tw)/2;if(pos==='left')x=30;if(pos==='right')x=s.width-tw-30;p.drawText(txt,{x,y:22,size,font,color:PDFLib.rgb(.35,.35,.35)})})}
+  const bytes=await doc.save({useObjectStreams:true});save(new Blob([bytes],{type:'application/pdf'}),safe(file.name)+'-'+tool+'.pdf');status('Finished '+specs[tool].title.toLowerCase()+'. Downloaded '+doc.getPageCount()+' page(s).','good');
+ }catch(e){status('Could not complete this operation: '+(e.message||e),'error')}
+ finally{busy(false)}
+}
+$('runExtraTool').addEventListener('click',run);
+chooseTool('rotate');
+})();
+</script>
+
 </body></html>
