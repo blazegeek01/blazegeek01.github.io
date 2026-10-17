@@ -3725,5 +3725,16 @@ html body .logo b {
 }
 </style>
 
+
+<style id="blaze-desktop-hero-single-gap-fix">
+/* Remove the added desktop word-spacing that made BLAZE and GEEK's look double-spaced.
+   Keep the natural HTML space and leave the mobile layout untouched. */
+@media (min-width:761px) {
+  html body .hero-copy h1.hero-brand-heading {
+    word-spacing:0!important;
+  }
+}
+</style>
+
 </body>
 </html>
