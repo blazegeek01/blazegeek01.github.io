@@ -2736,19 +2736,19 @@ html body .hero #stage.logo-stage img.hero-brand-logo-shine{
   object-fit:contain!important;
   z-index:20!important;
   pointer-events:none!important;
-  opacity:0!important;
+  opacity:0;
   visibility:visible!important;
   transform:translateZ(3px)!important;
   filter:sepia(1) saturate(5) hue-rotate(350deg) brightness(2.1) contrast(1.15)!important;
   mix-blend-mode:screen!important;
-  clip-path:polygon(-45% 0,-27% 0,-52% 100%,-70% 100%)!important;
+  clip-path:polygon(-45% 0,-27% 0,-52% 100%,-70% 100%);
   animation:blazeVisibleGoldSweep 3.1s linear infinite!important;
 }
 @keyframes blazeVisibleGoldSweep{
-  0%,7%{clip-path:polygon(-45% 0,-27% 0,-52% 100%,-70% 100%)!important;opacity:0!important}
-  13%{opacity:1!important}
-  52%{clip-path:polygon(82% 0,100% 0,75% 100%,57% 100%)!important;opacity:1!important}
-  63%,100%{clip-path:polygon(135% 0,153% 0,128% 100%,110% 100%)!important;opacity:0!important}
+  0%,7%{clip-path:polygon(-45% 0,-27% 0,-52% 100%,-70% 100%);opacity:0}
+  13%{opacity:1}
+  52%{clip-path:polygon(82% 0,100% 0,75% 100%,57% 100%);opacity:1}
+  63%,100%{clip-path:polygon(135% 0,153% 0,128% 100%,110% 100%);opacity:0}
 }
 @media(max-width:760px){
  html body .hero #stage.logo-stage img.hero-brand-logo-shine{animation-duration:3.6s!important}
