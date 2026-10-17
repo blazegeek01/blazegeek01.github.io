@@ -2711,16 +2711,18 @@ html body .hero #stage.logo-stage img.hero-brand-logo-shine{
 
 
 <style id="blaze-simple-logo-slide-rotate">
-/* Simple, clearly visible one-time slide and gentle rotation on the real logo wrapper. */
+/* Smooth, restrained slide-and-rotate entrance; preserve the original artwork and shine. */
 html body .hero #stage.logo-stage .logo-plinth{
-  animation:blazeSimpleLogoSlideRotate 1.45s cubic-bezier(.2,.72,.25,1) both!important;
+  animation:blazeSimpleLogoSlideRotate 2.1s cubic-bezier(.16,1,.3,1) both!important;
   transform-origin:center center!important;
-  will-change:transform!important;
+  backface-visibility:hidden;
+  will-change:transform;
 }
 @keyframes blazeSimpleLogoSlideRotate{
-  0%{transform:translateX(58px) rotateY(15deg)}
-  72%{transform:translateX(-4px) rotateY(-2deg)}
-  100%{transform:translateX(0) rotateY(0deg)}
+  0%{transform:translate3d(34px,0,0) rotateY(8deg);opacity:.88}
+  68%{transform:translate3d(-2px,0,0) rotateY(-.7deg);opacity:1}
+  84%{transform:translate3d(1px,0,0) rotateY(.25deg);opacity:1}
+  100%{transform:translate3d(0,0,0) rotateY(0deg);opacity:1}
 }
 @media(prefers-reduced-motion:reduce){
   html body .hero #stage.logo-stage .logo-plinth{
