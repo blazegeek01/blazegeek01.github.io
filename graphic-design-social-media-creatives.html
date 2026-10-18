@@ -1718,7 +1718,59 @@ body:before { display:none!important; content:none!important; animation:none!imp
 .service-page-main .service-project-copy {
   background: transparent !important;
 }
-</style></head>
+</style><style id="blaze-service-preview-no-inner-frame-final">
+/* Preserve the outer liquid-glass card; remove the extra inner artwork frame,
+   the middle horizontal shine, and opaque dark task-label panels. */
+.service-page-main .concept-art,
+.service-page-main .service-hero-art {
+  isolation: isolate !important;
+}
+.service-page-main .concept-art::before,
+.service-page-main .concept-art::after,
+.service-page-main .concept-art:before,
+.service-page-main .concept-art:after,
+.service-page-main .hero-art-line {
+  content: none !important;
+  display: none !important;
+  opacity: 0 !important;
+  background: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  animation: none !important;
+}
+.service-page-main .concept-art {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  background: linear-gradient(135deg,rgba(255,255,255,.065),rgba(255,255,255,.012)) !important;
+}
+.service-page-main .concept-meta,
+.service-page-main .concept-foot,
+.service-page-main .hero-art-bottom {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+.service-page-main svg.concept-illustration,
+.service-page-main svg.service-demo-illustration {
+  filter: none !important;
+  outline: 0 !important;
+}
+.service-page-main svg.concept-illustration rect,
+.service-page-main svg.service-demo-illustration rect {
+  stroke: none !important;
+}
+/* The large pale translucent rectangle was the second square panel inside the glass box. */
+.service-page-main svg.concept-illustration rect[fill="rgba(255,255,255,0.075)"],
+.service-page-main svg.service-demo-illustration rect[fill="rgba(255,255,255,0.075)"],
+.service-page-main svg.concept-illustration rect[fill="rgba(255,255,255,0.08)"],
+.service-page-main svg.service-demo-illustration rect[fill="rgba(255,255,255,0.08)"] {
+  display: none !important;
+}
+</style>
+</head>
 <body>
 <div class="pointer-aura" aria-hidden="true"></div>
 <header class="top"><a class="logo" href="/" aria-label="BLAZE GEEK’s homepage" title="BLAZE GEEK’s homepage"><img class="brand-logo-img" src="/assets/blaze-geeks-logo%20(2).png" data-fallback="https://raw.githubusercontent.com/blazegeek01/blazegeek01.github.io/blazegeeks/assets/blaze-geeks-logo%20(2).png" alt="BLAZE GEEK’s official logo" width="42" height="42" loading="eager" decoding="async"><span class="brand-wordmark" aria-label="BLAZE GEEK’S"><span class="brand-word-first">BLAZE</span><span class="brand-word-second">GEEK’S</span></span></a><nav aria-label="Main navigation"><a href="/#work"><span class="nav-shine-label" data-label="Work">Work</span></a><a href="/#services"><span class="nav-shine-label" data-label="Services">Services</span></a><a href="/#about">About</a><a href="/#journal"><span class="nav-shine-label" data-label="Ideas">Ideas</span></a><a href="/ai-metadata-remover.html"><span class="nav-shine-label" data-label="AI Metadata Remover">AI Metadata Remover</span></a><a class="pill" href="/#contact">Let’s talk ↗</a></nav><div class="header-menu-wrap">
