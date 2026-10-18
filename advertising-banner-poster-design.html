@@ -1745,6 +1745,35 @@ body:before { display:none!important; content:none!important; animation:none!imp
 .service-page-main .concept-illustration rect[fill="#151116"] {
   fill: rgba(255,255,255,.08) !important;
 }
+
+/* Remove preview frame artifacts and dark artwork panels; preserve the glass surface. */
+.service-page-main .service-project-card,
+.service-page-main .concept-art,
+.service-page-main .concept-art::before,
+.service-page-main .concept-art::after {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+.service-page-main .concept-art {
+  background: linear-gradient(135deg,rgba(255,255,255,.065),rgba(255,255,255,.012)) !important;
+}
+.service-page-main .service-project-card {
+  background: transparent !important;
+}
+.service-page-main .service-project-copy {
+  background: transparent !important;
+}
+.service-page-main .concept-illustration rect[fill="#151116"],
+.service-page-main .concept-illustration rect[fill="#111116"],
+.service-page-main .concept-illustration rect[fill="#0b0b0d"],
+.service-page-main .concept-illustration rect[fill="#09090c"],
+.service-page-main .concept-illustration rect[fill="#0c0c10"],
+.service-page-main .concept-illustration rect[fill="#0c0b0e"],
+.service-page-main .concept-illustration rect[fill="#0d0c10"],
+.service-page-main .concept-illustration rect[fill="#111319"] {
+  fill: rgba(255,255,255,.075) !important;
+}
 </style></main><footer class="footer wrap"><div class="footerrow"><a class="logo" href="/#home"><img class="brand-logo-img" src="/assets/blaze-geeks-logo%20(2).png" data-fallback="https://raw.githubusercontent.com/blazegeek01/blazegeek01.github.io/blazegeeks/assets/blaze-geeks-logo%20(2).png" alt="BLAZE GEEK’s official logo"><span class="brand-wordmark" aria-label="BLAZE GEEK’S"><span class="brand-word-first">BLAZE</span><span class="brand-word-second">GEEK’S</span></span></a><span>Independent minds. Intentional work. No ordinary ideas.</span><span>© <span id="year"></span> BLAZE GEEK’S</span><a href="/#home">BACK TO TOP ↑</a></div><section class="footer-socials" id="footer-socials" aria-label="Follow BLAZE GEEK’s on social media">
   <div class="footer-social-heading">
     <span class="footer-social-kicker">STAY CONNECTED</span>
