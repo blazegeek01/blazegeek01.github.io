@@ -1770,6 +1770,18 @@ body:before { display:none!important; content:none!important; animation:none!imp
   display: none !important;
 }
 </style>
+
+<style id="blaze-remove-service-preview-inner-outline">
+/* Remove only the inset square outline inside the Concept Preview hero card. Keep the card and demo artwork intact. */
+.service-page-main .service-hero-art::before,
+.service-page-main .service-hero-art:before {
+  content: none !important;
+  display: none !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+</style>
 </head>
 <body>
 <div class="pointer-aura" aria-hidden="true"></div>
