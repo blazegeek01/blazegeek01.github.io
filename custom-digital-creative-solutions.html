@@ -1689,6 +1689,35 @@ body:before { display:none!important; content:none!important; animation:none!imp
 .service-page-main svg.service-demo-illustration rect {
   stroke: none !important;
 }
+</style><style id="blaze-concept-preview-final-cleanup">
+/* Remove the second inset frame and the animated horizontal shine across preview glass. */
+.service-page-main .concept-art:before,
+.service-page-main .concept-art:after,
+.service-page-main .concept-art::before,
+.service-page-main .concept-art::after {
+  content: none !important;
+  display: none !important;
+  opacity: 0 !important;
+  background: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  animation: none !important;
+}
+.service-page-main .concept-art {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  background: linear-gradient(135deg,rgba(255,255,255,.065),rgba(255,255,255,.012)) !important;
+}
+.service-page-main .concept-art svg,
+.service-page-main .concept-art svg rect {
+  outline: 0 !important;
+  stroke: none !important;
+}
+.service-page-main .service-project-card,
+.service-page-main .service-project-copy {
+  background: transparent !important;
+}
 </style></head>
 <body>
 <div class="pointer-aura" aria-hidden="true"></div>
