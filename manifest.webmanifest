@@ -25,13 +25,7 @@
       "src": "/app-icon.svg",
       "sizes": "512x512",
       "type": "image/svg+xml",
-      "purpose": "any"
-    },
-    {
-      "src": "/assets/blaze-geeks-logo%20(2).png",
-      "sizes": "any",
-      "type": "image/png",
-      "purpose": "any"
+      "purpose": "any maskable"
     }
   ]
 }
