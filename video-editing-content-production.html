@@ -4015,12 +4015,12 @@ html body footer.footer .brand-word-first {
 }
 
 
-/* FIX: remove the separate dark panels behind 01 / THE PURPOSE and 03 / CREATIVE IDEAS.
-   Match the page canvas explicitly so these sections no longer render as black boxes. */
+/* Remove solid backgrounds from 01 / THE PURPOSE and 03 / CREATIVE IDEAS.
+   Transparent sections reveal the existing page canvas and preserve content/layout. */
 html body main.service-page-main > section.service-overview,
 html body main.service-page-main > section.service-ideas {
-  background: var(--bg, #08080b) !important;
-  background-color: var(--bg, #08080b) !important;
+  background: transparent !important;
+  background-color: transparent !important;
   background-image: none !important;
   border-top: 0 !important;
   border-bottom: 0 !important;
