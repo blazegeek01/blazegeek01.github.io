@@ -1,6 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" rx="112" fill="#08080b"/>
-  <rect x="12" y="12" width="488" height="488" rx="102" fill="none" stroke="#f04432" stroke-width="8"/>
-  <rect x="26" y="26" width="460" height="460" rx="90" fill="none" stroke="#ff8a45" stroke-opacity=".65" stroke-width="2"/>
-  <image href="/assets/blaze-geeks-logo%20(2).png" x="56" y="56" width="400" height="400" preserveAspectRatio="xMidYMid meet"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="BLAZE GEEK’s app icon">
+<defs>
+ <linearGradient id="fire" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff9b54"/><stop offset=".48" stop-color="#f04432"/><stop offset="1" stop-color="#a81025"/></linearGradient>
+ <linearGradient id="shine" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fff" stop-opacity=".2"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+</defs>
+<rect width="512" height="512" rx="112" fill="#08080b"/>
+<rect x="13" y="13" width="486" height="486" rx="100" fill="none" stroke="url(#fire)" stroke-width="9"/>
+<rect x="27" y="27" width="458" height="458" rx="86" fill="none" stroke="#ff8a45" stroke-opacity=".45" stroke-width="2"/>
+<path d="M276 67c18 61-27 79-11 125 10 29 36 34 50 64 14 31 0 65-22 82 6-34-9-47-23-60-24-22-26-49-12-76-49 32-82 77-80 127 2 48 38 88 83 88 64 0 108-48 108-108 0-51-34-86-56-112-25-29-38-58-37-130Z" fill="url(#fire)" opacity=".95"/>
+<path d="M258 246c-8 30 7 42 18 58 12 18 12 38 0 53-21-2-39-22-39-45 0-26 12-48 21-66Z" fill="#fff0d8" opacity=".9"/>
+<path d="M76 420h360" stroke="#ff8a45" stroke-opacity=".5" stroke-width="2"/>
+<text x="256" y="455" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="40" letter-spacing="3" fill="#fff7f1">BG</text>
+<rect width="512" height="256" rx="112" fill="url(#shine)"/>
 </svg>
