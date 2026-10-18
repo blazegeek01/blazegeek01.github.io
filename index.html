@@ -1621,6 +1621,21 @@ html body .hero-copy h1.hero-brand-heading .living-flame{display:none!important}
 }
 </style>
 
+
+
+<style id="blaze-low-impact-flame-final">
+/* Keep the brand ember atmosphere subtle so content stays crisp and scrolling stays light. */
+#blaze-flame-particles{opacity:.18!important;mix-blend-mode:screen!important}
+body:after{opacity:.035!important}
+.pointer-aura{opacity:.35!important;filter:blur(4px)!important}
+@media(max-width:760px){
+  #blaze-flame-particles{opacity:.09!important}
+  body:after{opacity:.015!important}
+  .pointer-aura{display:none!important}
+}
+@media(min-width:761px) and (max-width:1100px){#blaze-flame-particles{opacity:.13!important}}
+@media(prefers-reduced-motion:reduce){#blaze-flame-particles{opacity:.06!important}body:after{display:none!important}.pointer-aura{display:none!important}}
+</style>
 </head>
 <body>
 <canvas id="blaze-flame-particles" aria-hidden="true"></canvas>
@@ -1793,14 +1808,14 @@ document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
     canvas.style.width=w+'px';canvas.style.height=h+'px';
     ctx.setTransform(dpr,0,0,dpr,0,0);
     mobile=window.matchMedia && window.matchMedia('(max-width: 760px)').matches;
-    target=mobile?10:24;
+    target=mobile?4:8;
     while(particles.length<target)particles.push(makeParticle(false));
     if(particles.length>target)particles.length=target;
   }
   function draw(now){
     raf=0;
     if(paused||document.hidden)return;
-    if(last && now-last<(mobile?66:45)){raf=requestAnimationFrame(draw);return;}
+    if(last && now-last<(mobile?80:55)){raf=requestAnimationFrame(draw);return;}
     if(!last)last=now;
     var dt=Math.min(2,(now-last)/16.67||1);last=now;
     ctx.clearRect(0,0,w,h);
