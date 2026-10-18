@@ -1,0 +1,27 @@
+{
+  "id": "/",
+  "name": "BLAZE GEEK’s",
+  "short_name": "BLAZE GEEK’s",
+  "description": "BLAZE GEEK’s creative studio and AI tools.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#08080b",
+  "theme_color": "#08080b",
+  "categories": ["design", "productivity", "utilities"],
+  "icons": [
+    {
+      "src": "/app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/blaze-geeks-logo%20(2).png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
