@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#08080b"/>
+  <rect x="12" y="12" width="488" height="488" rx="102" fill="none" stroke="#f04432" stroke-width="8"/>
+  <rect x="26" y="26" width="460" height="460" rx="90" fill="none" stroke="#ff8a45" stroke-opacity=".65" stroke-width="2"/>
+  <image href="/assets/blaze-geeks-logo%20(2).png" x="56" y="56" width="400" height="400" preserveAspectRatio="xMidYMid meet"/>
+</svg>
