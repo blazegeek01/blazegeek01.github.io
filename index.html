@@ -1788,7 +1788,7 @@ document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
   var w=0,h=0,dpr=1,particles=[],raf=0,last=0,paused=false;
   var reduced=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var mobile=window.matchMedia && window.matchMedia('(max-width: 760px)').matches;
-  var target=mobile?8:20;
+  var target=mobile?4:8;
   var colors=['255,79,35','255,111,42','255,151,61','255,190,92','255,63,28'];
   function random(min,max){return min+Math.random()*(max-min)}
   function makeParticle(fromBottom){
@@ -1849,9 +1849,9 @@ document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
   function stop(){if(raf){cancelAnimationFrame(raf);raf=0}}
   document.addEventListener('visibilitychange',function(){if(document.hidden){stop();last=0}else start()});
   window.addEventListener('resize',resize,{passive:true});
-  if(reduced){canvas.style.opacity='.12';target=8}
+  if(reduced){canvas.style.opacity='.06';target=4}
   resize();
-  if(reduced){particles.length=Math.min(particles.length,8);target=8}
+  if(reduced){particles.length=Math.min(particles.length,4);target=4}
   start();
 })();
 </script>
