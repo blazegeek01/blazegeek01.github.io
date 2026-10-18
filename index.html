@@ -1643,6 +1643,12 @@ body:after{opacity:.035!important}
 body::before,
 body:before { display:none!important; content:none!important; animation:none!important; }
 </style>
+
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="icon" type="image/svg+xml" href="/app-icon.svg">
 </head>
 <body>
 <div class="pointer-aura" aria-hidden="true"></div>
@@ -3818,5 +3824,11 @@ html body footer.footer .brand-word-first {
 #services .service-list .service .service-explore-link:hover{color:#fff;gap:17px}
 </style>
 
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => navigator.serviceWorker.register("/sw.js").catch(error => console.warn("BLAZE GEEK’s offline support could not start:", error)));
+}
+</script>
 </body>
 </html>
