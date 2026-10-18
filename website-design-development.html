@@ -4015,10 +4015,15 @@ html body footer.footer .brand-word-first {
 }
 
 
-/* Remove black section backgrounds from Purpose and Creative Ideas */
-.service-page-main .service-overview,
-.service-page-main .service-ideas {
-  background: transparent !important;
+/* FIX: remove the separate dark panels behind 01 / THE PURPOSE and 03 / CREATIVE IDEAS.
+   Match the page canvas explicitly so these sections no longer render as black boxes. */
+html body main.service-page-main > section.service-overview,
+html body main.service-page-main > section.service-ideas {
+  background: var(--bg, #08080b) !important;
+  background-color: var(--bg, #08080b) !important;
+  background-image: none !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
 }
 </style>
 
