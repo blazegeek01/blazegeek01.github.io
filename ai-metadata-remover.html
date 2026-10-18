@@ -2261,7 +2261,7 @@ body:after{opacity:.035!important}
   function stop(){if(raf){cancelAnimationFrame(raf);raf=0}}
   document.addEventListener('visibilitychange',function(){if(document.hidden){stop();last=0}else start()});
   window.addEventListener('resize',resize,{passive:true});
-  if(reduced){canvas.style.opacity='.08';target=6}
+  if(reduced){canvas.style.opacity='.06';target=4}
   resize();
   if(reduced){particles.length=Math.min(particles.length,4);target=4}
   start();
