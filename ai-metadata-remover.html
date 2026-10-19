@@ -2991,5 +2991,31 @@ html body main.service-page-main .service-hero-art > svg.hero-demo-illustration 
 }
 </style>
 
+<script id="blaze-concept-preview-motion-runtime-fix">
+(function(){
+  function start(){
+    document.querySelectorAll('main.service-page-main .service-hero-art > svg.hero-demo-illustration').forEach(function(el){
+      if(el.dataset.blazeMotionRuntime==='1') return;
+      el.dataset.blazeMotionRuntime='1';
+      var start=performance.now();
+      function frame(now){
+        if(!el.isConnected) return;
+        var t=((now-start)%7200)/7200;
+        var angle=t*Math.PI*2;
+        var y=-8-8*(1-Math.cos(angle));
+        var rx=1.7*Math.sin(angle);
+        var ry=3.2*Math.sin(angle+0.7);
+        var rz=.35*Math.sin(angle+1.2);
+        var scale=1.012+0.012*(1-Math.cos(angle));
+        el.style.setProperty('transform','perspective(1200px) translate3d(0,'+y.toFixed(2)+'px,10px) rotateX('+rx.toFixed(2)+'deg) rotateY('+ry.toFixed(2)+'deg) rotateZ('+rz.toFixed(2)+'deg) scale('+scale.toFixed(4)+')','important');
+        el.style.setProperty('filter','drop-shadow(0 16px 20px rgba(0,0,0,.25))','important');
+        requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',start,{once:true}); else start();
+})();
+</script>
 </body>
 </html>
