@@ -2107,6 +2107,61 @@ body:before { display:none!important; content:none!important; animation:none!imp
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="icon" type="image/svg+xml" href="/app-icon.svg">
+
+<style id="blaze-concept-preview-3d-motion-v1">
+/* BLAZE GEEK — animate only the artwork inside each service Concept Preview. */
+html body .service-page-main .concept-art {
+  perspective: 1400px !important;
+  perspective-origin: 50% 45% !important;
+  transform-style: preserve-3d !important;
+}
+html body .service-page-main .concept-art > svg.concept-illustration {
+  display: block !important;
+  transform-origin: 50% 50% !important;
+  transform-box: fill-box !important;
+  transform-style: preserve-3d !important;
+  backface-visibility: hidden !important;
+  will-change: transform, filter;
+  animation: blazeConceptArtworkFloat3D 8s cubic-bezier(.45,0,.55,1) infinite !important;
+}
+html body .service-page-main .service-project-card:nth-child(2n) .concept-art > svg.concept-illustration {
+  animation-delay: -2.6s !important;
+}
+html body .service-page-main .service-project-card:nth-child(3n) .concept-art > svg.concept-illustration {
+  animation-delay: -5.1s !important;
+}
+@keyframes blazeConceptArtworkFloat3D {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(-1deg) rotateZ(0deg) scale(1);
+    filter: drop-shadow(0 8px 12px rgba(0,0,0,.16));
+  }
+  25% {
+    transform: translate3d(0, -5px, 8px) rotateX(1.1deg) rotateY(1deg) rotateZ(-.25deg) scale(1.008);
+    filter: drop-shadow(0 13px 15px rgba(0,0,0,.20));
+  }
+  50% {
+    transform: translate3d(0, -9px, 14px) rotateX(-.6deg) rotateY(1.5deg) rotateZ(.2deg) scale(1.012);
+    filter: drop-shadow(0 16px 17px rgba(0,0,0,.23));
+  }
+  75% {
+    transform: translate3d(0, -4px, 6px) rotateX(-1deg) rotateY(-.5deg) rotateZ(.25deg) scale(1.006);
+    filter: drop-shadow(0 11px 14px rgba(0,0,0,.19));
+  }
+}
+@media (max-width: 760px) {
+  html body .service-page-main .concept-art > svg.concept-illustration {
+    animation-duration: 10s !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html body .service-page-main .concept-art > svg.concept-illustration {
+    animation: none !important;
+    transform: none !important;
+    filter: none !important;
+    will-change: auto !important;
+  }
+}
+</style>
 </head>
 <body>
 <div class="pointer-aura" aria-hidden="true"></div>
