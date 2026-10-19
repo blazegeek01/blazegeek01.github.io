@@ -1,4 +1,4 @@
-const CACHE_NAME = "blaze-geeks-pwa-v4";
+const CACHE_NAME = "blaze-geeks-pwa-v5";
 const APP_SHELL = [
   "/",
   "/index.html",
