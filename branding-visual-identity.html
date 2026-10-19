@@ -1782,6 +1782,37 @@ body:before { display:none!important; content:none!important; animation:none!imp
   box-shadow: none !important;
 }
 </style>
+
+<style id="blaze-concept-preview-3d-motion">
+/* Animate only the existing Concept Preview artwork; preserve the card, frame, and illustration. */
+.service-page-main .service-hero-art > svg.hero-demo-illustration {
+  transform-origin: 50% 50%;
+  transform-box: fill-box;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform;
+  animation: blazeConceptPreviewFloat3D 9.5s cubic-bezier(.45,.05,.55,.95) infinite;
+}
+@keyframes blazeConceptPreviewFloat3D {
+  0%, 100% { transform: perspective(900px) translate3d(0,0,0) rotateX(0deg) rotateY(-.7deg) scale(1); }
+  25% { transform: perspective(900px) translate3d(0,-4px,0) rotateX(1deg) rotateY(.8deg) scale(1.006); }
+  50% { transform: perspective(900px) translate3d(0,-6px,0) rotateX(-.5deg) rotateY(1.1deg) scale(1.009); }
+  75% { transform: perspective(900px) translate3d(0,-2px,0) rotateX(-.8deg) rotateY(-.5deg) scale(1.004); }
+}
+@media (max-width: 760px) {
+  .service-page-main .service-hero-art > svg.hero-demo-illustration {
+    animation-duration: 12s;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .service-page-main .service-hero-art > svg.hero-demo-illustration {
+    animation: none !important;
+    transform: none !important;
+    will-change: auto;
+  }
+}
+</style>
+
 </head>
 <body>
 <div class="pointer-aura" aria-hidden="true"></div>
