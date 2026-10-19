@@ -4073,5 +4073,20 @@ html body .service-page-main .service-project-card:nth-child(3n) .concept-art>sv
 @media(max-width:760px){html body .service-page-main .service-hero-art>svg.service-demo-illustration.hero-demo-illustration{animation-duration:9s!important}html body .service-page-main .concept-art>svg.concept-illustration{animation-duration:10s!important}}
 @media(prefers-reduced-motion:reduce){html body .service-page-main .service-hero-art>svg.service-demo-illustration.hero-demo-illustration,html body .service-page-main .concept-art>svg.concept-illustration{animation:none!important;transform:none!important;filter:none!important;will-change:auto!important}}
 </style>
+
+<style id="blaze-concept-preview-motion-live-fix">
+/* Live fix: animate the actual artwork and the preview stage, not unrelated portfolio cards. */
+html body main.service-page-main .service-hero-art { perspective:1300px!important; perspective-origin:50% 45%!important; transform-style:preserve-3d!important; }
+html body main.service-page-main .service-hero-art > svg.hero-demo-illustration { display:block!important; transform-origin:50% 50%!important; transform-box:fill-box!important; transform-style:preserve-3d!important; backface-visibility:hidden!important; will-change:transform,filter!important; animation:blazeConceptPreviewLiveFloat 6.8s ease-in-out infinite!important; }
+@keyframes blazeConceptPreviewLiveFloat {
+0%,100% { transform:perspective(1300px) translate3d(0,0,0) rotateX(0deg) rotateY(-3deg) rotateZ(0deg) scale(1); filter:drop-shadow(0 8px 12px rgba(0,0,0,.18)); }
+25% { transform:perspective(1300px) translate3d(0,-9px,8px) rotateX(2deg) rotateY(2deg) rotateZ(-.35deg) scale(1.018); filter:drop-shadow(0 16px 18px rgba(0,0,0,.25)); }
+50% { transform:perspective(1300px) translate3d(0,-17px,15px) rotateX(-1.5deg) rotateY(4deg) rotateZ(.4deg) scale(1.03); filter:drop-shadow(0 22px 24px rgba(0,0,0,.30)); }
+75% { transform:perspective(1300px) translate3d(0,-8px,6px) rotateX(-2deg) rotateY(-2deg) rotateZ(.2deg) scale(1.015); filter:drop-shadow(0 13px 16px rgba(0,0,0,.23)); }
+}
+@media(max-width:760px){ html body main.service-page-main .service-hero-art > svg.hero-demo-illustration { animation-duration:8.5s!important; } }
+@media(prefers-reduced-motion:reduce){ html body main.service-page-main .service-hero-art > svg.hero-demo-illustration { animation:none!important; transform:none!important; filter:none!important; will-change:auto!important; } }
+</style>
+
 </body>
 </html>
