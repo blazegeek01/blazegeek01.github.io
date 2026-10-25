@@ -15,24 +15,30 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Add metadata remover links
+      - name: Normalize metadata remover links
         run: |
           python3 - <<'PY'
           from pathlib import Path
+          import re
+
           p = Path('index.html')
           s = p.read_text(encoding='utf-8')
+
+          ai_link = re.compile(r'<a\s+href="/ai-metadata-remover\.html"[^>]*>.*?</a>', re.S)
+          s = ai_link.sub('', s)
+
           nav_old = '<a href="#journal"><span class="nav-shine-label" data-label="Ideas">Ideas</span></a>'
           nav_new = nav_old + '<a href="/ai-metadata-remover.html"><span class="nav-shine-label" data-label="AI Metadata Remover">AI Metadata Remover</span></a>'
-          if 'href="/ai-metadata-remover.html"' not in s:
-              if nav_old not in s:
-                  raise SystemExit('Main navigation anchor not found')
-              s = s.replace(nav_old, nav_new, 1)
+          if nav_old not in s:
+              raise SystemExit('Main navigation anchor not found')
+          s = s.replace(nav_old, nav_new, 1)
+
           menu_old = '<a href="#settings" data-menu-settings><span class="menu-item-icon" aria-hidden="true">⚙</span><span>Settings</span><span class="menu-item-arrow" aria-hidden="true">↗</span></a>'
-          menu_new = '<a href="/ai-metadata-remover.html"><span class="menu-item-icon" aria-hidden="true">⌁</span><span>AI Metadata Remover</span><span class="menu-item-arrow" aria-hidden="true">↗</span></a>' + menu_old
-          if '<a href="/ai-metadata-remover.html"><span class="menu-item-icon"' not in s:
-              if menu_old not in s:
-                  raise SystemExit('Menu settings anchor not found')
-              s = s.replace(menu_old, menu_new, 1)
+          menu_new = '<a href="/ai-metadata-remover.html"><span class="menu-item-icon menu-item-eraser" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m7 21 3-3"/><path d="m21 11-8-8a2 2 0 0 0-2.83 0l-6.34 6.34a2 2 0 0 0 0 2.83L9 19.34a2 2 0 0 0 2.83 0l9.17-9.17a2 2 0 0 0 0-2.83Z"/><path d="m5 11 8 8"/><path d="M22 21H7"/></svg></span><span>AI Metadata Remover</span><span class="menu-item-arrow" aria-hidden="true">↗</span></a>' + menu_old
+          if menu_old not in s:
+              raise SystemExit('Menu settings anchor not found')
+          s = s.replace(menu_old, menu_new, 1)
+
           p.write_text(s, encoding='utf-8')
           PY
 
@@ -41,5 +47,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
-          git diff --cached --quiet || git commit -m "Add AI Metadata Remover to homepage navigation"
+          git diff --cached --quiet || git commit -m "Normalize AI Metadata Remover navigation"
           git push
