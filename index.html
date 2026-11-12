@@ -1681,13 +1681,11 @@ body:before { display:none!important; content:none!important; animation:none!imp
       Your browser does not support HTML video.
     </video>
     <div class="brand-film-video-status" role="status" aria-live="polite"></div>
-    <div class="brand-film-shade"></div>
-    <div class="brand-film-copy">
-      <p class="mono">CREATIVITY IN MOTION / BLAZE GEEK'S</p>
-      <h2>Ideas move.<br><span>We make them matter.</span></h2>
-      <p class="brand-film-caption">Create Bold. Inspire Real. Blaze Beyond.</p>
-    </div>
-    <span class="brand-film-index">01 — BRAND IN MOTION</span>
+  </div>
+  <div class="brand-film-copy">
+    <p class="mono">CREATIVITY IN MOTION / BLAZE GEEK'S</p>
+    <h2>Ideas move.<br><span>We make them matter.</span></h2>
+    <p class="brand-film-caption">Create Bold. Inspire Real. Blaze Beyond.</p>
   </div>
 </section>
 
@@ -3970,6 +3968,25 @@ html body .hero #stage.logo-stage .logo-plinth img.hero-brand-logo-shine{
   }
 }</style>
 <script src="/assets/cookie-consent.js?v=1" defer></script>
+
+<style id="brand-film-copy-below-video">
+/* Keep the film clean; place its editorial copy entirely beneath the video. */
+#cinematic-brand-reveal{padding:clamp(42px,6vw,82px) 0;background:#08080b;overflow:hidden}
+#cinematic-brand-reveal .brand-film-media{width:min(1480px,96%);min-height:0;height:auto;margin:0 auto;position:relative;overflow:hidden;aspect-ratio:16/9;background:#101014;border:0}
+#cinematic-brand-reveal .brand-film-video{position:relative;inset:auto;width:100%;height:100%;aspect-ratio:16/9;object-fit:contain;display:block}
+#cinematic-brand-reveal .brand-film-video-status{position:absolute;left:16px;bottom:16px}
+#cinematic-brand-reveal .brand-film-copy{position:relative;z-index:1;width:min(900px,88%);margin:clamp(28px,4vw,48px) auto 0;padding:0;text-align:center}
+#cinematic-brand-reveal .brand-film-copy .mono{font-size:10px;letter-spacing:.2em;color:#ff9a70}
+#cinematic-brand-reveal .brand-film-copy h2{margin:16px 0;font-size:clamp(32px,5vw,64px);line-height:1.08;letter-spacing:-.04em}
+#cinematic-brand-reveal .brand-film-caption{margin:0;font-size:12px;letter-spacing:.12em;color:#e4d9d6}
+@media(max-width:700px){
+ #cinematic-brand-reveal{padding:38px 0 52px}
+ #cinematic-brand-reveal .brand-film-media{width:100%;aspect-ratio:16/9}
+ #cinematic-brand-reveal .brand-film-copy{width:88%;margin-top:26px}
+ #cinematic-brand-reveal .brand-film-copy h2{font-size:clamp(30px,8vw,44px)}
+ #cinematic-brand-reveal .brand-film-caption{font-size:10px;line-height:1.8}
+}
+</style>
 </body>
 </html>
 
