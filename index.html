@@ -4040,6 +4040,10 @@ html body .hero #stage.logo-stage .logo-plinth img.hero-brand-logo-shine{
     observer.observe(section);
   }else enter();
 
+  // Start fetching the selected video immediately on page load/refresh.
+  // Playback itself remains viewport-gated to avoid running off-screen.
+  loadSelectedSource();
+
   document.addEventListener('visibilitychange',function(){
     if(document.visibilityState==='hidden'){video.pause();started=false;}
     else checkBuffer();
