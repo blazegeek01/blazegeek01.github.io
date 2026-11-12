@@ -4397,9 +4397,15 @@ html body section#cinematic-brand-reveal .brand-film-index{display:none!importan
   if(!source)return;
 
   var desktopSource='./assets/homepagea-motion.mp4';
-  var mobileSource='./assets/homepagea-motion-mobile.mp4?v=mobile3';
+  var mobileSource='./assets/homepagea-motion-mobile.mp4?v=mobile4';
   var mobileQuery=window.matchMedia('(max-width: 760px)');
+  var isAppleMobile=/iPad|iPhone|iPod/.test(navigator.userAgent) ||
+    (navigator.platform==='MacIntel' && navigator.maxTouchPoints>1);
   var activeSource='';
+
+  function shouldUseMobileCopy(){
+    return mobileQuery.matches && !isAppleMobile;
+  }
 
   function loadSelectedSource(useMobile){
     var selected=useMobile?mobileSource:desktopSource;
@@ -4434,8 +4440,8 @@ html body section#cinematic-brand-reveal .brand-film-index{display:none!importan
     if(video.readyState>=2)playWhenReady();
   }
 
-  loadSelectedSource(mobileQuery.matches);
-  if(mobileQuery.addEventListener)mobileQuery.addEventListener('change',function(e){loadSelectedSource(e.matches);});
-  else if(mobileQuery.addListener)mobileQuery.addListener(function(e){loadSelectedSource(e.matches);});
+  loadSelectedSource(shouldUseMobileCopy());
+  if(mobileQuery.addEventListener)mobileQuery.addEventListener('change',function(){loadSelectedSource(shouldUseMobileCopy());});
+  else if(mobileQuery.addListener)mobileQuery.addListener(function(){loadSelectedSource(shouldUseMobileCopy());});
 })();
 </script>
