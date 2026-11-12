@@ -1,67 +1,75 @@
-name: Build mobile brand film
+name: Build responsive brand film encodes
 
 on:
   push:
     branches:
       - blazegeeks
     paths-ignore:
-      - "assets/homepagea-motion-mobile.mp4"
+      - "assets/homepagea-motion-desktop.mp4"
       - "assets/homepagea-motion-mid.mp4"
+      - "assets/homepagea-motion-mobile.mp4"
 
 permissions:
   contents: write
 
+concurrency:
+  group: responsive-brand-film-encodes
+  cancel-in-progress: false
+
 jobs:
-  encode-mobile:
+  encode:
     runs-on: ubuntu-latest
     steps:
       - name: Check out website
         uses: actions/checkout@v4
         with:
           ref: blazegeeks
-
+          fetch-depth: 0
       - name: Install FFmpeg
         run: |
           sudo apt-get update
           sudo apt-get install -y ffmpeg
-
-      - name: Create mid-range and lightweight copies
+      - name: Create desktop, flagship-mobile and lightweight encodes
         run: |
+          set -euo pipefail
           test -s assets/homepagea-motion.mp4
-          # Mid-range Android: balanced 960p / 30 FPS encode.
-          ffmpeg -y -i assets/homepagea-motion.mp4 \
+          # Desktop: capped at 1280px / 30 FPS, H.264, fast-start MP4.
+          ffmpeg -hide_banner -y -i assets/homepagea-motion.mp4 \
             -map 0:v:0 -an -sn -dn \
-            -vf "scale='min(960,iw)':-2:flags=lanczos,fps=30" \
-            -c:v libx264 -preset medium -crf 25 \
-            -maxrate 1800k -bufsize 3600k \
-            -pix_fmt yuv420p -profile:v main -level 4.0 \
-            -movflags +faststart \
+            -vf "scale='min(1280,iw)':-2:flags=lanczos,fps=30,format=yuv420p" \
+            -c:v libx264 -preset medium -crf 24 -maxrate 2500k -bufsize 5000k \
+            -profile:v high -level 4.1 -movflags +faststart \
+            assets/homepagea-motion-desktop.mp4
+          # Flagship phones and tablets, including iOS Safari: 960px / 30 FPS.
+          ffmpeg -hide_banner -y -i assets/homepagea-motion.mp4 \
+            -map 0:v:0 -an -sn -dn \
+            -vf "scale='min(960,iw)':-2:flags=lanczos,fps=30,format=yuv420p" \
+            -c:v libx264 -preset medium -crf 25 -maxrate 1600k -bufsize 3200k \
+            -profile:v main -level 4.0 -movflags +faststart \
             assets/homepagea-motion-mid.mp4
-          # Entry-level Android: lighter 720p / 24 FPS encode.
-          ffmpeg -y -i assets/homepagea-motion.mp4 \
+          # Lower-power phones and data-saving connections: 720px / 24 FPS.
+          ffmpeg -hide_banner -y -i assets/homepagea-motion.mp4 \
             -map 0:v:0 -an -sn -dn \
-            -vf "scale='min(720,iw)':-2:flags=lanczos,fps=24" \
-            -c:v libx264 -preset medium -crf 28 \
-            -maxrate 950k -bufsize 1900k \
-            -pix_fmt yuv420p -profile:v baseline -level 3.0 \
-            -movflags +faststart \
+            -vf "scale='min(720,iw)':-2:flags=lanczos,fps=24,format=yuv420p" \
+            -c:v libx264 -preset medium -crf 29 -maxrate 850k -bufsize 1700k \
+            -profile:v baseline -level 3.0 -movflags +faststart \
             assets/homepagea-motion-mobile.mp4
-          ls -lh assets/homepagea-motion.mp4 assets/homepagea-motion-mid.mp4 assets/homepagea-motion-mobile.mp4
-
-      - name: Commit mobile copies
+          ls -lh assets/homepagea-motion*.mp4
+      - name: Commit responsive encodes
         run: |
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/homepagea-motion-mid.mp4 assets/homepagea-motion-mobile.mp4
-          git diff --cached --quiet || git commit -m "Add adaptive Android brand film encodes"
-          # Other website workflows may update the same branch at the same time.
-          # Rebase onto the latest branch before pushing to avoid a non-fast-forward failure.
+          git add assets/homepagea-motion-desktop.mp4 assets/homepagea-motion-mid.mp4 assets/homepagea-motion-mobile.mp4
+          if git diff --cached --quiet; then
+            echo "Responsive video encodes are already current."
+            exit 0
+          fi
+          git commit -m "Add responsive optimized brand film encodes"
           for attempt in 1 2 3 4 5; do
             git fetch origin blazegeeks
             git rebase origin/blazegeeks
-            if git push origin HEAD:blazegeeks; then
-              exit 0
-            fi
+            if git push origin HEAD:blazegeeks; then exit 0; fi
             sleep 2
           done
           echo "Could not push generated video files after five attempts."
