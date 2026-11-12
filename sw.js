@@ -36,7 +36,7 @@ self.addEventListener("fetch", event => {
 
   // Large video files are streamed by the browser; do not duplicate them in Cache Storage.
   const pathname = new URL(request.url).pathname;
-  const isVideo = request.destination === "video" || /\\.mp4$/i.test(pathname);
+  const isVideo = request.destination === "video" || /\.mp4$/i.test(pathname);
 
   if (request.mode === "navigate") {
     event.respondWith((async () => {
