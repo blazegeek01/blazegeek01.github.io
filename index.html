@@ -3962,8 +3962,9 @@ html body .hero #stage.logo-stage .logo-plinth img.hero-brand-logo-shine{
   var memory=Number(navigator.deviceMemory)||0;
   var cores=Number(navigator.hardwareConcurrency)||0;
   var lowPowerPhone=isPhone&&((memory>0&&memory<=2)||(cores>0&&cores<=4));
-  // Standard Android phones always use the lightweight encode; flagship Android is not forced onto it only when explicitly classified as high-end by the separate device policy below.
-  var selectedSource=(isAndroidPhone||saveData||slowConnection||lowPowerPhone)?lightweight:original;
+  // Keep high-end Android on the original encode; route ordinary Android phones to the lightweight encode.
+  var isFlagshipAndroid=isAndroidPhone&&memory>=8&&cores>=8;
+  var selectedSource=((isAndroidPhone&&!isFlagshipAndroid)||saveData||slowConnection||lowPowerPhone)?lightweight:original;
 
   var inRange=false,loading=false,loaded=false,canStart=false,canPlayThrough=false,started=false;
   var MIN_BUFFER_SECONDS=2;
