@@ -1,0 +1,42 @@
+/* BLAZE GEEK's — global brand system & performance refinement.
+   Preserve the liquid-glass header and menu; use a graphite / ember palette. */
+:root{color-scheme:dark;--bg:#08080b;--panel:#111116;--panel-raised:#171217;--white:#f7f2ef;--muted:#aaa2a6;--red:#f04432;--orange:#ff8a45;--line:rgba(255,255,255,.12)}
+html,html body{background-color:#08080b!important;color:#f7f2ef}
+html body{background-image:radial-gradient(ellipse at 78% 4%,rgba(240,68,50,.075),transparent 34%),radial-gradient(ellipse at 8% 58%,rgba(255,138,69,.035),transparent 32%)!important;background-attachment:scroll!important;overflow-x:clip}
+body .band,body .founder,body .contact,body .content{background-color:transparent}
+body .service,body .principle,body .project,body .note{background-color:#111116;border-color:rgba(255,255,255,.11);box-shadow:0 10px 28px rgba(0,0,0,.18)}
+/* Disable perpetual shine, orbit, shimmer and outline motion everywhere. */
+html body *,html body *::before,html body *::after{animation:none!important}
+/* The liquid-glass header's subtle light sweep is intentionally retained. */
+html body header.top::after{animation:liquidHeaderSweep 6.5s cubic-bezier(.45,0,.35,1) infinite!important}
+html body .reveal{opacity:0;transform:translate3d(0,14px,0);transition:opacity .46s ease,transform .46s cubic-bezier(.2,.7,.2,1)!important;transition-delay:0s!important}
+html body .reveal.in,html body .reveal.is-visible{opacity:1;transform:none}
+/* Static, crisp hero logo: no 3D rotation, pulsing glow or opening slide-in. */
+html body #stage,html body .stage{perspective:none!important;transform:none!important;transform-style:flat!important;will-change:auto!important}
+html body #stage .logo-plinth,html body .stage .logo-plinth{animation:none!important;transform:none!important;transform-style:flat!important;filter:drop-shadow(0 18px 26px rgba(0,0,0,.42))!important;will-change:auto!important}
+html body #stage .logo-plinth::before,html body #stage .logo-plinth::after,html body .stage .logo-plinth::before,html body .stage .logo-plinth::after{animation:none!important;filter:none!important}
+html body #stage .hero-brand-logo,html body .stage .hero-brand-logo{animation:none!important;transform:none!important;translate:none!important;filter:drop-shadow(0 8px 14px rgba(0,0,0,.38))!important;opacity:1!important;will-change:auto!important}
+html body #stage .hero-brand-logo-shine,html body .stage .hero-brand-logo-shine{display:none!important}
+html body #stage.hero-logo-slide-in .hero-brand-logo{animation:none!important;transform:none!important;translate:none!important}
+/* Still, readable brand mantra. */
+html body .ticker{transform:none!important;white-space:normal!important;text-align:center!important;font-size:12px!important;padding:15px 18px!important;box-shadow:none!important}
+html body .ticker::before{content:none!important;display:none!important}
+html body .float-tag{animation:none!important;transform:none!important;translate:none!important;will-change:auto!important}
+html body .service,html body .principle,html body .project,html body .note,html body .btn,html body .pill,html body .social-link{transition:border-color .18s ease,background-color .18s ease,color .18s ease!important}
+html body .service:hover,html body .principle:hover,html body .project:hover,html body .note:hover,html body .btn:hover,html body .pill:hover{transform:none!important;filter:none!important}
+/* Editorial brand film: responsive, cinematic 16:9 frame without moving borders. */
+html body #cinematic-brand-reveal{padding:clamp(48px,7vw,92px) 0!important;background:transparent!important}
+html body #cinematic-brand-reveal .brand-film-media{width:min(1240px,90%)!important;min-height:0!important;aspect-ratio:16/9!important;margin-inline:auto!important;overflow:hidden!important;border-radius:16px!important;border:1px solid rgba(255,255,255,.13)!important;background:#08080b!important;box-shadow:0 24px 70px rgba(0,0,0,.36),0 0 0 1px rgba(240,68,50,.06)!important}
+html body #cinematic-brand-reveal .brand-film-media::before{animation:none!important;background:none!important;border:0!important;padding:0!important}
+html body #cinematic-brand-reveal .brand-film-video{width:100%!important;height:100%!important;object-fit:cover!important;object-position:center!important}
+html body #cinematic-brand-reveal .brand-film-shade{background:linear-gradient(90deg,rgba(8,8,11,.88) 0%,rgba(8,8,11,.54) 42%,rgba(8,8,11,.08) 100%),linear-gradient(0deg,rgba(8,8,11,.46),transparent 48%)!important}
+html body #cinematic-brand-reveal .brand-film-copy{width:min(58%,650px)!important;padding:clamp(24px,5vw,72px)!important}
+html body #cinematic-brand-reveal .brand-film-copy h2{font-size:clamp(30px,5vw,66px)!important}
+html body #cinematic-brand-reveal .brand-film-index{letter-spacing:.16em!important}
+@media(max-width:700px){
+ html body #cinematic-brand-reveal .brand-film-media{width:92%!important;min-height:0!important;aspect-ratio:4/5!important;border-radius:12px!important}
+ html body #cinematic-brand-reveal .brand-film-shade{background:linear-gradient(180deg,rgba(8,8,11,.08) 0%,rgba(8,8,11,.44) 35%,rgba(8,8,11,.94) 100%)!important}
+ html body #cinematic-brand-reveal .brand-film-copy{width:100%!important;padding:44% 22px 58px!important}
+ html body #cinematic-brand-reveal .brand-film-copy h2{font-size:clamp(30px,8.5vw,48px)!important}
+}
+@media(prefers-reduced-motion:reduce){html body .reveal,html body .reveal.in,html body .reveal.is-visible{opacity:1!important;transform:none!important;transition:none!important}html body header.top::after{animation:none!important}}
