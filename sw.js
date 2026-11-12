@@ -42,24 +42,25 @@ self.addEventListener("fetch", event => {
   const isVideo = request.destination === "video" || /\.mp4$/i.test(pathname);
 
   if (request.mode === "navigate") {
-    event.respondWith((async () => {
-      const cached = await caches.match(request) || await caches.match("/index.html");
-      const networkResponse = event.preloadResponse || fetch(request);
-      if (cached) {
-        event.waitUntil(Promise.resolve(networkResponse).then(async response => {
-          if (response && response.ok) {
-            const copy = response.clone();
-            await caches.open(CACHE_NAME).then(cache => cache.put(request, copy));
-          }
-        }).catch(() => {}));
-        return cached;
-      }
-      const response = await networkResponse;
+    const cachedPromise = caches.match(request).then(cached =>
+      cached || caches.match("/index.html")
+    );
+    const refreshPromise = (async () => {
+      const preloaded = event.preloadResponse ? await event.preloadResponse : null;
+      const response = preloaded || await fetch(request);
       if (response && response.ok) {
         const copy = response.clone();
-        event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.put(request, copy)));
+        await caches.open(CACHE_NAME).then(cache => cache.put(request, copy));
       }
-      return response || await caches.match("/index.html");
+      return response;
+    })();
+
+    // Start the refresh in the background while returning the cached page immediately.
+    event.waitUntil(refreshPromise.catch(() => {}));
+    event.respondWith((async () => {
+      const cached = await cachedPromise;
+      if (cached) return cached;
+      return (await refreshPromise) || await caches.match("/index.html");
     })());
     return;
   }
