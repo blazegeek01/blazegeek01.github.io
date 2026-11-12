@@ -47,11 +47,9 @@
   }
   .hero-brand-logo-shine { display: none !important; }
 
-  /* Blur and layered depth are decorative; remove them from touch layouts. */
-  .float-tag,
-  header.top,
-  .top,
-  .header-menu-panel {
+  /* Keep the liquid-glass navigation and menu blur on touch devices.
+     Only simplify the small floating tags to reduce compositing work. */
+  .float-tag {
     -webkit-backdrop-filter: none !important;
     backdrop-filter: none !important;
   }
