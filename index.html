@@ -4254,3 +4254,104 @@ html body #cinematic-brand-reveal .brand-film-video-status{display:none!importan
 })();
 </script>
 
+
+
+<style id="blaze-brand-film-responsive-size-and-mobile-performance">
+/* Desktop: let the brand film command the page width instead of appearing like a small card. */
+@media(min-width:761px){
+  html body #cinematic-brand-reveal{padding:clamp(64px,7vw,100px) 0!important}
+  html body #cinematic-brand-reveal .brand-film-media{
+    width:min(1480px,96%)!important;
+    max-width:1480px!important;
+  }
+  html body #cinematic-brand-reveal .brand-film-copy{
+    padding-top:clamp(38px,4vw,58px)!important;
+  }
+}
+/* Mobile: prioritize decoding and scrolling over decorative motion effects. */
+@media(max-width:760px){
+  html body #cinematic-brand-reveal{
+    padding:34px 0 46px!important;
+    contain:layout style!important;
+  }
+  html body #cinematic-brand-reveal .brand-film-media{
+    width:100%!important;
+    max-width:none!important;
+  }
+  html body #cinematic-brand-reveal .brand-film-video{
+    width:100%!important;
+    height:auto!important;
+    max-width:100%!important;
+    object-fit:contain!important;
+    transform:none!important;
+    filter:none!important;
+    box-shadow:none!important;
+  }
+  html body #cinematic-brand-reveal .brand-film-copy{
+    width:92%!important;
+    padding:28px 0 0!important;
+  }
+  html body #cinematic-brand-reveal .brand-film-copy .mono{
+    margin-bottom:12px!important;
+    font-size:9px!important;
+    letter-spacing:.12em!important;
+  }
+  html body #cinematic-brand-reveal .brand-film-copy h2{
+    font-size:clamp(30px,8vw,44px)!important;
+    line-height:1.12!important;
+    margin:0!important;
+  }
+  html body #cinematic-brand-reveal .brand-film-caption{
+    margin:17px 0 0!important;
+    font-size:10px!important;
+    letter-spacing:.07em!important;
+    line-height:1.7!important;
+  }
+  html body #cinematic-brand-reveal .brand-film-index{
+    width:92%!important;
+    margin-top:14px!important;
+  }
+  /* Remove high-cost ambient effects on phones; retain the brand's static visual identity. */
+  body:after,.hero:after,.stage:before,.stage:after,
+  .service-list .service:after,.btn.hot:after,.pill:after{
+    animation:none!important;
+    filter:none!important;
+  }
+  body:after{opacity:.045!important}
+  .float-tag{animation:none!important;backdrop-filter:none!important}
+  .stage canvas{filter:none!important}
+  .ticker{
+    transform:none!important;
+    box-shadow:none!important;
+    overflow:hidden!important;
+  }
+  .ticker:before{
+    animation:none!important;
+    padding-left:0!important;
+    display:block!important;
+    width:100%!important;
+    white-space:normal!important;
+    text-align:center!important;
+    line-height:1.8!important;
+    font-size:10px!important;
+    word-spacing:5px!important;
+    letter-spacing:.1em!important;
+  }
+  html body footer p.mono{
+    animation:none!important;
+    filter:none!important;
+    text-shadow:none!important;
+  }
+  html body .logo span:last-child,
+  html body .brandmark,
+  html body h1 em{
+    animation:none!important;
+    filter:none!important;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  html body #cinematic-brand-reveal *,
+  html body .ticker:before{animation:none!important;transition:none!important}
+}
+</style>
+
