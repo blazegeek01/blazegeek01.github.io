@@ -29,10 +29,10 @@ jobs:
           test -s assets/homepagea-motion.mp4
           ffmpeg -y -i assets/homepagea-motion.mp4 \
             -map 0:v:0 -an -sn -dn \
-            -vf "scale='min(960,iw)':-2:flags=lanczos,fps=30" \
-            -c:v libx264 -preset medium -crf 25 \
-            -maxrate 1800k -bufsize 3600k \
-            -pix_fmt yuv420p -profile:v main -level 3.1 \
+            -vf "scale='min(720,iw)':-2:flags=lanczos,fps=24" \
+            -c:v libx264 -preset medium -crf 28 \
+            -maxrate 950k -bufsize 1900k \
+            -pix_fmt yuv420p -profile:v baseline -level 3.0 \
             -movflags +faststart \
             assets/homepagea-motion-mobile.mp4
           ls -lh assets/homepagea-motion.mp4 assets/homepagea-motion-mobile.mp4
