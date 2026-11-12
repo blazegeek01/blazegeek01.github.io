@@ -3933,35 +3933,37 @@ html body .hero #stage.logo-stage .logo-plinth img.hero-brand-logo-shine{
   display:block!important;
   position:absolute!important;
   inset:0!important;
-  z-index:12!important;
+  z-index:20!important;
   width:100%!important;
   height:100%!important;
   max-width:100%!important;
   object-fit:contain!important;
   pointer-events:none!important;
   visibility:visible!important;
+  opacity:.92!important;
   transform:none!important;
   translate:0 0!important;
   rotate:none!important;
-  filter:brightness(0) invert(1) drop-shadow(0 0 5px rgba(255,255,255,.98)) drop-shadow(0 0 13px rgba(255,255,255,.48))!important;
+  filter:brightness(0) invert(1) drop-shadow(0 0 7px rgba(255,255,255,.98)) drop-shadow(0 0 15px rgba(255,255,255,.52))!important;
   mix-blend-mode:screen!important;
-  -webkit-mask-image:linear-gradient(108deg,transparent 39%,#000 47%,#000 54%,transparent 62%)!important;
-  mask-image:linear-gradient(108deg,transparent 39%,#000 47%,#000 54%,transparent 62%)!important;
-  -webkit-mask-size:270% 100%!important;
-  mask-size:270% 100%!important;
-  -webkit-mask-repeat:no-repeat!important;
-  mask-repeat:no-repeat!important;
-  -webkit-mask-position:145% 0;
-  mask-position:145% 0;
-  opacity:0;
-  will-change:opacity,-webkit-mask-position,mask-position;
-  animation:blazeLogoReflectionSweep 3.25s cubic-bezier(.55,.05,.35,1) infinite!important;
+  clip-path:polygon(-35% 0,-20% 0,0 100%,-15% 100%)!important;
+  -webkit-clip-path:polygon(-35% 0,-20% 0,0 100%,-15% 100%)!important;
+  animation:blazeLogoLightSweep 2.8s cubic-bezier(.55,.05,.35,1) infinite!important;
+  will-change:clip-path;
 }
-@keyframes blazeLogoReflectionSweep{
-  0%,8%{-webkit-mask-position:145% 0;mask-position:145% 0;opacity:0}
-  17%{opacity:.98}
-  52%{-webkit-mask-position:-45% 0;mask-position:-45% 0;opacity:.92}
-  63%,100%{-webkit-mask-position:-45% 0;mask-position:-45% 0;opacity:0}
+@keyframes blazeLogoLightSweep{
+  0%,7%{
+    clip-path:polygon(-35% 0,-20% 0,0 100%,-15% 100%);
+    -webkit-clip-path:polygon(-35% 0,-20% 0,0 100%,-15% 100%);
+    opacity:0;
+  }
+  14%{opacity:.92}
+  53%{
+    clip-path:polygon(115% 0,130% 0,150% 100%,135% 100%);
+    -webkit-clip-path:polygon(115% 0,130% 0,150% 100%,135% 100%);
+    opacity:.92;
+  }
+  64%,100%{opacity:0}
 }
 @media(max-width:760px){
   html body section.contact#contact{padding:82px 0 90px!important}
@@ -3971,13 +3973,11 @@ html body .hero #stage.logo-stage .logo-plinth img.hero-brand-logo-shine{
   html body .hero #stage.logo-stage .logo-plinth img.hero-brand-logo-shine{animation-duration:3.5s!important}
 }
 @media(prefers-reduced-motion:reduce){
-  html body .hero #stage.logo-stage .logo-plinth,
-  html body .hero #stage.logo-stage .hero-brand-logo{animation:none!important}
   html body .hero #stage.logo-stage .logo-plinth img.hero-brand-logo-shine{
     animation:none!important;
-    opacity:.18;
-    -webkit-mask-position:50% 0;
-    mask-position:50% 0;
+    opacity:.58!important;
+    clip-path:polygon(42% 0,57% 0,72% 100%,57% 100%)!important;
+    -webkit-clip-path:polygon(42% 0,57% 0,72% 100%,57% 100%)!important;
   }
 }
 </style>
