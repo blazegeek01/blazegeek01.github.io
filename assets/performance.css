@@ -1,0 +1,150 @@
+/* BLAZE GEEK's performance layer
+   Keeps the existing visual identity while reducing expensive work on touch devices. */
+
+/* Global rendering hygiene: avoid promoting large regions without a clear need. */
+.pointer-aura { will-change: auto; }
+.stage { will-change: auto; }
+@media (min-width: 761px) {
+  body::after { opacity: .12; animation-duration: 36s; }
+}
+
+/* Touch-first profile: scrolling and input responsiveness take priority over ambient motion. */
+@media (max-width: 760px), (hover: none) and (pointer: coarse) {
+  /* Fixed full-viewport animated ember layer is costly during scroll on mobile GPUs. */
+  body::after {
+    animation: none !important;
+    opacity: .07;
+    mix-blend-mode: normal;
+  }
+
+  /* Stop decorative, perpetual hero motion while retaining the artwork and warm lighting. */
+  .hero::after,
+  .stage::before,
+  .stage::after,
+  .logo-plinth::before,
+  .logo-plinth::after {
+    animation: none !important;
+  }
+  .hero::after { filter: none !important; opacity: .7; }
+  .stage {
+    perspective: none !important;
+    transform-style: flat !important;
+    will-change: auto !important;
+  }
+  .logo-plinth {
+    transform: none !important;
+    transform-style: flat !important;
+    animation: none !important;
+    filter: drop-shadow(0 12px 14px #0009) !important;
+  }
+  .hero-brand-logo,
+  .hero-brand-logo-shine {
+    animation: none !important;
+    transform: none !important;
+  }
+  .hero-brand-logo {
+    filter: drop-shadow(0 0 3px #ffb14c) drop-shadow(0 0 9px #ff3d16) !important;
+  }
+  .hero-brand-logo-shine { display: none !important; }
+
+  /* Blur and layered depth are decorative; remove them from touch layouts. */
+  .float-tag,
+  header.top,
+  .top,
+  .header-menu-panel {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+  .float-tag {
+    transform: none !important;
+    box-shadow: 0 8px 20px #0007 !important;
+    animation: none !important;
+  }
+
+  /* Stop repeating card sweeps and hover-like motion on touch screens. */
+  .service-list .service::after,
+  .service-list .service::before,
+  .footer-socials::before,
+  .social-link::before {
+    animation: none !important;
+  }
+  .service,
+  .principle,
+  .project,
+  .note,
+  .social-link {
+    transition: border-color .18s ease, opacity .18s ease !important;
+  }
+  .service:hover,
+  .principle:hover,
+  .project:hover,
+  .note:hover,
+  .social-link:hover {
+    transform: none !important;
+    filter: none !important;
+  }
+
+  /* Reveal content with opacity only; avoid large translated layers during scrolling. */
+  .reveal,
+  .reveal.in {
+    transform: none !important;
+    transition: opacity .28s ease !important;
+  }
+
+  /* Keep decorative glows static and inexpensive. */
+  h1 em,
+  .logo b,
+  .logo span:last-child,
+  .brandmark,
+  .ticker,
+  .ticker::before {
+    animation: none !important;
+  }
+}
+
+/* Desktop: retain the cinematic look but remove unnecessary permanent GPU hints. */
+@media (min-width: 761px) {
+  .stage { will-change: auto; }
+  .pointer-aura { contain: strict; }
+}
+
+/* Respect the visitor's operating-system motion preference on every device. */
+@media (prefers-reduced-motion: reduce) {
+  body::after,
+  .hero::after,
+  .stage::before,
+  .stage::after,
+  .logo-plinth,
+  .logo-plinth::before,
+  .logo-plinth::after,
+  .hero-brand-logo,
+  .hero-brand-logo-shine,
+  .float-tag,
+  .service-list .service::after,
+  .service-list .service::before,
+  .ticker,
+  .ticker::before {
+    animation: none !important;
+    transition: none !important;
+  }
+  .reveal,
+  .reveal.in { opacity: 1 !important; transform: none !important; }
+}
+
+/* Footer: keep every footer element completely static on all screen sizes. */
+html body footer,
+html body footer *,
+html body footer *::before,
+html body footer *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+html body footer .reveal,
+html body footer .reveal.in {
+  opacity: 1 !important;
+  transform: none !important;
+}
+html body footer * {
+  will-change: auto !important;
+}
