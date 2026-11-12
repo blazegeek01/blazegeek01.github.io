@@ -4,10 +4,9 @@ on:
   push:
     branches:
       - blazegeeks
-    paths-ignore:
-      - "assets/homepagea-motion-desktop.mp4"
-      - "assets/homepagea-motion-mid.mp4"
-      - "assets/homepagea-motion-mobile.mp4"
+    paths:
+      - "assets/homepagea-motion.mp4"
+      - ".github/workflows/build-mobile-brand-film.yml"
 
 permissions:
   contents: write
