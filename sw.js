@@ -1,18 +1,7 @@
-const CACHE_NAME = "blaze-geeks-pwa-v6";
+const CACHE_NAME = "blaze-geeks-pwa-v7";
 const APP_SHELL = [
   "/",
   "/index.html",
-  "/ai-metadata-remover.html",
-  "/graphic-design-social-media-creatives.html",
-  "/branding-visual-identity.html",
-  "/advertising-banner-poster-design.html",
-  "/video-editing-content-production.html",
-  "/website-design-development.html",
-  "/ai-powered-creative-solutions.html",
-  "/technology-productivity-support.html",
-  "/digital-marketing-creatives.html",
-  "/youtube-thumbnail-promotional-design.html",
-  "/custom-digital-creative-solutions.html",
   "/manifest.webmanifest",
   "/app-icon.svg"
 ];
@@ -43,15 +32,21 @@ self.addEventListener("fetch", event => {
   if (request.method !== "GET" || new URL(request.url).origin !== self.location.origin) return;
 
   if (request.mode === "navigate") {
-    event.respondWith(
-      fetch(request).then(response => {
+    event.respondWith((async () => {
+      const cached = await caches.match(request) || await caches.match("/index.html");
+      const refresh = fetch(request).then(response => {
         if (response && response.ok) {
           const copy = response.clone();
           caches.open(CACHE_NAME).then(cache => cache.put(request, copy));
         }
         return response;
-      }).catch(async () => (await caches.match(request)) || (await caches.match("/index.html")))
-    );
+      });
+      if (cached) {
+        refresh.catch(() => {});
+        return cached;
+      }
+      return (await refresh) || (await caches.match("/index.html"));
+    })());
     return;
   }
 
