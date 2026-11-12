@@ -130,3 +130,21 @@
   .reveal,
   .reveal.in { opacity: 1 !important; transform: none !important; }
 }
+
+/* Footer: keep every footer element completely static on all screen sizes. */
+html body footer,
+html body footer *,
+html body footer *::before,
+html body footer *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+html body footer .reveal,
+html body footer .reveal.in {
+  opacity: 1 !important;
+  transform: none !important;
+}
+html body footer * {
+  will-change: auto !important;
+}
