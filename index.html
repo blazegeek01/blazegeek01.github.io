@@ -3972,3 +3972,120 @@ html body .hero #stage.logo-stage .logo-plinth img.hero-brand-logo-shine{
 <script src="/assets/cookie-consent.js?v=1" defer></script>
 </body>
 </html>
+
+
+<style id="blaze-brand-film-clean-fullbleed-fix">
+/* Clean, frameless brand film: no card, border, outline, rounded corners or shadow. */
+html body #cinematic-brand-reveal{
+  width:100%!important;
+  padding:clamp(28px,4vw,54px) 0!important;
+  margin:0!important;
+  overflow:visible!important;
+  background:transparent!important;
+}
+html body #cinematic-brand-reveal .brand-film-media{
+  display:block!important;
+  width:100%!important;
+  max-width:none!important;
+  height:auto!important;
+  min-height:0!important;
+  margin:0!important;
+  padding:0!important;
+  overflow:visible!important;
+  position:relative!important;
+  isolation:auto!important;
+  border:0!important;
+  border-radius:0!important;
+  outline:0!important;
+  box-shadow:none!important;
+  background:transparent!important;
+}
+html body #cinematic-brand-reveal .brand-film-media::before,
+html body #cinematic-brand-reveal .brand-film-media::after{
+  content:none!important;
+  display:none!important;
+  animation:none!important;
+  border:0!important;
+  box-shadow:none!important;
+  background:none!important;
+}
+html body #cinematic-brand-reveal .brand-film-video{
+  display:block!important;
+  position:relative!important;
+  inset:auto!important;
+  width:100%!important;
+  max-width:none!important;
+  height:auto!important;
+  max-height:none!important;
+  min-height:0!important;
+  aspect-ratio:auto!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  border:0!important;
+  border-radius:0!important;
+  outline:0!important;
+  box-shadow:none!important;
+  background:transparent!important;
+  transform:none!important;
+  filter:none!important;
+  backface-visibility:visible!important;
+}
+html body #cinematic-brand-reveal .brand-film-shade{
+  display:none!important;
+}
+html body #cinematic-brand-reveal .brand-film-copy{
+  position:relative!important;
+  inset:auto!important;
+  display:block!important;
+  width:min(1120px,90%)!important;
+  margin:0 auto!important;
+  padding:clamp(20px,3vw,34px) 0 0!important;
+  background:transparent!important;
+}
+html body #cinematic-brand-reveal .brand-film-index{
+  position:relative!important;
+  display:block!important;
+  inset:auto!important;
+  width:min(1120px,90%)!important;
+  margin:12px auto 0!important;
+  padding:0!important;
+  background:transparent!important;
+}
+html body #cinematic-brand-reveal .brand-film-video-status{
+  position:absolute!important;
+  left:16px!important;
+  bottom:16px!important;
+}
+@media(max-width:700px){
+  html body #cinematic-brand-reveal{padding:20px 0!important}
+  html body #cinematic-brand-reveal .brand-film-media{width:100%!important}
+  html body #cinematic-brand-reveal .brand-film-copy,
+  html body #cinematic-brand-reveal .brand-film-index{width:90%!important}
+}
+@media(prefers-reduced-motion:reduce){
+  html body #cinematic-brand-reveal .brand-film-video{scroll-behavior:auto}
+}
+</style>
+
+<script id="blaze-brand-film-buffering-tune">
+(function(){
+  var section=document.getElementById('cinematic-brand-reveal');
+  if(!section)return;
+  var video=section.querySelector('video.brand-film-video');
+  if(!video)return;
+  video.preload='metadata';
+  video.setAttribute('preload','metadata');
+  video.setAttribute('playsinline','');
+  video.setAttribute('webkit-playsinline','');
+  video.muted=true;
+  video.defaultMuted=true;
+  video.autoplay=true;
+  video.loop=true;
+  video.addEventListener('waiting',function(){
+    section.classList.add('brand-film-buffering');
+  });
+  video.addEventListener('playing',function(){
+    section.classList.remove('brand-film-buffering');
+  });
+})();
+</script>
