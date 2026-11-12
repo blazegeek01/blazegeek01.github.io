@@ -37,15 +37,13 @@
     animation: none !important;
     filter: drop-shadow(0 12px 14px #0009) !important;
   }
-  .hero-brand-logo,
-  .hero-brand-logo-shine {
+  .hero-brand-logo {
     animation: none !important;
     transform: none !important;
   }
   .hero-brand-logo {
     filter: drop-shadow(0 0 3px #ffb14c) drop-shadow(0 0 9px #ff3d16) !important;
   }
-  .hero-brand-logo-shine { display: none !important; }
 
   /* Keep the liquid-glass navigation and menu blur on touch devices.
      Only simplify the small floating tags to reduce compositing work. */
