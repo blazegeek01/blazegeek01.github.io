@@ -1,0 +1,215 @@
+/* BLAZE GEEK's — restrained, premium, motion-free sitewide footer */
+html body footer {
+  display: block !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  padding: clamp(42px, 6vw, 72px) max(6%, calc((100% - 1200px) / 2)) 24px !important;
+  margin: 0 !important;
+  color: #a9a2a0 !important;
+  background: #09090b !important;
+  border-top: 1px solid rgba(255,255,255,.12) !important;
+  font-family: Manrope, Arial, sans-serif !important;
+  font-size: 12px !important;
+  isolation: isolate !important;
+}
+html body footer,
+html body footer *,
+html body footer *::before,
+html body footer *::after {
+  animation: none !important;
+  animation-name: none !important;
+  animation-duration: 0s !important;
+  animation-delay: 0s !important;
+  animation-play-state: paused !important;
+  transition: none !important;
+  transform: none !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  will-change: auto !important;
+  scroll-behavior: auto !important;
+}
+html body footer::before,
+html body footer::after,
+html body footer *::before,
+html body footer *::after {
+  content: none !important;
+  display: none !important;
+  animation: none !important;
+}
+html body footer .footerrow {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 18px 28px !important;
+  flex-wrap: wrap !important;
+  padding: 0 0 25px !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-bottom: 1px solid rgba(255,255,255,.10) !important;
+}
+html body footer .footerrow > .logo {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 11px !important;
+  flex: 0 0 auto !important;
+  color: #f5f1ee !important;
+  text-shadow: none !important;
+  font-size: 19px !important;
+  letter-spacing: .02em !important;
+}
+html body footer .footerrow .brand-logo-img {
+  width: 38px !important;
+  height: 38px !important;
+  object-fit: contain !important;
+}
+html body footer .footerrow .brand-wordmark {
+  color: #f5f1ee !important;
+  -webkit-text-fill-color: #f5f1ee !important;
+  text-shadow: none !important;
+}
+html body footer .footerrow .brand-word-first {
+  color: #ff7a24 !important;
+  -webkit-text-fill-color: #ff7a24 !important;
+  background: none !important;
+  background-image: none !important;
+  text-shadow: none !important;
+}
+html body footer .footerrow > span,
+html body footer .footerrow > a:not(.logo) {
+  color: #918987 !important;
+  font-size: 11px !important;
+  line-height: 1.7 !important;
+  letter-spacing: .025em !important;
+}
+html body footer .footerrow > a:not(.logo) {
+  text-transform: uppercase !important;
+  letter-spacing: .12em !important;
+}
+html body footer .footerrow > a:hover {
+  color: #ff9a5b !important;
+}
+html body footer .footer-socials {
+  display: grid !important;
+  grid-template-columns: minmax(190px,.8fr) minmax(0,1.7fr) !important;
+  align-items: center !important;
+  gap: 24px clamp(22px,4vw,52px) !important;
+  margin: 28px 0 24px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+html body footer .footer-social-heading { min-width: 0 !important; }
+html body footer .footer-social-kicker {
+  color: #ff9a5b !important;
+  font: 700 9px/1.6 'Space Mono', monospace !important;
+  letter-spacing: .2em !important;
+}
+html body footer .footer-social-heading h2 {
+  margin: 9px 0 7px !important;
+  color: #f5f1ee !important;
+  font: 700 clamp(25px,3vw,34px)/1.12 Cinzel, Georgia, serif !important;
+  letter-spacing: -.025em !important;
+}
+html body footer .footer-social-heading h2 span {
+  color: #ff8b49 !important;
+  text-shadow: none !important;
+}
+html body footer .footer-social-heading p {
+  margin: 0 !important;
+  color: #918987 !important;
+  font-size: 12px !important;
+  line-height: 1.8 !important;
+}
+html body footer .social-links {
+  display: grid !important;
+  grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+  gap: 9px !important;
+}
+html body footer .social-link {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  min-width: 0 !important;
+  min-height: 58px !important;
+  padding: 10px 13px !important;
+  overflow: visible !important;
+  border: 1px solid rgba(255,255,255,.11) !important;
+  border-radius: 7px !important;
+  background: #101013 !important;
+  color: #eee8e4 !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}
+html body footer .social-link:hover,
+html body footer .social-link:focus-visible {
+  border-color: rgba(255,138,73,.48) !important;
+  background: #141114 !important;
+  color: #fff !important;
+  outline: none !important;
+}
+html body footer .social-icon {
+  display: grid !important;
+  place-items: center !important;
+  flex: 0 0 30px !important;
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 6px !important;
+  background: rgba(255,255,255,.055) !important;
+  color: #ff9a5b !important;
+}
+html body footer .social-icon svg { display: block !important; width: 17px !important; height: 17px !important; }
+html body footer .social-label {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2px !important;
+  min-width: 0 !important;
+  color: #eee8e4 !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+}
+html body footer .social-label small { color: #817a78 !important; font-size: 9px !important; }
+html body footer .social-arrow {
+  margin-left: auto !important;
+  color: #8b8380 !important;
+  font-size: 13px !important;
+}
+html body footer > .mono {
+  margin: 0 !important;
+  padding-top: 2px !important;
+  color: #6f6867 !important;
+  font: 9px/1.8 'Space Mono', monospace !important;
+  letter-spacing: .17em !important;
+  text-align: center !important;
+}
+html body footer .reveal,
+html body footer .reveal.in {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+@media (max-width: 760px) {
+  html body footer { padding: 38px 6% 20px !important; }
+  html body footer .footerrow {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    padding-bottom: 21px !important;
+  }
+  html body footer .footer-socials {
+    grid-template-columns: minmax(0,1fr) !important;
+    gap: 17px !important;
+    margin: 24px 0 20px !important;
+  }
+  html body footer .footer-social-heading h2 { font-size: 28px !important; }
+  html body footer .social-links { grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
+  html body footer .social-link { min-height: 54px !important; padding: 9px !important; gap: 8px !important; }
+}
+@media (max-width: 370px) {
+  html body footer .social-links { grid-template-columns: 1fr !important; }
+}
