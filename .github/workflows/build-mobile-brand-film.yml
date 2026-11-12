@@ -1,0 +1,46 @@
+name: Build mobile brand film
+
+on:
+  push:
+    branches:
+      - blazegeeks
+    paths-ignore:
+      - "assets/homepagea-motion-mobile.mp4"
+
+permissions:
+  contents: write
+
+jobs:
+  encode-mobile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out website
+        uses: actions/checkout@v4
+        with:
+          ref: blazegeeks
+
+      - name: Install FFmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Create mobile-optimised copy
+        run: |
+          test -s assets/homepagea-motion.mp4
+          ffmpeg -y -i assets/homepagea-motion.mp4 \
+            -map 0:v:0 -an -sn -dn \
+            -vf "scale='min(960,iw)':-2:flags=lanczos,fps=30" \
+            -c:v libx264 -preset medium -crf 25 \
+            -maxrate 1800k -bufsize 3600k \
+            -pix_fmt yuv420p -profile:v main -level 3.1 \
+            -movflags +faststart \
+            assets/homepagea-motion-mobile.mp4
+          ls -lh assets/homepagea-motion.mp4 assets/homepagea-motion-mobile.mp4
+
+      - name: Commit mobile copy
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/homepagea-motion-mobile.mp4
+          git diff --cached --quiet || git commit -m "Add mobile-optimised brand film"
+          git push
