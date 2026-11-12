@@ -4387,3 +4387,38 @@ html body section#cinematic-brand-reveal .brand-film-caption{margin:18px 0 0!imp
 html body section#cinematic-brand-reveal .brand-film-index{display:none!important}
 @media(max-width:760px){html body section#cinematic-brand-reveal{padding:28px 0 42px!important}html body section#cinematic-brand-reveal .brand-film-media{width:100%!important}html body section#cinematic-brand-reveal .brand-film-copy{width:90%!important;padding:25px 0 0!important}html body section#cinematic-brand-reveal .brand-film-copy .mono{font-size:8px!important;letter-spacing:.12em!important}html body section#cinematic-brand-reveal .brand-film-copy h2{font-size:clamp(29px,8vw,42px)!important}html body section#cinematic-brand-reveal .brand-film-caption{font-size:9px!important;letter-spacing:.08em!important}html body section#cinematic-brand-reveal .brand-film-media::before{display:none!important;animation:none!important}}
 </style>
+
+
+<script id="blaze-brand-film-device-source">
+(function(){
+  var video=document.querySelector('#cinematic-brand-reveal video.brand-film-video');
+  if(!video)return;
+  var source=video.querySelector('source');
+  if(!source)return;
+  var desktopSource='./assets/homepagea-motion.mp4';
+  var mobileSource='./assets/homepagea-motion-mobile.mp4?v=mobile1';
+  var mobileQuery=window.matchMedia('(max-width: 760px)');
+  var activeSource='';
+  function selectDeviceVideo(){
+    var nextSource=mobileQuery.matches?mobileSource:desktopSource;
+    if(nextSource===activeSource)return;
+    var wasPlaying=!video.paused;
+    var currentTime=video.currentTime||0;
+    activeSource=nextSource;
+    source.src=nextSource;
+    video.preload=mobileQuery.matches?'auto':'none';
+    video.load();
+    function resume(){
+      if(currentTime>0){try{video.currentTime=currentTime;}catch(e){}}
+      if(wasPlaying || mobileQuery.matches){
+        var playRequest=video.play();
+        if(playRequest&&playRequest.catch)playRequest.catch(function(){});
+      }
+    }
+    video.addEventListener('loadedmetadata',resume,{once:true});
+  }
+  selectDeviceVideo();
+  if(mobileQuery.addEventListener)mobileQuery.addEventListener('change',selectDeviceVideo);
+  else if(mobileQuery.addListener)mobileQuery.addListener(selectDeviceVideo);
+})();
+</script>
