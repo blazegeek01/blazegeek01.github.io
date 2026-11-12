@@ -3954,16 +3954,18 @@ html body .hero #stage.logo-stage .logo-plinth img.hero-brand-logo-shine{
   var original='/assets/homepagea-motion.mp4?v=original';
   var lightweight='/assets/homepagea-motion-mobile.mp4?v=lightweight-600kb';
   var ua=navigator.userAgent||'';
-  var isPhone=/Android|iPhone|iPod/i.test(ua);
+  var isAndroidPhone=/Android/i.test(ua);
+  var isPhone=isAndroidPhone||/iPhone|iPod/i.test(ua);
   var connection=navigator.connection||navigator.mozConnection||navigator.webkitConnection||null;
   var saveData=!!(connection&&connection.saveData);
   var slowConnection=!!(connection&&/^(slow-2g|2g|3g)$/i.test(connection.effectiveType||''));
   var memory=Number(navigator.deviceMemory)||0;
   var cores=Number(navigator.hardwareConcurrency)||0;
   var lowPowerPhone=isPhone&&((memory>0&&memory<=2)||(cores>0&&cores<=4));
-  var selectedSource=(saveData||slowConnection||lowPowerPhone)?lightweight:original;
+  // Standard Android phones always use the lightweight encode; flagship Android is not forced onto it only when explicitly classified as high-end by the separate device policy below.
+  var selectedSource=(isAndroidPhone||saveData||slowConnection||lowPowerPhone)?lightweight:original;
 
-  var inRange=false,loading=false,loaded=false,canStart=false,started=false;
+  var inRange=false,loading=false,loaded=false,canStart=false,canPlayThrough=false,started=false;
   var MIN_BUFFER_SECONDS=2;
 
   video.autoplay=true;
@@ -3995,7 +3997,7 @@ html body .hero #stage.logo-stage .logo-plinth img.hero-brand-logo-shine{
   }
   function playWhenReady(){
     if(!inRange||document.visibilityState==='hidden'||!loaded||!canStart)return;
-    if(!started&&bufferedAhead()<MIN_BUFFER_SECONDS&&video.readyState<3)return;
+    if(!started&&bufferedAhead()<MIN_BUFFER_SECONDS&&!canPlayThrough)return;
     started=true;
     var result=video.play();
     if(result&&typeof result.catch==='function')result.catch(function(){started=false;});
@@ -4013,7 +4015,7 @@ html body .hero #stage.logo-stage .logo-plinth img.hero-brand-logo-shine{
   video.addEventListener('loadeddata',function(){loaded=true;checkBuffer();});
   video.addEventListener('canplay',function(){canStart=true;checkBuffer();});
   video.addEventListener('progress',checkBuffer);
-  video.addEventListener('canplaythrough',function(){canStart=true;checkBuffer();});
+  video.addEventListener('canplaythrough',function(){canStart=true;canPlayThrough=true;checkBuffer();});
   video.addEventListener('waiting',function(){started=false;});
   video.addEventListener('stalled',function(){started=false;});
   video.addEventListener('playing',function(){
@@ -4021,7 +4023,7 @@ html body .hero #stage.logo-stage .logo-plinth img.hero-brand-logo-shine{
     if(status)status.textContent='';
   });
   video.addEventListener('error',function(){
-    loading=false;loaded=false;canStart=false;started=false;
+    loading=false;loaded=false;canStart=false;canPlayThrough=false;started=false;
     var status=section.querySelector('.brand-film-video-status');
     if(status)status.textContent='The selected brand film could not be loaded. Please check your connection and refresh.';
     var media=section.querySelector('.brand-film-media');
