@@ -3949,9 +3949,20 @@ html body .hero #stage.logo-stage .logo-plinth img.hero-brand-logo-shine{
   var source=video&&video.querySelector('source');
   if(!video||!source)return;
 
-  // Every device receives the exact original 1080p / 60 FPS source file.
-  // No device-based resolution or frame-rate substitutions are permitted.
-  var original='/assets/homepagea-motion.mp4?v=original-60fps';
+  // Default is always the untouched original. The ~600 KB file is an exception
+  // only for low-powered phones or connections explicitly using data-saving/slow mode.
+  var original='/assets/homepagea-motion.mp4?v=original';
+  var lightweight='/assets/homepagea-motion-mobile.mp4?v=lightweight-600kb';
+  var ua=navigator.userAgent||'';
+  var isPhone=/Android|iPhone|iPod/i.test(ua);
+  var connection=navigator.connection||navigator.mozConnection||navigator.webkitConnection||null;
+  var saveData=!!(connection&&connection.saveData);
+  var slowConnection=!!(connection&&/^(slow-2g|2g|3g)$/i.test(connection.effectiveType||''));
+  var memory=Number(navigator.deviceMemory)||0;
+  var cores=Number(navigator.hardwareConcurrency)||0;
+  var lowPowerPhone=isPhone&&((memory>0&&memory<=2)||(cores>0&&cores<=4));
+  var useLightweight=saveData||slowConnection||lowPowerPhone;
+  var selectedSource=useLightweight?lightweight:original;
   var loaded=false, inRange=false, loading=false;
 
   video.autoplay=true;
@@ -3977,12 +3988,12 @@ html body .hero #stage.logo-stage .logo-plinth img.hero-brand-logo-shine{
     var result=video.play();
     if(result&&typeof result.catch==='function')result.catch(function(){});
   }
-  function loadOriginal(){
+  function loadSelectedSource(){
     if(loading||loaded)return;
     loading=true;
     video.preload='auto';
     video.setAttribute('preload','auto');
-    source.src=original;
+    source.src=selectedSource;
     video.load();
   }
   video.addEventListener('loadeddata',function(){
@@ -3998,12 +4009,12 @@ html body .hero #stage.logo-stage .logo-plinth img.hero-brand-logo-shine{
   video.addEventListener('error',function(){
     loading=false;
     var status=section.querySelector('.brand-film-video-status');
-    if(status)status.textContent='The original brand film could not be loaded. Please check your connection and refresh.';
+    if(status)status.textContent='The selected brand film could not be loaded. Please check your connection and refresh.';
     section.querySelector('.brand-film-media').classList.add('video-error');
   });
   function enter(){
     inRange=true;
-    loadOriginal();
+    loadSelectedSource();
     playWhenReady();
   }
   function leave(){
