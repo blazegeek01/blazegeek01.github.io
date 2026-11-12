@@ -6,9 +6,9 @@ html body{background-image:radial-gradient(ellipse at 78% 4%,rgba(240,68,50,.075
 body .band,body .founder,body .contact,body .content{background-color:transparent}
 body .service,body .principle,body .project,body .note{background-color:#111116;border-color:rgba(255,255,255,.11);box-shadow:0 10px 28px rgba(0,0,0,.18)}
 /* Disable perpetual shine, orbit, shimmer and outline motion everywhere. */
-html body *,html body *::before,html body *::after{animation:none!important}
-/* The liquid-glass header's subtle light sweep is intentionally retained. */
-html body header.top::after{animation:liquidHeaderSweep 6.5s cubic-bezier(.45,0,.35,1) infinite!important}
+html body :is(*,#blaze-motion-reset):is(*,#blaze-motion-reset),
+html body :is(*,#blaze-motion-reset):is(*,#blaze-motion-reset)::before,
+html body :is(*,#blaze-motion-reset):is(*,#blaze-motion-reset)::after{animation:none!important}
 html body .reveal{opacity:0;transform:translate3d(0,14px,0);transition:opacity .46s ease,transform .46s cubic-bezier(.2,.7,.2,1)!important;transition-delay:0s!important}
 html body .reveal.in,html body .reveal.is-visible{opacity:1;transform:none}
 /* Static, crisp hero logo: no 3D rotation, pulsing glow or opening slide-in. */
