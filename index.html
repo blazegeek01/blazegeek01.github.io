@@ -1671,7 +1671,7 @@ body:before { display:none!important; content:none!important; animation:none!imp
 </div></header>
 <main>
 <div class="wrap"><section class="hero" id="home"><div class="hero-copy reveal"><div class="eyebrow">✳ &nbsp; CREATIVE TECHNOLOGY · DESIGN · PRODUCTION</div><h1 class="hero-brand-heading"><em>BLAZE</em> <span class="hero-geeks-line">GEEK’s<span class="living-flame" aria-hidden="true"><i></i><b></b><em></em></span></span></h1><p class="lead">Creative digital brand &amp; production house where tech, graphic design, motivation &amp; authentic enthusiasm meet. We turn ideas into visual experiences with purpose.</p><p class="lead hero-tagline" id="hero-brand-tagline">Create Bold. Inspire Real. Blaze Beyond.</p><div class="actions"><a class="btn hot" href="#work">Explore our universe ↘</a><a class="quiet" href="#founder">Meet the founder ↗</a></div><p class="mono">INDEPENDENT BY NATURE · BUILT TO GO BEYOND</p></div><div class="stage logo-stage" id="stage" aria-label="BLAZE GEEK’s official logo"><div class="logo-plinth"><img class="hero-brand-logo" src="/assets/blaze-geeks-logo%20(2).png" data-fallback="https://raw.githubusercontent.com/blazegeek01/blazegeek01.github.io/blazegeeks/assets/blaze-geeks-logo%20(2).png" alt="Official BLAZE GEEK’s logo" width="640" height="640" loading="eager" fetchpriority="high" decoding="async">
-<img class="hero-brand-logo-shine" src="/assets/blaze-geeks-logo%20(2).png" alt="" aria-hidden="true" width="640" height="640" loading="eager" decoding="async"></div></div></section></div>
+<span class="hero-brand-logo-shine" aria-hidden="true"></span></div></div></section></div>
 <div class="ticker">CREATE BOLD ✳ INSPIRE REAL ✳ BLAZE BEYOND ✳</div>
 
 <section id="cinematic-brand-reveal" aria-label="BLAZE GEEK's brand film">
@@ -3909,78 +3909,67 @@ html body section.contact#contact .btn{
 }
 html body section.contact#contact .contact-whatsapp-cta{background:#101014!important;color:#fff!important}
 
-/* Keep the supplied logo artwork still; animate only a narrow white reflection across it. */
+/* Alpha-masked light sweep: the reflection is clipped to the official logo artwork. */
 html body .hero #stage.logo-stage .logo-plinth{
   position:relative!important;
-  transform:none!important;
-  translate:0 0!important;
-  rotate:none!important;
-  animation:none!important;
-  opacity:1!important;
-  will-change:auto!important;
+  isolation:isolate!important;
+  overflow:visible!important;
 }
 html body .hero #stage.logo-stage .hero-brand-logo{
   position:relative!important;
-  z-index:2!important;
-  transform:none!important;
-  translate:0 0!important;
-  rotate:none!important;
-  animation:none!important;
-  opacity:1!important;
+  z-index:1!important;
+  display:block!important;
   visibility:visible!important;
+  opacity:1!important;
 }
-html body .hero #stage.logo-stage .logo-plinth img.hero-brand-logo-shine{
+html body .hero #stage.logo-stage .logo-plinth .hero-brand-logo-shine{
   display:block!important;
   position:absolute!important;
   inset:0!important;
-  z-index:20!important;
+  z-index:5!important;
   width:100%!important;
   height:100%!important;
-  max-width:100%!important;
-  object-fit:contain!important;
   pointer-events:none!important;
-  visibility:visible!important;
-  opacity:.92!important;
-  transform:none!important;
-  translate:0 0!important;
-  rotate:none!important;
-  filter:brightness(0) invert(1) drop-shadow(0 0 7px rgba(255,255,255,.98)) drop-shadow(0 0 15px rgba(255,255,255,.52))!important;
-  mix-blend-mode:screen!important;
-  clip-path:polygon(-35% 0,-20% 0,0 100%,-15% 100%)!important;
-  -webkit-clip-path:polygon(-35% 0,-20% 0,0 100%,-15% 100%)!important;
-  animation:blazeLogoLightSweep 2.8s cubic-bezier(.55,.05,.35,1) infinite!important;
-  will-change:clip-path;
+  background:linear-gradient(112deg,
+    transparent 0%,
+    transparent 39%,
+    rgba(255,255,255,.12) 44%,
+    rgba(255,255,255,.98) 49%,
+    rgba(255,255,255,.24) 54%,
+    transparent 61%,
+    transparent 100%)!important;
+  background-size:260% 100%!important;
+  background-position:145% 0!important;
+  -webkit-mask-image:url("/assets/blaze-geeks-logo%20(2).png")!important;
+  mask-image:url("/assets/blaze-geeks-logo%20(2).png")!important;
+  -webkit-mask-repeat:no-repeat!important;
+  mask-repeat:no-repeat!important;
+  -webkit-mask-position:center!important;
+  mask-position:center!important;
+  -webkit-mask-size:contain!important;
+  mask-size:contain!important;
+  opacity:0!important;
+  animation:blazeAlphaMaskedLightSweep 2.9s ease-in-out infinite!important;
+  will-change:background-position,opacity;
 }
-@keyframes blazeLogoLightSweep{
-  0%,7%{
-    clip-path:polygon(-35% 0,-20% 0,0 100%,-15% 100%);
-    -webkit-clip-path:polygon(-35% 0,-20% 0,0 100%,-15% 100%);
-    opacity:0;
-  }
-  14%{opacity:.92}
-  53%{
-    clip-path:polygon(115% 0,130% 0,150% 100%,135% 100%);
-    -webkit-clip-path:polygon(115% 0,130% 0,150% 100%,135% 100%);
-    opacity:.92;
-  }
-  64%,100%{opacity:0}
+@keyframes blazeAlphaMaskedLightSweep{
+  0%,8%{background-position:145% 0;opacity:0}
+  16%{opacity:1}
+  54%{background-position:-45% 0;opacity:1}
+  64%,100%{background-position:-45% 0;opacity:0}
 }
 @media(max-width:760px){
-  html body section.contact#contact{padding:82px 0 90px!important}
-  html body section.contact#contact .wrap:before{display:none}
-  html body section.contact#contact:before{right:-18%!important;width:68vw!important;opacity:.62!important}
-  html body section.contact#contact:after{width:48%!important;opacity:.36!important}
-  html body .hero #stage.logo-stage .logo-plinth img.hero-brand-logo-shine{animation-duration:3.5s!important}
-}
-@media(prefers-reduced-motion:reduce){
-  html body .hero #stage.logo-stage .logo-plinth img.hero-brand-logo-shine{
-    animation:none!important;
-    opacity:.58!important;
-    clip-path:polygon(42% 0,57% 0,72% 100%,57% 100%)!important;
-    -webkit-clip-path:polygon(42% 0,57% 0,72% 100%,57% 100%)!important;
+  html body .hero #stage.logo-stage .logo-plinth .hero-brand-logo-shine{
+    animation-duration:3.4s!important;
   }
 }
-</style>
+@media(prefers-reduced-motion:reduce){
+  html body .hero #stage.logo-stage .logo-plinth .hero-brand-logo-shine{
+    animation:none!important;
+    background-position:50% 0!important;
+    opacity:.62!important;
+  }
+}
 <script src="/assets/cookie-consent.js?v=1" defer></script>
 </body>
 </html>
