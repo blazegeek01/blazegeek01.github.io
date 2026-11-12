@@ -3950,8 +3950,7 @@ html body .hero #stage.logo-stage .logo-plinth img.hero-brand-logo-shine{
   var source=video&&video.querySelector('source');
   if(!video||!source)return;
 
-  // Default is always the untouched original. The ~600 KB file is an exception
-  // only for low-powered phones or connections explicitly using data-saving/slow mode.
+  // Keep the original/lightweight device policy unchanged.
   var original='/assets/homepagea-motion.mp4?v=original';
   var lightweight='/assets/homepagea-motion-mobile.mp4?v=lightweight-600kb';
   var ua=navigator.userAgent||'';
@@ -3962,9 +3961,10 @@ html body .hero #stage.logo-stage .logo-plinth img.hero-brand-logo-shine{
   var memory=Number(navigator.deviceMemory)||0;
   var cores=Number(navigator.hardwareConcurrency)||0;
   var lowPowerPhone=isPhone&&((memory>0&&memory<=2)||(cores>0&&cores<=4));
-  var useLightweight=saveData||slowConnection||lowPowerPhone;
-  var selectedSource=useLightweight?lightweight:original;
-  var loaded=false, inRange=false, loading=false;
+  var selectedSource=(saveData||slowConnection||lowPowerPhone)?lightweight:original;
+
+  var inRange=false,loading=false,loaded=false,canStart=false,started=false;
+  var MIN_BUFFER_SECONDS=2;
 
   video.autoplay=true;
   video.muted=true;
@@ -3984,11 +3984,23 @@ html body .hero #stage.logo-stage .logo-plinth img.hero-brand-logo-shine{
   video.preload='none';
   video.setAttribute('preload','none');
 
-  function playWhenReady(){
-    if(!inRange||document.visibilityState==='hidden'||!loaded)return;
-    var result=video.play();
-    if(result&&typeof result.catch==='function')result.catch(function(){});
+  function bufferedAhead(){
+    try{
+      for(var i=0;i<video.buffered.length;i++){
+        var a=video.buffered.start(i),b=video.buffered.end(i);
+        if(video.currentTime>=a&&video.currentTime<=b)return b-video.currentTime;
+      }
+    }catch(e){}
+    return 0;
   }
+  function playWhenReady(){
+    if(!inRange||document.visibilityState==='hidden'||!loaded||!canStart)return;
+    if(!started&&bufferedAhead()<MIN_BUFFER_SECONDS&&video.readyState<3)return;
+    started=true;
+    var result=video.play();
+    if(result&&typeof result.catch==='function')result.catch(function(){started=false;});
+  }
+  function checkBuffer(){playWhenReady();}
   function loadSelectedSource(){
     if(loading||loaded)return;
     loading=true;
@@ -3997,44 +4009,37 @@ html body .hero #stage.logo-stage .logo-plinth img.hero-brand-logo-shine{
     source.src=selectedSource;
     video.load();
   }
-  video.addEventListener('loadeddata',function(){
-    loaded=true;
-    loading=false;
-    playWhenReady();
-  });
-  video.addEventListener('canplay',playWhenReady);
+
+  video.addEventListener('loadeddata',function(){loaded=true;checkBuffer();});
+  video.addEventListener('canplay',function(){canStart=true;checkBuffer();});
+  video.addEventListener('progress',checkBuffer);
+  video.addEventListener('canplaythrough',function(){canStart=true;checkBuffer();});
+  video.addEventListener('waiting',function(){started=false;});
+  video.addEventListener('stalled',function(){started=false;});
   video.addEventListener('playing',function(){
     var status=section.querySelector('.brand-film-video-status');
     if(status)status.textContent='';
   });
   video.addEventListener('error',function(){
-    loading=false;
+    loading=false;loaded=false;canStart=false;started=false;
     var status=section.querySelector('.brand-film-video-status');
     if(status)status.textContent='The selected brand film could not be loaded. Please check your connection and refresh.';
-    section.querySelector('.brand-film-media').classList.add('video-error');
+    var media=section.querySelector('.brand-film-media');
+    if(media)media.classList.add('video-error');
   });
-  function enter(){
-    inRange=true;
-    loadSelectedSource();
-    playWhenReady();
-  }
-  function leave(){
-    inRange=false;
-    video.pause();
-  }
+  function enter(){inRange=true;loadSelectedSource();checkBuffer();}
+  function leave(){inRange=false;video.pause();started=false;}
+
   if('IntersectionObserver' in window){
     var observer=new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if(entry.isIntersecting)enter();
-        else leave();
-      });
-    },{rootMargin:'500px 0px',threshold:0.01});
+      entries.forEach(function(entry){if(entry.isIntersecting)enter();else leave();});
+    },{rootMargin:'100px 0px',threshold:0.01});
     observer.observe(section);
   }else enter();
 
   document.addEventListener('visibilitychange',function(){
-    if(document.visibilityState==='hidden')video.pause();
-    else playWhenReady();
+    if(document.visibilityState==='hidden'){video.pause();started=false;}
+    else checkBuffer();
   });
 })();
 </script>
