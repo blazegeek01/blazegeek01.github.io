@@ -1887,20 +1887,25 @@ html body .hero #stage.logo-stage .logo-plinth:active{scale:1!important}
   var status=reveal.querySelector('.brand-film-video-status');
   if(!video)return;
 
-  // Keep the player visible and user-operable even when autoplay is restricted.
+  // Decorative brand film: silent, autoplaying, continuously looping, never a player.
   video.autoplay=true;
   video.muted=true;
   video.defaultMuted=true;
   video.loop=true;
   video.playsInline=true;
   video.preload='auto';
-  video.controls=true;
+  video.controls=false;
+  video.removeAttribute('controls');
   video.setAttribute('muted','');
   video.setAttribute('playsinline','');
   video.setAttribute('webkit-playsinline','');
+  video.setAttribute('disablepictureinpicture','');
+  video.setAttribute('disableremoteplayback','');
+  video.tabIndex=-1;
   video.style.display='block';
   video.style.visibility='visible';
   video.style.opacity='1';
+  video.style.pointerEvents='none';
 
   video.addEventListener('loadeddata',function(){
     if(media)media.classList.remove('video-error');
@@ -1910,7 +1915,7 @@ html body .hero #stage.logo-stage .logo-plinth:active{scale:1!important}
   });
   video.addEventListener('error',function(){
     if(media)media.classList.add('video-error');
-    if(status)status.textContent='The video could not load. Tap play to retry or check your connection.';
+    if(status)status.textContent='';
   });
 })();
 </script>
