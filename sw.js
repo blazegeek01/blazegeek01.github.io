@@ -1,13 +1,16 @@
-const CACHE_NAME = "blaze-geeks-pwa-v14";
+const CACHE_NAME = "blaze-geeks-pwa-v15";
 const APP_SHELL = [
   "/",
   "/index.html",
   "/manifest.webmanifest",
-  "/app-icon.svg"
+  "/app-icon.svg",
+  "/assets/performance.css?v=3",
+  "/assets/footer.css?v=3",
+  "/assets/brand-system.css?v=2"
 ];
 
-// Cache each resource independently: one missing optional asset must not
-// abort service-worker installation for the entire website.
+// Pre-cache the small shell and critical styles so repeat visits render quickly.
+// Optional resources are isolated: one failed request never blocks installation.
 self.addEventListener("install", event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
@@ -31,18 +34,22 @@ self.addEventListener("fetch", event => {
   const request = event.request;
   if (request.method !== "GET" || new URL(request.url).origin !== self.location.origin) return;
 
+  // Large video files are streamed by the browser; do not duplicate them in Cache Storage.
+  const pathname = new URL(request.url).pathname;
+  const isVideo = request.destination === "video" || /\\.mp4$/i.test(pathname);
+
   if (request.mode === "navigate") {
     event.respondWith((async () => {
       const cached = await caches.match(request) || await caches.match("/index.html");
       const refresh = fetch(request).then(response => {
         if (response && response.ok) {
           const copy = response.clone();
-          caches.open(CACHE_NAME).then(cache => cache.put(request, copy));
+          event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.put(request, copy)));
         }
         return response;
       });
       if (cached) {
-        refresh.catch(() => {});
+        event.waitUntil(refresh.catch(() => {}));
         return cached;
       }
       return (await refresh) || (await caches.match("/index.html"));
@@ -50,13 +57,21 @@ self.addEventListener("fetch", event => {
     return;
   }
 
-  event.respondWith(
-    caches.match(request).then(cached => cached || fetch(request).then(response => {
-      if (response && response.ok) {
-        const copy = response.clone();
-        caches.open(CACHE_NAME).then(cache => cache.put(request, copy));
-      }
-      return response;
-    }))
-  );
+  // Cache-first for repeat static assets; update the cache after a network miss.
+  // Skip video and range/media requests so streaming never waits on cache writes.
+  if (isVideo || request.headers.has("range")) {
+    event.respondWith(fetch(request));
+    return;
+  }
+
+  event.respondWith((async () => {
+    const cached = await caches.match(request);
+    if (cached) return cached;
+    const response = await fetch(request);
+    if (response && response.ok) {
+      const copy = response.clone();
+      event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.put(request, copy)));
+    }
+    return response;
+  })());
 });
