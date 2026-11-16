@@ -4452,3 +4452,49 @@ html body footer .logo .brand-word-second {
   animation: none !important;
 }
 </style>
+
+
+<style id="remove-glass-overlay-from-header-wordmark">
+/* Remove the animated glass layer sitting over the header logo/wordmark only. */
+html body header.top > a.logo::before,
+html body header.top > a.logo::after {
+  content:none!important;
+  display:none!important;
+  background:none!important;
+  background-image:none!important;
+  border:0!important;
+  box-shadow:none!important;
+  -webkit-mask:none!important;
+  mask:none!important;
+  animation:none!important;
+  opacity:0!important;
+  filter:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  pointer-events:none!important;
+}
+html body header.top > a.logo > .brand-wordmark,
+html body header.top > a.logo > .brand-wordmark > .brand-word-first,
+html body header.top > a.logo > .brand-wordmark > .brand-word-second {
+  background:transparent!important;
+  background-image:none!important;
+  -webkit-background-clip:border-box!important;
+  background-clip:border-box!important;
+  -webkit-text-stroke:0!important;
+  text-shadow:none!important;
+  filter:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  mix-blend-mode:normal!important;
+  opacity:1!important;
+  animation:none!important;
+}
+html body header.top > a.logo > .brand-word-first {
+  color:#ff7a24!important;
+  -webkit-text-fill-color:#ff7a24!important;
+}
+html body header.top > a.logo > .brand-word-second {
+  color:#ffffff!important;
+  -webkit-text-fill-color:#ffffff!important;
+}
+</style>
