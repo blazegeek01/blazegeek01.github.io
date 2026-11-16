@@ -4498,3 +4498,64 @@ html body header.top > a.logo > .brand-word-second {
   -webkit-text-fill-color:#ffffff!important;
 }
 </style>
+
+
+<style id="header-wordmark-no-glass-surface-final">
+/* The wordmark must sit directly on the header: remove the separate glass/oil badge behind it. */
+html body header.top > a.logo {
+  background:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
+  border:0!important;
+  border-color:transparent!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  -webkit-backdrop-filter:none!important;
+  backdrop-filter:none!important;
+  filter:none!important;
+  text-shadow:none!important;
+  overflow:visible!important;
+}
+html body header.top > a.logo::before,
+html body header.top > a.logo::after,
+html body header.top > a.logo > .brand-wordmark::before,
+html body header.top > a.logo > .brand-wordmark::after,
+html body header.top > a.logo > .brand-wordmark > .brand-word-first::before,
+html body header.top > a.logo > .brand-wordmark > .brand-word-first::after,
+html body header.top > a.logo > .brand-wordmark > .brand-word-second::before,
+html body header.top > a.logo > .brand-wordmark > .brand-word-second::after {
+  content:none!important;
+  display:none!important;
+  background:none!important;
+  background-image:none!important;
+  border:0!important;
+  box-shadow:none!important;
+  filter:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  animation:none!important;
+  opacity:0!important;
+}
+html body header.top > a.logo > .brand-wordmark,
+html body header.top > a.logo > .brand-wordmark > .brand-word-first,
+html body header.top > a.logo > .brand-wordmark > .brand-word-second {
+  background:transparent!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  filter:none!important;
+  text-shadow:none!important;
+  -webkit-text-stroke:0!important;
+  -webkit-backdrop-filter:none!important;
+  backdrop-filter:none!important;
+  mix-blend-mode:normal!important;
+  animation:none!important;
+}
+html body header.top > a.logo > .brand-word-first {
+  color:#ff7a24!important;
+  -webkit-text-fill-color:#ff7a24!important;
+}
+html body header.top > a.logo > .brand-word-second {
+  color:#ffffff!important;
+  -webkit-text-fill-color:#ffffff!important;
+}
+</style>
