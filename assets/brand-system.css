@@ -63,3 +63,125 @@ html body #stage:not(#blaze-motion-reset) img.hero-brand-logo-shine{display:bloc
 @keyframes blazeLogoReflection{0%,10%{-webkit-mask-position:145% 0;mask-position:145% 0;opacity:0}19%{opacity:.82}52%{-webkit-mask-position:-45% 0;mask-position:-45% 0;opacity:.76}63%,100%{-webkit-mask-position:-45% 0;mask-position:-45% 0;opacity:0}}
 @media(max-width:760px){html body .ticker{padding:14px 0!important}html body .ticker:not(#blaze-motion-reset):not(#blaze-motion-reset)::before{font-size:10px!important;letter-spacing:.14em!important;animation-duration:22s!important}html body #stage:not(#blaze-motion-reset) img.hero-brand-logo-shine{animation-duration:4.5s!important}}
 @media(prefers-reduced-motion:reduce){html body .ticker:not(#blaze-motion-reset):not(#blaze-motion-reset)::before{animation:none!important;padding-left:0!important;transform:none!important}html body #stage:not(#blaze-motion-reset) img.hero-brand-logo-shine{animation:none!important;opacity:.14!important;-webkit-mask-position:50% 0!important;mask-position:50% 0!important}}
+
+
+/* BLAZE GEEK's — premium liquid-glass interface layer.
+   Hybrid implementation: native glass surfaces, restrained refraction cues,
+   and lightweight mobile fallbacks. Content, logos and media stay crisp. */
+:root{
+  --bg-glass:rgba(22,18,23,.56);
+  --bg-glass-strong:rgba(13,13,17,.78);
+  --glass-edge:rgba(255,255,255,.19);
+  --glass-highlight:rgba(255,255,255,.28);
+  --glass-shadow:0 18px 55px rgba(0,0,0,.34),inset 0 1px 0 rgba(255,255,255,.14);
+  --glass-blur:18px;
+}
+@supports ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  html body .top{
+    background:linear-gradient(115deg,rgba(255,255,255,.105),rgba(255,255,255,.025) 38%,rgba(240,68,50,.075)),rgba(8,8,11,.62)!important;
+    -webkit-backdrop-filter:blur(24px) saturate(165%)!important;
+    backdrop-filter:blur(24px) saturate(165%)!important;
+    border-bottom:1px solid rgba(255,255,255,.2)!important;
+    box-shadow:0 10px 34px rgba(0,0,0,.24),inset 0 1px 0 rgba(255,255,255,.13)!important;
+  }
+  html body nav a,html body .quiet{
+    transition:color .2s ease,text-shadow .2s ease!important;
+  }
+  html body nav a:hover{color:#fff!important;text-shadow:0 0 14px rgba(255,138,69,.55)}
+  html body .float-tag{
+    background:linear-gradient(135deg,rgba(255,255,255,.16),rgba(255,255,255,.045) 42%,rgba(240,68,50,.09)),rgba(13,13,17,.48)!important;
+    border:1px solid rgba(255,255,255,.23)!important;
+    -webkit-backdrop-filter:blur(18px) saturate(155%)!important;
+    backdrop-filter:blur(18px) saturate(155%)!important;
+    box-shadow:0 18px 42px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.22),inset 0 -1px 0 rgba(255,255,255,.045)!important;
+  }
+  html body .principle,html body .service,html body .project,html body .note{
+    position:relative!important;
+    overflow:hidden;
+    background:linear-gradient(145deg,rgba(255,255,255,.105),rgba(255,255,255,.025) 38%,rgba(240,68,50,.055)),rgba(17,16,22,.52)!important;
+    border:1px solid rgba(255,255,255,.17)!important;
+    border-top-color:rgba(255,255,255,.28)!important;
+    -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(145%)!important;
+    backdrop-filter:blur(var(--glass-blur)) saturate(145%)!important;
+    box-shadow:var(--glass-shadow)!important;
+  }
+  html body .principle:after,html body .service:before,html body .project:before,html body .note:before{
+    content:""!important;
+    position:absolute!important;
+    z-index:0!important;
+    inset:0!important;
+    pointer-events:none!important;
+    opacity:.8!important;
+    background:linear-gradient(112deg,transparent 0%,rgba(255,255,255,.105) 14%,transparent 31%),radial-gradient(ellipse at 0% 0%,rgba(255,255,255,.12),transparent 44%),radial-gradient(ellipse at 100% 100%,rgba(240,68,50,.09),transparent 48%)!important;
+  }
+  html body .principle:hover,html body .service:hover,html body .project:hover,html body .note:hover{
+    border-color:rgba(255,170,137,.48)!important;
+    box-shadow:0 24px 62px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.25),0 0 26px rgba(240,68,50,.1)!important;
+  }
+  html body .btn,html body .pill{
+    position:relative!important;
+    overflow:hidden!important;
+    isolation:isolate;
+    border:1px solid rgba(255,255,255,.25)!important;
+    box-shadow:0 10px 28px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.27)!important;
+  }
+  html body .btn:not(.hot),html body .pill:not(.hot){
+    background:linear-gradient(135deg,rgba(255,255,255,.15),rgba(255,255,255,.035)),rgba(18,17,22,.42)!important;
+    -webkit-backdrop-filter:blur(14px) saturate(150%)!important;
+    backdrop-filter:blur(14px) saturate(150%)!important;
+  }
+  html body .btn.hot,html body .pill{
+    background:linear-gradient(120deg,rgba(255,255,255,.2),transparent 42%),linear-gradient(110deg,rgba(239,64,48,.94),rgba(255,113,56,.9))!important;
+  }
+  html body .btn:before,html body .pill:before{
+    content:""!important;position:absolute!important;inset:0!important;z-index:-1!important;
+    pointer-events:none!important;border-radius:inherit!important;
+    background:linear-gradient(115deg,rgba(255,255,255,.22),transparent 36%,rgba(255,255,255,.035) 72%,transparent)!important;
+  }
+  html body .founder-simple .founder-portrait-wrap{
+    border:1px solid rgba(255,255,255,.12)!important;
+    border-radius:24px!important;
+    background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.015)),rgba(12,11,15,.34)!important;
+    -webkit-backdrop-filter:blur(12px) saturate(130%)!important;
+    backdrop-filter:blur(12px) saturate(130%)!important;
+    box-shadow:0 22px 65px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.12)!important;
+  }
+  html body .footer{
+    background:linear-gradient(120deg,rgba(255,255,255,.045),rgba(240,68,50,.035)),rgba(8,8,11,.4)!important;
+    -webkit-backdrop-filter:blur(16px) saturate(135%)!important;
+    backdrop-filter:blur(16px) saturate(135%)!important;
+    border-top:1px solid rgba(255,255,255,.15)!important;
+  }
+  html body #cinematic-brand-reveal .brand-film-media{
+    border-color:rgba(255,255,255,.25)!important;
+    box-shadow:0 28px 75px rgba(0,0,0,.48),inset 0 1px 0 rgba(255,255,255,.18),0 0 32px rgba(240,68,50,.09)!important;
+  }
+}
+/* The contact call-to-action keeps its signature ember gradient, with a glass rim. */
+html body .contact .btn{
+  border:1px solid rgba(255,255,255,.28)!important;
+  box-shadow:0 14px 35px rgba(70,12,10,.25),inset 0 1px 0 rgba(255,255,255,.2)!important;
+}
+html body .contact .btn:hover{filter:brightness(1.08)!important}
+/* Avoid blur stacking and expensive layers on smaller / lower-power devices. */
+@media(max-width:760px){
+  :root{--glass-blur:11px}
+  html body .top{-webkit-backdrop-filter:blur(15px) saturate(145%)!important;backdrop-filter:blur(15px) saturate(145%)!important}
+  html body .principle,html body .service,html body .project,html body .note{
+    -webkit-backdrop-filter:blur(11px) saturate(125%)!important;
+    backdrop-filter:blur(11px) saturate(125%)!important;
+    box-shadow:0 12px 28px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.12)!important;
+  }
+  html body .principle:hover,html body .service:hover,html body .project:hover,html body .note:hover{transform:none!important}
+  html body .founder-simple .founder-portrait-wrap{border-radius:16px!important}
+}
+@media(hover:none){
+  html body .principle:hover,html body .service:hover,html body .project:hover,html body .note:hover{transform:none!important}
+}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  html body .top{background:rgba(8,8,11,.94)!important}
+  html body .principle,html body .service,html body .project,html body .note{background:linear-gradient(145deg,rgba(34,27,32,.97),rgba(13,13,17,.97))!important}
+}
+@media(prefers-reduced-motion:reduce){
+  html body .principle,html body .service,html body .project,html body .note,html body .btn,html body .pill{transition:none!important}
+}
