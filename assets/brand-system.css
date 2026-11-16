@@ -1043,3 +1043,53 @@ html body .brand-film-media>*{
     grid-template-columns:minmax(0,1fr)!important;
   }
 }
+
+
+/* One shared header geometry across the homepage, service pages and account page. */
+html body header.top,
+html body .top{
+  position:sticky!important;
+  top:0!important;
+  z-index:100!important;
+  min-height:76px!important;
+  height:76px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:18px!important;
+  padding:0 6%!important;
+}
+html body header.top>.logo,
+html body .top>.logo{flex:0 0 auto!important}
+html body header.top>nav,
+html body .top>nav{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  flex-wrap:wrap!important;
+  min-width:0!important;
+}
+@media(max-width:760px){
+  html body header.top,
+  html body .top{
+    height:auto!important;
+    min-height:68px!important;
+    flex-direction:column!important;
+    align-items:flex-start!important;
+    justify-content:center!important;
+    gap:12px!important;
+    padding:13px 6%!important;
+  }
+  html body header.top>nav,
+  html body .top>nav{
+    width:100%!important;
+    justify-content:flex-start!important;
+    gap:8px 14px!important;
+  }
+  html body header.top nav>a,
+  html body .top nav>a{
+    min-height:36px!important;
+    padding:7px 9px!important;
+    font-size:13px!important;
+  }
+}
