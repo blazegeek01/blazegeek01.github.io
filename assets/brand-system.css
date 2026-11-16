@@ -384,3 +384,395 @@ html body .section,html body .content,html body .wrap{
   html body{background-attachment:scroll!important}
   html body:before{position:absolute!important;min-height:100vh!important}
 }
+
+
+/* BLAZE GEEK's — unified iOS/macOS-inspired liquid-glass service cards and site header. */
+html body header.top,
+html body body>header.top,
+html body .top{
+  position:sticky!important;
+  top:10px!important;
+  z-index:100!important;
+  width:min(96%,1480px)!important;
+  min-height:66px!important;
+  height:auto!important;
+  margin:10px auto 0!important;
+  padding:10px clamp(14px,2.4vw,30px)!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:14px!important;
+  border:1px solid rgba(255,255,255,.42)!important;
+  border-radius:22px!important;
+  color:#fff!important;
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.27) 0%,rgba(255,255,255,.12) 38%,rgba(255,255,255,.07) 100%),
+    linear-gradient(120deg,rgba(50,30,25,.44),rgba(28,25,30,.34))!important;
+  box-shadow:0 16px 44px rgba(75,35,12,.20),inset 0 1px 0 rgba(255,255,255,.58),inset 0 -1px 0 rgba(255,255,255,.12)!important;
+  -webkit-backdrop-filter:blur(30px) saturate(185%)!important;
+  backdrop-filter:blur(30px) saturate(185%)!important;
+  isolation:isolate;
+}
+html body header.top::before,
+html body .top::before{
+  content:""!important;
+  position:absolute!important;
+  inset:1px!important;
+  z-index:-1!important;
+  border-radius:inherit!important;
+  pointer-events:none!important;
+  background:linear-gradient(112deg,rgba(255,255,255,.20),transparent 27%,transparent 72%,rgba(255,255,255,.08))!important;
+  opacity:1!important;
+  animation:none!important;
+}
+html body header.top::after,
+html body .top::after{
+  content:""!important;
+  position:absolute!important;
+  left:7%!important;
+  right:7%!important;
+  top:0!important;
+  height:1px!important;
+  z-index:1!important;
+  pointer-events:none!important;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.8),transparent)!important;
+  animation:none!important;
+}
+html body header.top>.logo,
+html body .top>.logo{
+  position:relative!important;
+  z-index:2!important;
+  flex:0 1 auto!important;
+  min-width:0!important;
+}
+html body header.top nav,
+html body .top nav{
+  position:relative!important;
+  z-index:2!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:clamp(10px,1.7vw,25px)!important;
+  color:#fff!important;
+  font-size:13px!important;
+  line-height:1.35!important;
+}
+html body header.top nav>a,
+html body .top nav>a{
+  position:relative!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  min-height:38px!important;
+  padding:7px 3px!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  font-size:13px!important;
+  font-weight:600!important;
+  letter-spacing:.005em!important;
+  text-shadow:none!important;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+  transform:none!important;
+  transition:color .2s ease,opacity .2s ease!important;
+}
+html body header.top nav>a::before,
+html body header.top nav>a::after,
+html body .top nav>a::before,
+html body .top nav>a::after,
+html body header.top nav .nav-shine-label::after,
+html body .top nav .nav-shine-label::after{
+  display:none!important;
+  content:none!important;
+  animation:none!important;
+  filter:none!important;
+  text-shadow:none!important;
+}
+html body header.top nav>a:hover,
+html body header.top nav>a:focus-visible,
+html body .top nav>a:hover,
+html body .top nav>a:focus-visible{
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  opacity:.78!important;
+  text-shadow:none!important;
+  transform:none!important;
+  outline:none!important;
+}
+html body header.top nav>a.pill,
+html body .top nav>a.pill{
+  min-height:40px!important;
+  padding:9px 16px!important;
+  border:1px solid rgba(255,255,255,.42)!important;
+  border-radius:14px!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  background:linear-gradient(135deg,rgba(255,255,255,.24),rgba(255,255,255,.08))!important;
+  box-shadow:inset 0 1px rgba(255,255,255,.48),0 5px 16px rgba(25,15,10,.12)!important;
+}
+html body header.top .header-menu-wrap,
+html body .top .header-menu-wrap{
+  position:relative!important;
+  z-index:5!important;
+}
+html body header.top .header-menu-toggle,
+html body .top .header-menu-toggle{
+  width:42px!important;
+  height:42px!important;
+  display:grid!important;
+  place-items:center!important;
+  border:1px solid rgba(255,255,255,.48)!important;
+  border-radius:14px!important;
+  color:#fff!important;
+  background:linear-gradient(135deg,rgba(255,255,255,.25),rgba(255,255,255,.08))!important;
+  box-shadow:inset 0 1px rgba(255,255,255,.55),0 6px 18px rgba(25,15,10,.13)!important;
+  -webkit-backdrop-filter:blur(22px) saturate(180%)!important;
+  backdrop-filter:blur(22px) saturate(180%)!important;
+  transition:background .2s ease,border-color .2s ease!important;
+}
+html body header.top .header-menu-toggle::before,
+html body .top .header-menu-toggle::before{
+  display:none!important;
+  animation:none!important;
+}
+html body header.top .header-menu-toggle:hover,
+html body header.top .header-menu-toggle:focus-visible,
+html body header.top .header-menu-toggle[aria-expanded="true"],
+html body .top .header-menu-toggle:hover,
+html body .top .header-menu-toggle:focus-visible,
+html body .top .header-menu-toggle[aria-expanded="true"]{
+  background:rgba(255,255,255,.24)!important;
+  border-color:rgba(255,255,255,.7)!important;
+  box-shadow:inset 0 1px rgba(255,255,255,.65),0 7px 20px rgba(25,15,10,.16)!important;
+  outline:none!important;
+}
+html body header.top .menu-lines i,
+html body .top .menu-lines i{
+  background:#fff!important;
+  box-shadow:none!important;
+}
+html body header.top .header-menu-panel,
+html body .top .header-menu-panel{
+  position:absolute!important;
+  top:calc(100% + 12px)!important;
+  right:0!important;
+  z-index:110!important;
+  width:min(340px,calc(100vw - 28px))!important;
+  padding:13px!important;
+  border:1px solid rgba(255,255,255,.42)!important;
+  border-radius:23px!important;
+  color:#fff!important;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.23),rgba(255,255,255,.07) 45%,rgba(255,255,255,.12)),
+    rgba(30,25,29,.70)!important;
+  box-shadow:0 24px 65px rgba(37,18,12,.28),inset 0 1px 0 rgba(255,255,255,.55),inset 0 -1px 0 rgba(255,255,255,.12)!important;
+  -webkit-backdrop-filter:blur(34px) saturate(190%)!important;
+  backdrop-filter:blur(34px) saturate(190%)!important;
+  transform-origin:top right;
+  animation:liquidMenuAppear .2s ease both!important;
+}
+html body header.top .header-menu-panel[hidden],
+html body .top .header-menu-panel[hidden]{display:none!important}
+html body header.top .header-menu-panel::before,
+html body .top .header-menu-panel::before{
+  content:""!important;
+  position:absolute!important;
+  inset:1px!important;
+  border:0!important;
+  border-radius:inherit!important;
+  pointer-events:none!important;
+  background:linear-gradient(115deg,rgba(255,255,255,.22),transparent 32%,transparent 75%,rgba(255,255,255,.07))!important;
+  opacity:1!important;
+  -webkit-mask:none!important;
+  mask:none!important;
+}
+html body header.top .header-menu-top,
+html body .top .header-menu-top{
+  position:relative!important;
+  padding:8px 10px 13px!important;
+  color:rgba(255,255,255,.68)!important;
+  font-size:10px!important;
+  letter-spacing:.16em!important;
+}
+html body header.top .header-menu-dot,
+html body .top .header-menu-dot{
+  background:#fff!important;
+  box-shadow:none!important;
+}
+html body header.top .header-menu-panel>a,
+html body .top .header-menu-panel>a{
+  position:relative!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:12px!important;
+  min-height:48px!important;
+  padding:6px 11px!important;
+  border:1px solid transparent!important;
+  border-radius:14px!important;
+  color:#fff!important;
+  font-size:13px!important;
+  font-weight:600!important;
+  text-shadow:none!important;
+  background:rgba(255,255,255,.045)!important;
+  transform:none!important;
+  transition:background .18s ease,border-color .18s ease!important;
+}
+html body header.top .header-menu-panel>a::before,
+html body .top .header-menu-panel>a::before{display:none!important;content:none!important}
+html body header.top .header-menu-panel>a:hover,
+html body header.top .header-menu-panel>a:focus-visible,
+html body .top .header-menu-panel>a:hover,
+html body .top .header-menu-panel>a:focus-visible{
+  color:#fff!important;
+  background:rgba(255,255,255,.15)!important;
+  border-color:rgba(255,255,255,.20)!important;
+  transform:none!important;
+  outline:none!important;
+}
+html body header.top .menu-item-icon,
+html body .top .menu-item-icon{
+  width:30px!important;
+  height:30px!important;
+  border:1px solid rgba(255,255,255,.26)!important;
+  border-radius:10px!important;
+  color:#fff!important;
+  background:rgba(255,255,255,.12)!important;
+  box-shadow:inset 0 1px rgba(255,255,255,.24)!important;
+}
+html body header.top .menu-item-arrow,
+html body .top .menu-item-arrow{color:rgba(255,255,255,.62)!important}
+@keyframes liquidMenuAppear{
+  from{opacity:0;transform:translateY(-5px) scale(.985)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+
+/* Frosted liquid-glass service tiles — soft refraction, crisp type, no neon or sweep effects. */
+html body #services .service-list .service,
+html body .service-list .service{
+  position:relative!important;
+  isolation:isolate!important;
+  overflow:hidden!important;
+  min-height:205px!important;
+  padding:clamp(23px,3vw,34px)!important;
+  border:1px solid rgba(255,255,255,.66)!important;
+  border-top-color:rgba(255,255,255,.94)!important;
+  border-radius:24px!important;
+  color:#302016!important;
+  background:
+    linear-gradient(138deg,rgba(255,255,255,.74) 0%,rgba(255,249,239,.48) 42%,rgba(255,255,255,.28) 100%)!important;
+  box-shadow:0 22px 52px rgba(92,43,13,.18),inset 0 1.5px 0 rgba(255,255,255,.94),inset 0 -1px 0 rgba(255,255,255,.24)!important;
+  -webkit-backdrop-filter:blur(28px) saturate(185%)!important;
+  backdrop-filter:blur(28px) saturate(185%)!important;
+  transform:none!important;
+  transition:transform .24s ease,border-color .24s ease,box-shadow .24s ease!important;
+}
+html body #services .service-list .service::before,
+html body .service-list .service::before{
+  content:""!important;
+  position:absolute!important;
+  z-index:0!important;
+  inset:0!important;
+  border:0!important;
+  border-radius:inherit!important;
+  pointer-events:none!important;
+  opacity:1!important;
+  background:
+    linear-gradient(112deg,rgba(255,255,255,.54) 0%,rgba(255,255,255,.10) 20%,transparent 42%),
+    radial-gradient(ellipse at 8% 0%,rgba(255,255,255,.60),transparent 48%),
+    radial-gradient(ellipse at 100% 100%,rgba(255,164,85,.13),transparent 52%)!important;
+  animation:none!important;
+}
+html body #services .service-list .service::after,
+html body .service-list .service::after{
+  content:""!important;
+  position:absolute!important;
+  z-index:0!important;
+  inset:auto 0 0!important;
+  width:auto!important;
+  height:1px!important;
+  border:0!important;
+  pointer-events:none!important;
+  opacity:.75!important;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.9),transparent)!important;
+  box-shadow:none!important;
+  filter:none!important;
+  animation:none!important;
+}
+html body #services .service-list .service>*,
+html body .service-list .service>*{
+  position:relative!important;
+  z-index:1!important;
+  transform:none!important;
+}
+html body #services .service-list .service .number,
+html body .service-list .service .number{
+  color:#a84b1d!important;
+  font-size:11px!important;
+  font-weight:700!important;
+  letter-spacing:.12em!important;
+}
+html body #services .service-list .service h3,
+html body .service-list .service h3{
+  color:#261910!important;
+  -webkit-text-fill-color:#261910!important;
+  background:none!important;
+  font-size:clamp(19px,2vw,23px)!important;
+  line-height:1.3!important;
+  letter-spacing:-.025em!important;
+  text-shadow:none!important;
+}
+html body #services .service-list .service p,
+html body .service-list .service p{
+  color:rgba(48,32,22,.78)!important;
+  font-size:13px!important;
+  line-height:1.8!important;
+}
+html body #services .service-list .service a,
+html body .service-list .service a{
+  color:#8f3d18!important;
+  font-weight:750!important;
+  text-shadow:none!important;
+}
+html body #services .service-list .service:hover,
+html body .service-list .service:hover{
+  border-color:rgba(255,255,255,.92)!important;
+  box-shadow:0 28px 62px rgba(92,43,13,.23),inset 0 1.5px 0 rgba(255,255,255,.98),inset 0 -1px 0 rgba(255,255,255,.3)!important;
+  transform:translateY(-4px)!important;
+}
+@media(max-width:760px){
+  html body header.top,html body .top{
+    top:6px!important;
+    width:calc(100% - 20px)!important;
+    min-height:58px!important;
+    margin:6px auto 0!important;
+    padding:8px 11px!important;
+    border-radius:18px!important;
+    gap:8px!important;
+  }
+  html body header.top nav,html body .top nav{display:none!important}
+  html body header.top>.header-menu-wrap,html body .top>.header-menu-wrap{
+    display:block!important;
+    margin-left:auto!important;
+    align-self:center!important;
+  }
+  html body header.top .header-menu-toggle,html body .top .header-menu-toggle{
+    width:40px!important;height:40px!important;border-radius:13px!important;
+  }
+  html body header.top .header-menu-panel,html body .top .header-menu-panel{
+    top:calc(100% + 10px)!important;
+    width:min(340px,calc(100vw - 28px))!important;
+  }
+  html body #services .service-list .service,html body .service-list .service{
+    min-height:0!important;
+    padding:23px!important;
+    border-radius:20px!important;
+    -webkit-backdrop-filter:blur(20px) saturate(165%)!important;
+    backdrop-filter:blur(20px) saturate(165%)!important;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  html body header.top *,html body .top *,html body .service-list .service{
+    animation:none!important;
+    transition:none!important;
+  }
+}
