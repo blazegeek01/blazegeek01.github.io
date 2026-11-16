@@ -222,3 +222,71 @@ html body footer .reveal.in {
 @media (max-width: 370px) {
   html body footer .social-links { grid-template-columns: 1fr !important; }
 }
+
+
+/* FINAL OVERRIDE — make the entire footer band full-bleed white */
+html body > footer.footer.wrap,
+html body footer.footer,
+html body footer.footer.wrap.footer {
+  display:block!important;
+  position:relative!important;
+  width:100vw!important;
+  max-width:none!important;
+  min-width:100%!important;
+  margin:0 0 0 calc(50% - 50vw)!important;
+  padding:clamp(42px,6vw,72px) max(6%,calc((100vw - 1200px)/2)) 24px!important;
+  box-sizing:border-box!important;
+  background:#fff!important;
+  background-image:none!important;
+  color:#000!important;
+  border:0!important;
+  border-top:1px solid #000!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+}
+html body > footer.footer.wrap *,
+html body footer.footer *,
+html body footer.footer.wrap * {
+  color:#000!important;
+  -webkit-text-fill-color:#000!important;
+  text-shadow:none!important;
+}
+html body > footer.footer.wrap .footerrow,
+html body footer.footer .footer-socials,
+html body footer.footer .social-links,
+html body footer.footer .social-link {
+  background:#fff!important;
+  background-image:none!important;
+  color:#000!important;
+  -webkit-text-fill-color:#000!important;
+  border-color:#000!important;
+  box-shadow:none!important;
+}
+html body footer.footer .brand-wordmark,
+html body footer.footer .brand-wordmark *,
+html body footer.footer .brand-word-first,
+html body footer.footer .brand-word-second,
+html body footer.footer .social-icon,
+html body footer.footer .social-icon svg,
+html body footer.footer .social-label,
+html body footer.footer .social-arrow,
+html body footer.footer .footer-social-kicker,
+html body footer.footer .footer-social-heading h2,
+html body footer.footer .footer-social-heading h2 span,
+html body footer.footer .footer-social-heading p,
+html body footer.footer > .mono {
+  color:#000!important;
+  -webkit-text-fill-color:#000!important;
+  fill:currentColor!important;
+  stroke:currentColor!important;
+  text-shadow:none!important;
+}
+@media(max-width:760px){
+  html body > footer.footer.wrap,
+  html body footer.footer.wrap {
+    width:100vw!important;
+    max-width:none!important;
+    margin-left:calc(50% - 50vw)!important;
+    padding:38px 6% 20px!important;
+  }
+}
