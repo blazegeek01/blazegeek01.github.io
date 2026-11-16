@@ -1,4 +1,4 @@
-const CACHE_NAME = "blaze-geeks-pwa-v19";
+const CACHE_NAME = "blaze-geeks-pwa-v20";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -6,7 +6,7 @@ const APP_SHELL = [
   "/app-icon.svg",
   "/assets/performance.css?v=3",
   "/assets/footer.css?v=3",
-  "/assets/brand-system.css?v=2"
+  "/assets/brand-system.css?v=5"
 ];
 
 // Pre-cache the small shell and critical styles so repeat visits render quickly.
@@ -36,6 +36,21 @@ self.addEventListener("activate", event => {
 self.addEventListener("fetch", event => {
   const request = event.request;
   if (request.method !== "GET" || new URL(request.url).origin !== self.location.origin) return;
+
+  // Serve the refreshed shared visual system to every page, including pages still
+  // referencing an older stylesheet query string.
+  if (/\\/assets\\/brand-system\\.css$/i.test(pathname)) {
+    const refreshed = new URL(request.url);
+    refreshed.searchParams.set("v", "5");
+    event.respondWith(fetch(new Request(refreshed.href, request)).then(response => {
+      if (response && response.ok) {
+        const copy = response.clone();
+        event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.put(request, copy)));
+      }
+      return response;
+    }));
+    return;
+  }
 
   // Large video files are streamed by the browser; do not duplicate them in Cache Storage.
   const pathname = new URL(request.url).pathname;
