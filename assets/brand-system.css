@@ -776,3 +776,110 @@ html body .service-list .service:hover{
     transition:none!important;
   }
 }
+
+
+/* Header refinement: larger navigation, clean press state, liquid-glass motion,
+   and a liquid highlight on the BLAZE GEEK's wordmark. */
+html body header.top nav,
+html body .top nav{font-size:15px!important;gap:clamp(12px,1.8vw,27px)!important}
+html body header.top nav>a,
+html body .top nav>a{
+  min-height:42px!important;
+  padding:8px 5px!important;
+  font-size:15px!important;
+  font-weight:650!important;
+  letter-spacing:.012em!important;
+  border-radius:12px!important;
+  -webkit-tap-highlight-color:transparent!important;
+  outline:none!important;
+}
+html body header.top nav>a:active,
+html body header.top nav>a:focus,
+html body header.top nav>a:focus-visible,
+html body .top nav>a:active,
+html body .top nav>a:focus,
+html body .top nav>a:focus-visible{
+  background:transparent!important;
+  box-shadow:none!important;
+  outline:none!important;
+  opacity:.82!important;
+  -webkit-tap-highlight-color:transparent!important;
+}
+html body header.top nav>a.pill:active,
+html body header.top nav>a.pill:focus,
+html body header.top nav>a.pill:focus-visible,
+html body .top nav>a.pill:active,
+html body .top nav>a.pill:focus,
+html body .top nav>a.pill:focus-visible{
+  background:linear-gradient(135deg,rgba(255,255,255,.25),rgba(255,255,255,.09))!important;
+  box-shadow:inset 0 1px rgba(255,255,255,.48)!important;
+}
+html body header.top .logo,
+html body .top .logo{
+  display:flex!important;align-items:center!important;gap:10px!important;
+  -webkit-tap-highlight-color:transparent!important;
+}
+html body header.top .brand-wordmark,
+html body .top .brand-wordmark{
+  display:inline-flex!important;align-items:baseline!important;gap:.24em!important;
+  font-size:clamp(17px,1.55vw,21px)!important;font-weight:850!important;
+  letter-spacing:-.045em!important;line-height:1!important;
+  color:#f4771d!important;-webkit-text-fill-color:#f4771d!important;
+}
+html body header.top .brand-word-first,
+html body .top .brand-word-first{
+  color:#f4771d!important;-webkit-text-fill-color:#f4771d!important;
+}
+html body header.top .brand-word-second,
+html body .top .brand-word-second{
+  color:#171311!important;-webkit-text-fill-color:#171311!important;
+  background:none!important;text-shadow:none!important;
+}
+html body header.top .brand-wordmark::after,
+html body .top .brand-wordmark::after{
+  content:""!important;position:absolute!important;pointer-events:none!important;
+  inset:-7px -10px!important;border-radius:12px!important;z-index:-1!important;
+  background:linear-gradient(118deg,rgba(255,255,255,.34),rgba(255,255,255,.08) 42%,rgba(255,255,255,.22))!important;
+  border:1px solid rgba(255,255,255,.28)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.48),0 5px 16px rgba(70,35,12,.10)!important;
+  -webkit-backdrop-filter:blur(18px) saturate(175%)!important;
+  backdrop-filter:blur(18px) saturate(175%)!important;
+}
+html body header.top .brand-wordmark,
+html body .top .brand-wordmark{position:relative!important;isolation:isolate!important}
+html body header.top .brand-wordmark::before,
+html body .top .brand-wordmark::before{
+  content:""!important;position:absolute!important;z-index:2!important;
+  inset:-3px -8px!important;border-radius:10px!important;pointer-events:none!important;
+  background:linear-gradient(105deg,transparent 28%,rgba(255,255,255,0) 38%,rgba(255,255,255,.78) 49%,rgba(255,255,255,.16) 55%,transparent 68%)!important;
+  background-size:240% 100%!important;background-position:150% 0!important;
+  mix-blend-mode:screen!important;opacity:.72!important;
+  animation:brandLiquidHighlight 5.8s cubic-bezier(.45,0,.55,1) infinite!important;
+}
+@keyframes brandLiquidHighlight{
+  0%,18%{background-position:150% 0;opacity:0}
+  48%{background-position:0 0;opacity:.72}
+  62%,100%{background-position:-100% 0;opacity:0}
+}
+/* A soft moving meniscus makes the glass feel fluid without a harsh click flash. */
+html body header.top,
+html body .top{overflow:visible!important}
+html body header.top nav>a:hover,
+html body .top nav>a:hover{
+  background:linear-gradient(115deg,rgba(255,255,255,.13),rgba(255,255,255,.035))!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.23),0 3px 12px rgba(70,35,12,.08)!important;
+  opacity:1!important;
+}
+html body header.top .header-menu-toggle:active,
+html body .top .header-menu-toggle:active{
+  background:linear-gradient(135deg,rgba(255,255,255,.30),rgba(255,255,255,.12))!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.62),0 4px 14px rgba(25,15,10,.12)!important;
+  transform:scale(.97)!important;
+}
+@media(max-width:760px){
+  html body header.top .brand-wordmark,html body .top .brand-wordmark{font-size:18px!important}
+  html body header.top nav,html body .top nav{font-size:15px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  html body header.top .brand-wordmark::before,html body .top .brand-wordmark::before{animation:none!important;opacity:0!important}
+}
