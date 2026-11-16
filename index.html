@@ -4594,3 +4594,80 @@ html body header.top nav > a.pill:hover {
   box-shadow:0 7px 22px rgba(255,145,48,.28),inset 0 1px 0 rgba(255,255,255,.52)!important;
 }
 </style>
+
+
+<style id="liquid-glass-crystal-outlines">
+/* Replace dark/charcoal-looking edges with bright, refractive liquid-glass contours. */
+header.top{
+  border-color:rgba(255,255,255,.42)!important;
+  box-shadow:0 18px 50px rgba(0,0,0,.22),
+    inset 0 1.25px 0 rgba(255,255,255,.48),
+    inset 0 -1px 0 rgba(255,255,255,.16),
+    0 0 0 1px rgba(255,255,255,.07)!important;
+}
+header.top::before{
+  background:linear-gradient(112deg,
+    rgba(255,255,255,.82) 0%,
+    rgba(255,255,255,.28) 12%,
+    rgba(255,255,255,.08) 27%,
+    transparent 38%,
+    rgba(255,255,255,.2) 47%,
+    rgba(255,255,255,.78) 52%,
+    rgba(255,190,155,.48) 56%,
+    rgba(255,255,255,.12) 68%,
+    transparent 82%,
+    rgba(255,255,255,.42) 96%);
+  background-size:240% 100%;
+}
+header.top .logo::before,
+header.top nav>a::before{
+  background:linear-gradient(135deg,
+    rgba(255,255,255,.7),
+    rgba(255,255,255,.18) 24%,
+    rgba(255,255,255,.05) 48%,
+    rgba(255,255,255,.46) 70%,
+    rgba(255,255,255,.12) 86%,
+    rgba(255,255,255,.62));
+}
+header.top nav>a{
+  border-color:rgba(255,255,255,.08);
+}
+.header-menu-toggle{
+  border-color:rgba(255,255,255,.48)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.58),
+    inset 0 -1px 0 rgba(255,255,255,.16),
+    0 8px 22px rgba(0,0,0,.16),
+    0 0 0 1px rgba(255,255,255,.08)!important;
+}
+.header-menu-toggle::before{
+  background:linear-gradient(115deg,
+    rgba(255,255,255,.9) 0%,
+    rgba(255,255,255,.24) 25%,
+    transparent 42%,
+    rgba(255,255,255,.72) 50%,
+    rgba(255,185,150,.4) 55%,
+    rgba(255,255,255,.16) 68%,
+    transparent 82%);
+}
+.header-menu-panel{
+  border-color:rgba(255,255,255,.42)!important;
+  box-shadow:0 24px 70px rgba(0,0,0,.42),
+    inset 0 1px 0 rgba(255,255,255,.48),
+    inset 0 -1px 0 rgba(255,255,255,.13),
+    0 0 0 1px rgba(255,255,255,.08)!important;
+}
+.header-menu-panel::before{
+  background:linear-gradient(125deg,
+    rgba(255,255,255,.9) 0%,
+    rgba(255,255,255,.26) 20%,
+    rgba(255,255,255,.06) 42%,
+    rgba(255,255,255,.5) 62%,
+    rgba(255,177,139,.34) 72%,
+    rgba(255,255,255,.14) 86%,
+    rgba(255,255,255,.68) 100%)!important;
+}
+.menu-item-icon{
+  border-color:rgba(255,255,255,.28)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.3);
+}
+</style>
