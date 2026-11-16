@@ -1093,3 +1093,34 @@ html body .top>nav{
     font-size:13px!important;
   }
 }
+
+
+/* Liquid Glass treatment for the quick-menu surface and its trigger — no charcoal rim. */
+html body header.top .header-menu-toggle,
+html body .top .header-menu-toggle{
+  border:1px solid rgba(255,255,255,.26)!important;
+  background:linear-gradient(135deg,rgba(255,255,255,.16),rgba(255,255,255,.045))!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.32),0 8px 22px rgba(0,0,0,.14)!important;
+  -webkit-backdrop-filter:blur(16px) saturate(170%)!important;
+  backdrop-filter:blur(16px) saturate(170%)!important;
+}
+html body header.top .header-menu-panel,
+html body .top .header-menu-panel{
+  border:1px solid rgba(255,255,255,.26)!important;
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.15),rgba(255,255,255,.035) 45%,rgba(255,255,255,.075)),
+    rgba(28,24,28,.66)!important;
+  -webkit-backdrop-filter:blur(30px) saturate(180%)!important;
+  backdrop-filter:blur(30px) saturate(180%)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.30),0 22px 60px rgba(0,0,0,.24)!important;
+}
+html body header.top .header-menu-panel>a,
+html body .top .header-menu-panel>a{
+  border-color:rgba(255,255,255,.13)!important;
+  background:linear-gradient(110deg,rgba(255,255,255,.045),transparent)!important;
+}
+html body header.top .header-menu-panel>a:hover,
+html body .top .header-menu-panel>a:hover{
+  border-color:rgba(255,255,255,.30)!important;
+  background:linear-gradient(110deg,rgba(255,255,255,.16),rgba(255,255,255,.035))!important;
+}
