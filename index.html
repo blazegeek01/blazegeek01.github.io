@@ -4382,3 +4382,35 @@ html body section#cinematic-brand-reveal .brand-film-index{display:none!importan
 
 
 
+
+
+<style id="blaze-brand-film-no-black-frame-fix">
+/* Keep the brand-film viewport visually intentional while media initializes. */
+html body section#cinematic-brand-reveal .brand-film-media{
+  aspect-ratio:16/9!important;
+  min-height:0!important;
+  background:
+    radial-gradient(ellipse at 72% 48%,rgba(255,111,48,.34),transparent 38%),
+    radial-gradient(ellipse at 24% 70%,rgba(194,43,31,.24),transparent 42%),
+    linear-gradient(125deg,#24100f 0%,#411a16 48%,#140d10 100%)!important;
+}
+html body section#cinematic-brand-reveal video.brand-film-video{
+  width:100%!important;
+  height:100%!important;
+  aspect-ratio:16/9!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  background:transparent!important;
+}
+@media(max-width:760px){
+  html body section#cinematic-brand-reveal .brand-film-media{
+    width:100%!important;
+    aspect-ratio:16/9!important;
+  }
+  html body section#cinematic-brand-reveal video.brand-film-video{
+    width:100%!important;
+    height:100%!important;
+    object-fit:cover!important;
+  }
+}
+</style>
