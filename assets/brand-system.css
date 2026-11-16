@@ -185,3 +185,124 @@ html body .contact .btn:hover{filter:brightness(1.08)!important}
 @media(prefers-reduced-motion:reduce){
   html body .principle,html body .service,html body .project,html body .note,html body .btn,html body .pill{transition:none!important}
 }
+
+
+/* BLAZE GEEK's — warm orange / golden-yellow site-wide background refresh */
+:root{
+  color-scheme:light!important;
+  --bg:#f6a52f!important;
+  --panel:rgba(255,248,226,.68)!important;
+  --white:#2b180b!important;
+  --muted:#654327!important;
+  --line:rgba(92,47,12,.2)!important;
+  --depth:0 22px 65px rgba(107,54,7,.18)!important;
+}
+html,html body{
+  background:#f6a52f!important;
+  color:#2b180b!important;
+}
+html body{
+  background:linear-gradient(128deg,#ffbd45 0%,#ff9a32 34%,#ffd86b 68%,#ffad3d 100%)!important;
+  background-attachment:fixed!important;
+}
+html body:before{
+  z-index:-1!important;
+  opacity:1!important;
+  background:
+    radial-gradient(ellipse at 12% 8%,rgba(255,239,157,.92),transparent 38%),
+    radial-gradient(ellipse at 88% 24%,rgba(255,126,35,.36),transparent 42%),
+    radial-gradient(ellipse at 48% 92%,rgba(255,221,105,.72),transparent 46%),
+    linear-gradient(128deg,#ffbd45 0%,#ff9a32 34%,#ffd86b 68%,#ffad3d 100%)!important;
+}
+html body main,html body section,html body .hero,html body .ticker,
+html body .section,html body .content,html body .wrap{
+  background-color:transparent!important;
+}
+html body h1,html body h2,html body h3,html body h4,
+html body p,html body li,html body label,html body small,
+html body .quiet,html body .lead,html body .mono,html body nav a,
+html body .stage-label,html body .stage-label span{
+  color:#2b180b!important;
+}
+html body h1 em,html body .eyebrow,html body .kicker,
+html body .mono,html body .ticker:before{
+  color:#87340d!important;
+}
+html body .top{
+  color:#2b180b!important;
+  background:linear-gradient(120deg,rgba(255,250,232,.82),rgba(255,226,166,.56))!important;
+  border-bottom:1px solid rgba(100,51,11,.2)!important;
+  box-shadow:0 8px 28px rgba(116,59,9,.12),inset 0 1px rgba(255,255,255,.72)!important;
+  -webkit-backdrop-filter:blur(24px) saturate(155%)!important;
+  backdrop-filter:blur(24px) saturate(155%)!important;
+}
+html body nav{color:#42230e!important}
+html body nav a:hover{color:#a43e10!important}
+html body .float-tag{
+  color:#3a210f!important;
+  background:linear-gradient(135deg,rgba(255,255,245,.82),rgba(255,226,171,.62))!important;
+  border:1px solid rgba(255,255,255,.72)!important;
+  box-shadow:0 16px 38px rgba(117,60,10,.18),inset 0 1px 0 rgba(255,255,255,.9)!important;
+  -webkit-backdrop-filter:blur(18px) saturate(145%)!important;
+  backdrop-filter:blur(18px) saturate(145%)!important;
+}
+html body .principle,html body .service,html body .project,html body .note,
+html body .founder-simple .founder-portrait-wrap{
+  color:#2b180b!important;
+  background:linear-gradient(145deg,rgba(255,255,247,.82),rgba(255,239,205,.62))!important;
+  border:1px solid rgba(255,255,255,.76)!important;
+  border-top-color:rgba(255,255,255,.96)!important;
+  box-shadow:0 18px 48px rgba(111,55,7,.16),inset 0 1px 0 rgba(255,255,255,.9)!important;
+  -webkit-backdrop-filter:blur(18px) saturate(140%)!important;
+  backdrop-filter:blur(18px) saturate(140%)!important;
+}
+html body .principle:after,html body .service:before,
+html body .project:before,html body .note:before{
+  background:linear-gradient(112deg,transparent 0%,rgba(255,255,255,.58) 14%,transparent 31%),
+    radial-gradient(ellipse at 0% 0%,rgba(255,255,255,.58),transparent 44%),
+    radial-gradient(ellipse at 100% 100%,rgba(255,166,55,.16),transparent 48%)!important;
+}
+html body .principle *,html body .service *,html body .project *,
+html body .note *,html body .founder-simple .founder-portrait-wrap *{
+  color:#38200e!important;
+}
+html body .btn,html body .pill{
+  color:#fff!important;
+  border:1px solid rgba(255,255,255,.55)!important;
+  box-shadow:0 10px 26px rgba(119,47,7,.2),inset 0 1px 0 rgba(255,255,255,.42)!important;
+}
+html body .btn:not(.hot),html body .pill:not(.hot){
+  color:#54260d!important;
+  background:linear-gradient(135deg,rgba(255,255,245,.88),rgba(255,224,164,.74))!important;
+}
+html body .btn.hot,html body .pill{
+  color:#fff!important;
+  background:linear-gradient(115deg,#b83d13,#ef6722 54%,#f28a28)!important;
+}
+html body .footer{
+  color:#2b180b!important;
+  background:linear-gradient(120deg,rgba(255,249,230,.72),rgba(255,215,143,.58))!important;
+  border-top:1px solid rgba(110,54,10,.2)!important;
+  -webkit-backdrop-filter:blur(18px) saturate(140%)!important;
+  backdrop-filter:blur(18px) saturate(140%)!important;
+}
+html body .footer *{color:#38200e!important}
+html body .contact{
+  color:#2b180b!important;
+  background:linear-gradient(135deg,rgba(255,248,224,.62),rgba(255,205,119,.48))!important;
+}
+html body #cinematic-brand-reveal .brand-film-media{
+  box-shadow:0 24px 65px rgba(102,45,5,.25),inset 0 1px 0 rgba(255,255,255,.55)!important;
+}
+@media(max-width:760px){
+  html body{background-attachment:scroll!important}
+  html body .top{-webkit-backdrop-filter:blur(14px) saturate(140%)!important;backdrop-filter:blur(14px) saturate(140%)!important}
+  html body .principle,html body .service,html body .project,html body .note{
+    -webkit-backdrop-filter:blur(10px) saturate(125%)!important;
+    backdrop-filter:blur(10px) saturate(125%)!important;
+    box-shadow:0 10px 24px rgba(111,55,7,.14),inset 0 1px 0 rgba(255,255,255,.72)!important;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  html body .top,html body .principle,html body .service,html body .project,html body .note{transition:none!important}
+}
