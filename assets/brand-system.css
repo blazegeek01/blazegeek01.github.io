@@ -348,3 +348,39 @@ html body .contact{
 @media(max-width:760px){
   html body{background-attachment:scroll!important}
 }
+
+
+/* BLAZE GEEK's — flowing orange / molten-gold wallpaper-inspired background.
+   CSS recreation of the smooth organic gradient style; no third-party wallpaper asset loaded. */
+html,html body{
+  background:#f47b19!important;
+  background-image:
+    radial-gradient(ellipse 68% 86% at 52% 64%,#ffd20a 0%,#ffc20a 30%,rgba(255,184,10,0) 72%),
+    radial-gradient(ellipse 58% 105% at -7% 47%,#f05d22 0%,#f36b1c 43%,rgba(243,107,28,0) 74%),
+    radial-gradient(ellipse 54% 92% at 108% 57%,#ff9a0b 0%,#f88410 48%,rgba(248,132,16,0) 78%),
+    linear-gradient(110deg,#f4771d 0%,#ff9b08 44%,#ffc20a 63%,#f4771d 100%)!important;
+  background-attachment:fixed!important;
+  background-size:cover!important;
+}
+html body:before{
+  content:""!important;
+  position:fixed!important;
+  inset:0!important;
+  z-index:-1!important;
+  pointer-events:none!important;
+  opacity:1!important;
+  background:
+    radial-gradient(ellipse 70% 78% at 52% 70%,rgba(255,222,0,.9) 0%,rgba(255,192,0,.58) 34%,transparent 72%),
+    radial-gradient(ellipse 65% 100% at -10% 47%,rgba(242,81,28,.9) 0%,rgba(243,104,24,.58) 42%,transparent 73%),
+    radial-gradient(ellipse 48% 90% at 106% 54%,rgba(255,151,7,.8) 0%,rgba(255,164,0,.34) 50%,transparent 78%),
+    linear-gradient(180deg,rgba(255,131,10,.18) 0%,transparent 38%,rgba(255,183,0,.16) 100%)!important;
+  filter:saturate(1.06)!important;
+}
+html body main,html body section,html body .hero,html body .ticker,
+html body .section,html body .content,html body .wrap{
+  background-color:transparent!important;
+}
+@media(max-width:760px){
+  html body{background-attachment:scroll!important}
+  html body:before{position:absolute!important;min-height:100vh!important}
+}
