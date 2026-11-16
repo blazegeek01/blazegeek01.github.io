@@ -37,9 +37,11 @@ self.addEventListener("fetch", event => {
   const request = event.request;
   if (request.method !== "GET" || new URL(request.url).origin !== self.location.origin) return;
 
+  const pathname = new URL(request.url).pathname;
+
   // Serve the refreshed shared visual system to every page, including pages still
   // referencing an older stylesheet query string.
-  if (/\\/assets\\/brand-system\\.css$/i.test(pathname)) {
+  if (pathname === "/assets/brand-system.css") {
     const refreshed = new URL(request.url);
     refreshed.searchParams.set("v", "5");
     event.respondWith(fetch(new Request(refreshed.href, request)).then(response => {
@@ -53,7 +55,6 @@ self.addEventListener("fetch", event => {
   }
 
   // Large video files are streamed by the browser; do not duplicate them in Cache Storage.
-  const pathname = new URL(request.url).pathname;
   const isVideo = request.destination === "video" || /\.mp4$/i.test(pathname);
 
   if (request.mode === "navigate") {
