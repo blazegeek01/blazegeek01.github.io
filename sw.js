@@ -1,4 +1,4 @@
-const CACHE_NAME = "blaze-geeks-pwa-v21";
+const CACHE_NAME = "blaze-geeks-pwa-v22";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -6,7 +6,7 @@ const APP_SHELL = [
   "/app-icon.svg",
   "/assets/performance.css?v=3",
   "/assets/footer.css?v=3",
-  "/assets/brand-system.css?v=6"
+  "/assets/brand-system.css?v=7"
 ];
 
 // Pre-cache the small shell and critical styles so repeat visits render quickly.
@@ -43,7 +43,7 @@ self.addEventListener("fetch", event => {
   // referencing an older stylesheet query string.
   if (pathname === "/assets/brand-system.css") {
     const refreshed = new URL(request.url);
-    refreshed.searchParams.set("v", "6");
+    refreshed.searchParams.set("v", "7");
     event.respondWith(fetch(new Request(refreshed.href, request)).then(response => {
       if (response && response.ok) {
         const copy = response.clone();
