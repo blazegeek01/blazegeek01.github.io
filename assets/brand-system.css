@@ -1017,13 +1017,6 @@ html body .brand-film-media,
 html body .brand-film-media>*{
   min-width:0!important;
 }
-@media(max-width:760px){
-  html body header.top,
-  html body .top{
-    border-radius:0!important;
-    border-left:0!important;
-    border-right:0!important;
-  }
   html body header.top nav>a,
   html body .top nav>a{border-color:rgba(255,255,255,.12)!important}
   html body #cinematic-brand-reveal .brand-film-media{
