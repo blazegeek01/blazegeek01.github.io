@@ -1,4 +1,4 @@
-const CACHE_NAME = "blaze-geeks-pwa-v22";
+const CACHE_NAME = "blaze-geeks-pwa-v23";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -6,7 +6,7 @@ const APP_SHELL = [
   "/app-icon.svg",
   "/assets/performance.css?v=3",
   "/assets/footer.css?v=3",
-  "/assets/brand-system.css?v=7"
+  "/assets/brand-system.css?v=8"
 ];
 
 // Pre-cache the small shell and critical styles so repeat visits render quickly.
