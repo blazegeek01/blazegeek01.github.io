@@ -1552,3 +1552,13 @@ html body .top nav>a.pill:focus-visible{
   html body header.top nav>a:active,
   html body .top nav>a:active{transition:none!important}
 }
+
+/* Keep the glossy gel highlight above the link surface and below its label. */
+html body header.top nav>a:active::before,
+html body .top nav>a:active::before,
+html body header.top nav>a:focus::before,
+html body .top nav>a:focus-visible::before{z-index:0!important}
+html body header.top nav>a:active>*,
+html body .top nav>a:active>*,
+html body header.top nav>a:focus>*,
+html body .top nav>a:focus-visible>*{position:relative!important;z-index:1!important}
