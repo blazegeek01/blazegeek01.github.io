@@ -1093,3 +1093,42 @@ html body .top .header-menu-panel>a:hover{
   border-color:rgba(255,255,255,.30)!important;
   background:linear-gradient(110deg,rgba(255,255,255,.16),rgba(255,255,255,.035))!important;
 }
+
+
+/* FINAL HEADER NAV REFINEMENT — liquid interaction, no individual button outlines. */
+html body header.top nav>a,
+html body .top nav>a{
+  border:0!important;
+  outline:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  -webkit-backdrop-filter:none!important;
+  backdrop-filter:none!important;
+  border-radius:999px!important;
+}
+html body header.top nav>a:hover,
+html body header.top nav>a:focus-visible,
+html body .top nav>a:hover,
+html body .top nav>a:focus-visible{
+  border:0!important;
+  outline:0!important;
+  background:
+    linear-gradient(115deg,rgba(255,255,255,.16),rgba(255,255,255,.045) 48%,rgba(255,255,255,.09))!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.24),
+    0 5px 18px rgba(40,22,12,.09)!important;
+  -webkit-backdrop-filter:blur(13px) saturate(165%)!important;
+  backdrop-filter:blur(13px) saturate(165%)!important;
+  opacity:1!important;
+}
+html body header.top nav>a.pill,
+html body .top nav>a.pill{
+  border:0!important;
+  outline:0!important;
+  box-shadow:none!important;
+}
+html body header.top nav>a.pill:hover,
+html body .top nav>a.pill:hover{
+  border:0!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 7px 20px rgba(40,22,12,.12)!important;
+}
