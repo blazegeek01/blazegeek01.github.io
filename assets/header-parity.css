@@ -1,0 +1,138 @@
+/* Shared header parity: match the homepage header across every page. Header only. */
+html body header.top{
+  background:rgba(24,22,25,.30)!important;
+  background-image:linear-gradient(112deg,rgba(255,255,255,.075),rgba(255,255,255,.018) 46%,rgba(255,145,105,.035))!important;
+  border:0!important;border-bottom:0!important;outline:0!important;
+  box-shadow:0 12px 36px rgba(0,0,0,.10)!important;
+  -webkit-backdrop-filter:blur(30px) saturate(175%)!important;
+  backdrop-filter:blur(30px) saturate(175%)!important;
+}
+html body header.top::before,html body header.top::after{
+  content:none!important;display:none!important;border:0!important;outline:0!important;box-shadow:none!important
+}
+html body header.top > a.logo{
+  display:flex!important;align-items:center!important;gap:3px!important;column-gap:3px!important;
+  background:transparent!important;background-color:transparent!important;background-image:none!important;
+  border:0!important;border-color:transparent!important;border-radius:0!important;box-shadow:none!important;
+  outline:0!important;filter:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+  padding:0!important;overflow:visible!important
+}
+html body header.top > a.logo > img.brand-logo-img{
+  display:block!important;flex:0 0 42px!important;width:42px!important;height:42px!important;
+  margin:0!important;object-fit:contain!important
+}
+html body header.top > a.logo > .brand-wordmark{
+  display:inline-flex!important;align-items:center!important;gap:0!important;column-gap:0!important;
+  margin:0!important;padding:0!important;font-size:1.12em!important;font-weight:900!important;
+  line-height:1!important;letter-spacing:-.035em!important;background:transparent!important;background-image:none!important;
+  -webkit-background-clip:border-box!important;background-clip:border-box!important;
+  -webkit-text-fill-color:initial!important;filter:none!important;box-shadow:none!important;text-shadow:none!important;
+  -webkit-backdrop-filter:none!important;backdrop-filter:none!important
+}
+html body header.top > a.logo > .brand-wordmark > .brand-word-first,
+html body header.top > a.logo > .brand-wordmark > .brand-word-second{
+  display:inline!important;margin:0!important;padding:0!important;font-size:inherit!important;
+  font-weight:900!important;line-height:inherit!important;letter-spacing:inherit!important;
+  background:transparent!important;background-image:none!important;box-shadow:none!important;filter:none!important;
+  text-shadow:none!important;-webkit-text-stroke:0!important
+}
+html body header.top > a.logo > .brand-wordmark > .brand-word-first{
+  color:#ff7a24!important;-webkit-text-fill-color:#ff7a24!important
+}
+html body header.top > a.logo > .brand-wordmark > .brand-word-second{
+  margin-left:.24em!important;color:#fff!important;-webkit-text-fill-color:#fff!important
+}
+html body header.top > a.logo::before,html body header.top > a.logo::after,
+html body header.top > a.logo > .brand-wordmark::before,html body header.top > a.logo > .brand-wordmark::after,
+html body header.top > a.logo > .brand-wordmark > .brand-word-first::before,
+html body header.top > a.logo > .brand-wordmark > .brand-word-first::after,
+html body header.top > a.logo > .brand-wordmark > .brand-word-second::before,
+html body header.top > a.logo > .brand-wordmark > .brand-word-second::after{
+  content:none!important;display:none!important;background:none!important;background-image:none!important;
+  border:0!important;box-shadow:none!important;filter:none!important;opacity:0!important
+}
+html body header.top nav>a,html body header.top nav>a.pill{
+  position:relative!important;isolation:isolate!important;overflow:hidden!important;
+  border:0!important;outline:0!important;box-shadow:none!important;border-radius:999px!important;
+  background:transparent!important;background-image:none!important;
+  -webkit-backdrop-filter:none!important;backdrop-filter:none!important;transform:none!important;
+  transition:color .18s ease,background .18s ease,transform .18s ease!important
+}
+html body header.top nav>a::before,html body header.top nav>a::after{
+  content:""!important;display:block!important;position:absolute!important;inset:0!important;z-index:-1!important;
+  pointer-events:none!important;border:0!important;outline:0!important;border-radius:inherit!important;opacity:0!important;
+  background:radial-gradient(ellipse at 22% 0%,rgba(255,255,255,.48),transparent 42%),
+    radial-gradient(ellipse at 86% 100%,rgba(167,218,255,.16),transparent 48%),
+    linear-gradient(135deg,rgba(255,255,255,.19),rgba(255,255,255,.035) 42%,rgba(255,255,255,.13))!important;
+  box-shadow:inset 0 1px 2px rgba(255,255,255,.22),inset 0 -2px 5px rgba(115,165,195,.12)!important;
+  -webkit-backdrop-filter:blur(22px) saturate(195%)!important;backdrop-filter:blur(22px) saturate(195%)!important;
+  transition:opacity .18s ease!important
+}
+html body header.top nav>a:hover::before,html body header.top nav>a:focus-visible::before,
+html body header.top nav>a:active::before,html body header.top nav>a.pill:hover::before,
+html body header.top nav>a.pill:focus-visible::before,html body header.top nav>a.pill:active::before{opacity:1!important}
+html body header.top nav>a:hover,html body header.top nav>a:focus-visible,html body header.top nav>a:active,
+html body header.top nav>a.pill:hover,html body header.top nav>a.pill:focus-visible,html body header.top nav>a.pill:active{
+  border:0!important;outline:0!important;box-shadow:none!important;background:transparent!important;background-image:none!important;
+  -webkit-backdrop-filter:blur(22px) saturate(195%)!important;backdrop-filter:blur(22px) saturate(195%)!important;
+  transform:translateY(-1px) scale(.985)!important
+}
+html body header.top nav>a:focus,html body header.top nav>a.pill:focus{outline:0!important}
+html body header.top nav>a.pill{color:#24130a!important;-webkit-text-fill-color:#24130a!important}
+html body header.top nav>a.pill::before{
+  background:radial-gradient(ellipse at 22% 0%,rgba(255,255,255,.48),transparent 42%),
+    linear-gradient(135deg,rgba(255,255,255,.20),rgba(255,255,255,.045) 48%,rgba(255,255,255,.14))!important
+}
+html body header.top .header-menu-toggle,html body .top .header-menu-toggle{
+  border:0!important;outline:0!important;background:rgba(255,255,255,.075)!important;box-shadow:none!important;
+  -webkit-backdrop-filter:blur(24px) saturate(180%)!important;backdrop-filter:blur(24px) saturate(180%)!important
+}
+html body header.top .header-menu-toggle::before,html body .top .header-menu-toggle::before{
+  content:none!important;display:none!important;border:0!important;box-shadow:none!important
+}
+html body header.top .header-menu-toggle:hover,html body header.top .header-menu-toggle:focus-visible,
+html body header.top .header-menu-toggle[aria-expanded="true"]{
+  border:0!important;outline:0!important;background:rgba(255,255,255,.12)!important;box-shadow:none!important
+}
+html body header.top .header-menu-panel,html body .top .header-menu-panel{
+  border:0!important;outline:0!important;
+  background:linear-gradient(135deg,rgba(255,255,255,.13),rgba(255,255,255,.035) 52%,rgba(255,145,105,.045)),rgba(25,23,27,.48)!important;
+  box-shadow:0 24px 65px rgba(0,0,0,.20)!important;
+  -webkit-backdrop-filter:blur(32px) saturate(185%)!important;backdrop-filter:blur(32px) saturate(185%)!important
+}
+html body header.top .header-menu-panel::before,html body .top .header-menu-panel::before{
+  content:none!important;display:none!important;border:0!important;box-shadow:none!important
+}
+html body header.top .header-menu-panel>a,html body .top .header-menu-panel>a{
+  position:relative!important;isolation:isolate!important;overflow:hidden!important;border:0!important;outline:0!important;
+  box-shadow:none!important;background:transparent!important;border-radius:12px!important;
+  -webkit-backdrop-filter:none!important;backdrop-filter:none!important
+}
+html body header.top .header-menu-panel>a::before,html body .top .header-menu-panel>a::before{
+  content:""!important;position:absolute!important;inset:0!important;z-index:-1!important;border:0!important;outline:0!important;
+  border-radius:inherit!important;opacity:0!important;
+  background:radial-gradient(ellipse at 20% 0%,rgba(255,255,255,.42),transparent 45%),
+    linear-gradient(135deg,rgba(255,255,255,.16),rgba(255,255,255,.035) 55%,rgba(255,255,255,.11))!important;
+  box-shadow:inset 0 1px 2px rgba(255,255,255,.18)!important;
+  -webkit-backdrop-filter:blur(20px) saturate(185%)!important;backdrop-filter:blur(20px) saturate(185%)!important;
+  transition:opacity .16s ease!important
+}
+html body header.top .header-menu-panel>a:hover::before,html body header.top .header-menu-panel>a:focus-visible::before,
+html body header.top .header-menu-panel>a:active::before,html body .top .header-menu-panel>a:hover::before,
+html body .top .header-menu-panel>a:focus-visible::before,html body .top .header-menu-panel>a:active::before{opacity:1!important}
+html body header.top .header-menu-panel>a:hover,html body header.top .header-menu-panel>a:focus-visible,
+html body header.top .header-menu-panel>a:active{
+  border:0!important;outline:0!important;background:transparent!important;box-shadow:none!important;
+  -webkit-backdrop-filter:blur(20px) saturate(185%)!important;backdrop-filter:blur(20px) saturate(185%)!important
+}
+html body header.top .header-menu-panel>a::after{content:none!important;display:none!important}
+@media(max-width:760px){
+  html body header.top{background:rgba(24,22,25,.36)!important;-webkit-backdrop-filter:blur(20px) saturate(155%)!important;backdrop-filter:blur(20px) saturate(155%)!important}
+  html body header.top .header-menu-panel{background:rgba(25,23,27,.58)!important;-webkit-backdrop-filter:blur(24px) saturate(165%)!important;backdrop-filter:blur(24px) saturate(165%)!important}
+  html body header.top>a.logo{gap:0!important;column-gap:0!important}
+  html body header.top>a.logo>img.brand-logo-img{width:30px!important;height:30px!important;flex:0 0 30px!important;margin:0 -2px 0 0!important}
+  html body header.top>a.logo>.brand-wordmark{margin:0!important;padding:0!important;font-weight:500!important}
+}
+@media(max-width:380px){
+  html body header.top>a.logo>img.brand-logo-img{width:26px!important;height:26px!important;flex-basis:26px!important;margin-right:-2px!important}
+}
