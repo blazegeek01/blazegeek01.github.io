@@ -1132,3 +1132,210 @@ html body .top nav>a.pill:hover{
   border:0!important;
   box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 7px 20px rgba(40,22,12,.12)!important;
 }
+
+
+/* ARMAN'S REQUEST — clean header links; Liquid Glass appears only while pressed.
+   Desktop-only alignment repair for the hero slogan, brand film, contact and footer. */
+html body header.top nav>a,
+html body .top nav>a{
+  position:relative!important;
+  isolation:isolate!important;
+  overflow:hidden!important;
+  border:0!important;
+  outline:0!important;
+  background:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  -webkit-backdrop-filter:none!important;
+  backdrop-filter:none!important;
+  filter:none!important;
+  text-shadow:none!important;
+  transition:color .18s ease,opacity .18s ease!important;
+}
+html body header.top nav>a::before,
+html body .top nav>a::before,
+html body header.top nav>a::after,
+html body .top nav>a::after{
+  content:none!important;
+  display:none!important;
+  opacity:0!important;
+  animation:none!important;
+  background:none!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+html body header.top nav>a:hover,
+html body .top nav>a:hover,
+html body header.top nav>a:focus,
+html body header.top nav>a:focus-visible,
+html body .top nav>a:focus,
+html body .top nav>a:focus-visible{
+  background:transparent!important;
+  background-image:none!important;
+  border:0!important;
+  outline:0!important;
+  box-shadow:none!important;
+  -webkit-backdrop-filter:none!important;
+  backdrop-filter:none!important;
+  filter:none!important;
+  opacity:1!important;
+}
+/* The orange/yellow CTA also stays clear at rest; only the pressed state gets liquid. */
+html body header.top nav>a.pill,
+html body .top nav>a.pill,
+html body header.top nav>a.pill:hover,
+html body .top nav>a.pill:hover{
+  background:transparent!important;
+  background-image:none!important;
+  color:inherit!important;
+  -webkit-text-fill-color:currentColor!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+html body header.top nav>a:active,
+html body .top nav>a:active{
+  background:linear-gradient(125deg,rgba(255,255,255,.23),rgba(255,255,255,.055) 42%,rgba(255,255,255,.16))!important;
+  box-shadow:inset 0 1px 1px rgba(255,255,255,.34),inset 0 -1px rgba(255,255,255,.08),0 5px 18px rgba(0,0,0,.12)!important;
+  -webkit-backdrop-filter:blur(17px) saturate(185%)!important;
+  backdrop-filter:blur(17px) saturate(185%)!important;
+  outline:1px solid rgba(220,238,248,.12)!important;
+  transform:scale(.975)!important;
+  opacity:1!important;
+}
+html body header.top nav>a.pill:active,
+html body .top nav>a.pill:active{
+  background:linear-gradient(125deg,rgba(255,255,255,.25),rgba(255,255,255,.065) 48%,rgba(255,255,255,.17))!important;
+  color:inherit!important;
+  -webkit-text-fill-color:currentColor!important;
+}
+
+/* Keep the nav labels themselves clean too — no perpetual white sweep. */
+html body header.top nav .nav-shine-label::after,
+html body .top nav .nav-shine-label::after{
+  content:none!important;
+  display:none!important;
+  animation:none!important;
+}
+
+/* Desktop alignment only: shared centre line, consistent max-width and no drift. */
+@media(min-width:761px){
+  html body #hero-brand-tagline{
+    display:block!important;
+    width:100%!important;
+    max-width:560px!important;
+    margin:18px 0 0!important;
+    text-align:left!important;
+    line-height:1.65!important;
+    overflow-wrap:normal!important;
+  }
+  html body #cinematic-brand-reveal{
+    display:block!important;
+    width:100%!important;
+    max-width:none!important;
+    margin:0!important;
+    padding:clamp(52px,6vw,82px) 0!important;
+    box-sizing:border-box!important;
+    overflow:hidden!important;
+  }
+  html body #cinematic-brand-reveal .brand-film-media{
+    display:block!important;
+    position:relative!important;
+    width:min(1160px,88%)!important;
+    max-width:1160px!important;
+    min-width:0!important;
+    height:auto!important;
+    min-height:0!important;
+    margin:0 auto!important;
+    left:auto!important;
+    right:auto!important;
+    transform:none!important;
+    box-sizing:border-box!important;
+  }
+  html body #cinematic-brand-reveal .brand-film-video{
+    display:block!important;
+    position:relative!important;
+    inset:auto!important;
+    width:100%!important;
+    max-width:100%!important;
+    height:auto!important;
+    margin:0!important;
+    object-fit:contain!important;
+    object-position:center!important;
+  }
+  html body .contact#contact{
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:center!important;
+    justify-content:center!important;
+    width:100%!important;
+    max-width:none!important;
+    margin:0!important;
+    padding:clamp(88px,9vw,132px) 24px!important;
+    text-align:center!important;
+    box-sizing:border-box!important;
+  }
+  html body .contact#contact>.wrap{
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:center!important;
+    width:min(100%,1160px)!important;
+    max-width:1160px!important;
+    margin:0 auto!important;
+    padding:0!important;
+    text-align:center!important;
+    box-sizing:border-box!important;
+  }
+  html body .contact#contact .kicker,
+  html body .contact#contact h2,
+  html body .contact#contact p{
+    width:100%!important;
+    max-width:900px!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+    text-align:center!important;
+  }
+  html body .contact#contact .contact-whatsapp-cta{
+    display:inline-flex!important;
+    align-self:center!important;
+    margin:22px 0 0!important;
+  }
+  html body footer.footer,
+  html body>footer.footer.wrap,
+  html body footer.footer.wrap.footer{
+    display:block!important;
+    width:100%!important;
+    max-width:none!important;
+    min-width:0!important;
+    margin:0!important;
+    padding:clamp(48px,6vw,76px) max(6%,calc((100% - 1160px)/2)) 26px!important;
+    box-sizing:border-box!important;
+    transform:none!important;
+  }
+  html body footer.footer .footerrow,
+  html body footer.footer .footer-socials{
+    width:100%!important;
+    max-width:1160px!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+    box-sizing:border-box!important;
+  }
+  html body footer.footer .footerrow{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    flex-wrap:nowrap!important;
+    gap:24px!important;
+  }
+  html body footer.footer .footer-socials{
+    display:grid!important;
+    grid-template-columns:minmax(250px,.8fr) minmax(0,1.7fr)!important;
+    align-items:center!important;
+    gap:clamp(24px,4vw,54px)!important;
+  }
+  html body footer.footer .social-links{
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    min-width:0!important;
+  }
+}
